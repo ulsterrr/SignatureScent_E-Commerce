@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string("TenLoai");
             $table->string("GhiChu");
             $table->string("NguoiTao");
-            $table->timestamps("NgayTao");
-            $table->timestamps("NgayCapNhat");
+            // $table->timestamps("NgayTao");
+            // $table->timestamps("NgayCapNhat");
             $table->timestamps();
         });
     }

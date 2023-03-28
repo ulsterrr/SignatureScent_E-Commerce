@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class DieuChuyen extends Model
 {
-    use HasFactory;
+    protected $fillable=['id','LyDoDieuChuyen','ChiNhanhHienTai','ChiNhanhDieuChuyen','MaSanPham','MaChiTietSP','NgayDieuChuyen','NguoiDieuChuyen'];
 }
