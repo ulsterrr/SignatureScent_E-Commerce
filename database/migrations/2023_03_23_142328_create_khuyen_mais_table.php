@@ -20,8 +20,8 @@ return new class extends Migration
             $table->integer("TrangThai");
             $table->interger("SoLuong");
             $table->string("NguoiTao");
-            $table->timestamps("NgayTao");
-            $table->timestamps("NgayCapNhat");
+            // $table->timestamps("NgayTao");
+            // $table->timestamps("NgayCapNhat");
             $table->timestamps();
         });
     }

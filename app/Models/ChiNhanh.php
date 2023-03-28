@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChiNhanh extends Model
 {
-    use HasFactory;
+    protected $fillable=['MaChiNhanh','TenChiNhanh','DiaChi','TinhThanh','QuanHuyen','SDT1','SDT2','SDT3','FAX','SoTaiKhoan','MoMo','NguoiQuanLy'];
 }

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class LichXuLy extends Model
 {
-    use HasFactory;
+    protected $fillable=['id','NoiDung','TaiKhoan','ChucNang','ThoiGian','ThuMuc','TrangThai'];
 }

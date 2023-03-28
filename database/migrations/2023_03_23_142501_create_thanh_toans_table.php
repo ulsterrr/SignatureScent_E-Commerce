@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string("MaLoaiThanhToan");
             $table->string("TenLoaiThanhToan");
-            $table->timestamps("NgayCapNhat");
+            // $table->timestamps("NgayCapNhat");
             $table->string("NguoiTao");
             $table->integer("GhiChu");
-            $table->softdelete("");
+            $table->timestamps();
+            $table->softdelete();
         });
     }
 
