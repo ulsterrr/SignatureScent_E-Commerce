@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('dashboard.dashboard');
 });
-
+// Route::get('/', function () {
+//     return view('layouts.client.home');
+// });
 
 Route::get('large-compact-sidebar/dashboard/dashboard', function () {
     // đặt giao diện menu compact

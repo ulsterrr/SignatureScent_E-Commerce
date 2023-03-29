@@ -50,21 +50,21 @@
 
         <!-- ============ Body content start ============= -->
         <div class="main-content-wrap d-flex flex-column">
-            @include('layouts.header-menu')
+            @include('layouts.admin.header-menu')
 
             <!-- ============ end of header menu ============= -->
             <div class="main-content">
                 @yield('main-content')
             </div>
 
-            @include('layouts.footer')
+            @include('layouts.admin.footer')
         </div>
         <!-- ============ Body content End ============= -->
     </div>
     <!--=============== End app-admin-wrap ================-->
 
     <!-- ============ Search UI Start ============= -->
-    @include('layouts.search')
+    @include('layouts.admin.search')
     <!-- ============ Search UI End ============= -->
 
     @include('layouts.compact-customizer')
@@ -88,7 +88,7 @@
     @elseif($layout=="horizontal")
 
     <div class="app-admin-wrap layout-horizontal-bar clearfix">
-        @include('layouts.header-menu')
+        @include('layouts.admin.header-menu')
 
         <!-- ============ end of header menu ============= -->
 
@@ -104,14 +104,14 @@
                 @yield('main-content')
             </div>
 
-            @include('layouts.footer')
+            @include('layouts.admin.footer')
         </div>
         <!-- ============ Body content End ============= -->
     </div>
     <!--=============== End app-admin-wrap ================-->
 
     <!-- ============ Search UI Start ============= -->
-    @include('layouts.search')
+    @include('layouts.admin.search')
     <!-- ============ Search UI End ============= -->
 
     @include('layouts.horizontal-customizer')
@@ -136,13 +136,13 @@
     @elseif($layout=="normal")
 
     <div class="app-admin-wrap layout-sidebar-large clearfix">
-        @include('layouts.header-menu')
+        @include('layouts.admin.header-menu')
 
         <!-- ============ end of header menu ============= -->
 
 
 
-        @include('layouts.sidebar')
+        @include('layouts.admin.sidebar')
 
         <!-- ============ end of left sidebar ============= -->
 
@@ -152,17 +152,17 @@
                 @yield('main-content')
             </div>
 
-            @include('layouts.footer')
+            @include('layouts.admin.footer')
         </div>
         <!-- ============ Body content End ============= -->
     </div>
     <!--=============== End app-admin-wrap ================-->
 
     <!-- ============ Search UI Start ============= -->
-    @include('layouts.search')
+    @include('layouts.admin.search')
     <!-- ============ Search UI End ============= -->
 
-    @include('layouts.large-sidebar-customizer')
+    @include('layouts.admin.large-sidebar-customizer')
 
 
     <!-- ============ Large Sidebar Layout End ============= -->
@@ -176,12 +176,12 @@
 
     {{-- normal layout --}}
     <div class="app-admin-wrap layout-sidebar-large clearfix">
-        @include('layouts.header-menu')
+        @include('layouts.admin.header-menu')
         {{-- end of header menu --}}
 
 
 
-        @include('layouts.sidebar')
+        @include('layouts.admin.sidebar')
         {{-- end of left sidebar --}}
 
         <!-- ============ Body content start ============= -->
@@ -190,17 +190,17 @@
                 @yield('main-content')
             </div>
 
-            @include('layouts.footer')
+            @include('layouts.admin.footer')
         </div>
         <!-- ============ Body content End ============= -->
     </div>
     <!--=============== End app-admin-wrap ================-->
 
     <!-- ============ Search UI Start ============= -->
-    @include('layouts.search')
+    @include('layouts.admin.search')
     <!-- ============ Search UI End ============= -->
 
-    @include('layouts.large-sidebar-customizer')
+    @include('layouts.admin.large-sidebar-customizer')
 
 
     <!-- ============ Large Sidebar Layout End ============= -->
