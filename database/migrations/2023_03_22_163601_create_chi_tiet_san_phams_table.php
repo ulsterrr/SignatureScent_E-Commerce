@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('chi_tiet_san_phams', function (Blueprint $table) {
             $table->id();
             $table->string("MaSanPham");
-            $table->string("SoSerial");
+            $table->string("SoSerial")->nullable();
             $table->string("MaChiNhanh");
-            $table->string("TinhTrang");
-            $table->string("GhiChu");
-            $table->string("NguoiTao");
+            $table->string("TinhTrang")->nullable();
+            $table->text("GhiChu")->nullable();
+            $table->string("NguoiTao")->nullable();
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
             $table->string("MaDonHang");

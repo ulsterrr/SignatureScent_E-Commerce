@@ -14,17 +14,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('san_phams', function (Blueprint $table) {
-            $table->string("MaSanPham");
-            $table->string("TenSanPham");
-            $table->string("ThuongHieu");
-            $table->integer("TrangThai");
-            $table->string("GiaTien");
-            $table->string("MoTa");
-            $table->string("HinhAnh");
+            $table->string("MaSanPham")->key();
+            $table->string("TenSanPham")->nullable();
+            $table->string("ThuongHieu")->nullable();
+            $table->integer("TrangThai")->nullable();
+            $table->string("GiaTien")->nullable();
+            $table->text("MoTa")->nullable();
+            $table->string("HinhAnh")->nullable();
             $table->string("LoaiKichCo");
             $table->string("LoaiSanPham");
-            $table->string("GhiChu");
-            $table->string("NguoiTao");
+            $table->text("GhiChu")->nullable();
+            $table->string("NguoiTao")->nullable();
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
             $table->timestamps();

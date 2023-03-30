@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('kho_hangs', function (Blueprint $table) {
             $table->id();
-            $table->string("TenKho");
-            $table->string("ChiNhanh");
+            $table->string("TenKho")->nullable();
+            $table->string("ChiNhanh")->nullable();
             $table->string("NguoiQuanLy");
-            $table->date("ThoiGian");
-            $table->integer("TrangThai");
+            $table->date("ThoiGian")->nullable();
+            $table->integer("TrangThai")->nullable();
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
             $table->timestamps();

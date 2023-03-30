@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('thanh_toans', function (Blueprint $table) {
             $table->id();
-            $table->string("MaLoaiThanhToan");
-            $table->string("TenLoaiThanhToan");
+            $table->string("MaLoaiThanhToan")->unique()->nullable();
+            $table->string("TenLoaiThanhToan")->nullable();
             // $table->timestamps("NgayCapNhat");
             $table->string("NguoiTao");
             $table->integer("GhiChu");
             $table->timestamps();
-            $table->softdelete();
+            $table->softDeletes();
         });
     }
 

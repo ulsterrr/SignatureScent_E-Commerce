@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('chi_tiet_don_hangs', function (Blueprint $table) {
             $table->id();
             $table->string("MaDonHang");
-            $table->string("SoLuong");
-            $table->string("GiaTien");
-            $table->string("TongTien");
-            $table->string("TenSanPham");
+            $table->string("SoLuong")->nullable();
+            $table->string("GiaTien")->nullable();
+            $table->string("TongTien")->nullable();
+            $table->string("TenSanPham")->nullable();
             $table->string("MaSanPham");
-            // $table->timestamps("NgayTao"); 
+            // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
             $table->timestamps();
         });

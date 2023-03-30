@@ -14,16 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('hoa_dons', function (Blueprint $table) {
-            $table->string("MaHoaDon");
+            $table->string("MaHoaDon")->key();
             $table->string("MaDonHang");
-            $table->string("SoLuong");
-            $table->string("GiaTien");
-            $table->string("TongTien");
-            $table->string("TenSanPham");
+            $table->string("SoLuong")->nullable();
+            $table->string("GiaTien")->nullable();
+            $table->string("TongTien")->nullable();
+            $table->string("TenSanPham")->nullable();
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
-            $table->string("NguoiTao");
-            $table->string("MaDonHang");
+            $table->string("NguoiTao")->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string("MaKhoHang");
             $table->string("MaSanPham");
-            $table->string("TenSanPham");
-            $table->string("SoLuong");
+            $table->string("TenSanPham")->nullable();
+            $table->string("SoLuong")->nullable();
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
             $table->timestamps();

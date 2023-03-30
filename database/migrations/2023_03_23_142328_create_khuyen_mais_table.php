@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('khuyen_mais', function (Blueprint $table) {
             $table->id();
-            $table->string("MaKhuyenMai");
-            $table->string("NoiDung");
-            $table->integer("TrangThai");
-            $table->interger("SoLuong");
+            $table->string("MaKhuyenMai")->unique()->nullable();
+            $table->text("NoiDung")->nullable();
+            $table->integer("TrangThai")->nullable();
+            $table->integer("SoLuong")->nullable();
             $table->string("NguoiTao");
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");

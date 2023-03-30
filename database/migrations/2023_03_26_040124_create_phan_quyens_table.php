@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('phan_quyens', function (Blueprint $table) {
             $table->id();
             $table->integer("LoaiTaiKhoan");
-            $table->string("URL");
+            $table->string("URL")->nullable();
             $table->string("NguoiTao");
             $table->timestamps();
         });

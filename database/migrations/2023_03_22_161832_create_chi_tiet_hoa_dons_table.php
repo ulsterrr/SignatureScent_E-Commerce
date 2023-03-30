@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string("MaHoaDon");
             $table->string("MaSanPham");
-            $table->string("SoLuong");
-            $table->string("GiaTien");
-            $table->string("TongTien");
-            $table->string("TenSanPham");
+            $table->string("SoLuong")->nullable();
+            $table->string("GiaTien")->nullable();
+            $table->string("TongTien")->nullable();
+            $table->string("TenSanPham")->nullable();
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
-            $table->string("SoSerial");
-            $table->sofdelete();
+            $table->string("SoSerial")->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
