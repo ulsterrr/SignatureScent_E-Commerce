@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('bang_ma_khoa_chinhs', function (Blueprint $table) {
-            $table->string("MaKhoaChinh");
-            $table->integer("GiaTriHienTai");
-            $table->string("TenGiaTri");
-            $table->integer("TrangThai");
+            $table->string("MaKhoaChinh")->key();
+            $table->integer("GiaTriHienTai")->nullable();
+            $table->string("TenGiaTri")->nullable();
+            $table->integer("TrangThai")->nullable();
             $table->timestamps();
         });
     }

@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('yeu_thiches', function (Blueprint $table) {
             $table->id();
-            $table->string("TenSanPham");
+            $table->string("TenSanPham")->nullable();
             $table->string("MaSanPham");
             $table->string("NguoiThich");
-            $table->integer("TrangThai");
+            $table->integer("TrangThai")->nullable();
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
             $table->timestamps();

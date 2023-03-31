@@ -14,19 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('don_hangs', function (Blueprint $table) {
-            $table->string("MaDonHang");
-            $table->string("Email");
-            $table->string("HoTen");
-            $table->string("DiaChi");
-            $table->string("SDT");
-            $table->string("TinhThanh");
-            $table->string("QuanHuyen");
-            $table->string("GhiChu");
+            $table->string("MaDonHang")->key();
+            $table->string("Email")->nullable();
+            $table->string("HoTen")->nullable();
+            $table->string("DiaChi")->nullable();
+            $table->string("SDT")->nullable();
+            $table->string("TinhThanh")->nullable();
+            $table->string("QuanHuyen")->nullable();
+            $table->text("GhiChu")->nullable();
             $table->string("MaKhuyenMai");
             $table->string("LoaiThanhToan");
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
-            $table->string("VanChuyen");
+            $table->string("VanChuyen")->nullable();
             $table->string("ChiNhanh");
             $table->string("NguoiTao");
             $table->integer("MaGioHang");

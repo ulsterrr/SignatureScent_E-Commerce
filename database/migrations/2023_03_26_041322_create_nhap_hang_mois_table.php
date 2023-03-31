@@ -15,19 +15,19 @@ return new class extends Migration
     {
         Schema::create('nhap_hang_mois', function (Blueprint $table) {
             $table->id();
-            $table->string("TenSanPham");
-            $table->integer("KichCo");
-            $table->string("ThuongHieu");
-            $table->integer("SoLuongNhap");
-            $table->integer("LoaiNhap");
-            $table->string("GiaTien");
-            $table->string("MoTa");
-            $table->string("HinhAnh");
+            $table->string("TenSanPham")->nullable();
+            $table->integer("KichCo")->nullable();
+            $table->string("ThuongHieu")->nullable();
+            $table->integer("SoLuongNhap")->nullable();
+            $table->integer("LoaiNhap")->nullable();
+            $table->string("GiaTien")->nullable();
+            $table->text("MoTa")->nullable();
+            $table->string("HinhAnh")->nullable();
             $table->string("LoaiSanPham");
             $table->string("LoaiKichCo");
             $table->string("MaKhoHang");
             $table->string("MaChiNhanh");
-            $table->string("GhiChu");
+            $table->text("GhiChu")->nullable();
             $table->string("NguoiTao");
             $table->timestamps();
         });

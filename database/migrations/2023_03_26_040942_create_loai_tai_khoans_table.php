@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('loai_tai_khoans', function (Blueprint $table) {
             $table->id();
-            $table->string("TenLoai");
-            $table->string("GhiChu");
+            $table->string("TenLoai")->nullable();
+            $table->text("GhiChu")->nullable();
             $table->string("NguoiTao");
             $table->timestamps();
         });

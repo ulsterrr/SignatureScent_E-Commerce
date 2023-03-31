@@ -14,19 +14,19 @@ return new class extends Migration
     public function up()
     {
         Schema::create('chi_nhanhs', function (Blueprint $table) {
-            $table->string("MaChiNhanh");
-            $table->string("TenChiNhanh");
-            $table->string("DiaChi");
-            $table->string("TinhThanh");
-            $table->string("QuanHuyen");
+            $table->string("MaChiNhanh")->key();
+            $table->string("TenChiNhanh")->nullable();
+            $table->string("DiaChi")->nullable();
+            $table->string("TinhThanh")->nullable();
+            $table->string("QuanHuyen")->nullable();
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
-            $table->string("SDT1");
-            $table->string("SDT2");
-            $table->string("SDT3");
-            $table->string("FAX");
-            $table->string("SoTaiKhoan");
-            $table->string("MoMo");
+            $table->string("SDT1")->nullable();
+            $table->string("SDT2")->nullable();
+            $table->string("SDT3")->nullable();
+            $table->string("FAX")->nullable();
+            $table->string("SoTaiKhoan")->nullable();
+            $table->string("MoMo")->nullable();
             $table->string("NguoiQuanLy");
             $table->timestamps();
         });

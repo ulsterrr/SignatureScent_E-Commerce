@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string("MaGiaoDich");
             $table->string("MaSanPham");
-            $table->string("ChucNang");
-            $table->string("NoiDung");
-            $table->integer("TrangThai");
-            $table->integer("SoLuong");
+            $table->string("ChucNang")->nullable();
+            $table->text("NoiDung")->nullable();
+            $table->integer("TrangThai")->nullable();
+            $table->integer("SoLuong")->nullable();
             $table->timestamps();
         });
     }

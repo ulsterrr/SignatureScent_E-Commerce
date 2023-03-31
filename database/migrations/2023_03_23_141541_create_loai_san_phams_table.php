@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('loai_san_phams', function (Blueprint $table) {
-            $table->string("MaLoai");
-            $table->string("TenLoai");
-            $table->string("GhiChu");
+            $table->string("MaLoai")->key();
+            $table->string("TenLoai")->nullable();
+            $table->text("GhiChu")->nullable();
             $table->string("NguoiTao");
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");

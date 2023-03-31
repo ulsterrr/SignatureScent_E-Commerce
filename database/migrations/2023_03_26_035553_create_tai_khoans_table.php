@@ -15,20 +15,21 @@ return new class extends Migration
     {
         Schema::create('tai_khoans', function (Blueprint $table) {
             $table->id();
-            $table->string("TenTaiKhoan");
-            $table->integer("LoaiNguoiDung");
-            $table->string("HoTen");
-            $table->string("MatKhau");
-            $table->string("GioiTinh");
-            $table->string("DiaChi");
-            $table->string("SDT");
-            $table->string("QuanHuyen");
-            $table->string("TinhThanh");
+            $table->string("TenTaiKhoan")->unique()->nullable();
+            $table->integer("LoaiNguoiDung")->nullable();
+            $table->string("HoTen")->nullable();
+            $table->string("MatKhau")->nullable();
+            $table->string("GioiTinh")->nullable();
+            $table->string("DiaChi")->nullable();
+            $table->string("SDT")->nullable();
+            $table->string("QuanHuyen")->nullable();
+            $table->string("TinhThanh")->nullable();
             $table->string("ChiNhanh");
-            $table->date("NgaySinh");
-            $table->integer("TrangThai");
+            $table->date("NgaySinh")->nullable();
+            $table->integer("TrangThai")->nullable();
             $table->string("NguoiTao");
-            $table->int("Xoa");
+            $table->integer("Xoa");
+            $table->softDeletes();
             $table->string("MaGiaoDien");
             $table->timestamps();
         });
