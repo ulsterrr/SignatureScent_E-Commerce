@@ -28,6 +28,7 @@ return new class extends Migration
             $table->date("NgaySinh")->nullable();
             $table->integer("TrangThai")->nullable();
             $table->string("NguoiTao");
+            $table->integer("Xoa");
             $table->softDeletes();
             $table->string("MaGiaoDien");
             $table->timestamps();
