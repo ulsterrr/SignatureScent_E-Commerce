@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('tai_khoans', function (Blueprint $table) {
             $table->id();
-            $table->string("TenTaiKhoan")->unique()->nullable();
-            $table->integer("LoaiNguoiDung")->nullable();
+            $table->string("TenTaiKhoan")->unique();
+            $table->tinyText("LoaiTaiKhoan");
             $table->string("HoTen")->nullable();
             $table->string("MatKhau")->nullable();
             $table->string("GioiTinh")->nullable();

@@ -8,12 +8,13 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+//ROUTE DASHBOARD START //
 Route::get('/', function () {
     return view('dashboard.dashboard');
 });
-// Route::get('/', function () {
-//     return view('layouts.client.home');
-// });
+Route::get('/client', function () {
+    return view('layouts.client.home');
+});
 
 Route::get('large-compact-sidebar/dashboard/dashboard', function () {
     // đặt giao diện menu compact
@@ -32,6 +33,9 @@ Route::get('horizontal-bar/dashboard/dashboard', function () {
     session(['layout' => 'horizontal']);
     return view('dashboard.dashboard');
 })->name('horizontal');
+//ROUTE DASHBOARD END //
+
+
 //Normal tab
 Route::view('dashboard/dashboard', 'dashboard.dashboard')->name('dashboard');
 Route::view('sessions/signIn', 'sessions.signIn')->name('signIn');
@@ -55,6 +59,3 @@ Route::view('charts/echarts', 'charts.echarts')->name('echarts');
 |--------------------------------------------------------------------------
 
 */
-// Route::get('/', function () {
-//     return view('welcome');
-// });

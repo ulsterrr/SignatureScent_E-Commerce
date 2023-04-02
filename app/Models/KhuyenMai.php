@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class KhuyenMai extends Model
 {
-    protected $fillable=['id','MaKhuyenMai','NoiDung','TrangThai','SoLuong','NguoiTao'];
+    protected $fillable=['MaKhuyenMai','NoiDung','TrangThai','SoLuong','NguoiTao'];
 }

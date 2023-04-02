@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('loai_kich_cos', function (Blueprint $table) {
             $table->id();
-            $table->string("MaKichCo")->unique()->nullable();
+            $table->string("MaKichCo")->unique();
             $table->string("TenKichCo")->nullable();
             $table->string("NguoiTao");
             $table->text("GhiChu")->nullable();
