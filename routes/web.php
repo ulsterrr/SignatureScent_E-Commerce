@@ -46,6 +46,8 @@ Route::view('apps/ecommerce/checkout', 'apps.ecommerce.checkout')->name('ecommer
 //Charts
 Route::view('charts/echarts', 'charts.echarts')->name('echarts');
 
+//Đăng nhập
+Route::vỉew('apps/ecommerce/dang-nhap','apps.ecommerce.dang-nhap')->name('dang-nhap');
 
 
 
