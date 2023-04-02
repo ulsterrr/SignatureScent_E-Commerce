@@ -49,6 +49,7 @@
 
                 @include('layouts.client.footer-client')
                 @include('layouts.client.footer-main')
+                @include('layouts.client.login')
             </div>
         <!-- ============ Body content End ============= -->
     </div>
