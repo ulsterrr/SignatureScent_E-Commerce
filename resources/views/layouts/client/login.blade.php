@@ -1,17 +1,35 @@
+<script>
+    $(document).ready(function() {
+      // Kích hoạt modal popup nếu biến errorMessage có giá trị
+      @if (isset($errorMessage))
+        $('#login-form-popup').modal('show');
+      @endif
+    });
+</script>
 <div id="login-form-popup" class="lightbox-content mfp-hide">
     <div class="woocommerce-notices-wrapper"></div>
     <div class="account-container lightbox-inner">
         <div class="account-login-inner">
             <h3 class="uppercase">Đăng nhập</h3>
-            <form class="woocommerce-form woocommerce-form-login login" method="post">
+            <form class="woocommerce-form woocommerce-form-login login" action="{{ route('xuly-dangnhap') }}" method="post">
+                @csrf
                 <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                     <label for="username">Tên tài khoản hoặc địa chỉ email&nbsp;<span class="required">*</span></label>
-                    <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" autocomplete="username" value="" />
+                    <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="username" autocomplete="username" value="" />
                 </p>
                 <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                     <label for="password">Mật khẩu&nbsp;<span class="required">*</span></label>
                     <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password" />
                 </p>
+                <h6 style="color:red;">
+                    <?php
+                    $message = Session::get('message');
+                    if ($message) {
+                        echo '<span class="text-alert">' . $message . '</span>';
+                        Session::put('message', null);
+                    }
+                    ?>
+                </h6>
                 <p class="form-row">
                     <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="ce90bf198c" /><input type="hidden" name="_wp_http_referer" value="/scentsignature/" /> <button type="submit" class="woocommerce-Button button" name="login" value="Đăng nhập">Đăng nhập</button>
                     <label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
