@@ -3,52 +3,43 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\TaiKhoan;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class HeThongController extends Controller
 {
-    public function dangNhap()
-    {
-        return view('dang-nhap');
-    }
     public function xulyDangNhap(Request $req)
     {
 
-        /*$taikhoan = TaiKhoan::where('taikhoan', $req->ten_tai_khoan)->first();
-        if(empty($taikhoan)) {
-        echo "Not user";
-        }
-        else if ($taikhoan->matkhau != $req->mat_khau){
-        echo "Sai mat khau";
-        }
-        else if ($taikhoan->maloaitk == 1) {
-        return redirect()->route('giang-vien')->with(compact('taikhoan'));
-        }
-        else {
-        return redirect()->route('hoc-sinh')->with(compact('taikhoan'));
-        }*/
-        $credentials = $req->only('username', 'password');
+        //$credentials = $req->only('email', 'password');
+        $credentials = ['email' => $req->email, 'password' => $req->password];
 
-        $taikhoan = TaiKhoan::where('username', $req->username)->first();
+        // lấy dữ liệu db theo tên tài khoản
+        $taikhoan = User::where('email', strval($req->email))->first();
 
+        //dd($credentials);
+        //dd(Hash::make($req->password));
+        //dd($taikhoan);
         if (Auth::attempt($credentials)) {
             // Chứng thực thành công
-            if ($taikhoan->maloaitk == 3) {
-                return redirect()->route('Admin')->with(compact('taikhoan'));
+            $req->session()->regenerate();
+            dd($credentials);
+            if ($taikhoan->LoaiTaiKhoan == 'A') {
+                return redirect()->route('dashboard')->with(compact('taikhoan'));
             } else
-            if ($taikhoan->maloaitk == 1) {
-                return redirect()->route('giang-vien')->with(compact('taikhoan'));
-            } else {
-                return redirect()->route('hoc-sinh')->with(compact('taikhoan'));
+            if ($taikhoan->LoaiTaiKhoan == 'C') {
+                return redirect()->route('client')->with(compact('taikhoan'));
             }
-        } else if (empty(TaiKhoan::where('username', $req->username)->first())) {
-            return redirect()->route('dang-nhap')->with('message', 'Không tìm thấy tài khoản, vui lòng đăng nhập lại!');
-        } else if ($taikhoan->matkhau != Hash::make($req->mat_khau)) {
-            return redirect()->route('dang-nhap')->with('message', 'Sai mật khẩu, vui lòng đăng nhập lại!');
+        } else if (empty($taikhoan->email)) {
+            $errorMessage = 'Không tìm thấy tài khoản, vui lòng đăng nhập lại!';
+            return redirect()->route('client')->with('message', $errorMessage);
+        } else if ($taikhoan->password != Hash::make($req->password)) {
+            $errorMessage = 'Sai mật khẩu, vui lòng đăng nhập lại!';
+            return redirect()->route('client')->with('message', $errorMessage);
         } else {
-            return redirect()->route('dang-nhap')->with('message', 'Lỗi đăng nhập, vui lòng thử lại!');
+            $errorMessage = 'Lỗi đăng nhập, vui lòng thử lại!';
+            return redirect()->route('client')->with('message', $errorMessage);
         }
 
     }

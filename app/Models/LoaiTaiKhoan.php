@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class LoaiTaiKhoan extends Model
 {
+    use HasFactory;
+    protected $table = 'loai_tai_khoans';
     protected $fillable=['MaLoai','TenLoai','GhiChu','NguoiTao'];
 
     public function taiKhoan() {
-        return $this->hasMany('App\Models\TaiKhoan','LoaiTaiKhoan','MaLoai');
+        return $this->hasMany('App\Models\User','LoaiTaiKhoan','MaLoai');
     }
 }

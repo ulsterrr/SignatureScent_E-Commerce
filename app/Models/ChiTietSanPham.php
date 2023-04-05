@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChiTietSanPham extends Model
 {
+    use HasFactory;
+    protected $table = 'chi_tiet_san_phams';
     protected $fillable=['MaSanPham','SoSerial','MaChiNhanh','TinhTrang','GhiChu','NguoiTao','MaDonHang','MaPhieuNhap'];
 
     // Thuộc sản phẩm

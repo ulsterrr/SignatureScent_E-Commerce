@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class HoaDon extends Model
 {
+    use HasFactory;
+    protected $table = 'hoa_dons';
     protected $fillable=['MaHoaDon','MaDonHang','SoLuong','GiaTien','TongTien','TenSanPham','NguoiTao'];
 
     public function thongTinDonHang(){
@@ -17,7 +19,7 @@ class HoaDon extends Model
     }
     //Liên kết bảng giỏ hàng
     public function taiKhoan(){
-        return $this->belongsTo('App\Models\TaiKhoan', 'TenTaiKhoan','NguoiTao');
+        return $this->belongsTo('App\Models\User', 'TenTaiKhoan','NguoiTao');
     }
     //Liên kết bảng đơn hàng
     public function donHang(){

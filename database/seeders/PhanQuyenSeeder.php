@@ -15,10 +15,12 @@ class PhanQuyenSeeder extends Seeder
      */
     public function run()
     {
-        $PQ = new PhanQuyen;
+        $PQ = new PhanQuyen();
         $PQ->LoaiTaiKhoan = "1";
         $PQ->URL="";
         $PQ->NguoiTao="";
         $PQ->save();
+
+        // tạm thời chưa xử lý phân quyền cho uri có thể set trên giao diện admin
     }
 }

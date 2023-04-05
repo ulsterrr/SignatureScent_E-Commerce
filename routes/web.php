@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HeThongController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -9,12 +10,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 //ROUTE DASHBOARD START //
+// Route::get('/', function () {
+//     return view('dashboard.dashboard');
+// });
 Route::get('/', function () {
-    return view('dashboard.dashboard');
-});
-Route::get('/client', function () {
     return view('layouts.client.home');
-});
+})->name('client');
 
 Route::get('large-compact-sidebar/dashboard/dashboard', function () {
     // đặt giao diện menu compact
@@ -51,7 +52,8 @@ Route::view('apps/ecommerce/checkout', 'apps.ecommerce.checkout')->name('ecommer
 Route::view('charts/echarts', 'charts.echarts')->name('echarts');
 
 //Đăng nhập
-Route::vỉew('apps/ecommerce/dang-nhap','apps.ecommerce.dang-nhap')->name('dang-nhap');
+//Route::get('/he-thong/dang-nhap',[HeThongController::class, 'dangNhap'])->name('dang-nhap');
+Route::post('/he-thong/dang-nhap', [HeThongController::class, 'xulyDangNhap'])->name('xuly-dangnhap');
 
 
 
