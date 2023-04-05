@@ -59,7 +59,7 @@ a.added_to_cart {
 }
 
 a.added_to_cart:after {
-    content: " â†’"
+    content: " →"
 }
 
 .grid-style-3 .title-wrapper {
@@ -1034,7 +1034,7 @@ p.in-stock {
     cursor: pointer
 }
 
-.flex-viewport aÂ {
+.flex-viewport a {
     display: block
 }
 

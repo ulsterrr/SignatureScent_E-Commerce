@@ -18,28 +18,31 @@ class HeThongController extends Controller
         // lấy dữ liệu db theo tên tài khoản
         $taikhoan = User::where('email', strval($req->email))->first();
 
-        //dd($credentials);
-        //dd(Hash::make($req->password));
-        //dd($taikhoan);
+        //check nếu đăng nhập rồi thì quay lại route
+        if(Auth::check()){
+            return redirect()->route('client')->with(compact('taikhoan'));
+        }
+
         if (Auth::attempt($credentials)) {
             // Chứng thực thành công
-            $req->session()->regenerate();
-            dd($credentials);
             if ($taikhoan->LoaiTaiKhoan == 'A') {
+                $req->session()->regenerate();
                 return redirect()->route('dashboard')->with(compact('taikhoan'));
             } else
             if ($taikhoan->LoaiTaiKhoan == 'C') {
+                $req->session()->regenerate();
                 return redirect()->route('client')->with(compact('taikhoan'));
             }
         } else if (empty($taikhoan->email)) {
             $errorMessage = 'Không tìm thấy tài khoản, vui lòng đăng nhập lại!';
-            return redirect()->route('client')->with('message', $errorMessage);
+            return back()->with('message', $errorMessage);
         } else if ($taikhoan->password != Hash::make($req->password)) {
             $errorMessage = 'Sai mật khẩu, vui lòng đăng nhập lại!';
-            return redirect()->route('client')->with('message', $errorMessage);
+            return back()->with('message', $errorMessage);
         } else {
             $errorMessage = 'Lỗi đăng nhập, vui lòng thử lại!';
-            return redirect()->route('client')->with('message', $errorMessage);
+            //return redirect()->route('client')->with('message', $errorMessage);
+            return back()->with('message', $errorMessage);
         }
 
     }
@@ -52,6 +55,6 @@ class HeThongController extends Controller
     public function dangXuat()
     {
         Auth::logout();
-        return redirect()->route('dang-nhap');
+        return redirect()->route('client');
     }
 }

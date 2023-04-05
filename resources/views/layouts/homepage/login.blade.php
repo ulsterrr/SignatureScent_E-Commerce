@@ -1,11 +1,3 @@
-<script>
-    $(document).ready(function() {
-      // Kích hoạt modal popup nếu biến errorMessage có giá trị
-      @if (isset($errorMessage))
-        $('#login-form-popup').modal('show');
-      @endif
-    });
-</script>
 <div id="login-form-popup" class="lightbox-content mfp-hide">
     <div class="woocommerce-notices-wrapper"></div>
     <div class="account-container lightbox-inner">

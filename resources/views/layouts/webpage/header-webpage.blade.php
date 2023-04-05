@@ -1,12 +1,12 @@
-<header id="header" class="header transparent has-transparent has-sticky sticky-jump">
+<header id="header" class="header has-sticky sticky-jump">
     <div class="header-wrapper">
-        <div id="masthead" class="header-main show-logo-center hide-for-sticky nav-dark toggle-nav-dark">
+        <div id="masthead" class="header-main show-logo-center hide-for-sticky">
             <div class="header-inner flex-row container logo-center medium-logo-center" role="navigation">
                 <!-- Logo -->
                 <div id="logo" class="flex-col logo">
                     <!-- Header logo -->
-                    <a href="" title="ScentSignature" rel="home">
-                        <img width="200" height="100" src="{{ asset('assets/wp-content/uploads/2019/05/logo-light.png') }}" class="header_logo header-logo" alt="ScentSignature" /><img width="200" height="100" src="{{ asset('assets/wp-content/uploads/2019/05/logo-mona.png')}}" class="header-logo-dark" alt="ScentSignature" /></a>
+                    <a href="#" title="Vani Beauty" rel="home">
+                        <img width="200" height="100" src="{{ asset('assets/wp-content/uploads/2019/05/logo-light.png') }}" class="header_logo header-logo" alt="Vani Beauty" /><img width="200" height="100" src="{{ asset('assets/wp-content/uploads/2019/05/logo-mona.png') }}" class="header-logo-dark" alt="Vani Beauty" /></a>
                 </div>
                 <!-- Mobile Left Elements -->
                 <div class="flex-col show-for-medium flex-left">
@@ -19,15 +19,40 @@
                     </ul>
                 </div>
                 <!-- Left Elements -->
-                <div class="flex-col hide-for-medium flex-left
-    ">
+                <div class="flex-col hide-for-medium flex-left">
                     <ul class="header-nav header-nav-main nav nav-left  nav-size-medium nav-uppercase">
-                        <li class="account-item has-icon
-">
-                            <a href="tai-khoan/" class="nav-top-link nav-top-not-logged-in " data-open="#login-form-popup">
-                                <span> Đăng nhập / Đăng ký </span>
+                        <li class="account-item has-icon active  has-dropdown">
+                            <a href="#" class="account-link account-login" title="Tài khoản">
+                                <span class="header-account-title">
+                                    @if (Auth::check())
+                                    {{ auth()->user()->HoTen }}
+                                    @else
+                                        email
+                                    @endif
+                                </span>
                             </a>
-                            <!-- .account-login-link -->
+                            <!-- .account-link -->
+                            <ul class="nav-dropdown  nav-dropdown-simple">
+                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard is-active active">
+                                    <a href="{{ route('tai-khoan') }}">Bảng điều khiển</a>
+                                    <!-- empty -->
+                                </li>
+                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
+                                    <a href="#orders/">Đơn hàng</a>
+                                </li>
+                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads">
+                                    <a href="#downloads/">Tải xuống</a>
+                                </li>
+                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
+                                    <a href="#edit-address/">Địa chỉ</a>
+                                </li>
+                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-account">
+                                    <a href="#edit-account/">Thông tin tài khoản</a>
+                                </li>
+                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
+                                    <a href="{{ route('xuly-dangxuat') }}">Đăng xuất</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -39,7 +64,7 @@
                                 <i class="icon-search" style="font-size:16px;"></i></a>
                             <div id="search-lightbox" class="mfp-hide dark text-center">
                                 <div class="searchform-wrapper ux-search-box relative form-flat is-large">
-                                    <form role="search" method="get" class="searchform" action="">
+                                    <form role="search" method="get" class="searchform" action="#">
                                         <div class="flex-row relative">
                                             <div class="flex-col flex-grow">
                                                 <input type="search" class="search-field mb-0" name="s" value="" placeholder="Tìm kiếm&hellip;" />
@@ -59,7 +84,7 @@
                             </div>
                         </li>
                         <li class="cart-item has-icon has-dropdown">
-                            <a href="gio-hang/" title="Giỏ hàng" class="header-cart-link is-small">
+                            <a href="#" title="Giỏ hàng" class="header-cart-link is-small">
                                 <i class="icon-shopping-basket" data-icon-label="0">
                                 </i>
                             </a>
@@ -82,7 +107,7 @@
                                 <i class="icon-search" style="font-size:16px;"></i></a>
                             <div id="search-lightbox" class="mfp-hide dark text-center">
                                 <div class="searchform-wrapper ux-search-box relative form-flat is-large">
-                                    <form role="search" method="get" class="searchform" action="">
+                                    <form role="search" method="get" class="searchform" action="#">
                                         <div class="flex-row relative">
                                             <div class="flex-col flex-grow">
                                                 <input type="search" class="search-field mb-0" name="s" value="" placeholder="Tìm kiếm&hellip;" />
@@ -111,23 +136,23 @@
             </div>
         </div>
         <!-- .header-main -->
-        <div id="wide-nav" class="header-bottom wide-nav flex-has-center hide-for-medium nav-dark toggle-nav-dark">
+        <div id="wide-nav" class="header-bottom wide-nav flex-has-center hide-for-medium">
             <div class="flex-row container">
                 <div class="flex-col hide-for-medium flex-center">
                     <ul class="nav header-nav header-bottom-nav nav-center  nav-size-medium nav-uppercase">
-                        <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item active  menu-item-24"><a href="" class="nav-top-link">Trang chủ</a></li>
-                        <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-22"><a href="gioi-thieu/" class="nav-top-link">Giới thiệu</a></li>
-                        <li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  menu-item-54 has-dropdown"><a href="cua-hang/" class="nav-top-link">Cửa hàng<i class="icon-angle-down"></i></a>
+                        <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  menu-item-24"><a href="#" class="nav-top-link">Trang chủ</a></li>
+                        <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-22"><a href="#" class="nav-top-link">Giới thiệu</a></li>
+                        <li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  menu-item-54 has-dropdown"><a href="#" class="nav-top-link">Cửa hàng<i class="icon-angle-down"></i></a>
                             <ul class='nav-dropdown nav-dropdown-simple'>
-                                <li id="menu-item-837" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-837"><a href="danh-muc/skincare/">Skincare</a></li>
-                                <li id="menu-item-838" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-838"><a href="danh-muc/lipstick/">Lipstick</a></li>
-                                <li id="menu-item-839" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-839"><a href="danh-muc/gloss/">Gloss</a></li>
-                                <li id="menu-item-840" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-840"><a href="danh-muc/nail/">Nail</a></li>
-                                <li id="menu-item-841" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-841"><a href="danh-muc/vani-beauty/">ScentSignature</a></li>
+                                <li id="menu-item-837" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-837"><a href="#">Skincare</a></li>
+                                <li id="menu-item-838" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-838"><a href="#">Lipstick</a></li>
+                                <li id="menu-item-839" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-839"><a href="#">Gloss</a></li>
+                                <li id="menu-item-840" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-840"><a href="#">Nail</a></li>
+                                <li id="menu-item-841" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-841"><a href="#">Vani Beauty</a></li>
                             </ul>
                         </li>
-                        <li id="menu-item-25" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-25"><a href="category/tin-tuc/" class="nav-top-link">Tin tức</a></li>
-                        <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-23"><a href="lien-he/" class="nav-top-link">Liên hệ</a></li>
+                        <li id="menu-item-25" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-25"><a href="#" class="nav-top-link">Tin tức</a></li>
+                        <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-23"><a href="#" class="nav-top-link">Liên hệ</a></li>
                     </ul>
                 </div>
                 <!-- flex-col -->
