@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('dashboard.dashboard');
 // });
 Route::get('/', function () {
-    return view('layouts.client.home');
+    return view('layouts.homepage.home');
 })->name('client');
 
 Route::get('large-compact-sidebar/dashboard/dashboard', function () {
@@ -38,8 +38,7 @@ Route::get('horizontal-bar/dashboard/dashboard', function () {
 
 
 //Normal tab
-Route::view('dashboard/dashboard', 'dashboard.dashboard')->name('dashboard');
-Route::view('sessions/signIn', 'sessions.signIn')->name('signIn');
+Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
 
 //Tab Ecommerce
 Route::view('apps/invoice', 'apps.invoice')->name('invoice');
@@ -52,8 +51,9 @@ Route::view('apps/ecommerce/checkout', 'apps.ecommerce.checkout')->name('ecommer
 Route::view('charts/echarts', 'charts.echarts')->name('echarts');
 
 //Đăng nhập
-//Route::get('/he-thong/dang-nhap',[HeThongController::class, 'dangNhap'])->name('dang-nhap');
 Route::post('/he-thong/dang-nhap', [HeThongController::class, 'xulyDangNhap'])->name('xuly-dangnhap');
+Route::get('/he-thong/dang-xuat', [HeThongController::class, 'dangXuat'])->name('xuly-dangxuat');
+Route::view('/tai-khoan', 'layouts.tai-khoan.tai-khoan')->name('tai-khoan');
 
 
 

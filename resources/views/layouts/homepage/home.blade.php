@@ -1,4 +1,5 @@
-@extends('layouts.client.client')
+@extends('layouts.homepage.client')
+@section('title', 'Trang chủ')
 @section('main-content')
 <section class="section sec_banner" id="section_1593981100">
     <div class="bg section-bg fill bg-fill  bg-loaded">

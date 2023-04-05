@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Admin Dashboard</title>
+    {{-- <title>Admin Dashboard</title> --}}
+    <title>@yield('title')</title>
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700,800,900" rel="stylesheet">
     @yield('before-css')
     {{-- theme css --}}
@@ -15,7 +16,7 @@
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/perfect-scrollbar.css')}}">
     {{-- page specific css --}}
     @yield('page-css')
-    @include('layouts.client.headpage-client')
+    @include('layouts.homepage.headpage-client')
 </head>
 
 <body class="home page-template page-template-page-transparent-header-light page-template-page-transparent-header-light-php page page-id-16 woocommerce-no-js lightbox">
@@ -37,7 +38,7 @@
         <!-- ============ Body content start ============= -->
 
             <div id="wrapper">
-                @include('layouts.client.header-client')
+                @include('layouts.homepage.header-client')
 
                 <!-- ============ end of header menu ============= -->
                 <main id="main" class="">
@@ -47,9 +48,9 @@
                     </div>
                 </main>
 
-                @include('layouts.client.footer-client')
-                @include('layouts.client.footer-main')
-                @include('layouts.client.login')
+                @include('layouts.homepage.footer-client')
+                @include('layouts.homepage.footer-main')
+                @include('layouts.homepage.login')
             </div>
         <!-- ============ Body content End ============= -->
     </div>

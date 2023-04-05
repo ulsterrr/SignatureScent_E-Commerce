@@ -22,7 +22,7 @@ body {
     overflow-x: hidden
 }
 
-/*---cÄƒn Ä‘á»u sáº³n pháº©m---*/
+/*---căn đều sẳn phẩm---*/
 
 .has-shadow>.col>.col-inner {
     height: 100%;
@@ -44,7 +44,7 @@ body {
      border: 2px dashed #ddd;
 }*/
 
-/*---giá»›i háº¡n chá»¯ tÃªn sáº£n pháº©m---*/
+/*---giới hạn chữ tên sản phẩm---*/
 
 p.name.product-title a {
     overflow: hidden;
@@ -124,7 +124,7 @@ span.amount {
 
 /*---end style related product---*/
 
-/*-style tiÃªu Ä‘á» bÃ i viáº¿t trÆ°á»›c sau-*/
+/*-style tiêu đề bài viết trước sau-*/
 
 .nav-previous,
 .nav-next {
@@ -136,7 +136,7 @@ span.amount {
     height: auto;
 }
 
-/*---style giá»›i háº¡n chá»¯ bÃ i viáº¿t---*/
+/*---style giới hạn chữ bài viết---*/
 
 .blog-archive h5.post-title.is-large {
     overflow: hidden;

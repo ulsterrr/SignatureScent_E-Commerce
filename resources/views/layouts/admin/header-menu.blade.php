@@ -206,11 +206,11 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <div class="dropdown-header">
-                            <i class="i-Lock-User mr-1"></i> Tên tui là ...
+                            <i class="i-Lock-User mr-1"></i> {{ auth()->user()->HoTen }}
                         </div>
                         <a class="dropdown-item">Cài đặt tài khoản</a>
                         <a class="dropdown-item">Cấu hình</a>
-                        <a class="dropdown-item" href="{{route('signIn')}}">Đăng xuất</a>
+                        <a class="dropdown-item" href="{{route('xuly-dangxuat')}}">Đăng xuất</a>
                     </div>
                 </div>
             </div>
