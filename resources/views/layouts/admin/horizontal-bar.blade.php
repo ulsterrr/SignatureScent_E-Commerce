@@ -31,7 +31,7 @@
                         </div>
                     </li>
 
-                    <li class="{{ request()->is('apps/*') ? 'active' : '' }}">
+                    <li class="{{ request()->is('he-thong/*') ? 'active' : '' }}">
 
                         <div>
 

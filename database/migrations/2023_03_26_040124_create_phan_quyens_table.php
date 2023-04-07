@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('phan_quyens', function (Blueprint $table) {
             $table->id();
-            $table->integer("LoaiTaiKhoan");
-            $table->string("URL")->nullable();
+            $table->string("MaQuyen")->unique();
+            $table->string("TenQuyen")->nullable();
+            $table->string("LoaiTaiKhoan");
+            $table->string("URI")->nullable();
             $table->string("NguoiTao");
             $table->timestamps();
         });

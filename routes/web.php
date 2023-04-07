@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', function () {
     return view('layouts.homepage.home');
-})->name('client');
+})->name('homepage');
 
 Route::get('large-compact-sidebar/dashboard/dashboard', function () {
     // đặt giao diện menu compact
@@ -38,14 +38,14 @@ Route::get('horizontal-bar/dashboard/dashboard', function () {
 
 
 //Normal tab
-Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
+
 
 //Tab Ecommerce
-Route::view('apps/invoice', 'apps.invoice')->name('invoice');
-Route::view('apps/ecommerce/products', 'apps.ecommerce.products')->name('ecommerce-products');
-Route::view('apps/ecommerce/product-details', 'apps.ecommerce.product-details')->name('ecommerce-product-details');
-Route::view('apps/ecommerce/cart', 'apps.ecommerce.cart')->name('ecommerce-cart');
-Route::view('apps/ecommerce/checkout', 'apps.ecommerce.checkout')->name('ecommerce-checkout');
+Route::view('he-thong/invoice', 'he-thong.invoice')->name('invoice');
+Route::view('he-thong/ecommerce/products', 'he-thong.ecommerce.products')->name('ecommerce-products');
+Route::view('he-thong/ecommerce/product-details', 'he-thong.ecommerce.product-details')->name('ecommerce-product-details');
+Route::view('he-thong/ecommerce/cart', 'he-thong.ecommerce.cart')->name('ecommerce-cart');
+Route::view('he-thong/ecommerce/checkout', 'he-thong.ecommerce.checkout')->name('ecommerce-checkout');
 
 //Charts
 Route::view('charts/echarts', 'charts.echarts')->name('echarts');
@@ -56,6 +56,11 @@ Route::get('/he-thong/dang-xuat', [HeThongController::class, 'dangXuat'])->name(
 Route::view('/tai-khoan', 'layouts.tai-khoan.tai-khoan')->name('tai-khoan');
 
 
+Route::get('/test', function () {
+
+    Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
+
+})->middleware('auth', 'kiemTraQuyen:test');
 
 /*
 |--------------------------------------------------------------------------

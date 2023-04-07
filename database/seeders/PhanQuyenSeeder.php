@@ -16,9 +16,11 @@ class PhanQuyenSeeder extends Seeder
     public function run()
     {
         $PQ = new PhanQuyen();
-        $PQ->LoaiTaiKhoan = "1";
-        $PQ->URL="";
-        $PQ->NguoiTao="";
+        $PQ->MaQuyen = "test";
+        $PQ->TenQuyen = "Test quyền middleware";
+        $PQ->LoaiTaiKhoan = "A";
+        $PQ->URI="";
+        $PQ->NguoiTao="admin";
         $PQ->save();
 
         // tạm thời chưa xử lý phân quyền cho uri có thể set trên giao diện admin

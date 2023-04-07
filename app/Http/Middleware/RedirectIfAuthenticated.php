@@ -26,17 +26,15 @@ class RedirectIfAuthenticated
         //         return redirect(RouteServiceProvider::HOME);
         //     }
         // }
+
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if (Auth::user()->maloaitk == 1){
-                return redirect()->route('dashboard');
+                if (Auth::user()->loaiTaiKhoan->MaLoai == 'A' || Auth::user()->loaiTaiKhoan->MaLoai == 'M'){
+                    return redirect()->route('dashboard');
                 }
-                else if (Auth::user()->maloaitk == 2){
-                    return redirect()->route('client');
+                else if (Auth::user()->loaiTaiKhoan->MaLoai == 'C' || Auth::user()->loaiTaiKhoan->MaLoai == 'V'){
+                    return redirect()->route('homepage');
                 }
-                // else if (Auth::user()->maloaitk == 3){
-                //     return redirect()->route('Admin');
-                // }
             }
         }
 

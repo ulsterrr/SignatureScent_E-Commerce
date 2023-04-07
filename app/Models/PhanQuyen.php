@@ -9,5 +9,10 @@ class PhanQuyen extends Model
 {
     use HasFactory;
     protected $table = 'phan_quyens';
-    protected $fillable=['LoaiTaiKhoan','URL','NguoiTao'];
+    protected $fillable=['MaQuyen','TenQuyen','LoaiTaiKhoan','URL','NguoiTao'];
+
+    public function loaiTaiKhoan()
+    {
+        return $this->belongsTo(LoaiTaiKhoan::class);
+    }
 }
