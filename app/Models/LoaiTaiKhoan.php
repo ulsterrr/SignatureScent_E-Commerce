@@ -14,4 +14,9 @@ class LoaiTaiKhoan extends Model
     public function taiKhoan() {
         return $this->hasMany('App\Models\User','LoaiTaiKhoan','MaLoai');
     }
+
+    public function phanQuyen()
+    {
+        return $this->hasMany(PhanQuyen::class,'LoaiTaiKhoan','MaLoai');
+    }
 }

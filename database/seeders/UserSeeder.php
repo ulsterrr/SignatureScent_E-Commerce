@@ -37,41 +37,41 @@ class UserSeeder extends Seeder
             $TaiKhoan->save();
         // }
 
-            $TaiKhoan =  new User();
-            $TaiKhoan->name = "Khiêm";
-            $TaiKhoan->email = "khiem@gmail.com";
-            $TaiKhoan->password = Hash::make("23102000");
-            $TaiKhoan->LoaiTaiKhoan = "A";
-            $TaiKhoan->HoTen = "Gia Khiêm";
-            $TaiKhoan->GioiTinh = "Nam";
-            $TaiKhoan->DiaChi = "Quận 6";
-            $TaiKhoan->SDT = "0327772310";
-            $TaiKhoan->QuanHuyen = "Quận 6";
-            $TaiKhoan->TinhThanh = "Hồ Chí Minh";
-            $TaiKhoan->ChiNhanh = "HCM";
-            $TaiKhoan->NgaySinh = "2001/10/23";
-            $TaiKhoan->TrangThai = "1";
-            $TaiKhoan->NguoiTao = "";
-            $TaiKhoan->MaGiaoDien = "1";
-            $TaiKhoan->save();
+            $TaiKhoan1 =  new User();
+            $TaiKhoan1->name = "Khiêm";
+            $TaiKhoan1->email = "khiem@gmail.com";
+            $TaiKhoan1->password = Hash::make("23102000");
+            $TaiKhoan1->LoaiTaiKhoan = "A";
+            $TaiKhoan1->HoTen = "Gia Khiêm";
+            $TaiKhoan1->GioiTinh = "Nam";
+            $TaiKhoan1->DiaChi = "Quận 6";
+            $TaiKhoan1->SDT = "0327772310";
+            $TaiKhoan1->QuanHuyen = "Quận 6";
+            $TaiKhoan1->TinhThanh = "Hồ Chí Minh";
+            $TaiKhoan1->ChiNhanh = "HCM";
+            $TaiKhoan1->NgaySinh = "2001/10/23";
+            $TaiKhoan1->TrangThai = "1";
+            $TaiKhoan1->NguoiTao = "";
+            $TaiKhoan1->MaGiaoDien = "1";
+            $TaiKhoan1->save();
 
-            $TaiKhoan =  new User();
-            $TaiKhoan->name = "Khách";
-            $TaiKhoan->email = "clienttest@gmail.com";
-            $TaiKhoan->password = Hash::make("123456");
-            $TaiKhoan->LoaiTaiKhoan = "C";
-            $TaiKhoan->HoTen = "Khách test";
-            $TaiKhoan->GioiTinh = "Nam";
-            $TaiKhoan->DiaChi = "Quận 16";
-            $TaiKhoan->SDT = "0327772310";
-            $TaiKhoan->QuanHuyen = "Quận 16";
-            $TaiKhoan->TinhThanh = "Hồ Chí Minh";
-            $TaiKhoan->ChiNhanh = "HCM";
-            $TaiKhoan->NgaySinh = "2016/10/16";
-            $TaiKhoan->TrangThai = "1";
-            $TaiKhoan->NguoiTao = "";
-            $TaiKhoan->MaGiaoDien = "1";
-            $TaiKhoan->save();
+            $TaiKhoan2 =  new User();
+            $TaiKhoan2->name = "Khách";
+            $TaiKhoan2->email = "clienttest@gmail.com";
+            $TaiKhoan2->password = Hash::make("123456");
+            $TaiKhoan2->LoaiTaiKhoan = "C";
+            $TaiKhoan2->HoTen = "Khách test";
+            $TaiKhoan2->GioiTinh = "Nam";
+            $TaiKhoan2->DiaChi = "Quận 16";
+            $TaiKhoan2->SDT = "0327772310";
+            $TaiKhoan2->QuanHuyen = "Quận 16";
+            $TaiKhoan2->TinhThanh = "Hồ Chí Minh";
+            $TaiKhoan2->ChiNhanh = "HCM";
+            $TaiKhoan2->NgaySinh = "2016/10/16";
+            $TaiKhoan2->TrangThai = "1";
+            $TaiKhoan2->NguoiTao = "";
+            $TaiKhoan2->MaGiaoDien = "1";
+            $TaiKhoan2->save();
 
     }
 }

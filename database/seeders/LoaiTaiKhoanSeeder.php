@@ -22,25 +22,25 @@ class LoaiTaiKhoanSeeder extends Seeder
         $LTK->NguoiTao = "null";
         $LTK->save();
 
-        $LTK = new LoaiTaiKhoan();
-        $LTK->MaLoai = "C";
-        $LTK->TenLoai = "Client";
-        $LTK->GhiChu = "Khách hàng bình thường, mua sắm, thanh toán, thích sản phẩm, xem giỏ hàng, đơn hàng của bản thân";
-        $LTK->NguoiTao = "admin";
-        $LTK->save();
+        $LTK1 = new LoaiTaiKhoan();
+        $LTK1->MaLoai = "C";
+        $LTK1->TenLoai = "Client";
+        $LTK1->GhiChu = "Khách hàng bình thường, mua sắm, thanh toán, thích sản phẩm, xem giỏ hàng, đơn hàng của bản thân";
+        $LTK1->NguoiTao = "admin";
+        $LTK1->save();
 
-        $LTK = new LoaiTaiKhoan();
-        $LTK->MaLoai = "M";
-        $LTK->TenLoai = "Manager";
-        $LTK->GhiChu = "Quản lý của chi nhánh, nhập hàng, nhập kho, xem thống kê của chi nhánh đó";
-        $LTK->NguoiTao = "admin";
-        $LTK->save();
+        $LTK2 = new LoaiTaiKhoan();
+        $LTK2->MaLoai = "M";
+        $LTK2->TenLoai = "Manager";
+        $LTK2->GhiChu = "Quản lý của chi nhánh, nhập hàng, nhập kho, xem thống kê của chi nhánh đó";
+        $LTK2->NguoiTao = "admin";
+        $LTK2->save();
 
-        $LTK = new LoaiTaiKhoan();
-        $LTK->MaLoai = "V";
-        $LTK->TenLoai = "VIP";
-        $LTK->GhiChu = "Khách hàng đã có thâm niên và chi tiêu vượt định mức hệ thống đưa ra, được quyền mua sản phẩm đặt biệt, giảm giá, nhiều coupon";
-        $LTK->NguoiTao = "admin";
-        $LTK->save();
+        $LTK3 = new LoaiTaiKhoan();
+        $LTK3->MaLoai = "V";
+        $LTK3->TenLoai = "VIP";
+        $LTK3->GhiChu = "Khách hàng đã có thâm niên và chi tiêu vượt định mức hệ thống đưa ra, được quyền mua sản phẩm đặt biệt, giảm giá, nhiều coupon";
+        $LTK3->NguoiTao = "admin";
+        $LTK3->save();
     }
 }

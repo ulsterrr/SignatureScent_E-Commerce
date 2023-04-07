@@ -20,7 +20,7 @@ class HeThongController extends Controller
 
         //check nếu đăng nhập rồi thì quay lại route
         if(Auth::check()){
-            return redirect()->route('client')->with(compact('taikhoan'));
+            return redirect()->route('homepage')->with(compact('taikhoan'));
         }
 
         if (Auth::attempt($credentials)) {
@@ -31,7 +31,7 @@ class HeThongController extends Controller
             } else
             if ($taikhoan->LoaiTaiKhoan == 'C') {
                 $req->session()->regenerate();
-                return redirect()->route('client')->with(compact('taikhoan'));
+                return redirect()->route('homepage')->with(compact('taikhoan'));
             }
         } else if (empty($taikhoan->email)) {
             $errorMessage = 'Không tìm thấy tài khoản, vui lòng đăng nhập lại!';
@@ -41,7 +41,7 @@ class HeThongController extends Controller
             return back()->with('message', $errorMessage);
         } else {
             $errorMessage = 'Lỗi đăng nhập, vui lòng thử lại!';
-            //return redirect()->route('client')->with('message', $errorMessage);
+            //return redirect()->route('homepage')->with('message', $errorMessage);
             return back()->with('message', $errorMessage);
         }
 
@@ -55,6 +55,6 @@ class HeThongController extends Controller
     public function dangXuat()
     {
         Auth::logout();
-        return redirect()->route('client');
+        return redirect()->route('homepage');
     }
 }
