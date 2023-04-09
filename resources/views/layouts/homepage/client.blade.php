@@ -32,7 +32,11 @@
         </div>
     </div>
     <!-- Pre Loader end  -->
-
+    <div class="row">
+        <div class="col-md-12">
+           @include('layouts.homepage.notification')
+        </div>
+    </div>
     <div class="app-admin-wrap layout-sidebar-compact sidebar-dark-purple sidenav-open clearfix">
 
         <!-- ============ Body content start ============= -->

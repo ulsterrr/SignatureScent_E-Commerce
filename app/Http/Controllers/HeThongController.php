@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class HeThongController extends Controller
 {
@@ -19,31 +20,43 @@ class HeThongController extends Controller
         $taikhoan = User::where('email', strval($req->email))->first();
 
         //check nếu đăng nhập rồi thì quay lại route
-        if(Auth::check()){
+        if (Auth::check()) {
             return redirect()->route('homepage')->with(compact('taikhoan'));
         }
 
         if (Auth::attempt($credentials)) {
             // Chứng thực thành công
+            Session::put('user',$credentials['email']);
             if ($taikhoan->LoaiTaiKhoan == 'A') {
                 $req->session()->regenerate();
                 return redirect()->route('dashboard')->with(compact('taikhoan'));
             } else
-            if ($taikhoan->LoaiTaiKhoan == 'C') {
-                $req->session()->regenerate();
-                return redirect()->route('homepage')->with(compact('taikhoan'));
-            }
+                if ($taikhoan->LoaiTaiKhoan == 'C') {
+                    $req->session()->regenerate();
+                    return redirect()->route('homepage')->with(compact('taikhoan'));
+                }
         } else if (empty($taikhoan->email)) {
             $errorMessage = 'Không tìm thấy tài khoản, vui lòng đăng nhập lại!';
-            return back()->with('message', $errorMessage);
+            return redirect()->route('dang-nhap')->with('message', $errorMessage);
         } else if ($taikhoan->password != Hash::make($req->password)) {
             $errorMessage = 'Sai mật khẩu, vui lòng đăng nhập lại!';
-            return back()->with('message', $errorMessage);
+            return redirect()->route('dang-nhap')->with('message', $errorMessage);
         } else {
             $errorMessage = 'Lỗi đăng nhập, vui lòng thử lại!';
             //return redirect()->route('homepage')->with('message', $errorMessage);
-            return back()->with('message', $errorMessage);
+            return redirect()->route('dang-nhap')->with('message', $errorMessage);
         }
+
+        // if(Auth::attempt($credentials)){
+        //     Session::put('user',$credentials['email']);
+        //     session()->flash('success','Successfully login');
+        //     return redirect()->route('home');
+        // }
+        // else{
+        //     session()->flash('error','Invalid email and password pleas try again!');
+        //     return redirect()->back();
+        // }
+
 
     }
 
