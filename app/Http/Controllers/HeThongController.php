@@ -51,6 +51,16 @@ class HeThongController extends Controller
     {
 
     }
+    public function doiMK()
+    {
+
+    }
+    public function dangKy(){
+
+    }
+    public function capNhatTK(){
+
+    }
 
     public function dangXuat()
     {
