@@ -1,7 +1,7 @@
 <div id="login-form-popup" class="lightbox-content mfp-hide">
     <div class="woocommerce-notices-wrapper"></div>
     <div class="account-container lightbox-inner">
-        <div class="account-login-inner">
+        <div class="account-login-inner" style="margin-top: 3% !importane;">
             <h3 class="uppercase">Đăng nhập</h3>
             <form class="woocommerce-form woocommerce-form-login login" action="{{ route('xuly-dangnhap') }}" method="post">
                 @csrf
@@ -21,9 +21,10 @@
                         Session::put('message', null);
                     }
                     ?>
+
                 </h6>
                 <p class="form-row">
-                    <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="ce90bf198c" /><input type="hidden" name="_wp_http_referer" value="/scentsignature/" /> <button type="submit" class="woocommerce-Button button" name="login" value="Đăng nhập">Đăng nhập</button>
+                    <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="ce90bf198c" /><input type="hidden" name="_wp_http_referer" value="/scentsignature/" /> <button type="submit" class="woocommerce-Button button" id="login" name="login" value="Đăng nhập">Đăng nhập</button>
                     <label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
                         <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span>Ghi nhớ mật khẩu</span>
                     </label>

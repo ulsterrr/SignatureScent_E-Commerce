@@ -51,16 +51,19 @@ Route::view('he-thong/ecommerce/checkout', 'he-thong.ecommerce.checkout')->name(
 Route::view('charts/echarts', 'charts.echarts')->name('echarts');
 
 //Đăng nhập
-Route::post('/he-thong/dang-nhap', [HeThongController::class, 'xulyDangNhap'])->name('xuly-dangnhap');
-Route::get('/he-thong/dang-xuat', [HeThongController::class, 'dangXuat'])->name('xuly-dangxuat');
+Route::post('/xl-dang-nhap', [HeThongController::class, 'xulyDangNhap'])->name('xuly-dangnhap');
+Route::get('/xl-dang-xuat', [HeThongController::class, 'dangXuat'])->name('xuly-dangxuat');
 Route::view('/tai-khoan', 'layouts.tai-khoan.tai-khoan')->name('tai-khoan');
 
+Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
 
 Route::get('/test', function () {
 
     Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
 
 })->middleware('auth', 'kiemTraQuyen:test');
+
+Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
 
 /*
 |--------------------------------------------------------------------------
