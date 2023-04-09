@@ -12,7 +12,7 @@ class LoaiTaiKhoan extends Model
     protected $fillable=['MaLoai','TenLoai','GhiChu','NguoiTao'];
 
     public function taiKhoan() {
-        return $this->hasMany('App\Models\User','LoaiTaiKhoan','MaLoai');
+        return $this->hasMany(User::class,'LoaiTaiKhoan','MaLoai');
     }
 
     public function phanQuyen()
