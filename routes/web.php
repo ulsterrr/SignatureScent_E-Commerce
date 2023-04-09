@@ -66,11 +66,6 @@ Route::post('/he-thong/dang-ky', [HeThongController::class, 'dangKy'])->name('xu
 Route::post('/he-thong/quen-mat-khau', [HeThongController::class, 'quenMK'])->name('xuly-quenMK');
 Route::post('/he-thong/cap-nhat-tai-khoan', [HeThongController::class, 'capNhatTK'])->name('capnhatTK');
 
-=======
-//Đăng nhập
-Route::post('/xl-dang-nhap', [HeThongController::class, 'xulyDangNhap'])->name('xuly-dangnhap');
-Route::get('/xl-dang-xuat', [HeThongController::class, 'dangXuat'])->name('xuly-dangxuat');
-
 Route::view('/tai-khoan', 'layouts.tai-khoan.tai-khoan')->name('tai-khoan');
 
 Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
