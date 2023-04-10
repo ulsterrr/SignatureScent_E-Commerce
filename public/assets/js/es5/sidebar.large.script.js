@@ -92,7 +92,7 @@ $(document).ready(function () {
   });
 
   // Hide secondary menu on click on overlay
-  $sidebarOverlay.on("click", function (event) {
+  $sidebarOverlay.on("mouseover", function (event) {
     if (gullUtils.isMobile()) {
       closeSidebar();
     }
@@ -117,5 +117,13 @@ $(document).ready(function () {
       openSidebar();
       openSidebarSecondary();
     }
+  });
+
+  var $hoverElement = document.getElementById("btn-dashboard");
+  $hoverElement.addEventListener("mouseover", () => {
+    if (gullUtils.isMobile()) {
+        closeSidebar();
+      }
+      closeSidebarSecondary();
   });
 });

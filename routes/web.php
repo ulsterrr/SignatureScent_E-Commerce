@@ -70,6 +70,7 @@ Route::view('/tai-khoan', 'layouts.tai-khoan.tai-khoan')->name('tai-khoan');
 
 Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
 
+Route::view('admin/thong-tin-phan-hoi', 'he-thong.danh-muc.feedback.feedback')->name('feedback');
 
 Route::get('/test', function () {
 
@@ -149,7 +150,7 @@ Route::get('admin/bao-cao-san-pham-ban-chay',[ThongKeController::class,'loadSPBa
 
 
 //User
-Route::view('user/danh-sach-yeu-thich',[SanPhamController::class,'loadSDYeuThich'])->name('danhsach-yeuthich');
+Route::get('user/danh-sach-yeu-thich',[SanPhamController::class,'loadSDYeuThich'])->name('danhsach-yeuthich');
 
 Route::get('user/gio-hang',[GioHangController::class,'loadGioHang'])->name('giohang');
 
