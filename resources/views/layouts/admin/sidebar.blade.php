@@ -1,7 +1,7 @@
-<div class="side-content-wrap">
+<div id="main-dashboard" class="side-content-wrap">
     <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
         <ul class="navigation-left">
-            <div class="nav-item" data-item="dashboard">
+            <div id="btn-dashboard" class="nav-item" data-item="dashboard">
                 <a class="nav-item-hold" href="{{route('dashboard')}}">
                     <i class="nav-icon i-Bar-Chart"></i>
                     <span class="nav-text">Dashboard</span>
@@ -10,59 +10,110 @@
             <li class="nav-item {{ request()->is('he-thong/*') ? 'active' : '' }}" data-item="apps">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Computer-Secure"></i>
-                    <span class="nav-text">Apps</span>
+                    <span class="nav-text">Quản lý danh mục</span>
                 </a>
+            </li>
         </ul>
     </div>
 
-    <div class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
+    <div id="sub-dashboard" class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
         <!-- Submenu Dashboards -->
         <ul class="childNav" data-parent="apps">
-            <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='invoice' ? 'open' : '' }}" href="{{route('invoice')}}">
-                    <i class="nav-icon i-Add-File"></i>
-                    <span class="item-name">Invoice</span>
-                </a>
-            </li>
-
             <li class="nav-item dropdown-sidemenu">
                 <a>
-                    <i class="nav-icon i-Cash-Register"></i>
-                    <span class="item-name">Ecommerce <span class=" ml-2 badge badge-pill badge-danger">New</span></span>
+                    <i class="nav-icon i-Checked-User"></i>
+                    <span class="item-name">Tài khoản</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
+                </a>
+                <ul class="submenu">
+
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                            <i class="nav-icon i-Address-Book"></i>
+                            <span class="item-name">Danh sách tài khoản</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                            <i class="nav-icon i-Add-User"></i>
+                            <span class="item-name">Thêm mới tài khoản</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown-sidemenu">
+                <a>
+                    <i class="nav-icon i-Business-Mens"></i>
+                    <span class="item-name">Nhân viên</span>
                     <i class="dd-arrow i-Arrow-Down"></i>
                 </a>
                 <ul class="submenu">
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-products' ? 'open' : '' }}" href="{{route('ecommerce-products')}}">
-                            <i class="nav-icon i-Shop-2"></i>
-                            <span class="item-name">Products</span>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="{{route('ecommerce-product-details')}}">
-                            <i class="nav-icon i-Tag-2"></i>
-                            <span class="item-name">Product Details</span>
+                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                            <i class="nav-icon i-Find-User"></i>
+                            <span class="item-name">Danh sách nhân viên</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-cart' ? 'open' : '' }}" href="{{route('ecommerce-cart')}}">
-                            <i class="nav-icon i-Add-Cart"></i>
-                            <span class="item-name">Cart</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-checkout' ? 'open' : '' }}" href="{{route('ecommerce-checkout')}}">
-                            <i class="nav-icon i-Cash-register-2"></i>
-                            <span class="item-name">Checkout</span>
+                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                            <i class="nav-icon i-Add-User"></i>
+                            <span class="item-name">Thêm mới nhân viên</span>
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li class="nav-item dropdown-sidemenu">
+                <a>
+                    <i class="nav-icon i-Business-ManWoman"></i>
+                    <span class="item-name">Khách hàng</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
+                </a>
+                <ul class="submenu">
+
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                            <i class="nav-icon i-Conference"></i>
+                            <span class="item-name">Danh sách Khách hàng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                            <i class="nav-icon i-Add-User"></i>
+                            <span class="item-name">Thêm mới Khách hàng</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown-sidemenu">
+                <a>
+                    <i class="nav-icon i-Building"></i>
+                    <span class="item-name">Chi nhánh</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                            <i class="nav-icon i-Book"></i>
+                            <span class="item-name">Danh sách Chi nhánh</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                            <i class="nav-icon i-Add"></i>
+                            <span class="item-name">Thêm mới Chi nhánh</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='feedback' ? 'open' : '' }}" href="{{route('feedback')}}">
+                    <i class="nav-icon i-Speach-Bubbles"></i>
+                    <span class="item-name">Thông tin phản hồi</span>
+                </a>
             </li>
         </ul>
     </div>
     <div class="sidebar-overlay"></div>
 </div>
 <!--=============== Left side End ================-->
+

@@ -206,7 +206,12 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         <div class="dropdown-header">
-                            <i class="i-Lock-User mr-1"></i> {{ auth()->user()->HoTen }}
+                            <i class="i-Lock-User mr-1"></i>
+                            @if(Auth::check())
+                                {{ auth()->user()->HoTen }}
+                            @else
+                                Please login
+                            @endif
                         </div>
                         <a class="dropdown-item">Cài đặt tài khoản</a>
                         <a class="dropdown-item">Cấu hình</a>

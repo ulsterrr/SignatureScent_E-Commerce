@@ -7,6 +7,7 @@ $(document).ready(function() {
   var $mainContentWrap = $(".main-content-wrap");
   var $sideNavItem = $(".nav-item");
   var $mobileMenu = $(".mobile-menu-icon");
+  var $hoverElement = document.getElementById("btn-dashboard");
 
   function sidebarMobileOpen(){
     $mobileMenu
@@ -18,7 +19,7 @@ $(document).ready(function() {
   function closeSidebar() {
     $sidebarLeft.removeClass("open");
     $mainContentWrap.removeClass("sidenav-open");
-    
+
   }
   function openSidebarSecondary() {
     $sidebarLeftSecondary.addClass("open");
@@ -81,7 +82,7 @@ $(document).ready(function() {
 
   // Prevent opeing link if has data-item
   $sidebarLeft.find(".nav-item").on("click", function(e) {
-    
+
     let $navItem = $(event.currentTarget);
     let dataItem = $navItem.data("item");
     if (dataItem) {
@@ -90,13 +91,13 @@ $(document).ready(function() {
   });
 
   // Hide secondary menu on click on overlay
-  $sidebarOverlay.on("click", function(event) {
+  $sidebarOverlay.on("mouseover", function(event) {
     if (gullUtils.isMobile()) {
       closeSidebar();
     }
     closeSidebarSecondary();
   });
-  
+
 
   // Toggle menus on click on header toggle icon
   $sidebarToggle.on("click", function(event) {
@@ -117,4 +118,12 @@ $(document).ready(function() {
       openSidebarSecondary();
     }
   });
+
+  $hoverElement.addEventListener("mouseover", () => {
+    if (gullUtils.isMobile()) {
+        closeSidebar();
+      }
+      closeSidebarSecondary();
+  });
+
 });
