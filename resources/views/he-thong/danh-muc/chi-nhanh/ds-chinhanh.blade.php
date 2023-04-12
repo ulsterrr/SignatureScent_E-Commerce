@@ -7,10 +7,10 @@
 @section('main-content')
 
 <div class="breadcrumb">
-    <h1>Lists</h1>
+    <h1>Danh sách</h1>
     <ul>
-        <li><a href="">Apps</a></li>
-        <li>Contacts</li>
+        <li><a href="">Ứng Dụng</a></li>
+        <li>Liên hệ</li>
     </ul>
 </div>
 <div class="separator-breadcrumb border-top"></div>
@@ -21,7 +21,7 @@
             <div class="col-md-12 mb-4">
                     <div class="card text-left">
                         <div class="card-header text-right bg-transparent">
-                            <button type="button" data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-primary btn-md m-1"><i class="i-Add-User text-white mr-2"></i> Add Contact</button>
+                            <button type="button" data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-primary btn-md m-1"><i class="i-Add-User text-white mr-2"></i> Thêm liên lạc</button>
                         </div>
                         <!-- begin::modal -->
                         <div class="ul-card-list__modal">
@@ -31,7 +31,7 @@
                                                 <div class="modal-body">
                                                         <form>
                                                                 <div class="form-group row">
-                                                                    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                                                    <label for="inputName" class="col-sm-2 col-form-label">Tên</label>
                                                                     <div class="col-sm-10">
                                                                         <input type="email" class="form-control" id="inputName" placeholder="Name">
                                                                     </div>
@@ -43,7 +43,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
-                                                                    <label for="" class="col-sm-2 col-form-label">Phone</label>
+                                                                    <label for="" class="col-sm-2 col-form-label">Số điện thoại</label>
                                                                     <div class="col-sm-10">
                                                                         <input type="number" class="form-control" id="" placeholder="number....">
                                                                     </div>
@@ -74,12 +74,12 @@
                                                                     </div>
                                                                 </fieldset>
                                                                 <div class="form-group row">
-                                                                    <div class="col-sm-2">Checkbox</div>
+                                                                    <div class="col-sm-2">Hộp kiểm</div>
                                                                     <div class="col-sm-10">
                                                                         <div class="form-check">
                                                                             <input class="form-check-input" type="checkbox" id="gridCheck1">
                                                                             <label class="form-check-label ml-3" for="gridCheck1">
-                                                                                Example checkbox
+                                                                                Hộp kiểm ví dụ
                                                                             </label>
                                                                         </div>
                                                                     </div>
@@ -87,7 +87,7 @@
                                                                 <div class="form-group row">
                                                                     <div class="col-sm-10">
 
-                                                                        <button type="submit" class="btn btn-success">Update</button>
+                                                                        <button type="submit" class="btn btn-success">Nâng cấp</button>
                                                                     </div>
                                                                 </div>
                                                             </form>
@@ -104,14 +104,14 @@
                                 <table id="ul-contact-list" class="display table " style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Tên</th>
                                             <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Role</th>
-                                            <th>Age</th>
-                                            <th>Joining Date</th>
-                                            <th>Salary</th>
-                                            <th>Action</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Vai trò</th>
+                                            <th>Tuổi</th>
+                                            <th>Ngày tham gia</th>
+                                            <th>Lương</th>
+                                            <th>Chức vụ</th>
                                         </tr>
                                     </thead>
                                     <tbody>

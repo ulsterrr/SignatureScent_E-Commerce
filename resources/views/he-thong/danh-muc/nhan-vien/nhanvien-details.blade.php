@@ -7,10 +7,10 @@
 @section('main-content')
 
 <div class="breadcrumb">
-    <h1>Contact Details</h1>
+    <h1>Chi tiết liên hệ</h1>
     <ul>
-        <li><a href="">Apps</a></li>
-        <li>Contacts</li>
+        <li><a href="">Ứng dụng</a></li>
+        <li>Liên hệ</li>
     </ul>
 </div>
 <div class="separator-breadcrumb border-top"></div>
@@ -27,27 +27,27 @@
                         <div class="row">
                             <div class="col-6 text-center">
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Name</h5>
+                                    <h5>Họ tên</h5>
                                     <span>Genelia Deshmukh</span>
                                 </div>
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Name</h5>
+                                    <h5>Họ tên</h5>
                                     <span>Genelia Deshmukh</span>
                                 </div>
                             </div>
                             <div class="col-6 text-center">
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Name</h5>
+                                    <h5>Họ tên</h5>
                                     <span>Genelia Deshmukh</span>
                                 </div>
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Name</h5>
+                                    <h5>Họ tên</h5>
                                     <span>Genelia Deshmukh</span>
                                 </div>
                             </div>
                             <div class="col-12 text-center">
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Address</h5>
+                                    <h5>Địa chỉ</h5>
                                     <span>DieSachbearbeiter
                                         Choriner Straße 49
                                         10435 Berlin</span>
@@ -87,13 +87,13 @@
         <div class="col-lg-8 col-xl-8">
             <!-- begin::basic-tab -->
             <div class="card mb-4 mt-4">
-                <div class="card-header bg-transparent">Basic Tabs</div>
+                <div class="card-header bg-transparent">Tabs cơ bản</div>
                 <div class="card-body">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active show" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Edit Contact</a>
+                            <a class="nav-item nav-link active show" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Trang chủ</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Tiểu sử</a>
+                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Chỉnh sửa liên hệ</a>
                         </div>
                     </nav>
                     <div class="tab-content ul-tab__content" id="nav-tabContent">
