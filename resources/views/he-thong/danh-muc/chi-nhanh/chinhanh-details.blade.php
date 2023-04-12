@@ -7,10 +7,10 @@
 @section('main-content')
 
 <div class="breadcrumb">
-    <h1>Contact Details</h1>
+    <h1>Chi tiết liên hệ</h1>
     <ul>
-        <li><a href="">Apps</a></li>
-        <li>Contacts</li>
+        <li><a href="">Ứng Dụng</a></li>
+        <li>liên hệ</li>
     </ul>
 </div>
 <div class="separator-breadcrumb border-top"></div>
@@ -27,30 +27,28 @@
                         <div class="row">
                             <div class="col-6 text-center">
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Name</h5>
+                                    <h5>Tên</h5>
                                     <span>Genelia Deshmukh</span>
                                 </div>
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Name</h5>
+                                    <h5>Tên</h5>
                                     <span>Genelia Deshmukh</span>
                                 </div>
                             </div>
                             <div class="col-6 text-center">
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Name</h5>
+                                    <h5>Tên</h5>
                                     <span>Genelia Deshmukh</span>
                                 </div>
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Name</h5>
+                                    <h5>Tên</h5>
                                     <span>Genelia Deshmukh</span>
                                 </div>
                             </div>
                             <div class="col-12 text-center">
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Address</h5>
-                                    <span>DieSachbearbeiter
-                                        Choriner Straße 49
-                                        10435 Berlin</span>
+                                    <h5>Địa chỉ</h5>
+                                    <span>54/4/8 Vĩnh Lộc B Huyện Bình Chánh</span>
                                 </div>
                             </div>
                             <div class="col-12 text-center">
@@ -87,13 +85,13 @@
         <div class="col-lg-8 col-xl-8">
             <!-- begin::basic-tab -->
             <div class="card mb-4 mt-4">
-                <div class="card-header bg-transparent">Basic Tabs</div>
+                <div class="card-header bg-transparent">Tabs cơ bản</div>
                 <div class="card-body">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active show" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Edit Contact</a>
+                            <a class="nav-item nav-link active show" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Trang chủ</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Hồ Sơ</a>
+                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Chỉnh sửa liên hệ</a>
                         </div>
                     </nav>
                     <div class="tab-content ul-tab__content" id="nav-tabContent">
@@ -113,8 +111,8 @@
                                                 <div class="col-lg-11">
                                                     <div class="ul-contact-detail__right-timeline">
                                                         <a href="" class="ul-widget4__title d-block">Timity Clarkson</a>
-                                                        <small class="text-mute">10 minutes</small>
-                                                        <p>assign a new task <a href="#"> Weblayout</a></p>
+                                                        <small class="text-mute">10 phút</small>
+                                                        <p>Nhiệm vụ mới <a href="#"> Bố cục trang web</a></p>
                                                         <div class="ul-contact-detail__timeline-image">
                                                             <img class="d-block" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide">
                                                             <img class="d-block" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide">
@@ -136,13 +134,13 @@
                                                 <div class="col-lg-11">
                                                     <div class="ul-contact-detail__right-timeline">
                                                         <a href="" class="ul-widget4__title d-block">Timity Clarkson</a>
-                                                        <small class="text-mute">10 minutes</small>
+                                                        <small class="text-mute">10 phút</small>
 
                                                         <div class="ul-contact-detail__timeline-image-2 mt-3">
                                                             <img class="d-block" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide">
                                                             <div class="ul-contact-detail__timeline-image-info">
                                                                 <p style="width:80%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. </p>
-                                                                <button type="button" class="btn btn-primary btn-lg m-1">Weblayout</button>
+                                                                <button type="button" class="btn btn-primary btn-lg m-1">Bố cục trang web</button>
                                                             </div>
                                                         </div>
 
@@ -163,7 +161,7 @@
                                                 <div class="col-lg-8">
                                                     <div class="ul-contact-detail__right-timeline">
                                                         <a href="" class="ul-widget4__title d-block">Timity Clarkson</a>
-                                                        <small class="text-mute">10 minutes</small>
+                                                        <small class="text-mute">10 phút</small>
 
                                                         <p class="mt-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper </p>
                                                     </div>
@@ -183,8 +181,8 @@
                                                 <div class="col-lg-11">
                                                     <div class="ul-contact-detail__right-timeline">
                                                         <a href="" class="ul-widget4__title d-block">Timity Clarkson</a>
-                                                        <small class="text-mute">10 minutes</small>
-                                                        <p>assign a new task <a href="#"> Weblayout</a></p>
+                                                        <small class="text-mute">10 phút</small>
+                                                        <p>Nhiệm vụ mới <a href="#"> Bố cục trang web</a></p>
 
                                                     </div>
                                                 </div>

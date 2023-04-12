@@ -6,10 +6,10 @@
 
 @section('main-content')
 <div class="breadcrumb">
-    <h1>Validation</h1>
+    <h1>Phê duyệt</h1>
     <ul>
-        <li><a href="">Forms</a></li>
-        <li>Validation</li>
+        <li><a href="">Biểu mẫu</a></li>
+        <li>Phê duyệt</li>
     </ul>
 </div>
 
@@ -25,67 +25,67 @@
                 <form class="needs-validation" novalidate>
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">First name</label>
+                            <label for="validationCustom01">Tên</label>
                             <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
                             <div class="valid-feedback">
-                                Looks good!
+                                Có vẻ tốt!
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationCustom02">Last name</label>
+                            <label for="validationCustom02">Họ</label>
                             <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
                             <div class="valid-feedback">
-                                Looks good!
+                                Có vẻ tốt!
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationCustomUsername">Username</label>
+                            <label for="validationCustomUsername">Tên đăng nhập</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 </div>
                                 <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Please choose a username.
+                                    Xin hãy chọn tên đăng nhập
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustom03">City</label>
+                            <label for="validationCustom03">Thành Phố</label>
                             <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
                             <div class="invalid-feedback">
-                                Please provide a valid city.
+                                Xin hãy chọn thành phố
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label for="validationCustom04">State</label>
+                            <label for="validationCustom04">Tình trạng</label>
                             <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
                             <div class="invalid-feedback">
-                                Please provide a valid state.
+                                Xin hãy chọn tình trạng
                             </div>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        {{-- <div class="col-md-3 mb-3">
                             <label for="validationCustom05">Zip</label>
                             <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
                             <div class="invalid-feedback">
                                 Please provide a valid zip.
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                             <label class="form-check-label" for="invalidCheck">
-                                Agree to terms and conditions
+                                Đồng ý với các điều khoản và điều kiện
                             </label>
                             <div class="invalid-feedback">
-                                You must agree before submitting.
+                                Bạn phải đồng ý trước khi gửi.
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit form</button>
+                    <button class="btn btn-primary" type="submit">Xác nhận biểu mẫu</button>
                 </form>
             </div>
         </div>
@@ -94,60 +94,60 @@
     <div class="col-md-8">
         <div class="card">
             <div class="card-body">
-                <div class="card-title">Tooltip message</div>
+                <div class="card-title">Thông báo chú giải công cụ</div>
                 <form class="needs-validation" novalidate>
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <label for="validationTooltip01">First name</label>
+                            <label for="validationTooltip01">Tên</label>
                             <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required>
                             <div class="valid-tooltip">
-                                Looks good!
+                                Có vẻ tốt!
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationTooltip02">Last name</label>
+                            <label for="validationTooltip02">Họ</label>
                             <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
                             <div class="valid-tooltip">
-                                Looks good!
+                                Có vẻ tốt!
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="validationTooltipUsername">Username</label>
+                            <label for="validationTooltipUsername">Tên đăng nhập</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                                 </div>
                                 <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
                                 <div class="invalid-tooltip">
-                                    Please choose a unique and valid username.
+                                    Xin hãy chọn tên đăng nhập
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="validationTooltip03">City</label>
+                            <label for="validationTooltip03">Thành Phố</label>
                             <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
                             <div class="invalid-tooltip">
-                                Please provide a valid city.
+                                Xin hãy chọn thành phố
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label for="validationTooltip04">State</label>
+                            <label for="validationTooltip04">Tình Trạng</label>
                             <input type="text" class="form-control" id="validationTooltip04" placeholder="State" required>
                             <div class="invalid-tooltip">
-                                Please provide a valid state.
+                                Xin hãy chọn tình trạng
                             </div>
                         </div>
-                        <div class="col-md-3 mb-3">
+                        {{-- <div class="col-md-3 mb-3">
                             <label for="validationTooltip05">Zip</label>
                             <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required>
                             <div class="invalid-tooltip">
                                 Please provide a valid zip.
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
-                    <button class="btn btn-primary" type="submit">Submit form</button>
+                    <button class="btn btn-primary" type="submit">Xác nhận biểu mẫu</button>
                 </form>
             </div>
         </div>
