@@ -28,13 +28,13 @@
                 <ul class="submenu">
 
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                        <a class="{{ Route::currentRouteName()=='quanlyTKView' ? 'open' : '' }}" href="{{ route('quanlyTKView') }}">
                             <i class="nav-icon i-Address-Book"></i>
                             <span class="item-name">Danh sách tài khoản</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                        <a class="{{ Route::currentRouteName()=='themTKView' ? 'open' : '' }}" href="{{ route('themTKView') }}">
                             <i class="nav-icon i-Add-User"></i>
                             <span class="item-name">Thêm mới tài khoản</span>
                         </a>
@@ -49,13 +49,13 @@
                 </a>
                 <ul class="submenu">
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                        <a class="{{ Route::currentRouteName()=='quanly-thongtin-nv' ? 'open' : '' }}" href="{{ route('quanly-thongtin-nv') }}">
                             <i class="nav-icon i-Find-User"></i>
                             <span class="item-name">Danh sách nhân viên</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                        <a class="{{ Route::currentRouteName()=='them-thongtin-nv' ? 'open' : '' }}" href="{{ route('them-thongtin-nv') }}">
                             <i class="nav-icon i-Add-User"></i>
                             <span class="item-name">Thêm mới nhân viên</span>
                         </a>
@@ -71,13 +71,13 @@
                 <ul class="submenu">
 
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                        <a class="{{ Route::currentRouteName()=='quanlyKH' ? 'open' : '' }}" href="{{ route('quanlyKH') }}">
                             <i class="nav-icon i-Conference"></i>
                             <span class="item-name">Danh sách Khách hàng</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                        <a class="{{ Route::currentRouteName()=='themKHView' ? 'open' : '' }}" href="{{ route('themKHView') }}">
                             <i class="nav-icon i-Add-User"></i>
                             <span class="item-name">Thêm mới Khách hàng</span>
                         </a>
@@ -92,13 +92,13 @@
                 </a>
                 <ul class="submenu">
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                        <a class="{{ Route::currentRouteName()=='quanlyCN' ? 'open' : '' }}" href="{{ route('quanlyCN') }}">
                             <i class="nav-icon i-Book"></i>
                             <span class="item-name">Danh sách Chi nhánh</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ecommerce-product-details' ? 'open' : '' }}" href="#">
+                        <a class="{{ Route::currentRouteName()=='themmoiCN' ? 'open' : '' }}" href="{{ route('themmoiCN') }}">
                             <i class="nav-icon i-Add"></i>
                             <span class="item-name">Thêm mới Chi nhánh</span>
                         </a>

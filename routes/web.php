@@ -9,6 +9,7 @@ use App\Http\Controllers\KhoHangController;
 use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\ThongKeController;
+use App\Http\Controllers\TaiKhoanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,8 +71,6 @@ Route::view('/tai-khoan', 'layouts.tai-khoan.tai-khoan')->name('tai-khoan');
 
 Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
 
-Route::view('admin/thong-tin-phan-hoi', 'he-thong.danh-muc.feedback.feedback')->name('feedback');
-
 Route::get('/test', function () {
 
     Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
@@ -79,6 +78,7 @@ Route::get('/test', function () {
 })->middleware('auth', 'kiemTraQuyen:test');
 
 Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
+//Route::view('/user', 'he-thong.danh-muc.tai-khoan.ds-user')->name('user');
 
 /*
 |--------------------------------------------------------------------------
@@ -90,7 +90,8 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
 //Admin
 //Quản Lý Danh Mục
 //CRUD Quản Lý Tài Khoản
-Route::get('admin/quan-ly-tai-khoan',[TaiKhoanController::class,'loadDSTaiKhoan'])->name('quanlyTK');
+Route::get('admin/quan-ly-tai-khoan',[TaiKhoanController::class,'loadDSTaiKhoanView'])->name('quanlyTKView');
+Route::get('admin/them-moi-tai-khoan',[TaiKhoanController::class,'themTaiKhoanView'])->name('themTKView');
 
 Route::get('admin/cap-nhat-tai-khoan',[TaiKhoanController::class,'capNhatTaiKhoan'])
 ->name('capnhatTK-Admin');
@@ -102,7 +103,8 @@ Route::get('admin/them-tai-khoan',[TaiKhoanController::class,'themTaiKhoan'])
 ->name('themTK-Admin');
 
 //CRUD Quản Lý Nhân Viên
-Route::get('admin/quan-ly-nhan-vien',[NhanVienController::class,'loadDSNhanVien'])->name('quanly-thongtin-nv');
+Route::get('admin/quan-ly-nhan-vien',[NhanVienController::class,'loadDSNhanVienView'])->name('quanly-thongtin-nv');
+Route::get('admin/them-moi-nhan-vien',[NhanVienController::class,'themNhanVienView'])->name('them-thongtin-nv');
 
 Route::get('admin/cap-nhat-thong-tin-nhan-vien',[NhanVienController::class,'capNhatThongTinNVien'])
 ->name('capnhat-thongtin-nv');
@@ -113,12 +115,14 @@ Route::get('admin/xoa-nhan-vien',[NhanVienController::class,'xoaNhanVien'])
 Route::get('admin/them-nhan-vien',[NhanVienController::class,'themNhanVien'])
 ->name('them-thongtin-nv');
 //
+//CRUD Quản Lý Khách hàng
+Route::get('admin/quan-ly-khach-hang',[DanhMucController::class,'loadDSKhacHangView'])->name('quanlyKH');
+Route::get('admin/them-moi-khach-hang',[DanhMucController::class,'themKhachHangView'])->name('themKHView');
 
-Route::get('admin/quan-ly-khach-hang',[DanhMucController::class,'loadDSKhacHang'])->name('quanlyKH');
+Route::get('admin/quan-ly-chi-nhanh',[DanhMucController::class,'loadDSChiNhanhView'])->name('quanlyCN');
+Route::get('admin/them-moi-chi-nhanh',[DanhMucController::class,'themChiNhanhView'])->name('themmoiCN');
 
-Route::get('admin/quan-ly-chi-nhanh',[DanhMucController::class,'loadDSChiNhanh'])->name('quanlyCN');
-
-Route::get('admin/quan-ly-feedback',[DanhMucController::class,'loadDSFeedback'])->name('quanlyfeedback');
+Route::get('admin/quan-ly-feedback',[DanhMucController::class,'loadDSFeedback'])->name('feedback');
 
 //Quản lý kho hàng
 

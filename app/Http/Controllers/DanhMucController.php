@@ -17,28 +17,28 @@ class DanhMucController extends Controller
     }
 
     public function loadDSFeedback(){
-
+        return view('he-thong.danh-muc.feedback.feedback');
     }
 
     public function loadDSChiNhanhView(){
-        return view('he-thong.danh-muc.tai-khoan.ds-chinhanh');
+        return view('he-thong.danh-muc.chi-nhanh.ds-chinhanh');
     }
     public function themChiNhanhView(){
-        return view('he-thong.danh-muc.tai-khoan.them-chinhanh');
+        return view('he-thong.danh-muc.chi-nhanh.them-chinhanh');
     }
 
     public function chiTietChiNhanhView(){
-        return view('he-thong.danh-muc.tai-khoan.chinhanh-details');
+        return view('he-thong.danh-muc.chi-nhanh.chinhanh-details');
     }
 
     public function loadDSKhachHangView(){
-        return view('he-thong.danh-muc.tai-khoan.ds-khachhang');
+        return view('he-thong.danh-muc.khach-hang.ds-khachhang');
     }
     public function themKhachHangView(){
-        return view('he-thong.danh-muc.tai-khoan.them-khachhang');
+        return view('he-thong.danh-muc.khach-hang.them-khachhang');
     }
 
     public function chiTietKhachHangView(){
-        return view('he-thong.danh-muc.tai-khoan.khachhang-details');
+        return view('he-thong.danh-muc.khach-hang.khachhang-details');
     }
 }
