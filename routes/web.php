@@ -92,7 +92,7 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
 //CRUD Quản Lý Tài Khoản
 Route::get('admin/quan-ly-tai-khoan',[TaiKhoanController::class,'loadDSTaiKhoanView'])->name('quanlyTKView');
 Route::get('admin/them-moi-tai-khoan',[TaiKhoanController::class,'themTaiKhoanView'])->name('themTKView');
-
+Route::get('admin/chi-tiet-tai-khoan',[TaiKhoanController::class,'chiTietTaiKhoanView'])->name('chitietTK');
 Route::get('admin/cap-nhat-tai-khoan',[TaiKhoanController::class,'capNhatTaiKhoan'])
 ->name('capnhatTK-Admin');
 
@@ -105,7 +105,8 @@ Route::get('admin/them-tai-khoan',[TaiKhoanController::class,'themTaiKhoan'])
 //CRUD Quản Lý Nhân Viên
 Route::get('admin/quan-ly-nhan-vien',[NhanVienController::class,'loadDSNhanVienView'])->name('quanly-thongtin-nv');
 Route::get('admin/them-moi-nhan-vien',[NhanVienController::class,'themNhanVienView'])->name('them-thongtin-nv');
-
+Route::get('admin/chi-tiet-nhan-vien',[NhanVienController::class,'chiTietNhanVienView'])
+->name('chi-tiet-nv');
 Route::get('admin/cap-nhat-thong-tin-nhan-vien',[NhanVienController::class,'capNhatThongTinNVien'])
 ->name('capnhat-thongtin-nv');
 
