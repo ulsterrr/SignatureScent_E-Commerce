@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class NhanVienController extends Controller
 {
-    public function loadDSNhanVienView(){
+    public function loadDSNhanVienView($LoaiTaiKhoan){
+
         return view('he-thong.danh-muc.nhan-vien.ds-nhanvien');
     }
     public function themNhanVienView(){
@@ -28,4 +30,5 @@ class NhanVienController extends Controller
     public function xoaNhanVien(){
 
     }
+
 }
