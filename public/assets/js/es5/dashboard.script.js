@@ -13,7 +13,13 @@ $(document).ready(function () {
                 borderRadius: 0,
                 orient: 'horizontal',
                 x: 'right',
-                data: ['Online', 'Offline']
+                data: ['Mua trực tiếp', 'Mua tại cửa hàng'],
+                inactiveColor: "silver",
+                textStyle: {
+                    color: ['#ff0000', '#008000'],
+                    fontFamily: 'Nunito, sans-serif',
+                    fontSize: 15
+                }
             },
             grid: {
                 left: '8px',
@@ -23,29 +29,38 @@ $(document).ready(function () {
             },
             tooltip: {
                 show: true,
-                backgroundColor: 'rgba(0, 0, 0, .8)'
+                backgroundColor: 'rgba(0, 0, 0, .8)',
+                textStyle: {
+                    fontFamily: 'Nunito, sans-serif',
+                    fontSize: 15
+                },
             },
             xAxis: [{
                 type: 'category',
-                data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+                data: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9',
+                    'Tháng 10', 'Tháng 11', 'Tháng 12'],
+                axisLabel: {
+                    color: 'silver'
+                },
                 axisTick: {
-                    alignWithLabel: true
+                    alignWithLabel: true,
                 },
                 splitLine: {
-                    show: false
+                    show: false,
                 },
                 axisLine: {
-                    show: true
+                    show: true,
                 }
             }],
             yAxis: [{
                 type: 'value',
                 axisLabel: {
-                    formatter: '${value}'
+                    formatter: '{value} VND',
+                    color: 'silver'
                 },
                 min: 0,
-                max: 100000,
-                interval: 25000,
+                max: 1000000,
+                interval: 250000,
                 axisLine: {
                     show: false
                 },
@@ -56,12 +71,12 @@ $(document).ready(function () {
             }],
 
             series: [{
-                name: 'Online',
+                name: 'Mua trực tiếp',
                 data: [35000, 69000, 22500, 60000, 50000, 50000, 30000, 80000, 70000, 60000, 20000, 30005],
                 label: { show: false, color: '#0168c1' },
                 type: 'bar',
                 barGap: 0,
-                color: '#bcbbdd',
+                color: 'tomato',
                 smooth: true,
                 itemStyle: {
                     emphasis: {
@@ -72,11 +87,11 @@ $(document).ready(function () {
                     }
                 }
             }, {
-                name: 'Offline',
+                name: 'Mua tại cửa hàng',
                 data: [45000, 82000, 35000, 93000, 71000, 89000, 49000, 91000, 80200, 86000, 35000, 40050],
                 label: { show: false, color: '#639' },
                 type: 'bar',
-                color: '#7569b3',
+                color: 'cyan',
                 smooth: true,
                 itemStyle: {
                     emphasis: {

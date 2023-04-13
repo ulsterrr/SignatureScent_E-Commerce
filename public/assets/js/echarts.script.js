@@ -9,7 +9,7 @@ $(document).ready(function() {
                 borderRadius: 0,
                 orient: 'horizontal',
                 x: 'right',
-                data: ['Online', 'Offline']
+                data: ['Online', 'Offline'],
             },
             grid: {
                 left: '8px',
@@ -24,6 +24,7 @@ $(document).ready(function() {
             xAxis: [{
                 type: 'category',
                 data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+                color: '#fff',
                 axisTick: {
                     alignWithLabel: true
                 },
@@ -101,7 +102,7 @@ $(document).ready(function() {
     if (echartElemPie) {
         let echartPie = echarts.init(echartElemPie);
         echartPie.setOption({
-            color: ['#62549c', '#7566b5', '#7d6cbb', '#8877bd', '#9181bd', '#6957af'],
+            color: ['red', 'blue', '#green', '#yellow', 'white', '#6957af'],
             tooltip: {
                 show: true,
                 backgroundColor: 'rgba(0, 0, 0, .8)'
