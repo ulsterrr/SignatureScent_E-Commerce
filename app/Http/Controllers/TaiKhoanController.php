@@ -12,7 +12,10 @@ class TaiKhoanController extends Controller
         return view('he-thong.danh-muc.tai-khoan.ds-user')->with('User',$user);
 
     }
-    public function themTaiKhoanView(Request $request){
+    public function themTaiKhoanView(){
+        return view('he-thong.danh-muc.tai-khoan.them-user');
+    }
+    public function themTaiKhoan(Request $request){
 
         $request->validate([
             'name' => 'required',
@@ -51,11 +54,15 @@ class TaiKhoanController extends Controller
         return view('he-thong.danh-muc.tai-khoan.them-user');
 
     }
-
-    public function chiTietTaiKhoanView($id){
+    public function chiTietTaiKhoanView(){
 
         return view('he-thong.danh-muc.tai-khoan.user-details');
+
+    }
+    public function chiTietTaiKhoan($id){
         $user = User::find($id);
+        return view('he-thong.danh-muc.tai-khoan.user-details');
+
     }
 
     public function capNhatTaiKhoan(Request $request,$id){
@@ -84,6 +91,7 @@ class TaiKhoanController extends Controller
         }
 
         $user->save();
+
     }
     public function xoaTaiKhoan($id){
         $user = User::find($id);
