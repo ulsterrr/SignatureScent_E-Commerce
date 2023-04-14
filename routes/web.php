@@ -116,13 +116,13 @@ Route::get('admin/xoa-nhan-vien',[NhanVienController::class,'xoaNhanVien'])
 Route::get('admin/them-nhan-vien',[NhanVienController::class,'themNhanVien'])
 ->name('them-thongtin-nv');
 //
-//CRUD Quản Lý Khách hàng
+//CRUD Quản Lý Khách hàng và Chi Nhánh
 Route::get('admin/quan-ly-khach-hang',[DanhMucController::class,'loadDSKhacHangView'])->name('quanlyKH');
 Route::get('admin/them-moi-khach-hang',[DanhMucController::class,'themKhachHangView'])->name('themKHView');
 
 Route::get('admin/quan-ly-chi-nhanh',[DanhMucController::class,'loadDSChiNhanhView'])->name('quanlyCN');
 Route::get('admin/them-moi-chi-nhanh',[DanhMucController::class,'themChiNhanhView'])->name('themmoiCN');
-
+Route::get('admin/chi-tiet-chi-nhanh',[DanhMucController::class,'chiTietChiNhanhView'])->name('chitietCN');
 Route::get('admin/quan-ly-feedback',[DanhMucController::class,'loadDSFeedback'])->name('feedback');
 
 //Quản lý kho hàng

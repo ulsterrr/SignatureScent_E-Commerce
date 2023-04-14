@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class NhanVienController extends Controller
 {
-    public function loadDSNhanVienView($LoaiTaiKhoan){
+    public function loadDSNhanVienView(){
 
         return view('he-thong.danh-muc.nhan-vien.ds-nhanvien');
     }
