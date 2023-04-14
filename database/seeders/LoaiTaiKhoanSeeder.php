@@ -42,5 +42,12 @@ class LoaiTaiKhoanSeeder extends Seeder
         $LTK3->GhiChu = "Khách hàng đã có thâm niên và chi tiêu vượt định mức hệ thống đưa ra, được quyền mua sản phẩm đặt biệt, giảm giá, nhiều coupon";
         $LTK3->NguoiTao = "admin";
         $LTK3->save();
+
+        $LTK4 = new LoaiTaiKhoan();
+        $LTK4->MaLoai = "E";
+        $LTK4->TenLoai = "Nhân viên";
+        $LTK4->GhiChu = "Nhân viên tạo phiếu bán hàng tại cửa hàng, xuất hoá đơn bán offline";
+        $LTK4->NguoiTao = "admin";
+        $LTK4->save();
     }
 }
