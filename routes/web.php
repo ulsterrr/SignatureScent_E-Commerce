@@ -113,7 +113,7 @@ Route::get('admin/xoa-nhan-vien',[NhanVienController::class,'xoaNhanVien'])
 ->name('xoa-thongtin-nv');
 
 Route::get('admin/them-nhan-vien',[NhanVienController::class,'themNhanVien'])
-->name('them-thongtin-nv');
+->name('them-moi-nv');
 //
 //CRUD Quản Lý Khách hàng
 Route::get('admin/quan-ly-khach-hang',[DanhMucController::class,'loadDSKhacHangView'])->name('quanlyKH');
