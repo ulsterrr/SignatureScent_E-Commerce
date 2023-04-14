@@ -18,7 +18,7 @@ $(document).ready(function () {
                 textStyle: {
                     color: ['#ff0000', '#008000'],
                     fontFamily: 'Nunito, sans-serif',
-                    fontSize: 15
+                    fontSize: 13
                 }
             },
             grid: {
@@ -32,7 +32,7 @@ $(document).ready(function () {
                 backgroundColor: 'rgba(0, 0, 0, .8)',
                 textStyle: {
                     fontFamily: 'Nunito, sans-serif',
-                    fontSize: 15
+                    fontSize: 13
                 },
             },
             xAxis: [{
