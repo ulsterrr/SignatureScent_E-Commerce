@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class KhachHangController extends Controller
 {
     public function loadDSKhachHangView(){
-        // $khachhang = User::where('LoaiTaiKhoan','C')->get();
+        $khachhang = User::where('LoaiTaiKhoan','C')->get();
         return view('he-thong.danh-muc.khach-hang.ds-khachhang');
     }
 
@@ -54,12 +54,9 @@ class KhachHangController extends Controller
         $user->save();
         return view('he-thong.danh-muc.khach-hang.them-khachhang');
     }
-    public function chiTietKhachHangView(){
-
-        return view('he-thong.danh-muc.khach-hang.khachhang-details');
-    }
-    public function chiTietKhachHang($id){
+    public function chiTietKhachHangView($id){
         $khachhang = User::find($id);
-        return view('he-thong.danh-muc.khach-hang.khachhang-details');
+        return view('he-thong.danh-muc.khach-hang.khachhang-details',compact('khachhang'));
     }
+
 }

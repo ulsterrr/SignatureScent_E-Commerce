@@ -54,14 +54,9 @@ class TaiKhoanController extends Controller
         return view('he-thong.danh-muc.tai-khoan.them-user');
 
     }
-    public function chiTietTaiKhoanView(){
-
-        return view('he-thong.danh-muc.tai-khoan.user-details');
-
-    }
-    public function chiTietTaiKhoan($id){
+    public function chiTietTaiKhoanView($id){
         $user = User::find($id);
-        return view('he-thong.danh-muc.tai-khoan.user-details');
+        return view('he-thong.danh-muc.tai-khoan.user-details',compact('user'));
 
     }
 

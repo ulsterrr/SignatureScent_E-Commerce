@@ -49,13 +49,13 @@
                 </a>
                 <ul class="submenu">
                     <li>
-                        <a class="{{ Route::currentRouteName()=='quanly-thongtin-nv' ? 'open' : '' }}" href="{{ route('quanly-thongtin-nv') }}">
+                        <a class="{{ Route::currentRouteName()=='quanly-thongtin-nv-View' ? 'open' : '' }}" href="{{ route('quanly-thongtin-nv-View') }}">
                             <i class="nav-icon i-Find-User"></i>
                             <span class="item-name">Danh sách nhân viên</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ Route::currentRouteName()=='them-thongtin-nv' ? 'open' : '' }}" href="{{ route('them-thongtin-nv') }}">
+                        <a class="{{ Route::currentRouteName()=='them-thongtin-nv-View' ? 'open' : '' }}" href="{{ route('them-thongtin-nv-View') }}">
                             <i class="nav-icon i-Add-User"></i>
                             <span class="item-name">Thêm mới nhân viên</span>
                         </a>
@@ -71,13 +71,13 @@
                 <ul class="submenu">
 
                     <li>
-                        <a class="{{ Route::currentRouteName()=='quanlyKH' ? 'open' : '' }}" href="{{ route('quanlyKH') }}">
+                        <a class="{{ Route::currentRouteName()=='quanlyKH-View' ? 'open' : '' }}" href="{{ route('quanlyKH-View') }}">
                             <i class="nav-icon i-Conference"></i>
                             <span class="item-name">Danh sách Khách hàng</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ Route::currentRouteName()=='themKHView' ? 'open' : '' }}" href="{{ route('themKHView') }}">
+                        <a class="{{ Route::currentRouteName()=='themKH-View' ? 'open' : '' }}" href="{{ route('themKH-View') }}">
                             <i class="nav-icon i-Add-User"></i>
                             <span class="item-name">Thêm mới Khách hàng</span>
                         </a>
@@ -92,13 +92,13 @@
                 </a>
                 <ul class="submenu">
                     <li>
-                        <a class="{{ Route::currentRouteName()=='quanlyCN' ? 'open' : '' }}" href="{{ route('quanlyCN') }}">
+                        <a class="{{ Route::currentRouteName()=='quanlyCN-View' ? 'open' : '' }}" href="{{ route('quanlyCN-View') }}">
                             <i class="nav-icon i-Book"></i>
                             <span class="item-name">Danh sách Chi nhánh</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ Route::currentRouteName()=='themmoiCN' ? 'open' : '' }}" href="{{ route('themmoiCN') }}">
+                        <a class="{{ Route::currentRouteName()=='themmoiCN-View' ? 'open' : '' }}" href="{{ route('themmoiCN-View') }}">
                             <i class="nav-icon i-Add"></i>
                             <span class="item-name">Thêm mới Chi nhánh</span>
                         </a>
