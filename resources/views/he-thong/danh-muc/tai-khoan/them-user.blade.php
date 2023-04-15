@@ -15,8 +15,8 @@
 
 <div class="separator-breadcrumb border-top"></div>
 
-<div class="row">
-    <div class="col-md-8">
+<div class="col-md-12">
+    <div class="col-md-12">
         <p>For custom Bootstrap form validation messages, you’ll need to add the <code>novalidate</code> boolean attribute to your <code>form</code>. This disables the browser default feedback tooltips, but still provides access to the form validation
             APIs in JavaScript. Try to submit the form below; our JavaScript will intercept the submit button and relay feedback to you. When attempting to submit, you’ll see the <code>:invalid</code> and <code>:valid</code> styles applied
             to your form controls.</p>
@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="card">
             <div class="card-body">
                 <div class="card-title">
