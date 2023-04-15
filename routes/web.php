@@ -92,39 +92,44 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
 //Admin
 //Quản Lý Danh Mục
 //CRUD Quản Lý Tài Khoản
+Route::post('admin/cap-nhat-tai-khoan',[TaiKhoanController::class,'capNhatTaiKhoan'])
+->name('capnhatTK-Update');
+Route::post('admin/xoa-tai-khoan',[TaiKhoanController::class,'xoaTaiKhoan'])
+->name('xoaTK-Delete');
+Route::post('admin/them-tai-khoan',[TaiKhoanController::class,'themTaiKhoan'])
+->name('themTK-Create');
+
+//View Quản Lý Tài Khoản
 Route::get('admin/quan-ly-tai-khoan',[TaiKhoanController::class,'loadDSTaiKhoanView'])->name('quanlyTKView');
 Route::get('admin/them-moi-tai-khoan',[TaiKhoanController::class,'themTaiKhoanView'])->name('themTKView');
 Route::get('admin/chi-tiet-tai-khoan',[TaiKhoanController::class,'chiTietTaiKhoanView'])->name('chitietTK');
-Route::get('admin/cap-nhat-tai-khoan',[TaiKhoanController::class,'capNhatTaiKhoan'])
-->name('capnhatTK-Admin');
 
-Route::get('admin/xoa-tai-khoan',[TaiKhoanController::class,'xoaTaiKhoan'])
-->name('xoaTK-Admin');
-
-Route::get('admin/them-tai-khoan',[TaiKhoanController::class,'themTaiKhoan'])
-->name('themTK-Admin');
+//View Quản Lý Nhân Viên
+Route::get('admin/quan-ly-nhan-vien',[NhanVienController::class,'loadDSNhanVienView'])->name('quanly-thongtin-nv-View');
+Route::get('admin/them-moi-nhan-vien',[NhanVienController::class,'themNhanVienView'])->name('them-thongtin-nv-View');
+Route::get('admin/chi-tiet-nhan-vien',[NhanVienController::class,'chiTietNhanVienView'])
+->name('chi-tiet-nv-View');
 
 //CRUD Quản Lý Nhân Viên
-Route::get('admin/quan-ly-nhan-vien',[NhanVienController::class,'loadDSNhanVienView'])->name('quanly-thongtin-nvView');
-Route::get('admin/them-moi-nhan-vien',[NhanVienController::class,'themNhanVienView'])->name('them-thongtin-nvView');
-Route::get('admin/chi-tiet-nhan-vien',[NhanVienController::class,'chiTietNhanVienView'])
-->name('chi-tiet-nvView');
-Route::get('admin/cap-nhat-thong-tin-nhan-vien',[NhanVienController::class,'capNhatThongTinNVien'])
-->name('capnhat-thongtin-nv');
+Route::post('admin/cap-nhat-thong-tin-nhan-vien',[NhanVienController::class,'capNhatThongTinNVien'])
+->name('capnhat-thongtin-nv-Update');
 
-Route::get('admin/xoa-nhan-vien',[NhanVienController::class,'xoaNhanVien'])
-->name('xoa-thongtin-nv');
+Route::post('admin/xoa-nhan-vien',[NhanVienController::class,'xoaNhanVien'])
+->name('xoa-thongtin-nv-Delete');
 
-Route::get('admin/them-nhan-vien',[NhanVienController::class,'themNhanVien'])
-->name('them-moi-nv');
+Route::post('admin/them-nhan-vien',[NhanVienController::class,'themNhanVien'])
+->name('them-moi-nv-Create');
 //
 //CRUD Quản Lý Khách hàng và Chi Nhánh
-Route::get('admin/quan-ly-khach-hang',[KhachHangController::class,'loadDSKhachHangView'])->name('quanlyKHView');
-Route::get('admin/them-moi-khach-hang',[KhachHangController::class,'themKhachHangView'])->name('themKHView');
+Route::post('admin/them-moi-khach-hang',[KhachHangController::class,'themKhachHang'])->name('themKH-Create');
+Route::post('admin/them-moi-chi-nhanh',[ChiNhanhController::class,'themChiNhanh'])->name('themmoiCN-Create');
 
-Route::get('admin/quan-ly-chi-nhanh',[ChiNhanhController::class,'loadDSChiNhanhView'])->name('quanlyCNView');
-Route::get('admin/them-moi-chi-nhanh',[ChiNhanhController::class,'themChiNhanhView'])->name('themmoiCNView');
-Route::get('admin/chi-tiet-chi-nhanh',[ChiNhanhController::class,'chiTietChiNhanhView'])->name('chitietCNView');
+//View Quản Lý Khách Hàng và Chi Nhánh
+Route::get('admin/quan-ly-khach-hang',[KhachHangController::class,'loadDSKhachHangView'])->name('quanlyKH-View');
+Route::get('admin/them-moi-khach-hang',[KhachHangController::class,'themKhachHangView'])->name('themKH-View');
+Route::get('admin/quan-ly-chi-nhanh',[ChiNhanhController::class,'loadDSChiNhanhView'])->name('quanlyCN-View');
+Route::get('admin/them-moi-chi-nhanh',[ChiNhanhController::class,'themChiNhanhView'])->name('themmoiCN-View');
+Route::get('admin/chi-tiet-chi-nhanh',[ChiNhanhController::class,'chiTietChiNhanhView'])->name('chitietCN-View');
 Route::get('admin/quan-ly-feedback',[DanhMucController::class,'loadDSFeedback'])->name('feedback');
 
 //Quản lý kho hàng
@@ -139,39 +144,39 @@ Route::get('admin/quan-ly-hang-hoa',[KhoHangController::class,'loadHangHoa'])->n
 
 //Quản Lý bán hàng
 //CRUD Đơn hàng
-Route::post('admin/tao-don-hang',[BanHangController::class,'taoDonHang'])->name('taodonhang');
-Route::post('admin/sua-don-hang',[BanHangController::class,'suaDonHang'])->name('suadonhang');
-Route::post('admin/xoa-don-hang',[BanHangController::class,'xoaDonHang'])->name('xoadonhang');
+Route::post('admin/tao-don-hang',[BanHangController::class,'taoDonHang'])->name('taodonhang-Create');
+Route::post('admin/sua-don-hang',[BanHangController::class,'suaDonHang'])->name('suadonhang-Update');
+Route::post('admin/xoa-don-hang',[BanHangController::class,'xoaDonHang'])->name('xoadonhang-Delete');
 
-Route::post('admin/xu-ly-don-hang',[BanHangController::class,'xuLyDon'])->name('xuly-donhang');
+Route::post('admin/xu-ly-don-hang',[BanHangController::class,'xuLyDon'])->name('xuly-donhang-Edit');
 
-Route::get('admin/danh-sach-don-hang',[BanHangController::class,'loadDSDonHang'])->name('danhsach-donhang');
+Route::get('admin/danh-sach-don-hang',[BanHangController::class,'loadDSDonHang'])->name('danhsach-donhang-View');
 
 //Báo cáo thống kê
-Route::get('admin/bao-cao-ton-kho',[ThongKeController::class,'loadDSTonKho'])->name('baocao-tonkho');
+Route::get('admin/bao-cao-ton-kho',[ThongKeController::class,'loadDSTonKho'])->name('baocao-tonkho-View');
 
-Route::get('admin/bao-cao-doanh-thu',[ThongKeController::class,'loadDSDoanhThu'])->name('baocao-doanhthu');
+Route::get('admin/bao-cao-doanh-thu',[ThongKeController::class,'loadDSDoanhThu'])->name('baocao-doanhthu-View');
 
 Route::get('admin/bao-cao-san-pham-ban-chay',[ThongKeController::class,'loadSPBanChay'])
-->name('baocao-sanpham-banchay');
+->name('baocao-sanpham-banchay-View');
 
 
 //User
-Route::get('user/danh-sach-yeu-thich',[SanPhamController::class,'loadSDYeuThich'])->name('danhsach-yeuthich');
+Route::get('user/danh-sach-yeu-thich',[SanPhamController::class,'loadSDYeuThich'])->name('danhsach-yeuthich-View');
 
-Route::get('user/gio-hang',[GioHangController::class,'loadGioHang'])->name('giohang');
+Route::get('user/gio-hang',[GioHangController::class,'loadGioHang'])->name('giohang-View');
 
 Route::get('user/gio-hang/chi-tiet-gio-hang',[GioHangController::class,'loadChiTietGioHang'])
-->name('chitiet-giohang');
+->name('chitiet-giohang-View');
 
 Route::get('user/gio-hang/chi-tiet-gio-hang/thanh-toan')
-->name('thanhtoan');
+->name('thanhtoan-View');
 
-Route::get('user/chi-tiet-san-pham',[SanPhamController::class,'loadChiTietSP'])->name('chitiet-sanpham');
+Route::get('user/chi-tiet-san-pham',[SanPhamController::class,'loadChiTietSP'])->name('chitiet-sanpham-View');
 
-Route::get('user/loai-san-pham',[SanPhamController::class,'loadSPTheoLoai'])->name('loaisanpham');
+Route::get('user/loai-san-pham',[SanPhamController::class,'loadSPTheoLoai'])->name('loaisanpham-View');
 
-Route::get('user/don-hang',[DonHangController::class,'loadDonHang'])->name('donhang');
+Route::get('user/don-hang',[DonHangController::class,'loadDonHang'])->name('donhang-View');
 
-Route::get('user/don-hang/chi-tiet-don-hang',[DonHangController::class,'loadChiTietDonHang'])->name('chitiet-donhang');
+Route::get('user/don-hang/chi-tiet-don-hang',[DonHangController::class,'loadChiTietDonHang'])->name('chitiet-donhang-View');
 
