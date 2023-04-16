@@ -124,8 +124,8 @@
                         <div class="form-group col-md-2">
                             <label for="sel2">Trạng thái*:</label>
                             <select class="form-control" id="sel2">
+                                <option>Hoạt động</option>
                               <option>Bị khoá</option>
-                              <option>Hoạt động</option>
                               <option>NULL</option>
                             </select>
                         </div>

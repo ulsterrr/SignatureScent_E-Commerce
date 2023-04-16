@@ -114,9 +114,6 @@
                         <div class="form-group col-md-2">
                             <label for="sel1">Loại tài khoản*:</label>
                             <select class="form-control" id="sel1">
-                              <option>Admin</option>
-                              <option>Quản lý</option>
-                              <option>Nhân viên</option>
                               <option>Khách hàng</option>
                             </select>
                         </div>
@@ -124,9 +121,9 @@
                         <div class="form-group col-md-2">
                             <label for="sel2">Trạng thái*:</label>
                             <select class="form-control" id="sel2">
-                              <option>Bị khoá</option>
-                              <option>Hoạt động</option>
-                              <option>NULL</option>
+                                <option>Hoạt động</option>
+                                <option>Bị khoá</option>
+                                <option>NULL</option>
                             </select>
                         </div>
                         <div class="col-md-12 mt-3"></div>
