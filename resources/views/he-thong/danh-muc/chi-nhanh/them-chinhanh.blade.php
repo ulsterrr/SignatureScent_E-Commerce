@@ -23,61 +23,74 @@
                 <form class="needs-validation" novalidate>
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustomUsername" class="required">Tên tài khoản (Email)*</label>
+                            <label for="validationCustomUsername" class="required">Mã chi nhánh *</label>
                             <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" name="email" placeholder="email@mail.com" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername" name="email" placeholder="CN-Q6" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Tên tài khoản (Email) không được để trống!
+                                    Mã chi nhánh không được để trống!
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-12"></div>
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustomUsername" class="required">Mật khẩu*</label>
+                            <label for="validationCustomUsername" class="required">Tên chi nhánh *</label>
                             <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend"><i class="i-Password-Field"></i></span>
-                                </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" name="password" placeholder="********" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername" name="password" placeholder="Quận 6, Bình Chánh, etc, ..." aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Mật khẩu không được để trống!
+                                    Tên chi nhánh không được để trống!
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-12"></div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCustomUsername" class="required">Số điện thoại*</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustomUsername" class="required">Số điện thoại 1 *</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">+84</span>
                                 </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" name="SDT" placeholder="0909909990" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername" name="SDT1" placeholder="0909909990" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Số điện thoại không được để trống!
+                                    Số điện thoại 1 không được để trống!
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12"></div>
-                        <div class="col-md-6 form-group mb-3">
-                            <label for="picker3">Ngày sinh</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustomUsername" class="required">Số điện thoại 2 *</label>
                             <div class="input-group">
-                                <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" name="NgaySinh">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend"><i class="icon-regular i-Calendar-4"></i></span>
+                                    <span class="input-group-text" id="inputGroupPrepend">+84</span>
                                 </div>
+                                <input type="text" class="form-control" id="validationCustomUsername" name="SDT2" placeholder="0909909990" aria-describedby="inputGroupPrepend">
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustomUsername" class="required">Số điện thoại 3 *</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend">+84</span>
+                                </div>
+                                <input type="text" class="form-control" id="validationCustomUsername" name="SDT3" placeholder="0909909990" aria-describedby="inputGroupPrepend">
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustomUsername" class="required">Số FAX</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="validationCustomUsername" name="FAX" placeholder="309412922" aria-describedby="inputGroupPrepend">
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustomUsername" class="required">Số Momo</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="validationCustomUsername" name="Momo" placeholder="0327772310" aria-describedby="inputGroupPrepend">
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustomUsername" class="required">Số tài khoản (nếu có)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="validationCustomUsername" name="SoTaiKhoan" placeholder="10386900xx" aria-describedby="inputGroupPrepend">
                             </div>
                         </div>
                         <div class="col-md-12"></div>
-                        <div class="col-md-6 mb-3">
-                            <label for="validationCustom01">Họ và Tên</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="Nguyễn Văn A" required>
-                            <div class="invalid-feedback">
-                                Họ và Tên không được để trống!
-                            </div>
-                        </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom02">Địa chỉ</label>
                             <input type="text" class="form-control" id="validationCustom02" placeholder="123 Đường ABC, phường ..." required>
@@ -102,31 +115,12 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-12"></div>
-                        <div class="form-group col-md-2">
-                            <label for="sel">Giới tính*:</label>
+                        <div class="form-group col-md-3">
+                            <label for="sel">Người quản lý *:</label>
                             <select class="form-control" id="sel">
-                              <option>Nam</option>
-                              <option>Nữ</option>
-                              <option>Khác</option>
-                            </select>
-                        </div>
-                        <div class="col-md-12"></div>
-                        <div class="form-group col-md-2">
-                            <label for="sel1">Loại tài khoản*:</label>
-                            <select class="form-control" id="sel1">
-                              <option>Admin</option>
-                              <option>Quản lý</option>
-                              <option>Nhân viên</option>
-                              <option>Khách hàng</option>
-                            </select>
-                        </div>
-                        <div class="col-md-12"></div>
-                        <div class="form-group col-md-2">
-                            <label for="sel2">Trạng thái*:</label>
-                            <select class="form-control" id="sel2">
-                              <option>Bị khoá</option>
-                              <option>Hoạt động</option>
-                              <option>NULL</option>
+                              <option>A</option>
+                              <option>B</option>
+                              <option>C</option>
                             </select>
                         </div>
                         <div class="col-md-12 mt-3"></div>
