@@ -34412,7 +34412,7 @@ blockquote {
     background-color: #10163a
 }
 
-.dark-theme .modal .modal-dialog .modal-content .modal-body  {
+.dark-theme .modal .modal-dialog .modal-content .modal-body {
     background-color: #262c49 !important;
 }
 
@@ -34427,4 +34427,70 @@ blockquote {
     background: #f8f9fa;
     border: 1px solid #ced4da;
     color: #c0ffda;
+}
+
+.dark-theme .input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+    color: whitesmoke;
+}
+.dark-theme .input-group>.custom-file, .input-group>.custom-select, .input>.form-control {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+    color: whitesmoke;
+}
+.dark-theme .input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #7c7c7c;
+    opacity: 1;
+    /* Firefox */
+}
+
+.dark-theme .input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #7c7c7c;
+}
+
+.dark-theme .input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #7c7c7c;
+}
+
+.dark-theme .form-control {
+    outline: initial !important;
+    background: #f8f9fa;
+    border: 1px solid #ced4da;
+    color: #f8f9fa
+}
+
+.dark-theme .form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #7c7c7c;
+    opacity: 1;
+    /* Firefox */
+}
+
+.dark-theme .form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #7c7c7c;
+}
+
+.dark-theme .form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #7c7c7c;
+}
+
+.dark-theme select.form-control {
+    -webkit-appearance: none;
+    background: #1e202d !important;
+}
+
+.dark-theme .form-group label {
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 4px;
 }
