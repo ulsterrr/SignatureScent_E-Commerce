@@ -10,7 +10,7 @@ class NhanVienController extends Controller
 {
     public function loadDSNhanVienView(){
         $nhanvien = User::where("LoaiTaiKhoan","E");
-        return view('he-thong.danh-muc.nhan-vien.ds-nhanvien');
+        return view('he-thong.danh-muc.nhan-vien.ds-nhanvien')->with("NhanVien",$nhanvien);
     }
     public function themNhanVienView(){
         return view('he-thong.danh-muc.nhan-vien.them-nhanvien');
