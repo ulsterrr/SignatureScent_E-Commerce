@@ -244,9 +244,10 @@
 
     <script src="{{asset('assets/js/customizer.script.js')}}"></script>
 
+    <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
     {{-- laravel js --}}
     {{-- <script src="{{mix('assets/js/laravel/app.js')}}"></script> --}}
-
     @yield('bottom-js')
 </body>
 

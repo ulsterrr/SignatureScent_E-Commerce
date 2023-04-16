@@ -499,9 +499,13 @@
                                                             <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
                                                                 <i class="i-Edit"></i>
                                                             </a>
+                                                            <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
+                                                                <i class="i-Eye"></i>
+                                                            </a>
                                                            <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
                                                                <i class="i-Eraser-2"></i>
                                                            </a>
+
                                                         </td>
                                                 </tr>
                                     </tbody>
