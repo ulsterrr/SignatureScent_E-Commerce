@@ -8,11 +8,11 @@
 @section('main-content')
 
 <div class="breadcrumb">
-    <h1>Danh sách tài khoản</h1>
-    {{-- <ul>
-        <li><a href="">Ứng dụng</a></li>
-        <li>Liên hệ</li>
-    </ul> --}}
+    <h1>Danh sách </h1>
+    <ul>
+        <li><a href="">Tài Khoản</a></li>
+        {{-- <li>Liên hệ</li> --}}
+    </ul>
 </div>
 <div class="separator-breadcrumb border-top"></div>
 
@@ -101,50 +101,56 @@
 
                 <div class="card-body">
 
-                    <div class="table-responsive">
-                        <table id="ul-contact-list" class="display table " style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Tên</th>
-                                    <th>Email</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Vai trò</th>
-                                    <th>Năm sinh</th>
-                                    <th>Ngày tham gia</th>
-                                    <th>Loại tài khoản</th>
-                                    <th class="text-center">Chỉnh sửa</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ( $User as $data )
-                                <tr>
-                                    <td>
-                                        <a href="">
-                                            <div class="ul-widget-app__profile-pic">
-                                                <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}" alt="">
-                                                {{$data->HoTen}}
-                                            </div>
-                                        </a>
-                                    </td>
-                                    <td>{{$data->email}}</td>
-                                    <td>{{$data->SDT}}</td>
-                                    <td><a href="#" class="badge badge-primary m-2 p-2">Developer</a></td>
-                                    <td>{{$data->NgaySinh}}</td>
-                                    <td>{{$data->created_at}}</td>
-                                    <td>{{$data->LoaiTaiKhoan}}</td>
-                                    <td class="text-center">
-                                        <a href="{{ route('capnhatTK-upd', ['id' => $data->id]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
-                                            <i class="i-Edit"></i>
-                                        </a>
-                                        <a href="{{ route('chitietTK', ['id' => $data->id]) }}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
-                                            <i class="i-Eye-Visible"></i>
-                                        </a>
-                                        <a id="alert-confirm-{{ $data->id }}" onclick="getPopupDelete({{ $data }})" class="ul-link-action text-danger mr-1" data-toggle="tooltip" data-placement="top" title="Xoá tài khoản này!!!">
-                                            <i class="i-Eraser-2"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endforeach
+                            <div class="table-responsive">
+                                <table id="ul-contact-list" class="display table " style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Tên</th>
+                                            <th>Email</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Năm sinh</th>
+                                            <th>Ngày tham gia</th>
+                                            <th>Loại Tài Khoản</th>
+                                            <th>Trạng Thái</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Quận Huyện</th>
+                                            <th>Tỉnh Thành</th>
+                                            <th>Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ( $User as $data )
+                                        <tr>
+                                            <td>
+                                                <a href="">
+                                                    <div class="ul-widget-app__profile-pic">
+                                                        <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}" alt="">
+                                                        {{$data->HoTen}}
+                                                    </div>
+                                                </a>
+                                            </td>
+                                            <td>{{$data->email}}</td>
+                                            <td>{{$data->SDT}}</td>
+                                            <td>{{$data->NgaySinh}}</td>
+                                            <td>{{$data->created_at}}</td>
+                                            <td>{{$data->LoaiTaiKhoan}}</td>
+                                            <td>{{$data->TrangThai}}</td>
+                                            <td>{{$data->DiaChi}}</td>
+                                            <td>{{$data->QuanHuyen}}</td>
+                                            <td>{{$data->TinhThanh}}</td>
+                                            <td class="text-center">
+                                                <a href="{{ route('capnhatTK-upd', ['id' => $data->id]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
+                                                    <i class="i-Edit"></i>
+                                                </a>
+                                                <a href="{{ route('chitietTK', ['id' => $data->id]) }}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                                                    <i class="i-Eye-Visible"></i>
+                                                </a>
+                                                <a id="alert-confirm-{{ $data->id }}" onclick="getPopupDelete({{ $data }})" class="ul-link-action text-danger mr-1" data-toggle="tooltip" data-placement="top" title="Xoá tài khoản này!!!">
+                                                    <i class="i-Eraser-2"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
 
                             </tbody>
 
