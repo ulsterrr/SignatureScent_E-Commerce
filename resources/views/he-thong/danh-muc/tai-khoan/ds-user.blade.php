@@ -22,7 +22,7 @@
         <div class="col-md-12 mb-4">
             <div class="card text-left">
                 <div class="card-header text-right bg-transparent">
-                    <button type="button" data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-primary btn-md m-1"><i class="i-Add-User text-white mr-2"></i> Add Contact</button>
+                    <a type="button" href="{{ route('themTKView') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm tài khoản</a>
                 </div>
                 <!-- begin::modal -->
                 <div class="ul-card-list__modal">
@@ -101,56 +101,74 @@
 
                 <div class="card-body">
 
-                            <div class="table-responsive">
-                                <table id="ul-contact-list" class="display table " style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Tên</th>
-                                            <th>Email</th>
-                                            <th>Số điện thoại</th>
-                                            <th>Năm sinh</th>
-                                            <th>Ngày tham gia</th>
-                                            <th>Loại Tài Khoản</th>
-                                            <th>Trạng Thái</th>
-                                            <th>Địa chỉ</th>
-                                            <th>Quận Huyện</th>
-                                            <th>Tỉnh Thành</th>
-                                            <th>Thao tác</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ( $User as $data )
-                                        <tr>
-                                            <td>
-                                                <a href="">
-                                                    <div class="ul-widget-app__profile-pic">
-                                                        <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}" alt="">
-                                                        {{$data->HoTen}}
-                                                    </div>
-                                                </a>
-                                            </td>
-                                            <td>{{$data->email}}</td>
-                                            <td>{{$data->SDT}}</td>
-                                            <td>{{$data->NgaySinh}}</td>
-                                            <td>{{$data->created_at}}</td>
-                                            <td>{{$data->LoaiTaiKhoan}}</td>
-                                            <td>{{$data->TrangThai}}</td>
-                                            <td>{{$data->DiaChi}}</td>
-                                            <td>{{$data->QuanHuyen}}</td>
-                                            <td>{{$data->TinhThanh}}</td>
-                                            <td class="text-center">
-                                                <a href="{{ route('capnhatTK-upd', ['id' => $data->id]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
-                                                    <i class="i-Edit"></i>
-                                                </a>
-                                                <a href="{{ route('chitietTK', ['id' => $data->id]) }}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
-                                                    <i class="i-Eye-Visible"></i>
-                                                </a>
-                                                <a id="alert-confirm-{{ $data->id }}" onclick="getPopupDelete({{ $data }})" class="ul-link-action text-danger mr-1" data-toggle="tooltip" data-placement="top" title="Xoá tài khoản này!!!">
-                                                    <i class="i-Eraser-2"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
+                    <div class="table-responsive">
+                        <table id="ul-contact-list" class="display table" style="width:100%; overflow-y: scroll">
+                            <thead>
+                                <tr>
+                                    <th>Avatar</th>
+                                    <th>Họ và Tên</th>
+                                    <th>Email</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Năm sinh</th>
+                                    <th>Ngày tham gia</th>
+                                    <th>Phân loại</th>
+                                    <th>Trạng Thái</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Quận Huyện</th>
+                                    <th>Tỉnh Thành</th>
+                                    <th class="text-center">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ( $User as $data )
+                                <tr>
+                                    <td class="text-center">
+                                        <div class="ul-widget-app__profile-pic">
+                                            <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}" alt="">
+                                        </div>
+                                    </td>
+                                    <td>{{$data->HoTen}}</td>
+                                    <td>{{$data->email}}</td>
+                                    <td>{{$data->SDT}}</td>
+                                    <td>{{$data->NgaySinh}}</td>
+                                    <td>{{$data->created_at}}</td>
+                                    <td>
+                                        @if($data->LoaiTaiKhoan=='A')
+                                        <a href="#" class="badge badge-danger p-2">Admin</a>
+                                        @elseif($data->LoaiTaiKhoan=='M')
+                                        <a href="#" class="badge badge-info p-2">Quản lý</a>
+                                        @elseif($data->LoaiTaiKhoan=='E')
+                                        <a href="#" class="badge badge-primary p-2">Nhân viên</a>
+                                        @elseif($data->LoaiTaiKhoan=='C')
+                                        <a href="#" class="badge badge-success p-2">Khách hàng</a>
+                                        @elseif($data->LoaiTaiKhoan=='V')
+                                        <a href="#" class="badge badge-warning p-2">Khách VIP</a>
+                                        @endif
+
+                                    </td>
+                                    <td>@if($data->TrangThai=='1')
+                                        Hoạt động
+                                        @elseif($data->TrangThai=='0')
+                                        Bị Khoá
+                                        @elseif($data->TrangThai=='')
+                                        NULL
+                                        @endif</td>
+                                    <td>{{$data->DiaChi}}</td>
+                                    <td>{{$data->QuanHuyen}}</td>
+                                    <td>{{$data->TinhThanh}}</td>
+                                    <td class="text-center">
+                                        <a href="{{ route('capnhatTK-upd', ['id' => $data->id]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
+                                            <i class="i-Edit"></i>
+                                        </a>
+                                        <a href="{{ route('chitietTK', ['id' => $data->id]) }}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                                            <i class="i-Eye-Visible"></i>
+                                        </a>
+                                        <a id="alert-confirm-{{ $data->id }}" onclick="getPopupDelete({{ $data }})" class="ul-link-action text-danger mr-1" data-toggle="tooltip" data-placement="top" title="Xoá tài khoản này!!!">
+                                            <i class="i-Eraser-2"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
 
                             </tbody>
 
@@ -176,19 +194,19 @@
 
 <script src="{{asset('assets/js/vendor/sweetalert2.min.js')}}"></script>
 <script>
-    $(document).ready(function () {
-    $(function () {
-        var users = {!! json_encode($User) !!};
-        console.log(users);
-        //khởi tạo các popup delete theo id sẵn mà không cần click 2 lần
-        users.forEach(element => {
-            getPopupDelete(element);
+    $(document).ready(function() {
+        $(function() {
+            var users = {!!json_encode($User) !!};
+            //khởi tạo các popup delete theo id sẵn mà không cần click 2 lần
+            users.forEach(element => {
+                getPopupDelete(element);
+            });
         });
     });
-});
+
 </script>
 <script>
-    function getPopupDelete (data) {
+    function getPopupDelete(data) {
         var nameAlert = "#alert-confirm-" + data['id'].toString();
         $(nameAlert).on('click', function() {
             swal({

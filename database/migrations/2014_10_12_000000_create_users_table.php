@@ -32,6 +32,8 @@ return new class extends Migration
             $table->string("NguoiTao");
             $table->softDeletes();
             $table->string("MaGiaoDien");
+            $table->string("AnhDaiDien")->nullable();
+            $table->string("AnhBia")->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

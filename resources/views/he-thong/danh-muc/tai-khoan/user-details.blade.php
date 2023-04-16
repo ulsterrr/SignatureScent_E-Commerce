@@ -7,10 +7,10 @@
 @section('main-content')
 
 <div class="breadcrumb">
-    <h1>Chi tiết liên hệ</h1>
+    <h1>Chi tiết</h1>
     <ul>
-        <li><a href="">Ứng dụng</a></li>
-        <li>Liên hệ</li>
+        <li><a href="">Tài khoản</a></li>
+        <li>Chi tiết</li>
     </ul>
 </div>
 <div class="separator-breadcrumb border-top"></div>
@@ -27,30 +27,38 @@
                         <div class="row">
                             <div class="col-6 text-center">
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Tên</h5>
-                                    <span>Genelia Deshmukh</span>
+                                    <h5>Họ và Tên</h5>
+                                    <span>{{ $user->HoTen }}</span>
                                 </div>
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Tên</h5>
-                                    <span>Genelia Deshmukh</span>
+                                    <h5>Loại tài khoản</h5>
+                                    <span>@if($user->LoaiTaiKhoan=='A')
+                                        Admin
+                                        @elseif($user->LoaiTaiKhoan=='M')
+                                        Quản lý
+                                        @elseif($user->LoaiTaiKhoan=='E')
+                                        Nhân viên
+                                        @elseif($user->LoaiTaiKhoan=='C')
+                                        Khách hàng
+                                        @elseif($user->LoaiTaiKhoan=='V')
+                                        Khách VIP
+                                        @endif</span>
                                 </div>
                             </div>
                             <div class="col-6 text-center">
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Tên</h5>
-                                    <span>Genelia Deshmukh</span>
+                                    <h5>Email</h5>
+                                    <span>{{ $user->email }}</span>
                                 </div>
                                 <div class="ul-contact-detail__info-1">
-                                    <h5>Tên</h5>
-                                    <span>Genelia Deshmukh</span>
+                                    <h5>Số điện thoại</h5>
+                                    <span>{{ $user->SDT }}</span>
                                 </div>
                             </div>
                             <div class="col-12 text-center">
                                 <div class="ul-contact-detail__info-1">
                                     <h5>Địa chỉ</h5>
-                                    <span>DieSachbearbeiter
-                                        Choriner Straße 49
-                                        10435 Berlin</span>
+                                    <span>{{ $user->DiaChi }}</span>
                                 </div>
                             </div>
                             <div class="col-12 text-center">
@@ -60,21 +68,17 @@
                                         <button type="button" class="btn btn-facebook btn-icon m-1">
                                             <span class="ul-btn__icon"><i class="i-Facebook-2"></i></span>
                                         </button>
-                                        <span class="t-font-boldest ul-contact-detail__followers">400</span>
                                     </div>
                                     <div class="ul-contact-detail__social-1">
                                         <button type="button" class="btn btn-twitter btn-icon m-1">
                                             <span class="ul-btn__icon"><i class="i-Twitter"></i></span>
 
                                         </button>
-                                        <span class="t-font-boldest ul-contact-detail__followers">900</span>
                                     </div>
                                     <div class="ul-contact-detail__social-1">
                                         <button type="button" class="btn btn-dribble btn-icon m-1">
-                                            <span class="ul-btn__icon"><i class="i-Dribble"></i></span>
-
+                                            <span class="ul-btn__icon"><i class="i-Google-Plus"></i></span>
                                         </button>
-                                        <span class="t-font-boldest ul-contact-detail__followers">658</span>
                                     </div>
                                 </div>
 
@@ -87,13 +91,13 @@
         <div class="col-lg-8 col-xl-8">
             <!-- begin::basic-tab -->
             <div class="card mb-4 mt-4">
-                <div class="card-header bg-transparent">Tabs cơ bản</div>
+                <div class="card-header bg-transparent">Thông tin</div>
                 <div class="card-body">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <a class="nav-item nav-link active show" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Trang chủ</a>
-                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Tiểu sử</a>
-                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Chỉnh sửa liên hệ</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Giới thiệu</a>
+                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Đổi mật khẩu</a>
                         </div>
                     </nav>
                     <div class="tab-content ul-tab__content" id="nav-tabContent">
@@ -112,86 +116,18 @@
                                                 </div>
                                                 <div class="col-lg-11">
                                                     <div class="ul-contact-detail__right-timeline">
-                                                        <a href="" class="ul-widget4__title d-block">Timity Clarkson</a>
-                                                        <small class="text-mute">10 minutes</small>
-                                                        <p>assign a new task <a href="#"> Weblayout</a></p>
+                                                        <a href="" class="ul-widget4__title d-block">{{ $user->HoTen }}</a>
+                                                        <small class="text-mute">1000 phút trước</small>
+                                                        <p>Thêm mới 1 sản phẩm<a href="#"> Xem</a></p>
                                                         <div class="ul-contact-detail__timeline-image">
                                                             <img class="d-block" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide">
-                                                            <img class="d-block" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide">
-                                                            <img class="d-block" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide">
+                                                            {{-- <img class="d-block" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide">
+                                                            <img class="d-block" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide"> --}}
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="ul-contact-detail__timeline-row">
-                                            <div class="row">
-                                                <div class="col-lg-1">
-                                                    <div class="ul-contact-detail__left-timeline">
-                                                        <div class="ul-widget3-img">
-                                                            <img src="{{ asset('assets/images/faces/1.jpg') }}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-11">
-                                                    <div class="ul-contact-detail__right-timeline">
-                                                        <a href="" class="ul-widget4__title d-block">Timity Clarkson</a>
-                                                        <small class="text-mute">10 minutes</small>
-
-                                                        <div class="ul-contact-detail__timeline-image-2 mt-3">
-                                                            <img class="d-block" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide">
-                                                            <div class="ul-contact-detail__timeline-image-info">
-                                                                <p style="width:80%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. </p>
-                                                                <button type="button" class="btn btn-primary btn-lg m-1">Weblayout</button>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="ul-contact-detail__timeline-row">
-                                            <div class="row">
-                                                <div class="col-lg-1">
-                                                    <div class="ul-contact-detail__left-timeline">
-                                                        <div class="ul-widget3-img">
-                                                            <img src="{{ asset('assets/images/faces/1.jpg') }}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-8">
-                                                    <div class="ul-contact-detail__right-timeline">
-                                                        <a href="" class="ul-widget4__title d-block">Timity Clarkson</a>
-                                                        <small class="text-mute">10 minutes</small>
-
-                                                        <p class="mt-3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="ul-contact-detail__timeline-row">
-                                            <div class="row">
-                                                <div class="col-lg-1">
-                                                    <div class="ul-contact-detail__left-timeline">
-                                                        <div class="ul-widget3-img">
-                                                            <img src="{{ asset('assets/images/faces/1.jpg') }}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-11">
-                                                    <div class="ul-contact-detail__right-timeline">
-                                                        <a href="" class="ul-widget4__title d-block">Timity Clarkson</a>
-                                                        <small class="text-mute">10 minutes</small>
-                                                        <p>assign a new task <a href="#"> Weblayout</a></p>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
                                     </div>
 
 
@@ -263,56 +199,50 @@
 
                                 {{ csrf_field() }}
                                 <div class="form-group row">
-                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Mật khẩu hiện tại</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                                        <input type="password" class="form-control" id="inputPassword">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Mật khẩu mới</label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                        <input type="password" class="form-control" id="inputPassword1">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword3" class="col-sm-2 col-form-label">Xác nhận mật khẩu mới</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control" id="inputPassword2">
                                     </div>
                                 </div>
                                 <fieldset class="form-group">
                                     <div class="row">
-                                        <div class="col-form-label col-sm-2 pt-0">Radios</div>
+                                        <div class="col-form-label col-sm-2 pt-0">Trạng thái</div>
                                         <div class="col-sm-10">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked="">
+                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked="true">
                                                 <label class="form-check-label ml-3" for="gridRadios1">
-                                                    First radio
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                                <label class="form-check-label ml-3" for="gridRadios2">
-                                                    Second radio
-                                                </label>
-                                            </div>
-                                            <div class="form-check disabled ">
-                                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled="">
-                                                <label class="form-check-label ml-3" for="gridRadios3">
-                                                    Third disabled radio
+                                                    Hoạt động
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                 </fieldset>
                                 <div class="form-group row">
-                                    <div class="col-sm-2">Checkbox</div>
+                                    <div class="col-sm-2">Gửi email kích hoạt</div>
                                     <div class="col-sm-10">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="gridCheck1">
                                             <label class="form-check-label ml-3" for="gridCheck1">
-                                                Example checkbox
+                                                Không gửi email
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-10">
-                                        <button type="submit" class="btn btn-primary">Sign in</button>
+                                        <button type="submit" class="btn btn-primary">Đổi mật khẩu</button>
                                     </div>
                                 </div>
                             </form>
