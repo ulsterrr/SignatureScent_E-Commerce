@@ -9,8 +9,8 @@
 <div class="breadcrumb">
     <h1>Danh sách</h1>
     <ul>
-        <li><a href="">Ứng Dụng</a></li>
-        <li>Liên hệ</li>
+        <li><a href="">Khách hàng</a></li>
+        {{-- <li>Liên hệ</li> --}}
     </ul>
 </div>
 <div class="separator-breadcrumb border-top"></div>
@@ -107,30 +107,36 @@
                                             <th>Tên</th>
                                             <th>Email</th>
                                             <th>Số điện thoại</th>
-                                            <th>Vai trò</th>
-                                            <th>Tuổi</th>
+                                            <th>Năm sinh</th>
                                             <th>Ngày tham gia</th>
-                                            <th>Lương</th>
-                                            <th>Chức vụ</th>
+                                            <th>Loại Tài Khoản</th>
+                                            <th>Trạng Thái</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Quận Huyện</th>
+                                            <th>Tỉnh Thành</th>
+                                            <th>Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ( $KhachHang as $data )
                                         <tr>
                                             <td>
                                                 <a href="">
                                                     <div class="ul-widget-app__profile-pic">
                                                         <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}" alt="">
-                                                        Jhon Wick
+                                                        {{$data->HoTen}}
                                                     </div>
-
                                                 </a>
                                             </td>
-                                            <td>jhonwick_23@gmail.com</td>
-                                            <td>+88012378478</td>
-                                            <td><a href="#" class="badge badge-primary m-2 p-2">Developer</a></td>
-                                            <td>20</td>
-                                            <td>April 25, 2019</td>
-                                            <td>$320,800</td>
+                                            <td>{{$data->email}}</td>
+                                            <td>{{$data->SDT}}</td>
+                                            <td>{{$data->NgaySinh}}</td>
+                                            <td>{{$data->created_at}}</td>
+                                            <td>{{$data->LoaiTaiKhoan}}</td>
+                                            <td>{{$data->TrangThai}}</td>
+                                            <td>{{$data->DiaChi}}</td>
+                                            <td>{{$data->QuanHuyen}}</td>
+                                            <td>{{$data->TinhThanh}}</td>
                                             <td>
                                                 <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
                                                     <i class="i-Edit"></i>
@@ -140,370 +146,8 @@
                                                </a>
                                             </td>
                                         </tr>
+                                        @endforeach
 
-                                        <tr>
-                                                <td>
-                                                    <a href="">
-                                                        <div class="ul-widget-app__profile-pic">
-                                                            <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/2.jpg') }}" alt="">
-                                                            James Wann
-                                                        </div>
-
-                                                    </a>
-                                                </td>
-                                                <td>jameswann@gmail.com</td>
-                                                <td>+88012378478</td>
-                                                <td><a href="#" class="badge badge-success m-2 p-2">Programmer</a></td>
-                                                <td>20</td>
-                                                <td>April 34, 2019</td>
-                                                <td>$320,800</td>
-                                                <td>
-                                                    <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="i-Edit"></i>
-                                                    </a>
-                                                   <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                       <i class="i-Eraser-2"></i>
-                                                   </a>
-                                                </td>
-                                        </tr>
-
-                                        <tr>
-                                                <td>
-                                                    <a href="">
-                                                        <div class="ul-widget-app__profile-pic">
-                                                            <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/3.jpg') }}" alt="">
-                                                            Bradley Gunn
-                                                        </div>
-
-                                                    </a>
-                                                </td>
-                                                <td>jameswann@gmail.com</td>
-                                                <td>+88012378478</td>
-                                                <td><a href="#" class="badge badge-danger m-2 p-2">Designer</a></td>
-                                                <td>20</td>
-                                                <td>April 34, 2019</td>
-                                                <td>$320,800</td>
-                                                <td>
-                                                    <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="i-Edit"></i>
-                                                    </a>
-                                                   <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                       <i class="i-Eraser-2"></i>
-                                                   </a>
-                                                </td>
-                                        </tr>
-
-                                        <tr>
-                                                <td>
-                                                    <a href="">
-                                                        <div class="ul-widget-app__profile-pic">
-                                                            <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/4.jpg') }}" alt="">
-                                                            Riki Martin
-                                                        </div>
-
-                                                    </a>
-                                                </td>
-                                                <td>jameswann@gmail.com</td>
-                                                <td>+88012378478</td>
-                                                <td><a href="#" class="badge badge-info m-2 p-2">Backend</a></td>
-                                                <td>20</td>
-                                                <td>April 34, 2019</td>
-                                                <td>$320,800</td>
-                                                <td>
-                                                    <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="i-Edit"></i>
-                                                    </a>
-                                                   <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                       <i class="i-Eraser-2"></i>
-                                                   </a>
-                                                </td>
-                                        </tr>
-
-                                        <tr>
-                                                <td>
-                                                    <a href="">
-                                                        <div class="ul-widget-app__profile-pic">
-                                                            <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/5.jpg') }}" alt="">
-                                                            Zack Snyder
-                                                        </div>
-
-                                                    </a>
-                                                </td>
-                                                <td>jameswann@gmail.com</td>
-                                                <td>+88012378478</td>
-                                                <td><a href="#" class="badge badge-warning m-2 p-2">Backend</a></td>
-                                                <td>20</td>
-                                                <td>April 34, 2019</td>
-                                                <td>$320,800</td>
-                                                <td>
-                                                    <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="i-Edit"></i>
-                                                    </a>
-                                                   <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                       <i class="i-Eraser-2"></i>
-                                                   </a>
-                                                </td>
-                                        </tr>
-
-                                        <tr>
-                                                <td>
-                                                    <a href="">
-                                                        <div class="ul-widget-app__profile-pic">
-                                                            <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}" alt="">
-                                                            Jhon Wick
-                                                        </div>
-
-                                                    </a>
-                                                </td>
-                                                <td>jhonwick_23@gmail.com</td>
-                                                <td>+88012378478</td>
-                                                <td><a href="#" class="badge badge-primary m-2 p-2">Developer</a></td>
-                                                <td>20</td>
-                                                <td>April 25, 2019</td>
-                                                <td>$320,800</td>
-                                                <td>
-                                                    <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="i-Edit"></i>
-                                                    </a>
-                                                   <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                       <i class="i-Eraser-2"></i>
-                                                   </a>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                    <td>
-                                                        <a href="">
-                                                            <div class="ul-widget-app__profile-pic">
-                                                                <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/2.jpg') }}" alt="">
-                                                                James Wann
-                                                            </div>
-
-                                                        </a>
-                                                    </td>
-                                                    <td>jameswann@gmail.com</td>
-                                                    <td>+88012378478</td>
-                                                    <td><a href="#" class="badge badge-success m-2 p-2">Programmer</a></td>
-                                                    <td>20</td>
-                                                    <td>April 34, 2019</td>
-                                                    <td>$320,800</td>
-                                                    <td>
-                                                        <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="i-Edit"></i>
-                                                        </a>
-                                                       <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                           <i class="i-Eraser-2"></i>
-                                                       </a>
-                                                    </td>
-                                            </tr>
-
-                                            <tr>
-                                                    <td>
-                                                        <a href="">
-                                                            <div class="ul-widget-app__profile-pic">
-                                                                <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/3.jpg') }}" alt="">
-                                                                Bradley Gunn
-                                                            </div>
-
-                                                        </a>
-                                                    </td>
-                                                    <td>jameswann@gmail.com</td>
-                                                    <td>+88012378478</td>
-                                                    <td><a href="#" class="badge badge-danger m-2 p-2">Designer</a></td>
-                                                    <td>20</td>
-                                                    <td>April 34, 2019</td>
-                                                    <td>$320,800</td>
-                                                    <td>
-                                                        <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="i-Edit"></i>
-                                                        </a>
-                                                       <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                           <i class="i-Eraser-2"></i>
-                                                       </a>
-                                                    </td>
-                                            </tr>
-
-                                            <tr>
-                                                    <td>
-                                                        <a href="">
-                                                            <div class="ul-widget-app__profile-pic">
-                                                                <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/4.jpg') }}" alt="">
-                                                                Riki Martin
-                                                            </div>
-
-                                                        </a>
-                                                    </td>
-                                                    <td>jameswann@gmail.com</td>
-                                                    <td>+88012378478</td>
-                                                    <td><a href="#" class="badge badge-info m-2 p-2">Backend</a></td>
-                                                    <td>20</td>
-                                                    <td>April 34, 2019</td>
-                                                    <td>$320,800</td>
-                                                    <td>
-                                                        <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="i-Edit"></i>
-                                                        </a>
-                                                       <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                           <i class="i-Eraser-2"></i>
-                                                       </a>
-                                                    </td>
-                                            </tr>
-
-                                            <tr>
-                                                    <td>
-                                                        <a href="">
-                                                            <div class="ul-widget-app__profile-pic">
-                                                                <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/5.jpg') }}" alt="">
-                                                                Zack Snyder
-                                                            </div>
-
-                                                        </a>
-                                                    </td>
-                                                    <td>jameswann@gmail.com</td>
-                                                    <td>+88012378478</td>
-                                                    <td><a href="#" class="badge badge-warning m-2 p-2">Backend</a></td>
-                                                    <td>20</td>
-                                                    <td>April 34, 2019</td>
-                                                    <td>$320,800</td>
-                                                    <td>
-                                                        <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="i-Edit"></i>
-                                                        </a>
-                                                       <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                           <i class="i-Eraser-2"></i>
-                                                       </a>
-                                                    </td>
-                                            </tr>
-
-                                            <tr>
-                                                    <td>
-                                                        <a href="">
-                                                            <div class="ul-widget-app__profile-pic">
-                                                                <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}" alt="">
-                                                                Jhon Wick
-                                                            </div>
-
-                                                        </a>
-                                                    </td>
-                                                    <td>jhonwick_23@gmail.com</td>
-                                                    <td>+88012378478</td>
-                                                    <td><a href="#" class="badge badge-primary m-2 p-2">Developer</a></td>
-                                                    <td>20</td>
-                                                    <td>April 25, 2019</td>
-                                                    <td>$320,800</td>
-                                                    <td>
-                                                        <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="i-Edit"></i>
-                                                        </a>
-                                                       <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                           <i class="i-Eraser-2"></i>
-                                                       </a>
-                                                    </td>
-                                                </tr>
-
-                                                <tr>
-                                                        <td>
-                                                            <a href="">
-                                                                <div class="ul-widget-app__profile-pic">
-                                                                    <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/2.jpg') }}" alt="">
-                                                                    James Wann
-                                                                </div>
-
-                                                            </a>
-                                                        </td>
-                                                        <td>jameswann@gmail.com</td>
-                                                        <td>+88012378478</td>
-                                                        <td><a href="#" class="badge badge-success m-2 p-2">Programmer</a></td>
-                                                        <td>20</td>
-                                                        <td>April 34, 2019</td>
-                                                        <td>$320,800</td>
-                                                        <td>
-                                                            <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="i-Edit"></i>
-                                                            </a>
-                                                           <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                               <i class="i-Eraser-2"></i>
-                                                           </a>
-                                                        </td>
-                                                </tr>
-
-                                                <tr>
-                                                        <td>
-                                                            <a href="">
-                                                                <div class="ul-widget-app__profile-pic">
-                                                                    <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/3.jpg') }}" alt="">
-                                                                    Bradley Gunn
-                                                                </div>
-
-                                                            </a>
-                                                        </td>
-                                                        <td>jameswann@gmail.com</td>
-                                                        <td>+88012378478</td>
-                                                        <td><a href="#" class="badge badge-danger m-2 p-2">Designer</a></td>
-                                                        <td>20</td>
-                                                        <td>April 34, 2019</td>
-                                                        <td>$320,800</td>
-                                                        <td>
-                                                            <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="i-Edit"></i>
-                                                            </a>
-                                                           <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                               <i class="i-Eraser-2"></i>
-                                                           </a>
-                                                        </td>
-                                                </tr>
-
-                                                <tr>
-                                                        <td>
-                                                            <a href="">
-                                                                <div class="ul-widget-app__profile-pic">
-                                                                    <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/4.jpg') }}" alt="">
-                                                                    Riki Martin
-                                                                </div>
-
-                                                            </a>
-                                                        </td>
-                                                        <td>jameswann@gmail.com</td>
-                                                        <td>+88012378478</td>
-                                                        <td><a href="#" class="badge badge-info m-2 p-2">Backend</a></td>
-                                                        <td>20</td>
-                                                        <td>April 34, 2019</td>
-                                                        <td>$320,800</td>
-                                                        <td>
-                                                            <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="i-Edit"></i>
-                                                            </a>
-                                                           <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                               <i class="i-Eraser-2"></i>
-                                                           </a>
-                                                        </td>
-                                                </tr>
-
-                                                <tr>
-                                                        <td>
-                                                            <a href="">
-                                                                <div class="ul-widget-app__profile-pic">
-                                                                    <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/5.jpg') }}" alt="">
-                                                                    Zack Snyder
-                                                                </div>
-
-                                                            </a>
-                                                        </td>
-                                                        <td>jameswann@gmail.com</td>
-                                                        <td>+88012378478</td>
-                                                        <td><a href="#" class="badge badge-warning m-2 p-2">Backend</a></td>
-                                                        <td>20</td>
-                                                        <td>April 34, 2019</td>
-                                                        <td>$320,800</td>
-                                                        <td>
-                                                            <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="i-Edit"></i>
-                                                            </a>
-                                                           <a href="" class="ul-link-action text-danger mr-1"  data-toggle="tooltip" data-placement="top" title="Want To Delete !!!">
-                                                               <i class="i-Eraser-2"></i>
-                                                           </a>
-                                                        </td>
-                                                </tr>
                                     </tbody>
 
                                 </table>
