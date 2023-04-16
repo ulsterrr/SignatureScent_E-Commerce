@@ -21,7 +21,7 @@
             <div class="col-md-12 mb-4">
                     <div class="card text-left">
                         <div class="card-header text-right bg-transparent">
-                            <button type="button" data-toggle="modal" data-target=".bd-example-modal-lg" class="btn btn-primary btn-md m-1"><i class="i-Add-User text-white mr-2"></i> Add Contact</button>
+                            <a type="button" href="{{ route('them-thongtin-nv-view') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm nhân viên</a>
                         </div>
                         <!-- begin::modal -->
                         <div class="ul-card-list__modal">

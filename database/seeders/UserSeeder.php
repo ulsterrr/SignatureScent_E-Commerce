@@ -34,6 +34,8 @@ class UserSeeder extends Seeder
             $TaiKhoan->TrangThai = "1";
             $TaiKhoan->NguoiTao = "";
             $TaiKhoan->MaGiaoDien = "1";
+            $TaiKhoan->AnhDaiDien = "";
+            $TaiKhoan->AnhBia = "";
             $TaiKhoan->save();
         // }
 
@@ -53,6 +55,8 @@ class UserSeeder extends Seeder
             $TaiKhoan1->TrangThai = "1";
             $TaiKhoan1->NguoiTao = "";
             $TaiKhoan1->MaGiaoDien = "1";
+            $TaiKhoan1->AnhDaiDien = "";
+            $TaiKhoan1->AnhBia = "";
             $TaiKhoan1->save();
 
             $TaiKhoan2 =  new User();
@@ -71,6 +75,8 @@ class UserSeeder extends Seeder
             $TaiKhoan2->TrangThai = "1";
             $TaiKhoan2->NguoiTao = "";
             $TaiKhoan2->MaGiaoDien = "1";
+            $TaiKhoan2->AnhDaiDien = "";
+            $TaiKhoan2->AnhBia = "";
             $TaiKhoan2->save();
 
     }
