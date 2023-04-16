@@ -9,7 +9,7 @@ class KhachHangController extends Controller
 {
     public function loadDSKhachHangView(){
         $khachhang = User::where('LoaiTaiKhoan','C')->get();
-        return view('he-thong.danh-muc.khach-hang.ds-khachhang');
+        return view('he-thong.danh-muc.khach-hang.ds-khachhang')->with('KhachHang',$khachhang);
     }
 
 

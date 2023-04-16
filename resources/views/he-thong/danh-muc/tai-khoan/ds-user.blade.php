@@ -7,11 +7,11 @@
 @section('main-content')
 
 <div class="breadcrumb">
-    <h1>Danh sách tài khoản</h1>
-    {{-- <ul>
-        <li><a href="">Ứng dụng</a></li>
-        <li>Liên hệ</li>
-    </ul> --}}
+    <h1>Danh sách </h1>
+    <ul>
+        <li><a href="">Tài Khoản</a></li>
+        {{-- <li>Liên hệ</li> --}}
+    </ul>
 </div>
 <div class="separator-breadcrumb border-top"></div>
 
@@ -107,11 +107,14 @@
                                             <th>Tên</th>
                                             <th>Email</th>
                                             <th>Số điện thoại</th>
-                                            <th>Vai trò</th>
                                             <th>Năm sinh</th>
                                             <th>Ngày tham gia</th>
-                                            <th>Loại tài khoản</th>
-                                            <th>Chỉnh sửa</th>
+                                            <th>Loại Tài Khoản</th>
+                                            <th>Trạng Thái</th>
+                                            <th>Địa chỉ</th>
+                                            <th>Quận Huyện</th>
+                                            <th>Tỉnh Thành</th>
+                                            <th>Thao tác</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -127,10 +130,13 @@
                                             </td>
                                             <td>{{$data->email}}</td>
                                             <td>{{$data->SDT}}</td>
-                                            <td><a href="#" class="badge badge-primary m-2 p-2">Developer</a></td>
                                             <td>{{$data->NgaySinh}}</td>
                                             <td>{{$data->created_at}}</td>
                                             <td>{{$data->LoaiTaiKhoan}}</td>
+                                            <td>{{$data->TrangThai}}</td>
+                                            <td>{{$data->DiaChi}}</td>
+                                            <td>{{$data->QuanHuyen}}</td>
+                                            <td>{{$data->TinhThanh}}</td>
                                             <td>
                                                 <a href="" class="ul-link-action text-success"  data-toggle="tooltip" data-placement="top" title="Edit">
                                                     <i class="i-Edit"></i>
