@@ -133,9 +133,16 @@
                                 @foreach ( $User as $data )
                                 <tr>
                                     <td class="text-center">
-                                        <div class="ul-widget-app__profile-pic">
-                                            <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}" alt="">
-                                        </div>
+                                        @if($data->AnhDaiDien)
+                                            <div class="ul-widget-app__profile-pic">
+                                                <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/' . $data->AnhDaiDien) }}" alt="">
+                                            </div>
+                                        @else
+                                            <div class="ul-widget-app__profile-pic">
+                                                <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}" alt="">
+                                            </div>
+                                        @endif
+
                                     </td>
                                     <td>{{$data->HoTen}}</td>
                                     <td>{{$data->email}}</td>

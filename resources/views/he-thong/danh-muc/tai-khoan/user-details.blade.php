@@ -2,6 +2,7 @@
 @section('page-css')
 
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/dropzone.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/styles/vendor/cropper.min.css')}}">
 
 @endsection
 
@@ -22,7 +23,12 @@
     <div class="row">
         <div class="col-lg-4 col-xl-4">
             <div class="card">
-                <img class="d-block w-100" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide">
+                {{-- <img class="d-block w-100" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide"> --}}
+                @if ($user->AnhDaiDien)
+                <img class="d-block w-100" src="{{ asset('assets/images/faces/' . $user->AnhDaiDien) }}" alt="Ảnh đại diện">
+                @else
+                <img class="d-block w-100" src="{{ asset('assets/images/faces/1.jpg') }}" alt="Ảnh đại diện">
+                @endif
                 <div class="card-body">
                     <div class="ul-contact-detail__info">
                         <div class="row">
@@ -254,21 +260,25 @@
                                 <div class="card text-left">
 
                                     <div class="card-body">
-                                        <button id="button-select" class="btn btn-primary mb-1">Chọn ảnh</button>
-                                        <form method="POST" enctype="multipart/form-data" class="dropzone dropzone-area" id="singleFileUpload">
+                                        <form method="POST" action="{{ route('capnhat-AnhDaiDien', ['id' => $user->id]) }}" enctype="multipart/form-data">
                                             @csrf
                                             {{ csrf_field() }}
-                                            {{method_field('PATCH')}}
-                                            <div class="fallback">
-                                                <input name="file" type="file">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <button type="submit" style="width: 75px; border-color: #10163a;" class="btn btn-primary" id="inputGroupFileAddon01">Tải lên</button>
+                                                </div>
+                                                <div class="custom-file">
+                                                    <input onchange="loadFile(event)" type="file" class="custom-file-input" name="AnhDaiDien" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept="image/*">
+                                                    <label class="custom-file-label" for="inputGroupFile01"><span id="ChooseFile">Chọn ảnh</span></label>
+                                                </div>
+                                                @if ($user->AnhDaiDien)
+                                                    <img id="output" src="{{ asset('assets/images/faces/' . $user->AnhDaiDien) }}" style="padding: 10px 70px 0px 75px;" class="d-block w-100 -top-3" alt="First slide">
+                                                @else
+                                                    <img id="output" src="{{ asset('assets/images/faces/1.jpg') }}" style="padding: 10px 70px 0px 75px;" class="d-block w-100 -top-3" alt="First slide">
+                                                @endif
+                                                {{-- <img id="output" src="{{ asset('assets/images/faces/1.jpg') }}" style="padding: 10px 70px 0px 75px;" class="d-block w-100 -top-3" alt="First slide"> --}}
                                             </div>
-                                            <div class="dz-message">Kéo thả ảnh hoặc click vào đây để chọn ảnh</div>
                                         </form>
-                                        <div class="form-group row">
-                                            <div class="col-md-10 pt-4">
-                                                <button id="submitzone" type="submit" form="singleFileUpload" class="btn btn-primary pr-2 pl-2">Thay đổi</button>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -290,5 +300,15 @@
 <script src="{{asset('assets/js/dropzone.script.js')}}"></script> --}}
 <script src="{{asset('assets/js/dropzone/dropzone.min.js')}}"></script>
 <script src="{{asset('assets/js/dropzone/dropzone.script.js')}}"></script>
+<script src="{{asset('assets/js/vendor/cropper.min.js')}}"></script>
+<script src="{{asset('assets/js/cropper.script.js')}}"></script>
+<script>
+    var loadFile = function(event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+        $("#ChooseFile").text(event.target.files[0].name);
 
+    };
+
+</script>
 @endsection

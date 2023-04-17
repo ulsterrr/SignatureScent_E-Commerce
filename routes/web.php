@@ -102,8 +102,8 @@ Route::post('admin/them-tai-khoan',[TaiKhoanController::class,'themTaiKhoan'])->
 Route::get('admin/quan-ly-tai-khoan',[TaiKhoanController::class,'loadDSTaiKhoanView'])->name('quanlyTKView');
 Route::get('admin/them-moi-tai-khoan',[TaiKhoanController::class,'themTaiKhoanView'])->name('themTKView');
 Route::get('admin/chi-tiet-tai-khoan/{id}',[TaiKhoanController::class,'chiTietTaiKhoanView'])->name('chitietTK');
-Route::get('admin/cap-nhat-tai-khoan/{id}',[TaiKhoanController::class,'capNhatTaiKhoanView'])
-->name('capnhatTK-view');
+Route::get('admin/cap-nhat-tai-khoan/{id}',[TaiKhoanController::class,'capNhatTaiKhoanView'])->name('capnhatTK-view');
+Route::post('admin/cap-nhat-tai-khoan/doi-anh-dai-dien/{id}', [TaiKhoanController::class, 'doiAnhDaiDien'])->name('capnhat-AnhDaiDien');
 
 //View Quản Lý Nhân Viên
 Route::get('admin/quan-ly-nhan-vien',[NhanVienController::class,'loadDSNhanVienView'])->name('quanly-thongtin-nv-view');
