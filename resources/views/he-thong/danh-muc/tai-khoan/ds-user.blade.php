@@ -210,6 +210,11 @@
 <script src="{{ asset('assets/js/tooltip.script.js') }}"></script>
 
 <script src="{{asset('assets/js/vendor/sweetalert2.min.js')}}"></script>
+
+<script>
+    $('#ul-contact-list').DataTable();
+</script>
+
 <script>
     $(document).ready(function() {
         $(function() {
@@ -260,8 +265,6 @@
     }
 
 </script>
-<script>
-    $('#ul-contact-list').DataTable();
 
-</script>
+
 @endsection
