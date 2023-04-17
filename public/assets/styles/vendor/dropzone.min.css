@@ -514,3 +514,10 @@
     border-right: 6px solid transparent;
     border-bottom: 6px solid #be2626
 }
+
+.dark-theme .dropzone {
+    min-height: 150px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background: #262c49 !important;
+    padding: 20px 20px;
+}

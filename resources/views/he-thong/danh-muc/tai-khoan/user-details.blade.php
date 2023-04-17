@@ -1,6 +1,7 @@
 @extends('layouts.admin.master')
 @section('page-css')
 
+<link rel="stylesheet" href="{{asset('assets/styles/vendor/dropzone.min.css')}}">
 
 @endsection
 
@@ -98,6 +99,7 @@
                             <a class="nav-item nav-link active show" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Trang chủ</a>
                             <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Giới thiệu</a>
                             <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Đổi mật khẩu</a>
+                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-avt" role="tab" aria-controls="nav-avt" aria-selected="false">Thay đổi ảnh</a>
                         </div>
                     </nav>
                     <div class="tab-content ul-tab__content" id="nav-tabContent">
@@ -247,9 +249,34 @@
                                 </div>
                             </form>
                         </div>
+                        <div class="tab-pane fade" id="nav-avt" role="tabpanel" aria-labelledby="nav-avt-tab">
+                            <div class="col-md-12 mb-4">
+                                <div class="card text-left">
+
+                                    <div class="card-body">
+                                        <button id="button-select" class="btn btn-primary mb-1">Chọn ảnh</button>
+                                        <form method="POST" enctype="multipart/form-data" class="dropzone dropzone-area" id="singleFileUpload">
+                                            @csrf
+                                            {{ csrf_field() }}
+                                            {{method_field('PATCH')}}
+                                            <div class="fallback">
+                                                <input name="file" type="file">
+                                            </div>
+                                            <div class="dz-message">Kéo thả ảnh hoặc click vào đây để chọn ảnh</div>
+                                        </form>
+                                        <div class="form-group row">
+                                            <div class="col-md-10 pt-4">
+                                                <button id="submitzone" type="submit" form="singleFileUpload" class="btn btn-primary pr-2 pl-2">Thay đổi</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <!-- end::basic-tab -->
         </div>
     </div>
@@ -259,7 +286,9 @@
 @endsection
 
 @section('page-js')
-
-
+{{-- <script src="{{asset('assets/js/vendor/dropzone.min.js')}}"></script>
+<script src="{{asset('assets/js/dropzone.script.js')}}"></script> --}}
+<script src="{{asset('assets/js/dropzone/dropzone.min.js')}}"></script>
+<script src="{{asset('assets/js/dropzone/dropzone.script.js')}}"></script>
 
 @endsection
