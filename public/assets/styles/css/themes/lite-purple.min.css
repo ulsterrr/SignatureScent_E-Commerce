@@ -34500,3 +34500,13 @@ blockquote {
     background-color: #2d2d2d;
     border-color: #dee2e6 #dee2e6 #fff;
 }
+
+.dark-theme .custom-file-label {
+    left: 0;
+    z-index: 1;
+    height: calc(1.9695rem + 2px);
+    background-color: #26222a;
+    border: 1px solid #595062;
+    border-radius: .25rem;
+    color: azure;
+}

@@ -98,4 +98,19 @@ class TaiKhoanController extends Controller
         $user->delete();
         return redirect()->route("quanlyTKView");
     }
+
+    public function doiAnhDaiDien($id, Request $request)
+    {
+
+        $user = User::findOrFail($id);
+
+        $avatarName = explode('@', $user->email)[0] . '_' . $user->id . '_avatar_' . time() . '.' . $request->file('AnhDaiDien')->getClientOriginalExtension();
+
+        $request->file('AnhDaiDien')->storeAs('assets/images/faces', $avatarName);
+
+        $user->AnhDaiDien = $avatarName;
+        $user->save();
+
+        return back()->with('success', 'Đổi hình đại diện thành công.');
+    }
 }
