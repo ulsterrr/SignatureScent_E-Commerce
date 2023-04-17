@@ -1,6 +1,7 @@
 @extends('layouts.admin.master')
 @section('page-css')
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/datatables.min.css') }}">
+<link rel="stylesheet" href="{{asset('assets/styles/vendor/sweetalert2.min.css')}}">
 
 @endsection
 
@@ -201,7 +202,61 @@
 <!-- page script -->
 <script src="{{ asset('assets/js/tooltip.script.js') }}"></script>
 
+<script src="{{asset('assets/js/vendor/sweetalert2.min.js')}}"></script>
+
 <script>
 $('#ul-contact-list').DataTable();
+</script>
+
+
+<script>
+    $(document).ready(function() {
+        $(function() {
+            var users = {!!json_encode($NhanVien) !!};
+            //khởi tạo các popup delete theo id sẵn mà không cần click 2 lần
+            users.forEach(element => {
+                getPopupDelete(element);
+            });
+        });
+    });
+
+</script>
+<script>
+    function getPopupDelete(data) {
+        var nameAlert = "#alert-confirm-" + data['id'].toString();
+        $(nameAlert).on('click', function() {
+            swal({
+                title: 'Bạn có chắc muốn xoá?'
+                , text: "Sau khi xác nhận " + data['email'] + " sẽ bị xoá khỏi hệ thống!"
+                , type: 'warning'
+                , showCancelButton: true
+                , confirmButtonText: 'Xác nhận xoá!'
+                , cancelButtonText: 'Huỷ thao tác!'
+                , confirmButtonClass: 'btn btn-success mr-5'
+                , cancelButtonClass: 'btn btn-danger'
+                , buttonsStyling: true
+            }).then(function() {
+                //replace route xoá vào button confirm
+                window.location.replace("{{ route('xoaTK-del', ['id' => $data->id]) }}");
+                swal(
+                    'Đã xoá!'
+                    , 'Dữ liệu đã được xoá thành công.'
+                    , 'success'
+                ).then(() => {
+                    // Load lại trang sau khi ấn OK trong popup alert
+                    window.location.replace("{{ route('quanlyTKView') }}");
+                });
+            }, function(dismiss) {
+                if (dismiss === 'cancel') {
+                    swal(
+                        'Huỷ thao tác'
+                        , 'Bạn vẫn có thể thực hiện lại thao tác này :)'
+                        , 'error'
+                    )
+                }
+            })
+        });
+    }
+
 </script>
 @endsection
