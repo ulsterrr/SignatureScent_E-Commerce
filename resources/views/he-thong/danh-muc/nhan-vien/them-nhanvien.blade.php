@@ -20,7 +20,8 @@
         <p></p>
         <div class="card mb-4">
             <div class="card-body">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" novalidate method="POST" action="{{route('them-moi-nv-add')}}">
+                    @csrf
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationCustomUsername" class="required">Tên tài khoản (Email)*</label>
@@ -73,28 +74,28 @@
                         <div class="col-md-12"></div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Họ và Tên</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="Nguyễn Văn A" required>
+                            <input type="text" class="form-control" id="validationCustom01" placeholder="Nguyễn Văn A" required name="HoTen">
                             <div class="invalid-feedback">
                                 Họ và Tên không được để trống!
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom02">Địa chỉ</label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="123 Đường ABC, phường ..." required>
+                            <input type="text" class="form-control" id="validationCustom02" placeholder="123 Đường ABC, phường ..." required name="DiaChi">
                             <div class="invalid-feedback">
                                 Địa chỉ không được để trống!
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom03">Quận/Huyện</label>
-                            <input type="text" class="form-control" id="validationCustom03" placeholder="Quận Cam" required>
+                            <input type="text" class="form-control" id="validationCustom03" placeholder="Quận Cam" required name="QuanHuyen">
                             <div class="invalid-feedback">
                                 Quận/Huyện không được để trống!
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom05">Tỉnh/Thành phố</label>
-                            <input type="text" class="form-control" id="validationCustom05" placeholder="TP HCM" required>
+                            <input type="text" class="form-control" id="validationCustom05" placeholder="TP HCM" required name="TinhThanh">
                             <div class="invalid-feedback">
                                 Tỉnh/Thành phố không được để trống!
                             </div>
@@ -104,23 +105,23 @@
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-2">
                             <label for="sel">Giới tính*:</label>
-                            <select class="form-control" id="sel">
-                              <option>Nam</option>
-                              <option>Nữ</option>
-                              <option>Khác</option>
+                            <select class="form-control" id="sel" name="GioiTinh">
+                              <option value="Nam">Nam</option>
+                              <option value="Nữ">Nữ</option>
+                              <option value="Khác">Khác</option>
                             </select>
                         </div>
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-2">
                             <label for="sel1">Loại tài khoản*:</label>
-                            <select class="form-control" id="sel1">
+                            <select class="form-control" id="sel1" name="LoaiTaiKhoan">
                               <option value="E">Nhân viên</option>
                             </select>
                         </div>
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-2">
                             <label for="sel2">Trạng thái*:</label>
-                            <select class="form-control" id="sel2">
+                            <select class="form-control" id="sel2" name="TrangThai">
                                 <option  value="1">Hoạt động</option>
                               <option  value="0">Bị khoá</option>
                               <option value="">NULL</option>

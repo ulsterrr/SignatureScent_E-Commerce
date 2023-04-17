@@ -20,7 +20,8 @@
         <p></p>
         <div class="card mb-4">
             <div class="card-body">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" novalidate method="POST" action="{{route('capnhatTK-upd',['id'=>$user->id])}}">
+                    @csrf
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationCustomUsername" class="required">Tên tài khoản (Email)*</label>
@@ -73,28 +74,28 @@
                         <div class="col-md-12"></div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Họ và Tên</label>
-                            <input type="text" class="form-control" id="validationCustom01" value="{{ $user->HoTen }}" placeholder="Nguyễn Văn A" required>
+                            <input type="text" class="form-control" id="validationCustom01" value="{{ $user->HoTen }}" name="HoTen" placeholder="Nguyễn Văn A" required>
                             <div class="invalid-feedback">
                                 Họ và Tên không được để trống!
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom02">Địa chỉ</label>
-                            <input type="text" class="form-control" id="validationCustom02" value="{{ $user->DiaChi }}" placeholder="123 Đường ABC, phường ..." required>
+                            <input type="text" class="form-control" id="validationCustom02" value="{{ $user->DiaChi }}" name="DiaChi"  placeholder="123 Đường ABC, phường ..." required>
                             <div class="invalid-feedback">
                                 Địa chỉ không được để trống!
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom03">Quận/Huyện</label>
-                            <input type="text" class="form-control" id="validationCustom03" value="{{ $user->QuanHuyen }}" placeholder="Quận Cam" required>
+                            <input type="text" class="form-control" id="validationCustom03" value="{{ $user->QuanHuyen }}" name="QuanHuyen" placeholder="Quận Cam" required>
                             <div class="invalid-feedback">
                                 Quận/Huyện không được để trống!
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom05">Tỉnh/Thành phố</label>
-                            <input type="text" class="form-control" id="validationCustom05" value="{{ $user->TinhThanh }}" placeholder="TP HCM" required>
+                            <input type="text" class="form-control" id="validationCustom05" value="{{ $user->TinhThanh }}" name="TinhThanh" placeholder="TP HCM" required>
                             <div class="invalid-feedback">
                                 Tỉnh/Thành phố không được để trống!
                             </div>
@@ -104,7 +105,7 @@
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-2">
                             <label for="sel">Giới tính*:</label>
-                            <select class="form-control" id="sel">
+                            <select class="form-control" id="sel" name="GioiTinh">
                                 <option value="M">Nam</option>
                                 <option value="F">Nữ</option>
                                 <option value="U">Khác</option>
@@ -113,7 +114,7 @@
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-2">
                             <label for="sel1">Loại tài khoản*:</label>
-                            <select class="form-control" id="sel1">
+                            <select class="form-control" id="sel1" name="LoaiTaiKhoan">
                                 <option value="A">Admin</option>
                                 <option value="M">Quản lý</option>
                                 <option value="E">Nhân viên</option>
@@ -123,7 +124,7 @@
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-2">
                             <label for="sel2">Trạng thái*:</label>
-                            <select class="form-control" id="sel2">
+                            <select class="form-control" id="sel2" name="TrangThai">
                                 <option value="1">Hoạt động</option>
                                 <option value="0">Bị khoá</option>
                                 <option value="">NULL</option>

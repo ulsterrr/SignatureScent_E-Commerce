@@ -41,7 +41,9 @@ class TaiKhoanController extends Controller
         $newuser->SDT = $request->SDT;
         $newuser->QuanHuyen = $request->QuanHuyen;
         $newuser->TinhThanh = $request->TinhThanh;
-        $newuser->ChiNhanh = $request->ChiNhanh;
+        $newuser->MaGiaoDien = "1";
+        $newuser->ChiNhanh = "";
+
 
         //convert chuỗi ngày sang kiểu dữ liệu ngày lưu vào db
         $date_time = Carbon::createFromFormat('d/m/Y', $request->NgaySinh)->toDateTimeString();
@@ -49,7 +51,7 @@ class TaiKhoanController extends Controller
         $newuser->NgaySinh = $date_time;
 
         $newuser->TrangThai = $request->TrangThai;
-        $newuser->NguoiTao = $request->NguoiTao;
+        $newuser->NguoiTao = "";
         $newuser->save();
         session()->flash('message','Thêm tài khoản thành công!');
 
@@ -64,31 +66,27 @@ class TaiKhoanController extends Controller
     }
 
     public function capNhatTaiKhoan(Request $request,$id){
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,'.$id,
-            'password' => 'nullable|string|min:8|confirmed',
-            'LoaiTaiKhoan' => 'required',
-            'HoTen' => 'nullable|string|max:255',
-            'GioiTinh' => 'nullable|integer',
-            'DiaChi' => 'nullable|string|max:255',
-            'SDT' => 'nullable|string|max:20',
-            'QuanHuyen' => 'nullable|string|max:255',
-            'TinhThanh' => 'nullable|string|max:255',
-            'ChiNhanh' => 'nullable|string|max:255',
-            'NgaySinh' => 'nullable|date',
-            'TrangThai' => 'required|integer',
-            'MaGiaoDien' => 'nullable|string|max:255',
-        ]);
-
         $user = User::findOrFail($id);
-        $user->fill($validatedData);
-
-        if ($request->password) {
-            $user->password = Hash::make($request->password);
-        }
+        $user->email = $request->email;
+        // $user->password = Hash::make($request->password);
+        $user->LoaiTaiKhoan = $request->LoaiTaiKhoan;
+        $user->HoTen = $request->HoTen;
+        $user->GioiTinh = $request->GioiTinh;
+        $user->DiaChi = $request->DiaChi;
+        $user->SDT = $request->SDT;
+        $user->QuanHuyen = $request->QuanHuyen;
+        $user->TinhThanh = $request->TinhThanh;
+        $user->MaGiaoDien = "1";
+        $user->ChiNhanh = "";
+        $date_time = Carbon::createFromFormat('d/m/Y', $request->NgaySinh)->toDateTimeString();
+        $user->NgaySinh = $date_time;
+        $user->TrangThai = $request->TrangThai;
+        $user->NguoiTao = "";
+        $user->save();
+        session()->flash('message','Cập nhật tài khoản thành công!');
 
         $user->save();
+        return redirect()->route("quanlyTKView");
 
     }
     public function capNhatTaiKhoanView($id){
