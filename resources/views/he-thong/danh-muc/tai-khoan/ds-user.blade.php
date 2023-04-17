@@ -19,6 +19,16 @@
 
 <section class="contact-list">
     <div class="row">
+        <div class="col-md-12">
+            @if (session('message'))
+                <div class="alert alert-card alert-success" role="alert">
+                    <strong class="text-capitalize">Success!</strong> {{ session('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
         <div class="col-md-12 mb-4">
             <div class="card text-left">
                 <div class="card-header text-right bg-transparent">
@@ -130,8 +140,8 @@
                                     <td>{{$data->HoTen}}</td>
                                     <td>{{$data->email}}</td>
                                     <td>{{$data->SDT}}</td>
-                                    <td>{{$data->NgaySinh}}</td>
-                                    <td>{{$data->created_at}}</td>
+                                    <td>{{ date('d/m/Y H:i:s', strtotime($data->NgaySinh)) }}</td>
+                                    <td>{{ date('d/m/Y H:i:s', strtotime($data->created_at)) }}</td>
                                     <td>
                                         @if($data->LoaiTaiKhoan=='A')
                                         <a href="#" class="badge badge-danger p-2">Admin</a>
@@ -157,7 +167,7 @@
                                     <td>{{$data->QuanHuyen}}</td>
                                     <td>{{$data->TinhThanh}}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('capnhatTK-upd', ['id' => $data->id]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
+                                        <a href="{{ route('capnhatTK-view', ['id' => $data->id]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
                                             <i class="i-Edit"></i>
                                         </a>
                                         <a href="{{ route('chitietTK', ['id' => $data->id]) }}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
