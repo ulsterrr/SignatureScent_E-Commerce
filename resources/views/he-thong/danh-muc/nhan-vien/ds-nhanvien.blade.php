@@ -18,6 +18,16 @@
 
 <section class="contact-list">
     <div class="row">
+        <div class="col-md-12">
+            @if (session('message'))
+                <div class="alert alert-card alert-success" role="alert">
+                    <strong class="text-capitalize">Success!</strong> {{ session('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
             <div class="col-md-12 mb-4">
                     <div class="card text-left">
                         <div class="card-header text-right bg-transparent">
@@ -157,10 +167,10 @@
                                             <td>{{$data->QuanHuyen}}</td>
                                             <td>{{$data->TinhThanh}}</td>
                                             <td class="text-center">
-                                                <a href="{{ route('capnhatTK-upd', ['id' => $data->id]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
+                                                <a href="{{ route('capnhatTKNV-view', ['id' => $data->id]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
                                                     <i class="i-Edit"></i>
                                                 </a>
-                                                <a href="{{ route('chitietTK', ['id' => $data->id]) }}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                                                <a href="{{ route('chi-tiet-nv-view', ['id' => $data->id]) }}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
                                                     <i class="i-Eye-Visible"></i>
                                                 </a>
                                                 <a id="alert-confirm-{{ $data->id }}" onclick="getPopupDelete({{ $data }})" class="ul-link-action text-danger mr-1" data-toggle="tooltip" data-placement="top" title="Xoá tài khoản này!!!">

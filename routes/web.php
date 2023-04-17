@@ -110,6 +110,8 @@ Route::get('admin/quan-ly-nhan-vien',[NhanVienController::class,'loadDSNhanVienV
 Route::get('admin/them-moi-nhan-vien',[NhanVienController::class,'themNhanVienView'])->name('them-thongtin-nv-view');
 Route::get('admin/chi-tiet-nhan-vien/{id}',[NhanVienController::class,'chiTietNhanVienView'])
 ->name('chi-tiet-nv-view');
+Route::get('admin/cap-nhat-nhan-vien/{id}',[NhanVienController::class,'capNhatThongTinNVienView'])
+->name('capnhatTKNV-view');
 
 //CRUD Quản Lý Nhân Viên
 Route::post('admin/cap-nhat-thong-tin-nhan-vien/{id}',[NhanVienController::class,'capNhatThongTinNVien'])
