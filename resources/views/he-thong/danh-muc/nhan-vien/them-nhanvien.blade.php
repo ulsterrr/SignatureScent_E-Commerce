@@ -114,16 +114,16 @@
                         <div class="form-group col-md-2">
                             <label for="sel1">Loại tài khoản*:</label>
                             <select class="form-control" id="sel1">
-                              <option>Nhân viên</option>
+                              <option value="E">Nhân viên</option>
                             </select>
                         </div>
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-2">
                             <label for="sel2">Trạng thái*:</label>
                             <select class="form-control" id="sel2">
-                                <option>Hoạt động</option>
-                              <option>Bị khoá</option>
-                              <option>NULL</option>
+                                <option  value="1">Hoạt động</option>
+                              <option  value="0">Bị khoá</option>
+                              <option value="">NULL</option>
                             </select>
                         </div>
                         <div class="col-md-12 mt-3"></div>
