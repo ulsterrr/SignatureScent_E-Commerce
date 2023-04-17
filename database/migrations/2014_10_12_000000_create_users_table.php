@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -26,12 +26,12 @@ return new class extends Migration
             $table->string("SDT")->nullable();
             $table->string("QuanHuyen")->nullable();
             $table->string("TinhThanh")->nullable();
-            $table->string("ChiNhanh");
-            $table->date("NgaySinh")->nullable();
+            $table->string("ChiNhanh")->nullable();
+            $table->dateTime("NgaySinh")->nullable();
             $table->integer("TrangThai")->nullable();
-            $table->string("NguoiTao");
+            $table->string("NguoiTao")->nullable();
             $table->softDeletes();
-            $table->string("MaGiaoDien");
+            $table->string("MaGiaoDien")->nullable();
             $table->string("AnhDaiDien")->nullable();
             $table->string("AnhBia")->nullable();
             $table->rememberToken();

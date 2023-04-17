@@ -19,8 +19,19 @@
     <div class="col-md-12">
         <p></p>
         <div class="card mb-4">
+            <div class="row">
+                @if (session('message'))
+                    <div class="alert alert-card alert-success" role="alert">
+                        <strong class="text-capitalize">Success!</strong> {{ session('message') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+            </div>
             <div class="card-body">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" action="{{ route('themTK-add') }}" method="POST">
+                    @csrf
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationCustomUsername" class="required">Tên tài khoản (Email)*</label>
@@ -41,7 +52,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="i-Password-Field"></i></span>
                                 </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" name="password" placeholder="********" aria-describedby="inputGroupPrepend" required>
+                                <input type="password" class="form-control" id="validationCustomUsername" name="password" placeholder="********" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
                                     Mật khẩu không được để trống!
                                 </div>
@@ -105,9 +116,9 @@
                         <div class="form-group col-md-2">
                             <label for="sel">Giới tính*:</label>
                             <select class="form-control" name="GioiTinh" id="sel">
-                              <option value="Nam">Nam</option>
-                              <option value="Nữ">Nữ</option>
-                              <option value="Khác">Khác</option>
+                              <option value="M">Nam</option>
+                              <option value="F">Nữ</option>
+                              <option value="U">Khác</option>
                             </select>
                         </div>
                         <div class="col-md-12"></div>
@@ -131,7 +142,7 @@
                         </div>
                         <div class="col-md-12 mt-3"></div>
                     </div>
-                    <button class="btn btn-primary" type="submit" onclick="{{ route('themTK-add') }}">Thêm mới</button>
+                    <button class="btn btn-primary" type="submit">Thêm mới</button>
                 </form>
             </div>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 class TaiKhoanController extends Controller
@@ -17,8 +18,8 @@ class TaiKhoanController extends Controller
     }
     public function themTaiKhoan(Request $request){
 
+        // dd($request);
         $request->validate([
-            'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required',
             'LoaiTaiKhoan' => 'required',
@@ -26,32 +27,34 @@ class TaiKhoanController extends Controller
             'GioiTinh' => 'required',
             'DiaChi' => 'required',
             'SDT' => 'required',
-            'QuanHuyen' => 'required',
-            'TinhThanh' => 'required',
-            'ChiNhanh' => 'required',
             'NgaySinh' => 'required',
             'TrangThai' => 'required',
-            'NguoiTao' => 'required',
-            'MaGiaoDien' => 'required',
         ]);
-        $user =  new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->LoaiTaiKhoan = $request->LoaiTaiKhoan;
-        $user->HoTen = $request->HoTen;
-        $user->GioiTinh = $request->GioiTinh;
-        $user->DiaChi = $request->DiaChi;
-        $user->SDT = $request->SDT;
-        $user->QuanHuyen = $request->QuanHuyen;
-        $user->TinhThanh = $request->TinhThanh;
-        $user->ChiNhanh = $request->ChiNhanh;
-        $user->NgaySinh = $request->NgaySinh;
-        $user->TrangThai = $request->TrangThai;
-        $user->NguoiTao = $request->NguoiTao;
-        $user->MaGiaoDien = $request->MaGiaoDien;
-        $user->save();
-        return view('he-thong.danh-muc.tai-khoan.them-user');
+        $newuser =  new User();
+        $newuser->name = $request->HoTen;
+        $newuser->email = $request->email;
+        $newuser->password = Hash::make($request->password);
+        $newuser->LoaiTaiKhoan = $request->LoaiTaiKhoan;
+        $newuser->HoTen = $request->HoTen;
+        $newuser->GioiTinh = $request->GioiTinh;
+        $newuser->DiaChi = $request->DiaChi;
+        $newuser->SDT = $request->SDT;
+        $newuser->QuanHuyen = $request->QuanHuyen;
+        $newuser->TinhThanh = $request->TinhThanh;
+        $newuser->ChiNhanh = $request->ChiNhanh;
+
+        //convert chuỗi ngày sang kiểu dữ liệu ngày lưu vào db
+        $date_time = Carbon::createFromFormat('d/m/Y', $request->NgaySinh)->toDateTimeString();
+
+        $newuser->NgaySinh = $date_time;
+
+        $newuser->TrangThai = $request->TrangThai;
+        $newuser->NguoiTao = $request->NguoiTao;
+        $newuser->save();
+        session()->flash('message','Thêm tài khoản thành công!');
+
+        return redirect()->route('quanlyTKView');
+
 
     }
     public function chiTietTaiKhoanView($id){
@@ -87,6 +90,10 @@ class TaiKhoanController extends Controller
 
         $user->save();
 
+    }
+    public function capNhatTaiKhoanView($id){
+        $user = User::find($id);
+        return view('he-thong.danh-muc.tai-khoan.capnhat-user',compact('user'));
     }
     public function xoaTaiKhoan($id){
         $user = User::find($id);
