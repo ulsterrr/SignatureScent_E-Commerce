@@ -47,7 +47,7 @@ class NhanVienController extends Controller
 
 
 
-        $nhanvien->save();
+
         return redirect()->route("quanly-thongtin-nv-view");
     }
     public function themNhanVien(Request $request){

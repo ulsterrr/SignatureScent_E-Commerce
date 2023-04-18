@@ -20,12 +20,13 @@
         <p></p>
         <div class="card mb-4">
             <div class="card-body">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" method="POST" action="{{route('themmoiCN-add')}}" novalidate>
+                    @csrf
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationCustomUsername" class="required">Mã chi nhánh *</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="validationCustomUsername" name="email" placeholder="CN-Q6" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername" name="MaChiNhanh" placeholder="CN-Q6" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
                                     Mã chi nhánh không được để trống!
                                 </div>
@@ -35,7 +36,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="validationCustomUsername" class="required">Tên chi nhánh *</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="validationCustomUsername" name="password" placeholder="Quận 6, Bình Chánh, etc, ..." aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername" name="TenChiNhanh" placeholder="Quận 6, Bình Chánh, etc, ..." aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
                                     Tên chi nhánh không được để trống!
                                 </div>
@@ -81,7 +82,7 @@
                         <div class="col-md-4 mb-3">
                             <label for="validationCustomUsername" class="required">Số Momo</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="validationCustomUsername" name="Momo" placeholder="0327772310" aria-describedby="inputGroupPrepend">
+                                <input type="text" class="form-control" id="validationCustomUsername" name="MoMo" placeholder="0327772310" aria-describedby="inputGroupPrepend">
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
@@ -93,21 +94,21 @@
                         <div class="col-md-12"></div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom02">Địa chỉ</label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="123 Đường ABC, phường ..." required>
+                            <input type="text" class="form-control" id="validationCustom02" name="DiaChi" placeholder="123 Đường ABC, phường ..." required>
                             <div class="invalid-feedback">
                                 Địa chỉ không được để trống!
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom03">Quận/Huyện</label>
-                            <input type="text" class="form-control" id="validationCustom03" placeholder="Quận Cam" required>
+                            <input type="text" class="form-control" id="validationCustom03" name="QuanHuyen" placeholder="Quận Cam" required>
                             <div class="invalid-feedback">
                                 Quận/Huyện không được để trống!
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom05">Tỉnh/Thành phố</label>
-                            <input type="text" class="form-control" id="validationCustom05" placeholder="TP HCM" required>
+                            <input type="text" class="form-control" id="validationCustom05" name="TinhThanh" placeholder="TP HCM" required>
                             <div class="invalid-feedback">
                                 Tỉnh/Thành phố không được để trống!
                             </div>
@@ -117,11 +118,7 @@
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-3">
                             <label for="sel">Người quản lý *:</label>
-                            <select class="form-control" id="sel">
-                              <option>A</option>
-                              <option>B</option>
-                              <option>C</option>
-                            </select>
+                            <input type="text" class="form-control" id="validationCustom05" name="NguoiQuanLy" placeholder="Người Quản Lý" required>
                         </div>
                         <div class="col-md-12 mt-3"></div>
                     </div>

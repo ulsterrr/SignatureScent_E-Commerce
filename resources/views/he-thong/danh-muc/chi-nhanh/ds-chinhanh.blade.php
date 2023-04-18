@@ -18,6 +18,16 @@
 
 <section class="contact-list">
     <div class="row">
+        <div class="row">
+            @if (session('message'))
+                <div class="alert alert-card alert-success" role="alert">
+                    <strong class="text-capitalize">Success!</strong> {{ session('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+        </div>
             <div class="col-md-12 mb-4">
                     <div class="card text-left">
                         <div class="card-header text-right bg-transparent">
@@ -30,6 +40,7 @@
                                 <table id="ul-contact-list" class="display table " style="width:100%">
                                     <thead>
                                         <tr>
+                                            <th>Avatar</th>
                                             <th>Mã chi nhánh</th>
                                             <th>Tên chi nhánh</th>
                                             <th>Số điện thoại 1</th>
@@ -67,15 +78,15 @@
                                             <td>{{$data->NguoiQuanLy}}</td>
 
                                             <td class="text-center">
-                                                <a href="{{ route('capnhatTK-upd', ['id' => $data->id]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
+                                                <a href="{{ route('capnhatCN-upd', ['MaChiNhanh' => $data->MaChiNhanh]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
                                                     <i class="i-Edit"></i>
                                                 </a>
-                                                <a href="{{ route('chitietTK', ['id' => $data->id]) }}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                                                {{-- <a href="{{ route('', ['id' => $data->id]) }}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
                                                     <i class="i-Eye-Visible"></i>
                                                 </a>
                                                 <a id="alert-confirm-{{ $data->id }}" onclick="getPopupDelete({{ $data }})" class="ul-link-action text-danger mr-1" data-toggle="tooltip" data-placement="top" title="Xoá tài khoản này!!!">
                                                     <i class="i-Eraser-2"></i>
-                                                </a>
+                                                </a> --}}
                                             </td>
                                         </tr>
                                         @endforeach
