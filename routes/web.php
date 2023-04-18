@@ -126,6 +126,8 @@ Route::post('admin/them-nhan-vien',[NhanVienController::class,'themNhanVien'])
 //CRUD Quản Lý Khách hàng và Chi Nhánh
 Route::post('admin/them-moi-khach-hang',[KhachHangController::class,'themKhachHang'])->name('themKH-add');
 Route::post('admin/them-moi-chi-nhanh',[ChiNhanhController::class,'themChiNhanh'])->name('themmoiCN-add');
+Route::post('admin/cap-nhat-chi-nhanh/{MaChiNhanh}',[ChiNhanhController::class,'capNhatChiNhanh'])
+->name('capnhatCN-upd');
 
 //View Quản Lý Khách Hàng và Chi Nhánh
 Route::get('admin/quan-ly-khach-hang',[KhachHangController::class,'loadDSKhachHangView'])->name('quanlyKH-view');
@@ -134,6 +136,8 @@ Route::get('admin/quan-ly-chi-nhanh',[ChiNhanhController::class,'loadDSChiNhanhV
 Route::get('admin/them-moi-chi-nhanh',[ChiNhanhController::class,'themChiNhanhView'])->name('themmoiCN-view');
 Route::get('admin/chi-tiet-chi-nhanh/{id}',[ChiNhanhController::class,'chiTietChiNhanhView'])->name('chitietCN-view');
 Route::get('admin/quan-ly-feedback',[DanhMucController::class,'loadDSFeedback'])->name('feedback');
+Route::get('admin/cap-nhat-chi-nhanh/{MaChiNhanh}',[ChiNhanhController::class,'capNhatChiNhanhView'])
+->name('capnhatCN-upd');
 
 //Quản lý kho hàng
 

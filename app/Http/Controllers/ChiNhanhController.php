@@ -15,7 +15,7 @@ class ChiNhanhController extends Controller
     }
     public function themChiNhanh(Request $req){
         $chinhanh = new ChiNhanh();
-
+        $chinhanh->MaChiNhanh = $req->MaChiNhanh;
         $chinhanh->TenChiNhanh = $req->TenChiNhanh;
         $chinhanh-> DiaChi = $req->DiaChi;
         $chinhanh->TinhThanh = $req->TinhThanh;
@@ -28,7 +28,7 @@ class ChiNhanhController extends Controller
         $chinhanh->MoMo = $req->MoMo;
         $chinhanh->NguoiQuanLy = $req->NguoiQuanLy;
         $chinhanh->save();
-        return view('he-thong.danh-muc.chi-nhanh.them-chinhanh');
+        return redirect()->route('quanlyCN-view');
     }
     public function themChiNhanhView(){
 
@@ -40,5 +40,31 @@ class ChiNhanhController extends Controller
     public function chiTietChiNhanh($id){
         $chinhanh = ChiNhanh::find($id);
         return view('he-thong.danh-muc.chi-nhanh.chinhanh-details');
+    }
+    public function capNhatChiNhanhView($MaChiNhanh){
+        $chinhanh = ChiNhanh::where('MaChiNhanh',$MaChiNhanh)->first();
+        return view('he-thong.danh-muc.chi-nhanh.capnhat-chinhanh',compact('chinhanh'));
+    }
+    public function capNhatChiNhanh(Request $req,$MaChiNhanh){
+        $chinhanh = ChiNhanh::where('MaChiNhanh',$MaChiNhanh)->first();
+        dd($chinhanh);
+        $chinhanh->TenChiNhanh = $req->TenChiNhanh;
+        $chinhanh-> DiaChi = $req->DiaChi;
+        $chinhanh->TinhThanh = $req->TinhThanh;
+        $chinhanh->QuanHuyen = $req->QuanHuyen;
+        $chinhanh->SDT1 = $req->SDT1;
+        $chinhanh->SDT2 = $req->SDT2;
+        $chinhanh->SDT3 = $req->SDT3;
+        $chinhanh->FAX = $req->FAX;
+        $chinhanh->SoTaiKhoan = $req->SoTaiKhoan;
+        $chinhanh->MoMo = $req->MoMo;
+        $chinhanh->NguoiQuanLy = $req->NguoiQuanLy;
+        $chinhanh->save();
+        session()->flash('message','Cập nhật chi nhánh thành công!');
+
+
+
+
+        return redirect()->route('quanlyCN-view');
     }
 }

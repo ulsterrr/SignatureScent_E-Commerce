@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('hoa_dons', function (Blueprint $table) {
+            $table->id();
             $table->string("MaHoaDon")->key();
             $table->string("MaDonHang");
             $table->string("SoLuong")->nullable();
