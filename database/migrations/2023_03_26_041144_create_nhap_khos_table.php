@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('nhap_khos', function (Blueprint $table) {
             $table->id();
             $table->string("MaSanPham");
-            $table->string("MaChiNhanh");
+            $table->string("MaChiNhanh")->nullable();
             $table->integer("SoLuongNhap")->nullable();
             $table->text("GhiChu")->nullable();
             $table->string("NguoiTao");

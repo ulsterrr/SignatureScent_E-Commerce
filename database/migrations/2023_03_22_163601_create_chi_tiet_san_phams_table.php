@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('chi_tiet_san_phams', function (Blueprint $table) {
             $table->id();
+            $table->string("MaCTSanPham")->unique();
             $table->string("MaSanPham");
             $table->string("SoSerial")->nullable();
             $table->string("MaChiNhanh");

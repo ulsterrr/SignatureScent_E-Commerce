@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("TenLoaiThanhToan")->nullable();
             // $table->timestamps("NgayCapNhat");
             $table->string("NguoiTao");
-            $table->integer("GhiChu");
+            $table->text("GhiChu");
             $table->timestamps();
             $table->softDeletes();
         });

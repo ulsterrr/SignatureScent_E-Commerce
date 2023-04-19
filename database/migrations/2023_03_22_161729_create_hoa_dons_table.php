@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('hoa_dons', function (Blueprint $table) {
             $table->id();
-            $table->string("MaHoaDon")->key();
+            $table->string("MaHoaDon")->unique();
             $table->string("MaDonHang");
             $table->string("SoLuong")->nullable();
             $table->string("GiaTien")->nullable();

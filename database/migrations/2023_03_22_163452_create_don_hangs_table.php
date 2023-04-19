@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('don_hangs', function (Blueprint $table) {
             $table->id();
-            $table->string("MaDonHang")->key();
+            $table->string("MaDonHang")->unique();
             $table->string("Email")->nullable();
             $table->string("HoTen")->nullable();
             $table->string("DiaChi")->nullable();

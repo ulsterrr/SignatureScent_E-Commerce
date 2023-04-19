@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('san_phams', function (Blueprint $table) {
             $table->id();
-            $table->string("MaSanPham")->key();
+            $table->string("MaSanPham")->unique();
             $table->string("TenSanPham")->nullable();
             $table->string("ThuongHieu")->nullable();
             $table->integer("TrangThai")->nullable();
