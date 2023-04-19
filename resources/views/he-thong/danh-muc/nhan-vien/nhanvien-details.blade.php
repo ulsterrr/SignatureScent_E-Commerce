@@ -7,10 +7,10 @@
 @section('main-content')
 
 <div class="breadcrumb">
-    <h1>Chi tiết liên hệ</h1>
+    <h1>Chi Tiết</h1>
     <ul>
-        <li><a href="">Ứng dụng</a></li>
-        <li>Liên hệ</li>
+        <li><a href="">Nhân Viên</a></li>
+        <li>Chi Tiết</li>
     </ul>
 </div>
 <div class="separator-breadcrumb border-top"></div>
@@ -21,63 +21,74 @@
     <div class="row">
         <div class="col-lg-4 col-xl-4">
             <div class="card">
-                <img class="d-block w-100" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide">
-                <div class="card-body">
-                    <div class="ul-contact-detail__info">
-                        <div class="row">
-                            <div class="col-6 text-center">
-                                <div class="ul-contact-detail__info-1">
-                                    <h5>Họ tên</h5>
-                                    <span>Genelia Deshmukh</span>
-                                </div>
-                                <div class="ul-contact-detail__info-1">
-                                    <h5>Họ tên</h5>
-                                    <span>Genelia Deshmukh</span>
-                                </div>
-                            </div>
-                            <div class="col-6 text-center">
-                                <div class="ul-contact-detail__info-1">
-                                    <h5>Họ tên</h5>
-                                    <span>Genelia Deshmukh</span>
-                                </div>
-                                <div class="ul-contact-detail__info-1">
-                                    <h5>Họ tên</h5>
-                                    <span>Genelia Deshmukh</span>
-                                </div>
-                            </div>
-                            <div class="col-12 text-center">
-                                <div class="ul-contact-detail__info-1">
-                                    <h5>Địa chỉ</h5>
-                                    <span>DieSachbearbeiter
-                                        Choriner Straße 49
-                                        10435 Berlin</span>
-                                </div>
-                            </div>
-                            <div class="col-12 text-center">
-
-                                <div class="ul-contact-detail__social">
-                                    <div class="ul-contact-detail__social-1">
-                                        <button type="button" class="btn btn-facebook btn-icon m-1">
-                                            <span class="ul-btn__icon"><i class="i-Facebook-2"></i></span>
-                                        </button>
-                                        <span class="t-font-boldest ul-contact-detail__followers">400</span>
+                <div class="card">
+                    {{-- <img class="d-block w-100" src="{{ asset('assets/images/products/iphone-1.jpg') }}" alt="First slide"> --}}
+                    @if ($nhanvien->AnhDaiDien)
+                    <img class="d-block w-100" src="{{ asset('assets/images/faces/' . $nhanvien->AnhDaiDien) }}" alt="Ảnh đại diện">
+                    @else
+                    <img class="d-block w-100" src="{{ asset('assets/images/faces/1.jpg') }}" alt="Ảnh đại diện">
+                    @endif
+                    <div class="card-body">
+                        <div class="ul-contact-detail__info">
+                            <div class="row">
+                                <div class="col-6 text-center">
+                                    <div class="ul-contact-detail__info-1">
+                                        <h5>Họ và Tên</h5>
+                                        <span>{{ $nhanvien->HoTen }}</span>
                                     </div>
-                                    <div class="ul-contact-detail__social-1">
-                                        <button type="button" class="btn btn-twitter btn-icon m-1">
-                                            <span class="ul-btn__icon"><i class="i-Twitter"></i></span>
-
-                                        </button>
-                                        <span class="t-font-boldest ul-contact-detail__followers">900</span>
-                                    </div>
-                                    <div class="ul-contact-detail__social-1">
-                                        <button type="button" class="btn btn-dribble btn-icon m-1">
-                                            <span class="ul-btn__icon"><i class="i-Dribble"></i></span>
-
-                                        </button>
-                                        <span class="t-font-boldest ul-contact-detail__followers">658</span>
+                                    <div class="ul-contact-detail__info-1">
+                                        <h5>Loại tài khoản</h5>
+                                        <span>@if($nhanvien->LoaiTaiKhoan=='A')
+                                            Admin
+                                            @elseif($nhanvien->LoaiTaiKhoan=='M')
+                                            Quản lý
+                                            @elseif($nhanvien->LoaiTaiKhoan=='E')
+                                            Nhân viên
+                                            @elseif($nhanvien->LoaiTaiKhoan=='C')
+                                            Khách hàng
+                                            @elseif($nhanvien->LoaiTaiKhoan=='V')
+                                            Khách VIP
+                                            @endif</span>
                                     </div>
                                 </div>
+                                <div class="col-6 text-center">
+                                    <div class="ul-contact-detail__info-1">
+                                        <h5>Email</h5>
+                                        <span>{{ $nhanvien->email }}</span>
+                                    </div>
+                                    <div class="ul-contact-detail__info-1">
+                                        <h5>Số điện thoại</h5>
+                                        <span>{{ $nhanvien->SDT }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <div class="ul-contact-detail__info-1">
+                                        <h5>Địa chỉ</h5>
+                                        <span>{{ $nhanvien->DiaChi }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
 
+                                    <div class="ul-contact-detail__social">
+                                        <div class="ul-contact-detail__social-1">
+                                            <button type="button" class="btn btn-facebook btn-icon m-1">
+                                                <span class="ul-btn__icon"><i class="i-Facebook-2"></i></span>
+                                            </button>
+                                        </div>
+                                        <div class="ul-contact-detail__social-1">
+                                            <button type="button" class="btn btn-twitter btn-icon m-1">
+                                                <span class="ul-btn__icon"><i class="i-Twitter"></i></span>
+
+                                            </button>
+                                        </div>
+                                        <div class="ul-contact-detail__social-1">
+                                            <button type="button" class="btn btn-dribble btn-icon m-1">
+                                                <span class="ul-btn__icon"><i class="i-Google-Plus"></i></span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
