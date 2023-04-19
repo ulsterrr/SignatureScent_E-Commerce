@@ -142,7 +142,7 @@ $('#ul-contact-list').DataTable();
                 , buttonsStyling: true
             }).then(function() {
                 //replace route xoá vào button confirm
-                window.location.replace("{{ route('xoaCN-del', ['id' => $data->id]) }}");
+                window.location.replace("{{ route('xoaTK-del', ['id' => ".data['id'].toString()."]) }}");
                 swal(
                     'Đã xoá!'
                     , 'Dữ liệu đã được xoá thành công.'

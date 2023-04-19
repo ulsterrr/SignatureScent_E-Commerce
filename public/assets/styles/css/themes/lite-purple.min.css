@@ -8,7 +8,7 @@
 
 [class*=" i-"], [class^=i-] {
     font-family: iconsmind !important;
-    speak: none;
+    --speak: none;
     font-style: normal;
     font-weight: 400;
     font-variant: normal;
@@ -4799,7 +4799,7 @@ button, select {
 }
 
 [type=reset], [type=submit], button, html [type=button] {
-    -webkit-appearance: button
+    --webkit-appearance: button
 }
 
 [type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner, button::-moz-focus-inner {
@@ -4813,7 +4813,7 @@ input[type=checkbox], input[type=radio] {
 }
 
 input[type=date], input[type=datetime-local], input[type=month], input[type=time] {
-    -webkit-appearance: listbox
+    --webkit-appearance: listbox
 }
 
 textarea {
@@ -4850,11 +4850,11 @@ progress {
 
 [type=search] {
     outline-offset: -2px;
-    -webkit-appearance: none
+    --webkit-appearance: none
 }
 
 [type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
-    -webkit-appearance: none
+    --webkit-appearance: none
 }
 
 ::-webkit-file-upload-button {
@@ -10445,7 +10445,7 @@ button.close {
     padding: 0;
     background-color: transparent;
     border: 0;
-    -webkit-appearance: none
+    --webkit-appearance: none
 }
 
 .modal-open {
@@ -23133,7 +23133,7 @@ ul.metismenu {
 }
 
 .btn[type=button], html [type=button] {
-    -webkit-appearance: none !important
+    --webkit-appearance: none !important
 }
 
 .btn.btn-rounded, .btn.rounded {
@@ -24476,7 +24476,7 @@ table.dataTable-collapse {
 }
 
 select.form-control {
-    -webkit-appearance: none
+    --webkit-appearance: none
 }
 
 .input-group [type=text].form-control {
@@ -29720,7 +29720,7 @@ td.fc-head-container {
 
 span.fa {
     font-family: iconsmind !important;
-    speak: none;
+    --speak: none;
     font-style: normal;
     font-weight: 400;
     font-variant: normal;
@@ -34436,6 +34436,7 @@ blockquote {
     margin-bottom: 0;
     color: whitesmoke;
 }
+
 .dark-theme .input-group>.custom-file, .input-group>.custom-select, .input>.form-control {
     position: relative;
     flex: 1 1 auto;
@@ -34443,6 +34444,7 @@ blockquote {
     margin-bottom: 0;
     color: whitesmoke;
 }
+
 .dark-theme .input-group>.custom-file, .input-group>.custom-select, .input-group>.form-control::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #7c7c7c;
@@ -34485,7 +34487,7 @@ blockquote {
 }
 
 .dark-theme select.form-control {
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     background: #1e202d !important;
 }
 
@@ -34497,8 +34499,8 @@ blockquote {
 
 .dark-theme .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: #665c70;
-    background-color: #2d2d2d;
-    border-color: #dee2e6 #dee2e6 #fff;
+    background-color: #0e153b00;
+    border-color: #639 #639 #02183a;
 }
 
 .dark-theme .custom-file-label {
@@ -34509,4 +34511,10 @@ blockquote {
     border: 1px solid #595062;
     border-radius: .25rem;
     color: azure;
+}
+
+select option {
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #fff;
 }

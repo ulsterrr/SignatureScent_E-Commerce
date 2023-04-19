@@ -104,7 +104,9 @@
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <a class="nav-item nav-link active show" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Trang chủ</a>
                             <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Giới thiệu</a>
-                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Đổi mật khẩu</a>
+                            @if(intval(request()->segment(3))==auth()->user()->id)
+                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Đổi mật khẩu</a>
+                            @endif
                             <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-avt" role="tab" aria-controls="nav-avt" aria-selected="false">Thay đổi ảnh</a>
                         </div>
                     </nav>
