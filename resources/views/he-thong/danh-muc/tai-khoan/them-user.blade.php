@@ -165,7 +165,10 @@
 @section('bottom-js')
 <script>
     $(document).ready(function(){
-        $('#picker2, #picker3').pickadate();
+        $('#picker2, #picker3').pickadate({
+            selectMonths: true,
+            selectYears:true,
+        });
     });
 </script>
 

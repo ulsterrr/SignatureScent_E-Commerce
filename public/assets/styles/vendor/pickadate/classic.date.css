@@ -30,7 +30,7 @@
 
 .picker__select--month, .picker__select--year {
     border: 1px solid #b7b7b7;
-    height: 2em;
+    height: auto;
     padding: .5em;
     margin-left: .25em;
     margin-right: .25em
@@ -262,4 +262,12 @@
 
 .picker__button--today[disabled]:before {
     border-top-color: #aaa
+}
+
+.dark-theme .picker__select--month, .picker__select--year {
+    border: 1px solid #b7b7b7;
+    height: auto;
+    padding: .5em;
+    margin-left: .25em;
+    margin-right: .25em
 }
