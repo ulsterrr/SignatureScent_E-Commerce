@@ -34,12 +34,12 @@
                     @csrf
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustomUsername" class="required">Tên tài khoản (Email)*</label>
+                            <label for="validationCustomUsername1" class="required">Tên tài khoản (Email) *</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" name="email" placeholder="email@mail.com" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername1" name="email" placeholder="email@mail.com" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
                                     Tên tài khoản (Email) không được để trống!
                                 </div>
@@ -47,12 +47,12 @@
                         </div>
                         <div class="col-md-12"></div>
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustomUsername" class="required">Mật khẩu*</label>
+                            <label for="validationCustomUsername2" class="required">Mật khẩu *</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="i-Password-Field"></i></span>
                                 </div>
-                                <input type="password" class="form-control" id="validationCustomUsername" name="password" placeholder="********" aria-describedby="inputGroupPrepend" required>
+                                <input type="password" class="form-control" id="validationCustomUsername2" name="password" placeholder="********" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
                                     Mật khẩu không được để trống!
                                 </div>
@@ -60,12 +60,12 @@
                         </div>
                         <div class="col-md-12"></div>
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustomUsername" class="required">Số điện thoại*</label>
+                            <label for="validationCustomUsername3" class="required">Số điện thoại *</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">+84</span>
                                 </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" name="SDT" placeholder="0909909990" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername3" name="SDT" placeholder="0909909990" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
                                     Số điện thoại không được để trống!
                                 </div>
@@ -114,7 +114,7 @@
                     <div class="form-row">
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-2">
-                            <label for="sel">Giới tính*:</label>
+                            <label for="sel">Giới tính *:</label>
                             <select class="form-control" name="GioiTinh" id="sel">
                               <option value="M">Nam</option>
                               <option value="F">Nữ</option>
@@ -123,7 +123,7 @@
                         </div>
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-2">
-                            <label for="sel1">Loại tài khoản*:</label>
+                            <label for="sel1">Loại tài khoản *:</label>
                             <select class="form-control" name="LoaiTaiKhoan" id="sel1">
                               <option value="A">Admin</option>
                               <option value="M">Quản lý</option>
@@ -133,7 +133,7 @@
                         </div>
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-2">
-                            <label for="sel2">Trạng thái*:</label>
+                            <label for="sel2">Trạng thái *:</label>
                             <select class="form-control" name="TrangThai" id="sel2">
                                 <option  value="1">Hoạt động</option>
                               <option  value="0">Bị khoá</option>
