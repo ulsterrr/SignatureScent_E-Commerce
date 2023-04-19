@@ -81,12 +81,10 @@
                                                 <a href="{{ route('capnhatCN-upd', ['MaChiNhanh' => $data->MaChiNhanh]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
                                                     <i class="i-Edit"></i>
                                                 </a>
-                                                {{-- <a href="{{ route('', ['id' => $data->id]) }}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
-                                                    <i class="i-Eye-Visible"></i>
-                                                </a>
-                                                <a id="alert-confirm-{{ $data->id }}" onclick="getPopupDelete({{ $data }})" class="ul-link-action text-danger mr-1" data-toggle="tooltip" data-placement="top" title="Xoá tài khoản này!!!">
+
+                                                <a id="alert-confirm-{{ $data->id }}" onclick="getPopupDelete({{ $data }})" class="ul-link-action text-danger mr-1" data-toggle="tooltip" data-placement="top" title="Xoá chi nhánh này!!!">
                                                     <i class="i-Eraser-2"></i>
-                                                </a> --}}
+                                                </a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -115,5 +113,55 @@
 
 <script>
 $('#ul-contact-list').DataTable();
+</script>
+<script>
+    $(document).ready(function() {
+        $(function() {
+            var chinhanhs = {!!json_encode($ChiNhanh) !!};
+            //khởi tạo các popup delete theo id sẵn mà không cần click 2 lần
+            chinhanhs.forEach(element => {
+                getPopupDelete(element);
+            });
+        });
+    });
+
+</script>
+<script>
+    function getPopupDelete(data) {
+        var nameAlert = "#alert-confirm-" + data['id'].toString();
+        $(nameAlert).on('click', function() {
+            swal({
+                title: 'Bạn có chắc muốn xoá?'
+                , text: "Sau khi xác nhận " + data['id'] + " sẽ bị xoá khỏi hệ thống!"
+                , type: 'warning'
+                , showCancelButton: true
+                , confirmButtonText: 'Xác nhận xoá!'
+                , cancelButtonText: 'Huỷ thao tác!'
+                , confirmButtonClass: 'btn btn-success mr-5'
+                , cancelButtonClass: 'btn btn-danger'
+                , buttonsStyling: true
+            }).then(function() {
+                //replace route xoá vào button confirm
+                window.location.replace("{{ route('xoaCN-del', ['id' => $data->id]) }}");
+                swal(
+                    'Đã xoá!'
+                    , 'Dữ liệu đã được xoá thành công.'
+                    , 'success'
+                ).then(() => {
+                    // Load lại trang sau khi ấn OK trong popup alert
+                    window.location.replace("{{ route('quanlyCN-view') }}");
+                });
+            }, function(dismiss) {
+                if (dismiss === 'cancel') {
+                    swal(
+                        'Huỷ thao tác'
+                        , 'Bạn vẫn có thể thực hiện lại thao tác này :)'
+                        , 'error'
+                    )
+                }
+            })
+        });
+    }
+
 </script>
 @endsection

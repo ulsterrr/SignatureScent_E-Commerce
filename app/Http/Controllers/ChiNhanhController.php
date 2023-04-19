@@ -28,6 +28,7 @@ class ChiNhanhController extends Controller
         $chinhanh->MoMo = $req->MoMo;
         $chinhanh->NguoiQuanLy = $req->NguoiQuanLy;
         $chinhanh->save();
+        session()->flash('message','Thêm chi nhánh thành công!');
         return redirect()->route('quanlyCN-view');
     }
     public function themChiNhanhView(){
@@ -47,7 +48,6 @@ class ChiNhanhController extends Controller
     }
     public function capNhatChiNhanh(Request $req,$MaChiNhanh){
         $chinhanh = ChiNhanh::where('MaChiNhanh',$MaChiNhanh)->first();
-        dd($chinhanh);
         $chinhanh->TenChiNhanh = $req->TenChiNhanh;
         $chinhanh-> DiaChi = $req->DiaChi;
         $chinhanh->TinhThanh = $req->TinhThanh;
@@ -65,6 +65,11 @@ class ChiNhanhController extends Controller
 
 
 
+        return redirect()->route('quanlyCN-view');
+    }
+    public function xoaChiNhanh($id){
+        $chinhanh = ChiNhanh::find($id);
+        $chinhanh->delete();
         return redirect()->route('quanlyCN-view');
     }
 }
