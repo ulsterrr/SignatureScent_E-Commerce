@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class KhachHangController extends Controller
 {
@@ -19,7 +20,6 @@ class KhachHangController extends Controller
 
     public function themKhachHang(Request $request){
         $request->validate([
-            'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required',
             'LoaiTaiKhoan' => 'required',
@@ -27,36 +27,62 @@ class KhachHangController extends Controller
             'GioiTinh' => 'required',
             'DiaChi' => 'required',
             'SDT' => 'required',
-            'QuanHuyen' => 'required',
-            'TinhThanh' => 'required',
-            'ChiNhanh' => 'required',
             'NgaySinh' => 'required',
             'TrangThai' => 'required',
-            'NguoiTao' => 'required',
-            'MaGiaoDien' => 'required',
         ]);
-        $user =  new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->LoaiTaiKhoan = "C";
-        $user->HoTen = $request->HoTen;
-        $user->GioiTinh = $request->GioiTinh;
-        $user->DiaChi = $request->DiaChi;
-        $user->SDT = $request->SDT;
-        $user->QuanHuyen = $request->QuanHuyen;
-        $user->TinhThanh = $request->TinhThanh;
-        $user->ChiNhanh = $request->ChiNhanh;
-        $user->NgaySinh = $request->NgaySinh;
-        $user->TrangThai = $request->TrangThai;
-        $user->NguoiTao = $request->NguoiTao;
-        // $user->MaGiaoDien = $request->MaGiaoDien;
-        $user->save();
-        return view('he-thong.danh-muc.khach-hang.them-khachhang');
+        $newuser =  new User();
+        $newuser->name = $request->HoTen;
+        $newuser->email = $request->email;
+        $newuser->password = Hash::make($request->password);
+        $newuser->LoaiTaiKhoan = $request->LoaiTaiKhoan;
+        $newuser->HoTen = $request->HoTen;
+        $newuser->GioiTinh = $request->GioiTinh;
+        $newuser->DiaChi = $request->DiaChi;
+        $newuser->SDT = $request->SDT;
+        $newuser->QuanHuyen = $request->QuanHuyen;
+        $newuser->TinhThanh = $request->TinhThanh;
+        $newuser->MaGiaoDien = "1";
+        $newuser->ChiNhanh = "";
+
+
+        //convert chuỗi ngày sang kiểu dữ liệu ngày lưu vào db
+        $date_time = Carbon::createFromFormat('d/m/Y', $request->NgaySinh)->toDateTimeString();
+
+        $newuser->NgaySinh = $date_time;
+
+        $newuser->TrangThai = $request->TrangThai;
+        $newuser->NguoiTao = "";
+        $newuser->save();
+        session()->flash('message','Thêm tài khoản thành công!');
+        return redirect()->route('quanlyKH-view');
     }
     public function chiTietKhachHangView($id){
         $khachhang = User::find($id);
         return view('he-thong.danh-muc.khach-hang.khachhang-details',compact('khachhang'));
     }
-
+    public function capNhatKhachHangView($id){
+        $khachhang = User::find($id);
+        return view('he-thong.danh-muc.khach-hang.capnhat-khachhang',compact('khachhang'));
+    }
+    public function capNhatKhachHang(Request $request, $id){
+        $khachhang = User::findOrFail($id);
+        $khachhang->email = $request->email;
+        // $nhanvien->password = Hash::make($request->password);
+        $khachhang->LoaiTaiKhoan = $request->LoaiTaiKhoan;
+        $khachhang->HoTen = $request->HoTen;
+        $khachhang->GioiTinh = $request->GioiTinh;
+        $khachhang->DiaChi = $request->DiaChi;
+        $khachhang->SDT = $request->SDT;
+        $khachhang->QuanHuyen = $request->QuanHuyen;
+        $khachhang->TinhThanh = $request->TinhThanh;
+        $khachhang->MaGiaoDien = "1";
+        $khachhang->ChiNhanh = "";
+        $date_time = Carbon::createFromFormat('d/m/Y', $request->NgaySinh)->toDateTimeString();
+        $khachhang->NgaySinh = $date_time;
+        $khachhang->TrangThai = $request->TrangThai;
+        $khachhang->NguoiTao = "";
+        $khachhang->save();
+        session()->flash('message','Cập nhật khách hàng thành công!');
+        return redirect()->route('quanlyKH-view');
+    }
 }

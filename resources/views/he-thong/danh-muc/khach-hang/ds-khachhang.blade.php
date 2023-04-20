@@ -149,7 +149,7 @@
                                     <td>{{$data->QuanHuyen}}</td>
                                     <td>{{$data->TinhThanh}}</td>
                                     <td>
-                                        <a href="" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Edit">
+                                        <a href="{{route('capnhatKH-view',['id' => $data->id])}}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Edit">
                                             <i class="i-Edit"></i>
                                         </a>
                                         <a id="alert-confirm-{{ $data->id }}" onclick="getPopupDelete({{ $data }})" class="ul-link-action text-danger mr-1" data-toggle="tooltip" data-placement="top" title="Xoá tài khoản này!!!">

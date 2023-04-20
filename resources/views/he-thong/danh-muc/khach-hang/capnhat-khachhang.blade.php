@@ -1,151 +1,134 @@
 @extends('layouts.admin.master')
 @section('before-css')
-
-
+ <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.css')}}">
+ <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.date.css')}}">
 @endsection
 
 @section('main-content')
 <div class="breadcrumb">
-    <h1>Phê duyệt</h1>
+    <h1>Cập nhật</h1>
     <ul>
-        <li><a href="">Biểu mẫu</a></li>
-        <li>Phê duyệt</li>
+        <li><a href="">Khách Hàng</a></li>
     </ul>
 </div>
 
 <div class="separator-breadcrumb border-top"></div>
 
-<div class="row">
-    <div class="col-md-8">
-        <p> </p>
+<div class="col-md-12">
+    <div class="col-md-12">
+        <p></p>
         <div class="card mb-4">
             <div class="card-body">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" novalidate method="POST" action="{{route('capnhatKH-upd',['id'=>$khachhang->id])}}">
+                    @csrf
                     <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">Tên</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-                            <div class="valid-feedback">
-                                Có vẻ tốt!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom02">Họ</label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-                            <div class="valid-feedback">
-                                Có vẻ tốt!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustomUsername">Tên đăng nhập</label>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustomUsername" class="required">Tên tài khoản (Email)*</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername" value="{{$khachhang->email}}" name="email" placeholder="email@mail.com" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Xin hãy chọn tên đăng nhập
+                                    Tên tài khoản (Email) không được để trống!
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
+                        <div class="col-md-12"></div>
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustom03">Thành Phố</label>
-                            <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
-                            <div class="invalid-feedback">
-                                Xin hãy chọn thành phố
-                            </div>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationCustom04">Tình trạng</label>
-                            <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
-                            <div class="invalid-feedback">
-                                Xin hãy chọn tình trạng
-                            </div>
-                        </div>
-                        {{-- <div class="col-md-3 mb-3">
-                            <label for="validationCustom05">Zip</label>
-                            <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-                            <div class="invalid-feedback">
-                                Please provide a valid zip.
-                            </div>
-                        </div> --}}
-                    </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                                Đồng ý với các điều khoản và điều kiện
-                            </label>
-                            <div class="invalid-feedback">
-                                Bạn phải đồng ý trước khi gửi.
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" type="submit">Xác nhận biểu mẫu</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-title">Thông báo chú giải công cụ</div>
-                <form class="needs-validation" novalidate>
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label for="validationTooltip01">Tên</label>
-                            <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required>
-                            <div class="valid-tooltip">
-                                Có vẻ tốt!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationTooltip02">Họ</label>
-                            <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
-                            <div class="valid-tooltip">
-                                Có vẻ tốt!
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationTooltipUsername">Tên đăng nhập</label>
+                            <label for="validationCustomUsername" class="required">Mật khẩu*</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                                    <span class="input-group-text" id="inputGroupPrepend"><i class="i-Password-Field"></i></span>
                                 </div>
-                                <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
-                                <div class="invalid-tooltip">
-                                    Xin hãy chọn tên đăng nhập
+                                <input type="password" class="form-control" id="validationCustomUsername" value="{{$khachhang->password}}" disabled  name="password" placeholder="********" aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Mật khẩu không được để trống!
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustomUsername" class="required">Số điện thoại*</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend">+84</span>
+                                </div>
+                                <input type="text" class="form-control" id="validationCustomUsername" value="{{$khachhang->SDT}}" name="SDT" placeholder="0909909990" aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Số điện thoại không được để trống!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="col-md-6 form-group mb-3">
+                            <label for="picker3">Ngày sinh</label>
+                            <div class="input-group">
+                                <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" value="{{$khachhang->NgaySinh}}" name="NgaySinh">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i class="icon-regular i-Calendar-4"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Họ và Tên</label>
+                            <input type="text" class="form-control" id="validationCustom01" value="{{$khachhang->HoTen}}" placeholder="Nguyễn Văn A" required name="HoTen">
+                            <div class="invalid-feedback">
+                                Họ và Tên không được để trống!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">Địa chỉ</label>
+                            <input type="text" class="form-control" id="validationCustom02" value="{{$khachhang->DiaChi}}" placeholder="123 Đường ABC, phường ..." required name="DiaChi">
+                            <div class="invalid-feedback">
+                                Địa chỉ không được để trống!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom03">Quận/Huyện</label>
+                            <input type="text" class="form-control" id="validationCustom03" placeholder="Quận Cam" value="{{$khachhang->QuanHuyen}}" required name="QuanHuyen">
+                            <div class="invalid-feedback">
+                                Quận/Huyện không được để trống!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom05">Tỉnh/Thành phố</label >
+                            <input type="text" class="form-control" id="validationCustom05" placeholder="TP HCM" value="{{$khachhang->TinhThanh}}" required name="TinhThanh">
+                            <div class="invalid-feedback">
+                                Tỉnh/Thành phố không được để trống!
                             </div>
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                            <label for="validationTooltip03">Thành Phố</label>
-                            <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required>
-                            <div class="invalid-tooltip">
-                                Xin hãy chọn thành phố
-                            </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group col-md-2">
+                            <label for="sel">Giới tính*:</label>
+                            <select class="form-control" id="sel" name="GioiTinh">
+                              <option value="M">Nam</option>
+                              <option value="F">Nữ</option>
+                              <option value="U">Khác</option>
+                            </select>
                         </div>
-                        <div class="col-md-3 mb-3">
-                            <label for="validationTooltip04">Tình Trạng</label>
-                            <input type="text" class="form-control" id="validationTooltip04" placeholder="State" required>
-                            <div class="invalid-tooltip">
-                                Xin hãy chọn tình trạng
-                            </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group col-md-2">
+                            <label for="sel1">Loại tài khoản*:</label>
+                            <select class="form-control" name="LoaiTaiKhoan" id="sel1">
+                              <option value="E">Nhân viên</option>
+                            </select>
                         </div>
-                        {{-- <div class="col-md-3 mb-3">
-                            <label for="validationTooltip05">Zip</label>
-                            <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required>
-                            <div class="invalid-tooltip">
-                                Please provide a valid zip.
-                            </div>
-                        </div> --}}
+                        <div class="col-md-12"></div>
+                        <div class="form-group col-md-2">
+                            <label for="sel2">Trạng thái*:</label>
+                            <select class="form-control" id="sel2" name="TrangThai">
+                                <option value="1">Hoạt động</option>
+                              <option value="0">Bị khoá</option>
+                              <option value="">NULL</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 mt-3"></div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Xác nhận biểu mẫu</button>
+                    <button class="btn btn-primary" type="submit">Cập nhật</button>
                 </form>
             </div>
         </div>
@@ -157,13 +140,19 @@
 @section('page-js')
 
 
+<script src="{{asset('assets/js/form.validation.script.js')}}"></script>
+<script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
+<script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
+
 
 
 @endsection
 
 @section('bottom-js')
-
-<script src="{{asset('assets/js/form.validation.script.js')}}"></script>
-
+<script>
+    $(document).ready(function(){
+        $('#picker2, #picker3').pickadate();
+    });
+</script>
 
 @endsection
