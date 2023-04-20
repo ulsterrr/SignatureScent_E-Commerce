@@ -139,11 +139,11 @@
                         </div> --}}
                     </div>
                     <div class="col-md-6">
-                        IMAGES
+                        HÌNH ẢNH CỬA HÀNG CỦA CHI NHÁNH
                         <div class="input-group mb-3">
-                            <div class="input-group-prepend">
+                            {{-- <div class="input-group-prepend">
                                 <button type="submit" style="width: 75px; border-color: #10163a;" class="btn btn-primary" id="inputGroupFileAddon01">Tải lên</button>
-                            </div>
+                            </div> --}}
                             <div class="custom-file">
                                 <input onchange="loadFile(event)" type="file" class="custom-file-input" name="AnhDaiDien" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept="image/*">
                                 <label class="custom-file-label" for="inputGroupFile01"><span id="ChooseFile">Chọn ảnh</span></label>
