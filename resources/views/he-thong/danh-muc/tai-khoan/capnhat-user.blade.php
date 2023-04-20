@@ -181,6 +181,14 @@
     if (option) {
         option.selected = true;
     }
+</script>
 
+<script>
+    $(document).ready(function(){
+        $('#picker2, #picker3').pickadate({
+            selectMonths: true,
+            selectYears:true,
+        });
+    });
 </script>
 @endsection

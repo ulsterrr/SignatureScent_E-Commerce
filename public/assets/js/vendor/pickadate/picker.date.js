@@ -294,7 +294,7 @@
             },
             r = function () {
                 var d = k.year,
-                    e = c.selectYears === !0 ? 5 : ~~(c.selectYears / 2);
+                    e = c.selectYears === !0 ? 50 : ~~(c.selectYears / 2); // thay đổi range 5 thành 50, để hiện option theo năm hiện tại
                 if (e) {
                     var g = m.year,
                         h = n.year,
