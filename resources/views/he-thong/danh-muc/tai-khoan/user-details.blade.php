@@ -311,6 +311,5 @@
         $("#ChooseFile").text(event.target.files[0].name);
 
     };
-
 </script>
 @endsection
