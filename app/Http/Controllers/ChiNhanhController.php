@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\ChiNhanh;
-use App\Models\User;
+use App\Models\chi_nhanh;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -71,5 +71,20 @@ class ChiNhanhController extends Controller
         $chinhanh = ChiNhanh::find($id);
         $chinhanh->delete();
         return redirect()->route('quanlyCN-view');
+    }
+
+    public function doiAnhChiNhanh($id, Request $request)
+    {
+
+        $chi_nhanh = ChiNhanh::findOrFail($id);
+
+        $matTien = explode('@', $chi_nhanh->email)[0] . '_' . $chi_nhanh->id . '_avatar_' . time() . '.' . $request->file('HinhAnh')->getClientOriginalExtension();
+
+        $request->file('HinhAnh')->storeAs('assets/images/chi_nhanh', $matTien);
+
+        $chi_nhanh->HinhAnh = $matTien;
+        $chi_nhanh->save();
+
+        return back()->with('success', 'Đổi hình chi nhánh thành công.');
     }
 }
