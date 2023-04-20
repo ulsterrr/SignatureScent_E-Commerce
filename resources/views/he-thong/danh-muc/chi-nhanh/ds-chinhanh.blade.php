@@ -79,7 +79,7 @@
                                     <td>{{$data->NguoiQuanLy}}</td>
 
                                     <td class="text-center">
-                                        <a href="{{ route('capnhatCN-upd', ['MaChiNhanh' => $data->MaChiNhanh]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
+                                        <a href="{{ route('capnhatCN-view',['id' => $data->id]) }}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
                                             <i class="i-Edit"></i>
                                         </a>
 

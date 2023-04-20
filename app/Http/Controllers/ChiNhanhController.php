@@ -42,12 +42,13 @@ class ChiNhanhController extends Controller
         $chinhanh = ChiNhanh::find($id);
         return view('he-thong.danh-muc.chi-nhanh.chinhanh-details');
     }
-    public function capNhatChiNhanhView($MaChiNhanh){
-        $chinhanh = ChiNhanh::where('MaChiNhanh',$MaChiNhanh)->first();
+    public function capNhatChiNhanhView($id)
+    {
+        $chinhanh = ChiNhanh::find($id);
         return view('he-thong.danh-muc.chi-nhanh.capnhat-chinhanh',compact('chinhanh'));
     }
-    public function capNhatChiNhanh(Request $req,$MaChiNhanh){
-        $chinhanh = ChiNhanh::where('MaChiNhanh',$MaChiNhanh)->first();
+    public function capNhatChiNhanh(Request $req,$id){
+        $chinhanh = ChiNhanh::findOrFail($id);
         $chinhanh->TenChiNhanh = $req->TenChiNhanh;
         $chinhanh-> DiaChi = $req->DiaChi;
         $chinhanh->TinhThanh = $req->TinhThanh;

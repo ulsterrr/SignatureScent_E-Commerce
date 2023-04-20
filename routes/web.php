@@ -126,10 +126,13 @@ Route::post('admin/them-nhan-vien',[NhanVienController::class,'themNhanVien'])
 //CRUD Quản Lý Khách hàng và Chi Nhánh
 Route::post('admin/them-moi-khach-hang',[KhachHangController::class,'themKhachHang'])->name('themKH-add');
 Route::post('admin/them-moi-chi-nhanh',[ChiNhanhController::class,'themChiNhanh'])->name('themmoiCN-add');
-Route::post('admin/cap-nhat-chi-nhanh/{MaChiNhanh}',[ChiNhanhController::class,'capNhatChiNhanh'])
+Route::post('admin/cap-nhat-chi-nhanh/{id}',[ChiNhanhController::class,'capNhatChiNhanh'])
 ->name('capnhatCN-upd');
 Route::post('admin/xoa-chi-nhanh/{id}',[ChiNhanhController::class,'xoaChiNhanh'])
 ->name('xoaCN-del');
+Route::post('admin/cap-nhat-khach-hang/{id}',[KhachHangController::class,'capNhatKhachHang'])
+->name('capnhatKH-upd');
+
 //View Quản Lý Khách Hàng và Chi Nhánh
 Route::get('admin/quan-ly-khach-hang',[KhachHangController::class,'loadDSKhachHangView'])->name('quanlyKH-view');
 Route::get('admin/them-moi-khach-hang',[KhachHangController::class,'themKhachHangView'])->name('themKH-view');
@@ -137,8 +140,10 @@ Route::get('admin/quan-ly-chi-nhanh',[ChiNhanhController::class,'loadDSChiNhanhV
 Route::get('admin/them-moi-chi-nhanh',[ChiNhanhController::class,'themChiNhanhView'])->name('themmoiCN-view');
 Route::get('admin/chi-tiet-chi-nhanh/{id}',[ChiNhanhController::class,'chiTietChiNhanhView'])->name('chitietCN-view');
 Route::get('admin/quan-ly-feedback',[DanhMucController::class,'loadDSFeedback'])->name('feedback');
-Route::get('admin/cap-nhat-chi-nhanh/{MaChiNhanh}',[ChiNhanhController::class,'capNhatChiNhanhView'])
-->name('capnhatCN-upd');
+Route::get('admin/cap-nhat-chi-nhanh/{id}',[ChiNhanhController::class,'capNhatChiNhanhView'])
+->name('capnhatCN-view');
+Route::get('admin/cap-nhat-khach-hang/{id}',[KhachHangController::class,'capNhatKhachHangView'])
+->name('capnhatKH-view');
 
 //Quản Lý Sản Phẩm View
 Route::get('admin/quan-ly-san-pham',[SanPhamController::class,'loadSPView'])->name('qly-spham-view');
