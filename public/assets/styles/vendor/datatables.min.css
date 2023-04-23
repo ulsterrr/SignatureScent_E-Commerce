@@ -962,7 +962,7 @@ table.dataTable.hover tbody>tr.selected:hover,
 table.dataTable.hover tbody>tr>.selected:hover,
 table.dataTable.display tbody>tr.selected:hover,
 table.dataTable.display tbody>tr>.selected:hover {
-    background-color: #0271d0
+    background-color: #03a9d1
 }
 
 table.dataTable.order-column tbody>tr.selected>.sorting_1,
@@ -1018,17 +1018,17 @@ table.dataTable.order-column.stripe tbody>tr.even>.selected {
 
 table.dataTable.display tbody>tr.selected:hover>.sorting_1,
 table.dataTable.order-column.hover tbody>tr.selected:hover>.sorting_1 {
-    background-color: #026bc6
+    background-color: #03a9d1
 }
 
 table.dataTable.display tbody>tr.selected:hover>.sorting_2,
 table.dataTable.order-column.hover tbody>tr.selected:hover>.sorting_2 {
-    background-color: #026cc8
+    background-color: #03a9d1
 }
 
 table.dataTable.display tbody>tr.selected:hover>.sorting_3,
 table.dataTable.order-column.hover tbody>tr.selected:hover>.sorting_3 {
-    background-color: #026eca
+    background-color: #03a9d1
 }
 
 table.dataTable.display tbody>tr:hover>.selected,

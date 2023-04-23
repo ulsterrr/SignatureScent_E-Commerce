@@ -2,6 +2,7 @@
 @section('before-css')
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.css')}}">
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.date.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/styles/vendor/datatables.min.css') }}">
 @endsection
 
 @section('main-content')
@@ -25,27 +26,73 @@
                     <div class="row col-md-12">
                     <div class="col-md-6">
                         <div class="form-row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-8 mb-3">
                                 <label for="validationCustomUsername" class="required">Mã chi nhánh *</label>
-                                <div class="input-group">
                                     <input type="text" class="form-control" id="validationCustomUsername" name="MaChiNhanh" placeholder="CN-Q6" aria-describedby="inputGroupPrepend" required>
                                     <div class="invalid-feedback">
                                         Mã chi nhánh không được để trống!
                                     </div>
-                                </div>
                             </div>
-                            <div class="col-md-3 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="validationCustom07" class="required">Người quản lý *:</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="validationCustom07" name="NguoiQuanLy" placeholder="Người Quản Lý" required>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="validationCustom07" name="NguoiQuanLy" placeholder="Người Quản Lý" readonly required
+                                                aria-describedby="inputGroupPrependmodal">
+                                        <div class="input-group-append">
+                                            <button id="inputGroupPrependmodal" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">...</button>
+                                        </div>
+                                    </div>
                                     <div class="invalid-feedback">
                                         Người quản lý không được để trống!
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <!-- Large Modal -->
+                            <div class="col-md-12">
+                                <div id="user-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" style="max-width: 1200px !important;">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalCenterTitle">Tìm kiếm người dùng</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="col-md-12">
+                                                    <div class="table-responsive col-md-12">
+                                                        <table id="ul-user-list" class="display table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-center" style="width: 80px">Ảnh đại diện</th>
+                                                                    <th class="text-center" style="width: 180px">Họ và Tên</th>
+                                                                    <th class="text-center" style="width: 150px">Email</th>
+                                                                    <th class="text-center" style="width: 100px">Số điện thoại</th>
+                                                                    <th class="text-center" style="width: 80px">Phân loại</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <!-- Dữ liệu sẽ được load bằng Ajax -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" onclick="getDataModal()" class="btn btn-primary">Tìm kiếm</button>
+                                                <button id="selectData" type="button" class="btn btn-primary">Chọn</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END Large Modal -->
+
+                            <div class="col-md-8 mb-3">
                                 <label for="validationCustomUsername" class="required">Tên chi nhánh *</label>
-                                <div class="input-group">
+                                <div class="form-group">
                                     <input type="text" class="form-control" id="validationCustomUsername" name="TenChiNhanh" placeholder="Quận 6, Bình Chánh, etc, ..." aria-describedby="inputGroupPrepend" required>
                                     <div class="invalid-feedback">
                                         Tên chi nhánh không được để trống!
@@ -53,50 +100,50 @@
                                 </div>
                             </div>
                             <div class="col-md-12 mb-3"></div>
-                            <div class="col-md-3">
-                                <label for="validationCustomUsername" class="required">Số điện thoại 1 *</label>
+                            <div class="col-md-4">
+                                <label for="validationCustomSDT" class="required">Số điện thoại 1 *</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroupPrepend">+84</span>
                                     </div>
-                                    <input type="text" class="form-control" id="validationCustomUsername" name="SDT1" placeholder="0909909990" aria-describedby="inputGroupPrepend" required>
+                                    <input type="text" class="form-control" id="validationCustomSDT" name="SDT1" placeholder="0909909990" aria-describedby="inputGroupPrepend" required>
                                     <div class="invalid-feedback">
                                         Số điện thoại 1 không được để trống!
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="validationCustomUsername" class="required">Số điện thoại 2 *</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupPrepend">+84</span>
+                                        <span class="input-group-text" id="inputGroupPrepend1">+84</span>
                                     </div>
-                                    <input type="text" class="form-control" id="validationCustomUsername" name="SDT2" placeholder="0909909990" aria-describedby="inputGroupPrepend">
+                                    <input type="text" class="form-control" id="validationCustomUsername" name="SDT2" placeholder="0909909990" aria-describedby="inputGroupPrepend1">
                                 </div>
                             </div>
-                            <div class="col-md-3 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="validationCustomUsername2" class="required">Số điện thoại 3 *</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupPrepend">+84</span>
+                                        <span class="input-group-text" id="inputGroupPrepend2">+84</span>
                                     </div>
-                                    <input type="text" class="form-control" id="validationCustomUsername2" name="SDT3" placeholder="0909909990" aria-describedby="inputGroupPrepend">
+                                    <input type="text" class="form-control" id="validationCustomUsername2" name="SDT3" placeholder="0909909990" aria-describedby="inputGroupPrepend2">
                                 </div>
                             </div>
                             <div class="col-md-12"></div>
-                            <div class="col-md-3 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="validationCustomUsername3" class="required">Số FAX</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="validationCustomUsername3" name="FAX" placeholder="309412922" aria-describedby="inputGroupPrepend">
+                                    <input type="text" class="form-control" id="validationCustomUsername3" name="FAX" placeholder="309412922">
                                 </div>
                             </div>
-                            <div class="col-md-3 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="validationCustomUsername4" class="required">Số Momo</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="validationCustomUsername4" name="MoMo" placeholder="0327772310" aria-describedby="inputGroupPrepend">
                                 </div>
                             </div>
-                            <div class="col-md-3 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="validationCustomUsername5" class="required">Số tài khoản (nếu có)</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="validationCustomUsername5" name="SoTaiKhoan" placeholder="10386900xx" aria-describedby="inputGroupPrepend">
@@ -146,7 +193,7 @@
                             </div> --}}
                             <div class="custom-file">
                                 <input onchange="loadFile(event)" type="file" class="custom-file-input" name="AnhDaiDien" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept="image/*">
-                                <label class="custom-file-label" for="inputGroupFile01"><span id="ChooseFile">Chọn ảnh</span></label>
+                                <label class="custom-file-label" for="inputGroupFileAddon01"><span id="ChooseFile">Chọn ảnh</span></label>
                             </div>
                             @if (!true)
                                 <img id="output" src="{{ asset('assets/images/faces/' . $user->AnhDaiDien) }}" style="padding: 10px 0px 0px 0px;" class="d-block w-100 -top-3" alt="First slide">
@@ -166,16 +213,15 @@
 
 @section('page-js')
 
-
 <script src="{{asset('assets/js/form.validation.script.js')}}"></script>
 <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
 <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
-
-
+<script src="{{ asset('assets/js/vendor/datatables.min.js') }}"></script>
 
 @endsection
 
 @section('bottom-js')
+
 <script>
     $(document).ready(function() {
         $('#picker2, #picker3').pickadate();
@@ -188,5 +234,108 @@
         $("#ChooseFile").text(event.target.files[0].name);
 
     };
+</script>
+<script>
+function getDataModal() {
+    //var tabledestroy = $('#ul-user-list').DataTable();
+    // Hủy bỏ DataTable hiện tại
+    //tabledestroy.destroy();
+
+    var table = $('#ul-user-list').DataTable({
+      processing: true,
+      serverSide: true,
+      destroy: true, // thêm phương thức tự huỷ và nhận option mới khi có sự kiện cài đặt lại datatable
+      ajax: {
+        url: "{{ route('dsUserModal') }}",
+        type: 'GET',
+      },
+      columns: [
+        {data: 'AnhDaiDien', name: 'AnhDaiDien', searchable: false, orderable: false},
+        {data: 'HoTen', name: 'HoTen'},
+        {data: 'email', name: 'email'},
+        {data: 'SDT', name: 'SDT'},
+        {data: 'LoaiTaiKhoan', name: 'LoaiTaiKhoan', searchable: false, orderable: false},
+      ],
+      "columnDefs": [
+        { className: "text-center", "targets": "_all" },
+      ],
+      createdRow: function(row, data, dataIndex) {
+        $(row).find('td').css('vertical-align', 'middle');
+
+            var loaiTaiKhoan = data.LoaiTaiKhoan;
+            var avt = data.AnhDaiDien;
+            var badgeClass = '';
+            var badgeText = '';
+
+            switch (loaiTaiKhoan) {
+                case 'A':
+                    badgeClass = 'badge-danger';
+                    badgeText = 'Admin';
+                    break;
+                case 'M':
+                    badgeClass = 'badge-info';
+                    badgeText = 'Quản lý';
+                    break;
+                case 'E':
+                    badgeClass = 'badge-primary';
+                    badgeText = 'Nhân viên';
+                    break;
+                case 'C':
+                    badgeClass = 'badge-success';
+                    badgeText = 'Khách hàng';
+                    break;
+                case 'V':
+                    badgeClass = 'badge-warning';
+                    badgeText = 'Khách VIP';
+                    break;
+            }
+            var badgeHtml = '<a href="#" class="badge ' + badgeClass + ' p-2">' + badgeText + '</a>';
+            $(row).find('td:eq(4)').html(badgeHtml);
+
+            if(avt){
+                var avtHtml = '<div class="ul-widget-app__profile-pic"><img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/' . ' + avt + ') }}" alt=""></div>';
+                $(row).find('td:eq(0)').html(avtHtml);
+            } else {
+                var avtHtml = '<div class="ul-widget-app__profile-pic"><img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}" alt=""></div>';
+                $(row).find('td:eq(0)').html(avtHtml);
+            }
+      }
+    });
+
+    // Xử lý khi click vào nút "Chọn"
+    $('#selectData').on('click', function() {
+      var data = table.rows('.selected').data();
+      $('#validationCustom07').val(data[0]['email']);
+      $('#user-modal').modal('hide');
+    });
+
+    $('#ul-user-list tbody').on('dblclick', 'tr', function() {
+        // Lấy giá trị của cột id và name trong hàng được chọn
+        var name = $(this).find('td:eq(2)').text();
+
+        // Hiển thị giá trị lên các input ở trên modal
+        $('#validationCustom07').val(name);
+
+        // Ẩn modal
+        $('#user-modal').modal('hide');
+    });
+};
+$(document).ready(function () {
+    var table = $('#ul-user-list').DataTable();
+
+    $('#ul-user-list tbody').on('click', 'tr', function () {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        } else {
+            $('tr.odd.selected').removeClass('selected');
+            $('tr.even.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    });
+
+    $('#button').click(function () {
+        table.row('.selected').remove().draw(false);
+    });
+});
 </script>
 @endsection

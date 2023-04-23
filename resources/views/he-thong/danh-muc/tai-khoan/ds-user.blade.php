@@ -213,6 +213,21 @@
 
 <script>
     $('#ul-contact-list').DataTable();
+    $(document).ready(function () {
+    var table = $('#ul-user-list').DataTable();
+
+    $('#ul-contact-list tbody').on('click', 'tr', function () {
+
+
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        } else {
+            $('tr.odd.selected').removeClass('selected');
+            $('tr.even.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    });
+});
 </script>
 
 <script>
