@@ -10,7 +10,7 @@ use Carbon\Carbon;
 class NhanVienController extends Controller
 {
     public function loadDSNhanVienView(){
-        $nhanvien = User::where("LoaiTaiKhoan","E")->get();
+        $nhanvien = User::where([["LoaiTaiKhoan","E"],["TrangThai","1"]])->get();
         return view('he-thong.danh-muc.nhan-vien.ds-nhanvien')->with("NhanVien",$nhanvien);
     }
     public function themNhanVienView(){
@@ -97,7 +97,9 @@ class NhanVienController extends Controller
     }
     public function xoaNhanVien($id){
         $nhanvien = User::find($id);
-        $nhanvien->delete();
+        $nhanvien->TrangThai = "0";
+        
+        $nhanvien->save();
         return redirect()->route("quanlyKH-view");
     }
 

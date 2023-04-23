@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class TaiKhoanController extends Controller
 {
     public function loadDSTaiKhoanView(){
-        $user = User::all();
+        $user = User::where("TrangThai","1")->get();
         return view('he-thong.danh-muc.tai-khoan.ds-user')->with('User',$user);
 
     }
@@ -95,7 +95,8 @@ class TaiKhoanController extends Controller
     }
     public function xoaTaiKhoan($id){
         $user = User::find($id);
-        $user->delete();
+        $user->TrangThai = "0";
+        $user->save();
         return redirect()->route("quanlyTKView");
     }
 
