@@ -64,7 +64,7 @@
                         <div class="col-md-6 form-group mb-3">
                             <label for="picker3">Ngày sinh</label>
                             <div class="input-group">
-                                <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" value="{{$khachhang->NgaySinh}}" name="NgaySinh">
+                                <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" value="{{ date('d/m/Y', strtotime($khachhang->NgaySinh)) }}" name="NgaySinh">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="icon-regular i-Calendar-4"></i></span>
                                 </div>
@@ -114,14 +114,14 @@
                         <div class="form-group col-md-2">
                             <label for="sel1">Loại tài khoản*:</label>
                             <select class="form-control" name="LoaiTaiKhoan" id="sel1">
-                              <option value="E">Nhân viên</option>
+                              <option value="C">Khách hàng</option>
                             </select>
                         </div>
                         <div class="col-md-12"></div>
                         <div class="form-group col-md-2">
                             <label for="sel2">Trạng thái*:</label>
                             <select class="form-control" id="sel2" name="TrangThai">
-                                <option value="1">Hoạt động</option>
+                              <option value="1">Hoạt động</option>
                               <option value="0">Bị khoá</option>
                               <option value="">NULL</option>
                             </select>
@@ -151,8 +151,33 @@
 @section('bottom-js')
 <script>
     $(document).ready(function(){
-        $('#picker2, #picker3').pickadate();
+        $('#picker2, #picker3').pickadate({
+            selectMonths: true,
+            selectYears:true,
+        });
     });
 </script>
+<script>
+    var select = document.getElementById("sel2");
+    var option = select.querySelector("option[value='<?php echo $khachhang->TrangThai; ?>']");
+    if (option) {
+        option.selected = true;
+    }
 
+</script>
+<script>
+    var select = document.getElementById("sel1");
+    var option = select.querySelector("option[value='<?php echo $khachhang->LoaiTaiKhoan; ?>']");
+    if (option) {
+        option.selected = true;
+    }
+
+</script>
+<script>
+    var select = document.getElementById("sel");
+    var option = select.querySelector("option[value='<?php echo $khachhang->GioiTinh; ?>']");
+    if (option) {
+        option.selected = true;
+    }
+</script>
 @endsection

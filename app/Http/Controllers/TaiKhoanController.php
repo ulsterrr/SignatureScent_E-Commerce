@@ -115,4 +115,11 @@ class TaiKhoanController extends Controller
 
         return back()->with('success', 'Đổi hình đại diện thành công.');
     }
+
+    public function layDsUserModal(Request $request)
+    {
+        $users = User::select(['id', 'HoTen', 'email', 'SDT', 'AnhDaiDien', 'LoaiTaiKhoan']);
+
+        return datatables()->of($users)->make(true);
+    }
 }

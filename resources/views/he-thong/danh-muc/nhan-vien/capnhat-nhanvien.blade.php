@@ -64,7 +64,7 @@
                         <div class="col-md-6 form-group mb-3">
                             <label for="picker3">Ngày sinh</label>
                             <div class="input-group">
-                                <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" value="{{$user->NgaySinh}}" name="NgaySinh">
+                                <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" value="{{ date('d/m/Y', strtotime($user->NgaySinh)) }}" name="NgaySinh">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="icon-regular i-Calendar-4"></i></span>
                                 </div>
@@ -151,8 +151,34 @@
 @section('bottom-js')
 <script>
     $(document).ready(function(){
-        $('#picker2, #picker3').pickadate();
+        $('#picker2, #picker3').pickadate({
+            selectMonths: true,
+            selectYears:true,
+        });
     });
+</script>
+<script>
+    var select = document.getElementById("sel2");
+    var option = select.querySelector("option[value='<?php echo $user->TrangThai; ?>']");
+    if (option) {
+        option.selected = true;
+    }
+
+</script>
+<script>
+    var select = document.getElementById("sel1");
+    var option = select.querySelector("option[value='<?php echo $user->LoaiTaiKhoan; ?>']");
+    if (option) {
+        option.selected = true;
+    }
+
+</script>
+<script>
+    var select = document.getElementById("sel");
+    var option = select.querySelector("option[value='<?php echo $user->GioiTinh; ?>']");
+    if (option) {
+        option.selected = true;
+    }
 </script>
 
 @endsection

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string("FAX")->nullable();
             $table->string("SoTaiKhoan")->nullable();
             $table->string("MoMo")->nullable();
+            $table->string("HinhAnh")->nullable();
             $table->string("NguoiQuanLy");
             $table->timestamps();
         });

@@ -24483,9 +24483,13 @@ select.form-control {
     height: 34px
 }
 
-.input-group-append .btn {
+.input-group-append, .input-group-prepend>button {
     height: 34px;
-    border: 0
+    border: 1px solid rgba(0, 0, 0, .125) !important;
+    border-left: 0px !important;
+    border-color: white !important;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
 }
 
 [ngbdatepicker] {
@@ -34517,4 +34521,17 @@ select option {
     font-size: 14px;
     padding: 10px;
     border: 1px solid #fff;
+}
+
+.dark-theme .modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #10163a;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: .3rem;
+    outline: 0;
 }
