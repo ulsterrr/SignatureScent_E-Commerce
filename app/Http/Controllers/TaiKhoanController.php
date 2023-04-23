@@ -96,6 +96,7 @@ class TaiKhoanController extends Controller
     public function xoaTaiKhoan($id){
         $user = User::find($id);
         $user->TrangThai = "0";
+        $user->delete();
         $user->save();
         return redirect()->route("quanlyTKView");
     }

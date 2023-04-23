@@ -98,7 +98,7 @@ class NhanVienController extends Controller
     public function xoaNhanVien($id){
         $nhanvien = User::find($id);
         $nhanvien->TrangThai = "0";
-        
+        $nhanvien->delete();
         $nhanvien->save();
         return redirect()->route("quanlyKH-view");
     }
