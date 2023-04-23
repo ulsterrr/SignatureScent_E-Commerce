@@ -247,6 +247,7 @@
 
     <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
     <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
+    <script src="{{asset('assets/js/modal.script.js')}}"></script>
     {{-- laravel js --}}
     {{-- <script src="{{mix('assets/js/laravel/app.js')}}"></script> --}}
     @yield('bottom-js')

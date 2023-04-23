@@ -81,7 +81,7 @@ class ChiNhanhController extends Controller
 
         $matTien = explode('@', $chi_nhanh->email)[0] . '_' . $chi_nhanh->id . '_avatar_' . time() . '.' . $request->file('HinhAnh')->getClientOriginalExtension();
 
-        $request->file('HinhAnh')->storeAs('assets/images/chi_nhanh', $matTien);
+        $request->file('HinhAnh')->storeAs('assets/images/branch', $matTien);
 
         $chi_nhanh->HinhAnh = $matTien;
         $chi_nhanh->save();
