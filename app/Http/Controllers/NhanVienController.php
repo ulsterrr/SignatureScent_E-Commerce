@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
+use Yajra\DataTables\DataTables;
 
 class NhanVienController extends Controller
 {
@@ -102,5 +103,31 @@ class NhanVienController extends Controller
         $nhanvien->save();
         return redirect()->route("quanlyKH-view");
     }
+    public function doiAnhDaiDien($id, Request $request)
+    {
 
+        $user = User::findOrFail($id);
+
+        $avatarName = explode('@', $user->email)[0] . '_' . $user->id . '_avatar_' . time() . '.' . $request->file('AnhDaiDien')->getClientOriginalExtension();
+
+        $request->file('AnhDaiDien')->storeAs('assets/images/faces', $avatarName);
+
+        $user->AnhDaiDien = $avatarName;
+        $user->save();
+
+        return back()->with('success', 'Đổi hình đại diện thành công.');
+    }
+
+    public function layDsNVienModal(Request $request)
+    {
+        $users = User::select(['id', 'HoTen', 'email', 'SDT', 'AnhDaiDien', 'LoaiTaiKhoan']);
+
+        return datatables()->of($users)->make(true);
+    }
+
+    public function layDsNvienAjax()
+    {
+        $users = User::all();
+        return DataTables::of($users)->make(true);
+    }
 }

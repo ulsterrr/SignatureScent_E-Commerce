@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Yajra\DataTables\DataTables;
 
 class KhachHangController extends Controller
 {
@@ -84,5 +85,17 @@ class KhachHangController extends Controller
         $khachhang->save();
         session()->flash('message','Cập nhật khách hàng thành công!');
         return redirect()->route('quanlyKH-view');
+    }
+    public function layDsKHangModal(Request $request)
+    {
+        $users = User::select(['id', 'HoTen', 'email', 'SDT', 'AnhDaiDien', 'LoaiTaiKhoan']);
+
+        return datatables()->of($users)->make(true);
+    }
+
+    public function layDsKHangAjax()
+    {
+        $users = User::all();
+        return DataTables::of($users)->make(true);
     }
 }
