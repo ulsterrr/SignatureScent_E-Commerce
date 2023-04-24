@@ -104,6 +104,7 @@ Route::get('admin/them-moi-tai-khoan',[TaiKhoanController::class,'themTaiKhoanVi
 Route::get('admin/chi-tiet-tai-khoan/{id}',[TaiKhoanController::class,'chiTietTaiKhoanView'])->name('chitietTK');
 Route::get('admin/cap-nhat-tai-khoan/{id}',[TaiKhoanController::class,'capNhatTaiKhoanView'])->name('capnhatTK-view');
 Route::post('admin/cap-nhat-tai-khoan/doi-anh-dai-dien/{id}', [TaiKhoanController::class, 'doiAnhDaiDien'])->name('capnhat-AnhDaiDien');
+
 //lấy ds user cho modal
 Route::get('dsUserModal',[TaiKhoanController::class,'layDsUserModal'])->name('dsUserModal');
 Route::get('dsUserAjax',[TaiKhoanController::class,'layDsUserAjax'])->name('dsUserAjax');
@@ -116,6 +117,11 @@ Route::get('admin/chi-tiet-nhan-vien/{id}',[NhanVienController::class,'chiTietNh
 Route::get('admin/cap-nhat-nhan-vien/{id}',[NhanVienController::class,'capNhatThongTinNVienView'])
 ->name('capnhatTKNV-view');
 
+//lấy ds nhân viên cho modal
+Route::get('dsNVienModal',[NhanVienController::class,'layDsNvienModal'])->name('dsNVienModal');
+Route::get('dsNvienAjax',[NhanVienController::class,'layDsNVienAjax'])->name('dsNvienAjax');
+
+
 //CRUD Quản Lý Nhân Viên
 Route::post('admin/cap-nhat-thong-tin-nhan-vien/{id}',[NhanVienController::class,'capNhatThongTinNVien'])
 ->name('capnhat-thongtin-nv-upd');
@@ -126,6 +132,11 @@ Route::get('admin/xoa-nhan-vien/{id}',[NhanVienController::class,'xoaNhanVien'])
 Route::post('admin/them-nhan-vien',[NhanVienController::class,'themNhanVien'])
 ->name('them-moi-nv-add');
 //
+
+//lấy ds khách hàng cho modal
+Route::get('dsKHangModal',[KhachHangController::class,'layDsKHangModal'])->name('dsKHangModal');
+Route::get('dsKHangAjax',[KhachHangController::class,'layDsKHangAjax'])->name('dsKHangAjax');
+
 //CRUD Quản Lý Khách hàng và Chi Nhánh
 Route::post('admin/them-moi-khach-hang',[KhachHangController::class,'themKhachHang'])->name('themKH-add');
 Route::post('admin/them-moi-chi-nhanh',[ChiNhanhController::class,'themChiNhanh'])->name('themmoiCN-add');
