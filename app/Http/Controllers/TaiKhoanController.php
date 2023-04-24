@@ -10,6 +10,8 @@ use Yajra\DataTables\DataTables;
 class TaiKhoanController extends Controller
 {
     public function loadDSTaiKhoanView(){
+        $user = User::where("TrangThai","1")->get();
+        return view('he-thong.danh-muc.tai-khoan.ds-user')->with('User',$user);
         //$user = User::all();
         //return view('he-thong.danh-muc.tai-khoan.ds-user')->with('User',$user);
         return view('he-thong.danh-muc.tai-khoan.ds-user');
@@ -97,7 +99,9 @@ class TaiKhoanController extends Controller
     }
     public function xoaTaiKhoan($id){
         $user = User::find($id);
+        $user->TrangThai = "0";
         $user->delete();
+        $user->save();
         return redirect()->route("quanlyTKView");
     }
 

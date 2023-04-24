@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class KhachHangController extends Controller
 {
     public function loadDSKhachHangView(){
-        $khachhang = User::where('LoaiTaiKhoan','C')->get();
+        $khachhang = User::where([['LoaiTaiKhoan','C'],['TrangThai','1']])->get();
         return view('he-thong.danh-muc.khach-hang.ds-khachhang')->with('KhachHang',$khachhang);
     }
 
