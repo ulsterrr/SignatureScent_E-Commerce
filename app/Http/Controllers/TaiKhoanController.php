@@ -6,11 +6,15 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Yajra\DataTables\DataTables;
 class TaiKhoanController extends Controller
 {
     public function loadDSTaiKhoanView(){
         $user = User::where("TrangThai","1")->get();
         return view('he-thong.danh-muc.tai-khoan.ds-user')->with('User',$user);
+        //$user = User::all();
+        //return view('he-thong.danh-muc.tai-khoan.ds-user')->with('User',$user);
+        return view('he-thong.danh-muc.tai-khoan.ds-user');
 
     }
     public function themTaiKhoanView(){
@@ -121,5 +125,11 @@ class TaiKhoanController extends Controller
         $users = User::select(['id', 'HoTen', 'email', 'SDT', 'AnhDaiDien', 'LoaiTaiKhoan']);
 
         return datatables()->of($users)->make(true);
+    }
+
+    public function layDsUserAjax()
+    {
+        $users = User::all();
+        return DataTables::of($users)->make(true);
     }
 }

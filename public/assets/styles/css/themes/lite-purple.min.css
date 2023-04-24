@@ -24483,7 +24483,15 @@ select.form-control {
     height: 34px
 }
 
-.input-group-append, .input-group-prepend>button {
+.input-group-prepend>button {
+    height: 34px;
+    border: 1px solid rgba(0, 0, 0, .125) !important;
+    border-right: 0px !important;
+    border-color: white !important;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.input-group-append>button {
     height: 34px;
     border: 1px solid rgba(0, 0, 0, .125) !important;
     border-left: 0px !important;
@@ -34534,4 +34542,10 @@ select option {
     border: 1px solid rgba(0, 0, 0, .2);
     border-radius: .3rem;
     outline: 0;
+}
+
+
+th, td {
+    white-space: nowrap;
+    overflow: auto;
 }
