@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string("NguoiTao");
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
+            $table->softDeletes();
             $table->timestamps();
         });
     }
