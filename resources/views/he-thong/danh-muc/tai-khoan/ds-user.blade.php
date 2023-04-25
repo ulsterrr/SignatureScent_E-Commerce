@@ -169,11 +169,15 @@
             // , scrollY: "1000px"
             , scrollX: true
             , autoWidth: true
-            , ajax: {
-                url: "{{ route('dsUserAjax') }}"
-                , type: 'GET'
-            , }
-            , columnDefs: [
+            // , ajax: {
+            //     url: "{{ route('dsUserAjax') }}"
+            //     , type: 'GET',
+            // },
+            ,ajax: {
+                url: "{{ route('dsUserAjax') }}",
+                type: "GET",
+            },
+            columnDefs: [
                 { width: '80px', targets: 0 },
                 { width: '20%', targets: 1 },
                 { width: '20%', targets: 2 },
@@ -193,7 +197,9 @@
             , columns: [{
                     data: null
                     , render: function(data, type, row) {
-                        var img = data.AnhDaiDien.toString();
+                        if(!data.AnhDaiDien){
+                            var img = "";
+                        } else  var img = data.AnhDaiDien.toString();
                         if (data.AnhDaiDien) {
                             return `<td class="text-center">
                                         <div class="ul-widget-app__profile-pic">
@@ -286,8 +292,14 @@
                     },
 
                 }
-            ],
-        })
+
+            ], "drawCallback": function(settings) {
+                    $(settings.nTable).find('.paginate_button').click(function() {
+                        settings._iDisplayStart = settings._iDisplayLength * parseInt($(this).attr('data-page'));
+                        $(settings.nTable).dataTable(settings);
+                    });
+                }
+        });
     });
 
     $('#ul-contact-list').on('click', 'a.delete-user', function(e) {
