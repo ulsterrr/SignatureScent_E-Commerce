@@ -173,6 +173,20 @@ Route::post('admin/them-moi-san-pham',[SanPhamController::class,'themSPham'])->n
 Route::post('admin/cap-nhat-san-pham/{id}',[SanPhamController::class,'capNhatSPham'])
 ->name('capnhatSPham-upd');
 
+//Quản Lý Loại Sản Phẩm View
+Route::get('admin/quan-ly-loai-san-pham',[LoaiSanPhamController::class,'loadLoaiSPView'])->name('qly-loaispham-view');
+Route::get('admin/them-moi-loai-san-pham',[LoaiSanPhamController::class,'themLoaiSPhamView'])->name('themloaiSPham-view');
+Route::get('admin/cap-nhat-loai-san-pham/{id}',[LoaiSanPhamController::class,'capNhatLoaiSPhamView'])
+->name('capnhatLoaiSPham-view');
+Route::get('admin/chi-tiet-loai-san-pham/{id}',[LoaiSanPhamController::class,'chiTietLoaiSPhamView'])
+->name('chitietLoaiSPham-view');
+
+//CRUD Loại Sản Phẩm Admin
+Route::post('admin/xoa-loai-san-pham',[LoaiSanPhamController::class,'xoaLoaiSPham'])->name('xoaLoaiSPham-del');
+Route::post('admin/them-moi-loai-san-pham',[LoaiSanPhamController::class,'themLoaiSPham'])->name('themLoaiSPham-add');
+Route::post('admin/cap-nhat-loai-san-pham/{id}',[LoaiSanPhamController::class,'capNhatLoaiSPham'])
+->name('capnhatLoaiSPham-upd');
+
 //Quản lý kho hàng
 
 Route::post('admin/nhap-hang',[KhoHangController::class,'nhapHang'])->name('nhaphang');

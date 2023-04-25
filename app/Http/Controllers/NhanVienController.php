@@ -43,6 +43,8 @@ class NhanVienController extends Controller
         $nhanvien->NgaySinh = $date_time;
         $nhanvien->TrangThai = $request->TrangThai;
         $nhanvien->NguoiTao = "";
+        $dt = Carbon::now('Asia/Ho_Chi_Minh');
+        $nhanvien->updated_at = $dt;
         $nhanvien->save();
         session()->flash('message','Cập nhật tài khoản thành công!');
 
