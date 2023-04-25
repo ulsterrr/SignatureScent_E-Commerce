@@ -52,9 +52,8 @@ class LoaiSanPhamController extends Controller
     }
     public function xoaLoaiSPham($id){
         $loaisanpham = LoaiSanPham::find($id);
-        dd($loaisanpham);
         $loaisanpham->delete();
-        return redirect()->route('he-thong.danh-muc.loai-san-pham.ds-loai-sp');
+        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp');
     }
 
     public function layLoaiSPAjax()
