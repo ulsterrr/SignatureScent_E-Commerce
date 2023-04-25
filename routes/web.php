@@ -8,6 +8,7 @@ use App\Http\Controllers\GioHangController;
 use App\Http\Controllers\HeThongController;
 use App\Http\Controllers\KhachHangController;
 use App\Http\Controllers\KhoHangController;
+use App\Http\Controllers\LoaiSanPhamController;
 use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\ThongKeController;
@@ -108,6 +109,7 @@ Route::post('admin/cap-nhat-tai-khoan/doi-anh-dai-dien/{id}', [TaiKhoanControlle
 //lấy ds user cho modal
 Route::get('dsUserModal',[TaiKhoanController::class,'layDsUserModal'])->name('dsUserModal');
 Route::get('dsUserAjax',[TaiKhoanController::class,'layDsUserAjax'])->name('dsUserAjax');
+Route::get('layLoaiSPAjax',[LoaiSanPhamController::class,'layLoaiSPAjax'])->name('layLoaiSPAjax');
 
 //View Quản Lý Nhân Viên
 Route::get('admin/quan-ly-nhan-vien',[NhanVienController::class,'loadDSNhanVienView'])->name('quanly-thongtin-nv-view');
@@ -182,10 +184,9 @@ Route::get('admin/chi-tiet-loai-san-pham/{id}',[LoaiSanPhamController::class,'ch
 ->name('chitietLoaiSPham-view');
 
 //CRUD Loại Sản Phẩm Admin
-Route::post('admin/xoa-loai-san-pham',[LoaiSanPhamController::class,'xoaLoaiSPham'])->name('xoaLoaiSPham-del');
+Route::get('admin/xoa-loai-san-pham/{id}',[LoaiSanPhamController::class,'xoaLoaiSPham'])->name('xoaLoaiSPham-del');
 Route::post('admin/them-moi-loai-san-pham',[LoaiSanPhamController::class,'themLoaiSPham'])->name('themLoaiSPham-add');
-Route::post('admin/cap-nhat-loai-san-pham/{id}',[LoaiSanPhamController::class,'capNhatLoaiSPham'])
-->name('capnhatLoaiSPham-upd');
+Route::post('admin/cap-nhat-loai-san-pham/{id}',[LoaiSanPhamController::class,'capNhatLoaiSPham'])->name('capnhatLoaiSPham-upd');
 
 //Quản lý kho hàng
 

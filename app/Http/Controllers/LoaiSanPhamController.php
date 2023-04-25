@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Models\LoaiSanPham;
+use Yajra\DataTables\DataTables;
 
 class LoaiSanPhamController extends Controller
 {
     public function loadLoaiSPView(){
         $loaisanpham = LoaiSanPham::all();
-        return view('')->with('loaisanpham',$loaisanpham);
+        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp')->with('loaisanpham',$loaisanpham);
     }
     public function themLoaiSPhamView(){
         return view('');
@@ -19,21 +21,22 @@ class LoaiSanPhamController extends Controller
         $loaisanpham->MaLoai = $req->MaLoai;
         $loaisanpham->TenLoai = $req->TenLoai;
         $loaisanpham->GhiChu = $req->GhiChu;
-        $loaisanpham->NguoiTao = $req ->NguoiTao;
+        $loaisanpham->NguoiTao = auth()->user()->email;
+        $loaisanpham->save();
         session()->flash('message','Thêm loại sản phẩm thành công!');
-        return View("");
+        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp');
 
     }
 
     public function chiTietLoaiSPhamView($id){
         $loaisanpham = LoaiSanPham::find($id);
-        return view('',compact('loaisanpham'));
+        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp',compact('loaisanpham'));
 
     }
 
     public function capNhatLoaiSPhamView($id){
         $loaisanpham = LoaiSanPham::find($id);
-        return view('',compact('loaisanpham'));
+        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp',compact('loaisanpham'));
     }
     public function capNhatLoaiSPham(Request $req, $id){
         $loaisanpham = LoaiSanPham::findOrFail($id);
@@ -45,12 +48,19 @@ class LoaiSanPhamController extends Controller
         $loaisanpham->updated_at = $dt;
         $loaisanpham->save();
         session()->flash('message','Cập nhật loại sản phẩm thành công!');
-        return View("");
+        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp');
     }
     public function xoaLoaiSPham($id){
         $loaisanpham = LoaiSanPham::find($id);
+        dd($loaisanpham);
         $loaisanpham->delete();
-        return redirect()->route("");
+        return redirect()->route('he-thong.danh-muc.loai-san-pham.ds-loai-sp');
+    }
+
+    public function layLoaiSPAjax()
+    {
+        $lsp = LoaiSanPham::all();
+        return DataTables::of($lsp)->make(true);
     }
 
 }
