@@ -82,6 +82,9 @@ class TaiKhoanController extends Controller
         $user->TinhThanh = $request->TinhThanh;
         $user->MaGiaoDien = "1";
         $user->ChiNhanh = "";
+        //Lấy time hiện tại
+        $dt = Carbon::now('Asia/Ho_Chi_Minh');
+        $user->updated_at = $dt;
         $date_time = Carbon::createFromFormat('d/m/Y', $request->NgaySinh)->toDateTimeString();
         $user->NgaySinh = $date_time;
         $user->TrangThai = $request->TrangThai;

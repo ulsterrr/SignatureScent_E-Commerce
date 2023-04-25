@@ -60,6 +60,8 @@ class ChiNhanhController extends Controller
         $chinhanh->SoTaiKhoan = $req->SoTaiKhoan;
         $chinhanh->MoMo = $req->MoMo;
         $chinhanh->NguoiQuanLy = $req->NguoiQuanLy;
+        $dt = Carbon::now('Asia/Ho_Chi_Minh');
+        $chinhanh->updated_at = $dt;
         $chinhanh->save();
         session()->flash('message','Cập nhật chi nhánh thành công!');
 

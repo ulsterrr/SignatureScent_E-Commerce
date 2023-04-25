@@ -82,6 +82,8 @@ class KhachHangController extends Controller
         $khachhang->NgaySinh = $date_time;
         $khachhang->TrangThai = $request->TrangThai;
         $khachhang->NguoiTao = "";
+        $dt = Carbon::now('Asia/Ho_Chi_Minh');
+        $khachhang->updated_at = $dt;
         $khachhang->save();
         session()->flash('message','Cập nhật khách hàng thành công!');
         return redirect()->route('quanlyKH-view');
