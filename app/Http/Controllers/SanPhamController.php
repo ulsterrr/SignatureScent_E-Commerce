@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\SanPham;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class SanPhamController extends Controller
 {
@@ -17,7 +19,8 @@ class SanPhamController extends Controller
     }
     public function themSPham(Request $req){
         $sanpham = new SanPham();
-        $sanpham->MaSanPham = $req->MaSanPham;
+        // $sanpham->MaSanPham = $req->MaSanPham;
+        $sanpham->MaSanPham = SanPhamController::taoMaSanPham();
         $sanpham->TenSanPham = $req->TenSanPham;
         $sanpham->ThuongHieu = $req->ThuongHieu;
         $sanpham->TrangThai = $req ->TrangThai;
@@ -71,5 +74,17 @@ class SanPhamController extends Controller
     }
     public function loadSPTheoLoai(){
 
+    }
+
+    public function layDsSanPhamAjax()
+    {
+        $users = SanPham::all();
+        return DataTables::of($users)->make(true);
+    }
+
+    public static function taoMaSanPham(){
+        DB::select('CALL sp_KhoiTaoKyHieu(?, @p_code)', ['SP']);
+        $code = DB::select('SELECT @p_code AS code')[0]->code;
+        return $code;
     }
 }

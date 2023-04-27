@@ -156,24 +156,22 @@ Route::get('admin/quan-ly-chi-nhanh',[ChiNhanhController::class,'loadDSChiNhanhV
 Route::get('admin/them-moi-chi-nhanh',[ChiNhanhController::class,'themChiNhanhView'])->name('themmoiCN-view');
 Route::get('admin/chi-tiet-chi-nhanh/{id}',[ChiNhanhController::class,'chiTietChiNhanhView'])->name('chitietCN-view');
 Route::get('admin/quan-ly-feedback',[DanhMucController::class,'loadDSFeedback'])->name('feedback');
-Route::get('admin/cap-nhat-chi-nhanh/{id}',[ChiNhanhController::class,'capNhatChiNhanhView'])
-->name('capnhatCN-view');
-Route::get('admin/cap-nhat-khach-hang/{id}',[KhachHangController::class,'capNhatKhachHangView'])
-->name('capnhatKH-view');
+Route::get('admin/cap-nhat-chi-nhanh/{id}',[ChiNhanhController::class,'capNhatChiNhanhView'])->name('capnhatCN-view');
+Route::get('admin/cap-nhat-khach-hang/{id}',[KhachHangController::class,'capNhatKhachHangView'])->name('capnhatKH-view');
 
 //Quản Lý Sản Phẩm View
 Route::get('admin/quan-ly-san-pham',[SanPhamController::class,'loadSPView'])->name('qly-spham-view');
 Route::get('admin/them-moi-san-pham',[SanPhamController::class,'themSPhamView'])->name('themSPham-view');
-Route::get('admin/cap-nhat-san-pham/{id}',[SanPhamController::class,'capNhatSPhamView'])
-->name('capnhatSPham-view');
-Route::get('admin/chi-tiet-san-pham/{id}',[SanPhamController::class,'chiTietSPhamView'])
-->name('chitietSPham-view');
+Route::get('admin/cap-nhat-san-pham/{id}',[SanPhamController::class,'capNhatSPhamView'])->name('capnhatSPham-view');
+Route::get('admin/chi-tiet-san-pham/{id}',[SanPhamController::class,'chiTietSPhamView'])->name('chitietSPham-view');
 
 //CRUD Sản Phẩm Admin
-Route::post('admin/xoa-san-pham',[SanPhamController::class,'xoaSPham'])->name('xoaSPham-del');
+Route::get('admin/xoa-san-pham/{id}',[SanPhamController::class,'xoaSPham'])->name('xoaSPham-del');
 Route::post('admin/them-moi-san-pham',[SanPhamController::class,'themSPham'])->name('themSPham-add');
-Route::post('admin/cap-nhat-san-pham/{id}',[SanPhamController::class,'capNhatSPham'])
-->name('capnhatSPham-upd');
+Route::post('admin/cap-nhat-san-pham/{id}',[SanPhamController::class,'capNhatSPham'])->name('capnhatSPham-upd');
+Route::get('layDsSanPhamAjax',[SanPhamController::class,'layDsSanPhamAjax'])->name('layDsSanPhamAjax');
+
+Route::get('sp/test',[SanPhamController::class,'test']);
 
 //Quản Lý Loại Sản Phẩm View
 Route::get('admin/quan-ly-loai-san-pham',[LoaiSanPhamController::class,'loadLoaiSPView'])->name('qly-loaispham-view');
@@ -213,8 +211,7 @@ Route::get('admin/bao-cao-ton-kho',[ThongKeController::class,'loadDSTonKho'])->n
 
 Route::get('admin/bao-cao-doanh-thu',[ThongKeController::class,'loadDSDoanhThu'])->name('baocao-doanhthu-view');
 
-Route::get('admin/bao-cao-san-pham-ban-chay',[ThongKeController::class,'loadSPBanChay'])
-->name('baocao-sanpham-banchay-view');
+Route::get('admin/bao-cao-san-pham-ban-chay',[ThongKeController::class,'loadSPBanChay'])->name('baocao-sanpham-banchay-view');
 
 
 //User
@@ -222,11 +219,9 @@ Route::get('user/danh-sach-yeu-thich',[SanPhamController::class,'loadSDYeuThich'
 
 Route::get('user/gio-hang',[GioHangController::class,'loadGioHang'])->name('giohang-view');
 
-Route::get('user/gio-hang/chi-tiet-gio-hang',[GioHangController::class,'loadChiTietGioHang'])
-->name('chitiet-giohang-view');
+Route::get('user/gio-hang/chi-tiet-gio-hang',[GioHangController::class,'loadChiTietGioHang'])->name('chitiet-giohang-view');
 
-Route::get('user/gio-hang/chi-tiet-gio-hang/thanh-toan')
-->name('thanhtoan-view');
+Route::get('user/gio-hang/chi-tiet-gio-hang/thanh-toan')->name('thanhtoan-view');
 
 Route::get('user/chi-tiet-san-pham',[SanPhamController::class,'loadChiTietSP'])->name('chitiet-sanpham-view');
 

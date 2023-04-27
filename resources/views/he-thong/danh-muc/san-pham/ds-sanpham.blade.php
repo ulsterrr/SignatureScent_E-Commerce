@@ -10,7 +10,7 @@
 <div class="breadcrumb">
     <h1>Danh sách </h1>
     <ul>
-        <li><a href="">Tài Khoản</a></li>
+        <li><a href="">Sản phẩm</a></li>
         {{-- <li>Liên hệ</li> --}}
     </ul>
 </div>
@@ -32,113 +32,35 @@
         <div class="col-md-12 mb-4">
             <div class="card text-left">
                 <div class="card-header text-right bg-transparent">
-                    <a type="button" href="{{ route('themTKView') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm tài khoản</a>
+                    <a type="button" href="{{ route('themTKView') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm sản phẩm</a>
                 </div>
-                <!-- begin::modal -->
-                <div class="ul-card-list__modal">
-                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group row">
-                                            <label for="inputName" class="col-sm-2 col-form-label">Họ tên</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputName" placeholder="Name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="" class="col-sm-2 col-form-label">Số điện thoại</label>
-                                            <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="" placeholder="number....">
-                                            </div>
-                                        </div>
-                                        <fieldset class="form-group">
-                                            <div class="row">
-                                                <div class="col-form-label col-sm-2 pt-0">Radios</div>
-                                                <div class="col-sm-10">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked="">
-                                                        <label class="form-check-label ml-3" for="gridRadios1">
-                                                            First radio
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                                        <label class="form-check-label ml-3" for="gridRadios2">
-                                                            Second radio
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check disabled ">
-                                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled="">
-                                                        <label class="form-check-label ml-3" for="gridRadios3">
-                                                            Third disabled radio
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <div class="form-group row">
-                                            <div class="col-sm-2">Ô kiểm</div>
-                                            <div class="col-sm-10">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                                    <label class="form-check-label ml-3" for="gridCheck1">
-                                                        Ô kiểm ví dụ
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-10">
-
-                                                <button type="submit" class="btn btn-success">Nâng cấp</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end::modal -->
 
                 <div class="card-body">
-
                     <div class="table-responsive">
                         <table id="ul-contact-list" class="display table" style="width:100%; overflow-y: scroll">
                             <thead>
                                 <tr>
-                                    <th style="width: 80px">Avatar</th>
-                                    <th style="width: 20%">Họ và Tên</th>
-                                    <th style="width: 20%">Email</th>
-                                    <th style="width: 50%">Số điện thoại</th>
-                                    <th style="width: 50%">Năm sinh</th>
-                                    <th style="width: 50%">Ngày tham gia</th>
-                                    <th style="width: 50%">Phân loại</th>
-                                    <th style="width: 50%">Trạng Thái</th>
-                                    <th style="width: 30%">Địa chỉ</th>
-                                    <th style="width: 30%">Quận Huyện</th>
-                                    <th style="width: 30%">Tỉnh Thành</th>
+                                    <th style="width: 80px">Hình ảnh</th>
+                                    <th style="width: 10%">Mã sản phẩm</th>
+                                    <th style="width: 20%">Tên sản phẩm</th>
+                                    <th style="width: 20%">Số serinal</th>
+                                    <th style="width: 10%">Giá</th>
+                                    <th style="width: 10%">Thương hiệu</th>
+                                    <th style="width: 30%">Mô tả</th>
+                                    <th style="width: 10%">Kích cỡ</th>
+                                    <th style="width: 30%">Ghi chú</th>
+                                    <th style="width: 30%">Chi nhánh</th>
                                     <th style="width: 30%" class="text-center">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
                             {{-- Load bằng Ajax cho nhanh --}}
-                    </tbody>
-
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
             </div>
         </div>
-    </div>
     </div>
 </section>
 
@@ -169,12 +91,8 @@
             // , scrollY: "1000px"
             , scrollX: true
             , autoWidth: true
-            // , ajax: {
-            //     url: "{{ route('dsUserAjax') }}"
-            //     , type: 'GET',
-            // },
             ,ajax: {
-                url: "{{ route('dsUserAjax') }}",
+                url: "{{ route('layDsSanPhamAjax') }}",
                 type: "GET",
             },
             columnDefs: [
@@ -197,13 +115,13 @@
             , columns: [{
                     data: null
                     , render: function(data, type, row) {
-                        if(!data.AnhDaiDien){
+                        if(!data.HinhAnh){
                             var img = "";
-                        } else  var img = data.AnhDaiDien.toString();
-                        if (data.AnhDaiDien) {
+                        } else  var img = data.HinhAnh.toString();
+                        if (data.HinhAnh) {
                             return `<td class="text-center">
                                         <div class="ul-widget-app__profile-pic">
-                                            <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/${img}') }}" alt="">
+                                            <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/sanphams/${img}') }}" alt="">
                                         </div>
                                     </td>`;
                         } else {
@@ -212,42 +130,36 @@
                     }
                 }
                 , {
-                    data: 'HoTen'
+                    data: 'MaSanPham'
                 }
                 , {
-                    data: 'email'
+                    data: 'TenSanPham'
                 }
                 , {
-                    data: 'SDT'
+                    data: 'Serinal'
                 }
                 , {
-                    data: 'NgaySinh'
-                    , render: function(data) {
-                        return moment(data).format('DD/MM/YYYY');
-                    }
+                    data: 'Gia'
+                }
+                , {
+                    data: 'ThuongHieu'
+                }
+                , {
+                    data: 'MoTa'
+                }
+                , {
+                    data: 'KichCo'
+                }
+                , {
+                    data: 'GhiChu'
+                }
+                , {
+                    data: 'ChiNhanh'
                 }
                 , {
                     data: 'created_at'
                     , render: function(data) {
                         return moment(data).format('DD/MM/YYYY HH:mm:ss');
-                    }
-                }
-                , {
-                    data: 'LoaiTaiKhoan'
-                    , render: function(data) {
-                        if (data == 'A') {
-                            return '<a href="#" class="badge badge-danger p-2">Admin</a>';
-                        } else if (data == 'M') {
-                            return '<a href="#" class="badge badge-info p-2">Quản lý</a>';
-                        } else if (data == 'E') {
-                            return '<a href="#" class="badge badge-primary p-2">Nhân viên</a>';
-                        } else if (data == 'C') {
-                            return '<a href="#" class="badge badge-success p-2">Khách hàng</a>';
-                        } else if (data == 'V') {
-                            return '<a href="#" class="badge badge-warning p-2">Khách VIP</a>';
-                        } else {
-                            return '';
-                        }
                     }
                 }
                 , {
@@ -261,15 +173,6 @@
                             return 'NULL';
                         }
                     }
-                }
-                , {
-                    data: 'DiaChi'
-                }
-                , {
-                    data: 'QuanHuyen'
-                }
-                , {
-                    data: 'TinhThanh'
                 }
                 , {
                     data: null

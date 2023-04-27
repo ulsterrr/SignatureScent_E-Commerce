@@ -21,5 +21,6 @@ class BangKhoaChinhSeeder extends Seeder
         $MA->GiaTriHienTai = 1;
         $MA->TenGiaTri = 'Mã sản phẩm';
         $MA->TrangThai = 1;
+        $MA->save();
     }
 }
