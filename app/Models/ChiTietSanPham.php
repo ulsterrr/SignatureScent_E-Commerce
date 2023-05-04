@@ -25,7 +25,10 @@ class ChiTietSanPham extends Model
         }
         return 0;
     }
-
+    // Lấy thông tin chi nhánh của CT SP
+    public function getChiNhanhSP(){
+        return $this->hasOne('App\Models\ChiNhanh','MaChiNhanh','MaChiNhanh');
+    }
     //
     public static function layChiTiettheoSanPham($masanpham){
         return SanPham::with('chiTietcuaSanPham')->where('MaSanPham',$masanpham)->first();

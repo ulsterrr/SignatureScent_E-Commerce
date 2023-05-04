@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\ChiNhanh;
 use App\Models\chi_nhanh;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 
 class ChiNhanhController extends Controller
@@ -89,5 +91,11 @@ class ChiNhanhController extends Controller
         $chi_nhanh->save();
 
         return back()->with('success', 'Đổi hình chi nhánh thành công.');
+    }
+
+    public function layDsChiNhanhAjax()
+    {
+        $cn = ChiNhanh::with('nguoiQuanLy')->get();
+        return DataTables::of($cn)->make(true);
     }
 }

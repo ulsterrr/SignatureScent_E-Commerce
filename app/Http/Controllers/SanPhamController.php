@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LoaiKichCo;
+use App\Models\LoaiSanPham;
 use App\Models\SanPham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,10 +14,21 @@ class SanPhamController extends Controller
     //Xử lý hàm sp dành cho admin
     public function loadSPView(){
         $sanpham = SanPham::all();
-        return view('he-thong.danh-muc.san-pham.ds-sanpham')->with('SanPham',$sanpham);
+        $loaisp = LoaiSanPham::all();
+        $loaikc = LoaiKichCo::all();
+        return view('he-thong.danh-muc.san-pham.ds-sanpham')->with([
+            'SanPham' => $sanpham,
+            'LoaiSP' => $loaisp,
+            'LoaiKC' => $loaikc
+        ]);
     }
     public function themSPhamView(){
-        return view('he-thong.danh-muc.san-pham.them-sp');
+        $loaisp = LoaiSanPham::all();
+        $loaikc = LoaiKichCo::all();
+        return view('he-thong.danh-muc.san-pham.them-sanpham')->with([
+            'LoaiSP' => $loaisp,
+            'LoaiKC' => $loaikc
+        ]);;
     }
     public function themSPham(Request $req){
         $sanpham = new SanPham();
@@ -78,8 +91,8 @@ class SanPhamController extends Controller
 
     public function layDsSanPhamAjax()
     {
-        $users = SanPham::all();
-        return DataTables::of($users)->make(true);
+        $sp = SanPham::getTatCaSanPham();
+        return DataTables::of($sp)->make(true);
     }
 
     public static function taoMaSanPham(){

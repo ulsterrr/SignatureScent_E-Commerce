@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("TenSanPham")->nullable();
             $table->string("ThuongHieu")->nullable();
             $table->integer("TrangThai")->nullable();
-            $table->string("GiaTien")->nullable();
+            $table->decimal("GiaTien", 18, 0)->default(0);
             $table->text("MoTa")->nullable();
             $table->string("HinhAnh")->nullable();
             $table->string("LoaiKichCo");

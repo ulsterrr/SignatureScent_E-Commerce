@@ -10,4 +10,10 @@ class LoaiSanPham extends Model
     use HasFactory;
     protected $table = 'loai_san_phams';
     protected $fillable=['MaLoai','TenLoai','GhiChu','NguoiTao'];
+
+    public function sanPham()
+    {
+        return $this->hasOne('App\Models\SanPham', 'LoaiSanPham', 'MaLoai');
+    }
+
 }
