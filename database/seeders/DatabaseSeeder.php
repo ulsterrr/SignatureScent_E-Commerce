@@ -24,5 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(LoaiTaiKhoanSeeder::class);
         $this->call(PhanQuyenSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(LoaiSanPhamSeeder::class);
+        $this->call(ChiNhanhSeeder::class);
+        $this->call(SanPhamSeeder::class);
     }
 }

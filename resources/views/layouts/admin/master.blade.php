@@ -248,6 +248,36 @@
     <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
     <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
     <script src="{{asset('assets/js/modal.script.js')}}"></script>
+    <script src="{{asset('assets/js/numeral.min.js')}}"></script>
+    <script src="{{asset('assets/js/cleave.min.js')}}"></script>
+    <script src="{{asset('assets/js/cleave.js')}}"></script>
+    <script>
+        // Cài đặt Cleave.js vào tất cả các thẻ input có type="money"
+        document.querySelectorAll('input[type="money"]').forEach(function(input) {
+            const cleave = new Cleave(input, {
+                numeral: true,
+                numeralThousandsGroupStyle: 'thousand'
+            });
+
+            input.addEventListener('blur', function(e) {
+                if (e.target.value === '') {
+                    cleave.setRawValue(0);
+                }
+            });
+        });
+
+        // Lắng nghe sự kiện submit của form để lấy giá trị đúng của input[type="money"] là số chứ không phải chuỗi
+        document.querySelector('form').addEventListener('submit', function() {
+            // Lấy tất cả các thẻ input có type="money"
+            let moneyInputs = document.querySelectorAll('input[type="money"]');
+
+            // Với mỗi input, thay thế giá trị hiện tại bằng rawValue
+            moneyInputs.forEach(function(input) {
+                input.value = input.cleave.getRawValue();
+            });
+        });
+
+    </script>
     {{-- laravel js --}}
     {{-- <script src="{{mix('assets/js/laravel/app.js')}}"></script> --}}
     @yield('bottom-js')

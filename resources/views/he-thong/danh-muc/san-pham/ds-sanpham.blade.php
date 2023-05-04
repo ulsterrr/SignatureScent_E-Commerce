@@ -2,6 +2,8 @@
 @section('page-css')
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/datatables.min.css') }}">
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/sweetalert2.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.css')}}">
+<link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.date.css')}}">
 
 @endsection
 
@@ -10,7 +12,7 @@
 <div class="breadcrumb">
     <h1>Danh sách </h1>
     <ul>
-        <li><a href="">Tài Khoản</a></li>
+        <li><a href="">Sản Phẩm</a></li>
         {{-- <li>Liên hệ</li> --}}
     </ul>
 </div>
@@ -32,113 +34,107 @@
         <div class="col-md-12 mb-4">
             <div class="card text-left">
                 <div class="card-header text-right bg-transparent">
-                    <a type="button" href="{{ route('themTKView') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm tài khoản</a>
+                    <a type="button" href="{{ route('themSPham-view') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm sản phẩm</a>
                 </div>
-                <!-- begin::modal -->
-                <div class="ul-card-list__modal">
-                    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group row">
-                                            <label for="inputName" class="col-sm-2 col-form-label">Họ tên</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputName" placeholder="Name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="" class="col-sm-2 col-form-label">Số điện thoại</label>
-                                            <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="" placeholder="number....">
-                                            </div>
-                                        </div>
-                                        <fieldset class="form-group">
-                                            <div class="row">
-                                                <div class="col-form-label col-sm-2 pt-0">Radios</div>
-                                                <div class="col-sm-10">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked="">
-                                                        <label class="form-check-label ml-3" for="gridRadios1">
-                                                            First radio
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                                        <label class="form-check-label ml-3" for="gridRadios2">
-                                                            Second radio
-                                                        </label>
-                                                    </div>
-                                                    <div class="form-check disabled ">
-                                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled="">
-                                                        <label class="form-check-label ml-3" for="gridRadios3">
-                                                            Third disabled radio
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <div class="form-group row">
-                                            <div class="col-sm-2">Ô kiểm</div>
-                                            <div class="col-sm-10">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                                    <label class="form-check-label ml-3" for="gridCheck1">
-                                                        Ô kiểm ví dụ
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-10">
 
-                                                <button type="submit" class="btn btn-success">Nâng cấp</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                <div class="card-body">
+                    <form  action="#" method="POST" class="mb-3 mt-0 p-3 pt-0">
+                        @csrf
+                        <div class="form-row">
+                            <div class="col-md-2">
+                                <label for="validationCustomUsername2" class="required">Mã sản phẩm</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="validationCustomUsername2" name="MaSanPham" aria-describedby="inputGroupPrepend" required>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="validationCustomUsername3" class="required">Tên sản phẩm</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="validationCustomUsername3" name="TenSanPham" placeholder="" aria-describedby="inputGroupPrepend" required>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="validationCustom02">Ghi chú</label>
+                                <input type="text" class="form-control" name="DiaChi" id="validationCustom02" placeholder="" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="sel">Loại sản phẩm:</label>
+                                <select class="form-control" name="LoaiSanPham" id="sel">
+                                    <option value="">Tất cả</option>
+                                    @foreach($LoaiSP as $lsp)
+                                        <option value="{{ $lsp->MaLoai }}">{{ $lsp->TenLoai }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="sel">Loại kích cỡ:</label>
+                                <select class="form-control" name="LoaiKichCo" id="sel1">
+                                    <option value="">Tất cả</option>
+                                    @foreach($LoaiKC as $lkc)
+                                        <option value="{{ $lkc->MaKichCo }}">{{ $lkc->TenKichCo }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="validationCustom05">Thương hiệu</label>
+                                <input type="text" class="form-control" name="ThuongHieu" id="validationCustom05" placeholder="ABC" required>
+                            </div>
+                            <div class="col-md-12 mt-2"></div>
+                            <div class="col-md-3">
+                                <label for="picker2">Ngày tạo (Từ ngày)</label>
+                                <div class="input-group">
+                                    <input id="picker2" class="form-control" placeholder="Ngày/Tháng/Năm" name="created_at_from">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="icon-regular i-Calendar-4"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="picker3">Ngày tạo (Đến ngày)</label>
+                                <div class="input-group">
+                                    <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" name="created_at_to">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend1"><i class="icon-regular i-Calendar-4"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mt-2"></div>
+                            <div class="col-md-2 mt-2">
+                                <label for="picker3"></label>
+                                <div class="input-group">
+                                    <button class="btn btn-primary" type="submit">Tìm kiếm theo bộ lọc</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- end::modal -->
-
-                <div class="card-body">
+                        <div class="col-md-12"></div>
+                    </form>
 
                     <div class="table-responsive">
                         <table id="ul-contact-list" class="display table" style="width:100%; overflow-y: scroll">
                             <thead>
                                 <tr>
-                                    <th style="width: 80px">Avatar</th>
-                                    <th style="width: 20%">Họ và Tên</th>
-                                    <th style="width: 20%">Email</th>
-                                    <th style="width: 50%">Số điện thoại</th>
-                                    <th style="width: 50%">Năm sinh</th>
-                                    <th style="width: 50%">Ngày tham gia</th>
-                                    <th style="width: 50%">Phân loại</th>
-                                    <th style="width: 50%">Trạng Thái</th>
-                                    <th style="width: 30%">Địa chỉ</th>
-                                    <th style="width: 30%">Quận Huyện</th>
-                                    <th style="width: 30%">Tỉnh Thành</th>
+                                    <th style="width: 80px">Hình ảnh</th>
+                                    <th style="width: 20%">Mã sản phẩm</th>
+                                    <th style="width: 20%">Tên sản phẩm</th>
+                                    <th style="width: 50%">Giá</th>
+                                    <th style="width: 30%" class="text-center">Mô tả</th>
+                                    <th style="width: 30%">Ngày tạo</th>
+                                    <th style="width: 50%">Thương hiệu</th>
+                                    <th style="width: 50%">Loại sản phẩm</th>
+                                    <th style="width: 30%">Quy cách</th>
+                                    <th style="width: 30%">Trạng thái</th>
+                                    <th style="width: 30%">Ghi chú</th>
                                     <th style="width: 30%" class="text-center">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            {{-- Load bằng Ajax cho nhanh --}}
-                    </tbody>
-
-                    </table>
+                                {{-- Load bằng Ajax cho nhanh --}}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
             </div>
         </div>
-    </div>
     </div>
 </section>
 
@@ -159,6 +155,9 @@
 
 <script src="{{asset('assets/js/datatable-selectrow.script.js')}}"></script>
 
+<script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
+<script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
+
 {{-- Ajax load data cho ds user --}}
 <script>
     $(document).ready(function() {
@@ -174,7 +173,7 @@
             //     , type: 'GET',
             // },
             ,ajax: {
-                url: "{{ route('dsUserAjax') }}",
+                url: "{{ route('layDsSanPhamAjax') }}",
                 type: "GET",
             },
             columnDefs: [
@@ -183,7 +182,7 @@
                 { width: '20%', targets: 2 },
                 { width: '10%', targets: 3 },
                 { width: '10%', targets: 4 },
-                { width: '10%', targets: 5 },
+                { width: '30%', targets: 5 },
                 { width: '10%', targets: 6 },
                 { width: '10%', targets: 7 },
                 { width: '30%', targets: 8 },
@@ -197,33 +196,40 @@
             , columns: [{
                     data: null
                     , render: function(data, type, row) {
-                        if(!data.AnhDaiDien){
+                        if(!data.HinhAnh){
                             var img = "";
-                        } else  var img = data.AnhDaiDien.toString();
-                        if (data.AnhDaiDien) {
+                        } else  var img = data.HinhAnh.toString();
+                        if (data.HinhAnh) {
                             return `<td class="text-center">
-                                        <div class="ul-widget-app__profile-pic">
-                                            <img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/${img}') }}" alt="">
-                                        </div>
+                                            <img class="avatar-lg" src="{{ asset('assets/images/faces/${img}') }}" alt="">
                                     </td>`;
                         } else {
-                            return '<td class="text-center"><div class="ul-widget-app__profile-pic"><img class="profile-picture avatar-sm mb-2 rounded-circle img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}" alt=""></div></td>';
+                            return `<td class="text-center">
+                                        <div class="ul-widget-app__profile-pic"><img class="avatar-lg" src="{{ asset('assets/images/faces/1.jpg') }}" alt=""></div>
+                                    </td>`;
                         }
                     }
                 }
                 , {
-                    data: 'HoTen'
+                    data: 'MaSanPham'
                 }
                 , {
-                    data: 'email'
+                    data: 'TenSanPham'
                 }
                 , {
-                    data: 'SDT'
-                }
-                , {
-                    data: 'NgaySinh'
+                    data: null
                     , render: function(data) {
-                        return moment(data).format('DD/MM/YYYY');
+                        let amount = data.GiaTien;
+                        if(!amount) return 0;
+                        let formattedAmount = numeral(amount).format('0,0'); // "1.000.000 ₫"
+                        return formattedAmount;
+                    }
+                }
+                , {
+                    data: 'MoTa'
+                    , render: function(data) {
+                        var mota = data;
+                        return `<textarea style="width: 350px" class="form-control" rows="3" readonly name="MoTa" id="MoTa" placeholder="...">${mota}</textarea>`;
                     }
                 }
                 , {
@@ -233,50 +239,44 @@
                     }
                 }
                 , {
-                    data: 'LoaiTaiKhoan'
+                    data: 'ThuongHieu'
+                }
+                , {
+                    data: null
                     , render: function(data) {
-                        if (data == 'A') {
-                            return '<a href="#" class="badge badge-danger p-2">Admin</a>';
-                        } else if (data == 'M') {
-                            return '<a href="#" class="badge badge-info p-2">Quản lý</a>';
-                        } else if (data == 'E') {
-                            return '<a href="#" class="badge badge-primary p-2">Nhân viên</a>';
-                        } else if (data == 'C') {
-                            return '<a href="#" class="badge badge-success p-2">Khách hàng</a>';
-                        } else if (data == 'V') {
-                            return '<a href="#" class="badge badge-warning p-2">Khách VIP</a>';
-                        } else {
-                            return '';
-                        }
+                        if(!data.loai_san_pham)
+                        return '';
+                        else return data.loai_san_pham.TenLoai;
+                    }
+                }
+                , {
+                    data: null
+                    , render: function(data) {
+                        if(!data.loai_kich_co)
+                        return '';
+                        else return data.loai_san_pham.TenKichCo;
                     }
                 }
                 , {
                     data: 'TrangThai'
                     , render: function(data) {
                         if (data == '1') {
-                            return 'Hoạt động';
+                            return 'Bình thường';
                         } else if (data == '0') {
-                            return 'Bị Khoá';
+                            return 'Ngưng nhập hàng';
                         } else {
-                            return 'NULL';
+                            return 'Tồn kho';
                         }
                     }
                 }
                 , {
-                    data: 'DiaChi'
-                }
-                , {
-                    data: 'QuanHuyen'
-                }
-                , {
-                    data: 'TinhThanh'
+                    data: 'GhiChu'
                 }
                 , {
                     data: null
                     , render: function(data, type, row) {
-                        var editUrl = "{{ route('capnhatTK-view', ['id' => ':id']) }}";
-                        var detailUrl = "{{ route('chitietTK', ['id' => ':id']) }}";
-                        var deleteUrl = "{{ route('xoaTK-del', ['id' => ':id']) }}";
+                        var editUrl = "{{ route('capnhatSPham-view', ['id' => ':id']) }}";
+                        var detailUrl = "{{ route('chitietSPham-view', ['id' => ':id']) }}";
 
                         return `<td class="text-center">
                                     <a href="${editUrl.replace(':id', data.id)}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
@@ -285,7 +285,7 @@
                                     <a href="${detailUrl.replace(':id', data.id)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
                                         <i class="i-Eye-Visible"></i>
                                     </a>
-                                    <a id="deleteCurUser" class="ul-link-action text-danger mr-1 delete-user" data-toggle="tooltip" data-placement="top" title="Xoá tài khoản này!!!">
+                                    <a id="deleteCurUser" class="ul-link-action text-danger mr-1 delete-user" data-toggle="tooltip" data-placement="top" title="Xoá sản phẩm này!!!">
                                         <i class="i-Eraser-2"></i>
                                     </a>
                                 </td>`;
@@ -322,7 +322,7 @@
             buttonsStyling: true
         }).then(function() {
             $.ajax({
-                url: "{{ route('xoaTK-del', ['id' => ':id']) }}".replace(':id', id),
+                url: "{{ route('xoaSPham-del', ['id' => ':id']) }}".replace(':id', id),
                 type: 'GET',
                 data: {_token: '{{ csrf_token() }}'}, // Đảm bảo token csrf đúng
                 success: function(data) {
@@ -344,6 +344,14 @@
                     )
                 }
             });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        $('#picker2, #picker3').pickadate({
+            selectMonths: true,
+            selectYears:true,
+        });
     });
 </script>
 @endsection

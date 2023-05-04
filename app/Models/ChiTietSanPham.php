@@ -9,11 +9,12 @@ class ChiTietSanPham extends Model
 {
     use HasFactory;
     protected $table = 'chi_tiet_san_phams';
-    protected $fillable=['MaSanPham','SoSerial','MaChiNhanh','TinhTrang','GhiChu','NguoiTao','MaDonHang','MaPhieuNhap'];
+    protected $fillable=['MaCTSanPham','MaSanPham','SoSerial','MaChiNhanh','TinhTrang','GhiChu','NguoiTao','MaDonHang','MaPhieuNhap'];
 
     // Thuộc sản phẩm
-    public function chiTietcuaSanPham(){
-        return $this->hasOne('App\Models\SanPham','MaSanPham','MaSanPham');
+    public function chiTietcuaSanPham()
+    {
+        return $this->belongsTo('App\Models\SanPham', 'MaSanPham', 'MaSanPham');
     }
 
     // Điếm số lượng sản phẩm hiện có
@@ -24,7 +25,10 @@ class ChiTietSanPham extends Model
         }
         return 0;
     }
-
+    // Lấy thông tin chi nhánh của CT SP
+    public function getChiNhanhSP(){
+        return $this->hasOne('App\Models\ChiNhanh','MaChiNhanh','MaChiNhanh');
+    }
     //
     public static function layChiTiettheoSanPham($masanpham){
         return SanPham::with('chiTietcuaSanPham')->where('MaSanPham',$masanpham)->first();

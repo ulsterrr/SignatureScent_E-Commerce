@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class SanPham extends Model
 {
@@ -12,14 +13,25 @@ class SanPham extends Model
     protected $fillable=['MaSanPham','TenSanPham','ThuongHieu','TrangThai','GiaTien','MoTa','HinhAnh','LoaiKichCo','LoaiSanPham','GhiChu','NguoiTao'];
 
     // Khoá ngoại loại sản phẩm
-    public function loaisanpham(){
-        return $this->hasOne('App\Models\LoaiSanPham','LoaiSanPham','MaLoai');
+    public function loaiSanPham()
+    {
+        return $this->belongsTo('App\Models\LoaiSanPham', 'LoaiSanPham', 'MaLoai');
+    }
+
+    // Khoá ngoại loại kích cỡ
+    public function loaiKichCo()
+    {
+        return $this->belongsTo('App\Models\LoaiKichCo', 'LoaiKichCo', 'MaKichCo');
+    }
+
+    public function chiTietSanPhams()
+    {
+        return $this->hasMany('App\Models\ChiTietSanPham', 'MaSanPham', 'MaSanPham');
     }
 
     // Khoá ngoại liên kết lấy tất cả sản phẩm và các bảng liên quan
     public static function getTatCaSanPham(){
-        return SanPham::with('loaisanpham')->orderBy('MaSanPham','desc')->paginate(10);
+        return SanPham::with('loaiSanPham', 'loaiKichCo')->orderBy('MaSanPham','desc')->get();
     }
-
 
 }
