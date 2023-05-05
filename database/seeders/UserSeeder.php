@@ -254,7 +254,7 @@ class UserSeeder extends Seeder
             $TaiKhoan11->ChiNhanh = "";
             $TaiKhoan11->NgaySinh = "2003/04/16";
             $TaiKhoan11->TrangThai = "1";
-            $TaiKhoan11->NguoiTao = "hothanhphuc2468";
+            $TaiKhoan11->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan11->MaGiaoDien = "GD04";
             $TaiKhoan11->AnhDaiDien = "";
             $TaiKhoan11->AnhBia = "";
@@ -274,7 +274,7 @@ class UserSeeder extends Seeder
             $TaiKhoan12->ChiNhanh = "";
             $TaiKhoan12->NgaySinh = "2001/05/16";
             $TaiKhoan12->TrangThai = "1";
-            $TaiKhoan12->NguoiTao = "hothanhphuc2468";
+            $TaiKhoan12->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan12->MaGiaoDien = "GD04";
             $TaiKhoan12->AnhDaiDien = "";
             $TaiKhoan12->AnhBia = "";
@@ -299,5 +299,68 @@ class UserSeeder extends Seeder
             $TaiKhoan13->AnhDaiDien = "";
             $TaiKhoan13->AnhBia = "";
             $TaiKhoan13->save();
+
+            $TaiKhoan14 =  new User();
+            $TaiKhoan14->name = "";
+            $TaiKhoan14->email = "phambaovu@gmail.com";
+            $TaiKhoan14->password = Hash::make("123456");
+            $TaiKhoan14->LoaiTaiKhoan = "C";
+            $TaiKhoan14->HoTen = "Phạm Bảo Vũ";
+            $TaiKhoan14->GioiTinh = "Nam";
+            $TaiKhoan14->DiaChi = "47 Tỉnh Lộ 10";
+            $TaiKhoan14->SDT = "0323572103";
+            $TaiKhoan14->QuanHuyen = "Quận Bình Tân";
+            $TaiKhoan14->TinhThanh = "Hồ Chí Minh";
+            $TaiKhoan14->ChiNhanh = "";
+            $TaiKhoan14->NgaySinh = "2003/01/11";
+            $TaiKhoan14->TrangThai = "1";
+            $TaiKhoan14->NguoiTao = "hothanhphuc2468";
+            $TaiKhoan14->MaGiaoDien = "GD04";
+            $TaiKhoan14->AnhDaiDien = "";
+            $TaiKhoan14->AnhBia = "";
+            $TaiKhoan14->save();
+
+            $TaiKhoan15 =  new User();
+            $TaiKhoan15->name = "";
+            $TaiKhoan15->email = "hoangbaovu@gmail.com";
+            $TaiKhoan15->password = Hash::make("123456");
+            $TaiKhoan15->LoaiTaiKhoan = "C";
+            $TaiKhoan15->HoTen = "Hoàng Bảo Vũ";
+            $TaiKhoan15->GioiTinh = "Nam";
+            $TaiKhoan15->DiaChi = "47 Âu Cơ";
+            $TaiKhoan15->SDT = "0323572103";
+            $TaiKhoan15->QuanHuyen = "Quận Tân Phú";
+            $TaiKhoan15->TinhThanh = "Hồ Chí Minh";
+            $TaiKhoan15->ChiNhanh = "";
+            $TaiKhoan15->NgaySinh = "2004/01/11";
+            $TaiKhoan15->TrangThai = "1";
+            $TaiKhoan15->NguoiTao = "hothanhphuc2468";
+            $TaiKhoan15->MaGiaoDien = "GD04";
+            $TaiKhoan15->AnhDaiDien = "";
+            $TaiKhoan15->AnhBia = "";
+            $TaiKhoan15->save();
+
+            $TaiKhoan16 =  new User();
+            $TaiKhoan16->name = "";
+            $TaiKhoan16->email = "lethicamtu@gmail.com";
+            $TaiKhoan16->password = Hash::make("123456");
+            $TaiKhoan16->LoaiTaiKhoan = "C";
+            $TaiKhoan16->HoTen = "Lê Thị Cẩm Tú";
+            $TaiKhoan16->GioiTinh = "Nữ";
+            $TaiKhoan16->DiaChi = "40 Âu Cơ";
+            $TaiKhoan16->SDT = "0323535103";
+            $TaiKhoan16->QuanHuyen = "Quận Tân Phú";
+            $TaiKhoan16->TinhThanh = "Hồ Chí Minh";
+            $TaiKhoan16->ChiNhanh = "";
+            $TaiKhoan16->NgaySinh = "2001/01/21";
+            $TaiKhoan16->TrangThai = "1";
+            $TaiKhoan16->NguoiTao = "hothanhphuc2468";
+            $TaiKhoan16->MaGiaoDien = "GD04";
+            $TaiKhoan16->AnhDaiDien = "";
+            $TaiKhoan16->AnhBia = "";
+            $TaiKhoan16->save();
+
+
+
     }
 }
