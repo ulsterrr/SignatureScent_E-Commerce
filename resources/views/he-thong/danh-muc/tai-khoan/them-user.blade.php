@@ -29,6 +29,11 @@
                     </div>
                 @endif
             </div>
+            {{-- <ul class="alert text-danger">
+                @foreach ( $errors -> all() as $error  )
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul> --}}
             <div class="card-body">
                 <form class="needs-validation" action="{{ route('themTK-add') }}" method="POST">
                     @csrf
@@ -88,6 +93,7 @@
                             <div class="invalid-feedback">
                                 Họ và Tên không được để trống!
                             </div>
+
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom02">Địa chỉ</label>
@@ -95,6 +101,7 @@
                             <div class="invalid-feedback">
                                 Địa chỉ không được để trống!
                             </div>
+
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom03">Quận/Huyện</label>
