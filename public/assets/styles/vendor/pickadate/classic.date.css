@@ -24,7 +24,7 @@
 
 .picker__year {
     color: #999;
-    font-size: .8em;
+    font-size: .7em;
     font-style: italic
 }
 
@@ -37,11 +37,13 @@
 }
 
 .picker__select--month {
-    width: 35%
+    width: 35%;
+    text-align: center;
 }
 
 .picker__select--year {
-    width: 22.5%
+    width: 30%;
+    text-align: center;
 }
 
 .picker__nav--next, .picker__nav--prev {

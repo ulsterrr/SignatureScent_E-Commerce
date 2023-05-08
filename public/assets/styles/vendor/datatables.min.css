@@ -1119,6 +1119,10 @@ th, td {
   background-color: #007bff;
 }
 
+div.dataTables_scrollHeadInner {
+    padding-right: 0px important!;
+}
+
 /* .dataTables_scrollBody::-webkit-scrollbar {
     width: 8px;
   }

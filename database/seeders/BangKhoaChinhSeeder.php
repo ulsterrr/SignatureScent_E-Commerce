@@ -22,5 +22,19 @@ class BangKhoaChinhSeeder extends Seeder
         $MA->TenGiaTri = 'Mã sản phẩm';
         $MA->TrangThai = 1;
         $MA->save();
+
+        $MACT = new BangMaKhoaChinh();
+        $MACT->MaKhoaChinh = 'CTSP';
+        $MACT->GiaTriHienTai = 1;
+        $MACT->TenGiaTri = 'Chi tiết sản phẩm';
+        $MACT->TrangThai = 1;
+        $MACT->save();
+
+        $MAPN = new BangMaKhoaChinh();
+        $MAPN->MaKhoaChinh = 'NHM';
+        $MAPN->GiaTriHienTai = 1;
+        $MAPN->TenGiaTri = 'Nhập mới sản phẩm';
+        $MAPN->TrangThai = 1;
+        $MAPN->save();
     }
 }

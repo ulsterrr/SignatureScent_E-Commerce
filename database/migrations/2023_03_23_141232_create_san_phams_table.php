@@ -19,15 +19,16 @@ return new class extends Migration
             $table->string("TenSanPham")->nullable();
             $table->string("ThuongHieu")->nullable();
             $table->integer("TrangThai")->nullable();
-            $table->decimal("GiaTien", 18, 0)->default(0);
+            $table->decimal("VAT", 18, 0)->nullable();
+            $table->decimal("GiaVAT", 18, 0)->nullable();
+            $table->decimal("GiaTien", 18, 0)->nullable();
             $table->text("MoTa")->nullable();
             $table->string("HinhAnh")->nullable();
             $table->string("LoaiKichCo");
             $table->string("LoaiSanPham");
             $table->text("GhiChu")->nullable();
             $table->string("NguoiTao")->nullable();
-            // $table->timestamps("NgayTao");
-            // $table->timestamps("NgayCapNhat");
+            $table->softDeletes();
             $table->timestamps();
         });
     }

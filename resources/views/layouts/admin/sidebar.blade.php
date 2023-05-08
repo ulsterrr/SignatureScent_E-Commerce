@@ -115,13 +115,19 @@
                     <li>
                         <a class="{{ Route::currentRouteName()=='qly-loaispham-view' ? 'open' : '' }}" href="{{ route('qly-loaispham-view') }}">
                             <i class="nav-icon i-Library"></i>
-                            <span class="item-name">Danh loại sản phẩm</span>
+                            <span class="item-name">Loại sản phẩm</span>
                         </a>
                     </li>
                     <li>
                         <a class="{{ Route::currentRouteName()=='qly-spham-view' ? 'open' : '' }}" href="{{ route('qly-spham-view') }}">
                             <i class="nav-icon i-Dropbox"></i>
                             <span class="item-name">Danh sách sản phẩm</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='themSPham-view' ? 'open' : '' }}" href="{{ route('themSPham-view') }}">
+                            <i class="nav-icon i-Add"></i>
+                            <span class="item-name">Nhập mới sản phẩm</span>
                         </a>
                     </li>
                 </ul>
