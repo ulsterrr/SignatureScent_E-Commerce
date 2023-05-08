@@ -9,5 +9,5 @@ class NhapHangMoi extends Model
 {
     use HasFactory;
     protected $table = 'nhap_hang_mois';
-    protected $fillable=['TenSanPham','KichCo','ThuongHieu','SoLuongNhap','LoaiNhap','GiaTien','MoTa','HinhAnh','LoaiSanPham','LoaiKichCo','MaKhoHang','MaChiNhanh','GhiChu','NguoiTao'];
+    protected $fillable=['MaSanPham','TenSanPham','KichCo','ThuongHieu','SoLuongNhap','SoSerial','SoLuongSerial','LoaiNhap','VAT','GiaVAT','GiaTien','GiaTienSauThue','TongTien','MoTa','HinhAnh','LoaiSanPham','LoaiKichCo','MaKhoHang','MaChiNhanh','GhiChu','NguoiTao'];
 }

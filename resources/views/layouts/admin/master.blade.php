@@ -273,7 +273,8 @@
 
             // Với mỗi input, thay thế giá trị hiện tại bằng rawValue
             moneyInputs.forEach(function(input) {
-                input.value = input.cleave.getRawValue();
+                // input.value = input.cleave.getRawValue();
+                input.value = parseInt(input.value.replace(/,/g, ''), 10);
             });
         });
 

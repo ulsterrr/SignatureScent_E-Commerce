@@ -122,7 +122,7 @@ class UserSeeder extends Seeder
 
             $TaiKhoan5 =  new User();
             $TaiKhoan5->name = "";
-            $TaiKhoan5->email = "dangdiemtrinh@gmail.com";
+            $TaiKhoan5->email = "dangdiemtrinh2@gmail.com";
             $TaiKhoan5->password = Hash::make("123456");
             $TaiKhoan5->LoaiTaiKhoan = "M";
             $TaiKhoan5->HoTen = "Đặng Diễm Trinh";

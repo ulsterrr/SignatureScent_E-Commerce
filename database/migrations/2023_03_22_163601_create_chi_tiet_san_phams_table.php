@@ -18,14 +18,16 @@ return new class extends Migration
             $table->string("MaCTSanPham")->unique();
             $table->string("MaSanPham");
             $table->string("SoSerial")->nullable();
-            $table->string("MaChiNhanh");
+            $table->string("KichCo")->nullable();
+            $table->string("MaChiNhanh")->nullable();
             $table->string("TinhTrang")->nullable();
             $table->text("GhiChu")->nullable();
             $table->string("NguoiTao")->nullable();
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");
-            $table->string("MaDonHang");
-            $table->string("MaPhieuNhap");
+            $table->string("MaDonHang")->nullable();
+            $table->string("MaPhieuNhap")->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

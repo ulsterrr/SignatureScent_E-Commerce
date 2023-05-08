@@ -7,7 +7,7 @@
 
 @section('main-content')
 <div class="breadcrumb">
-    <h1>Thêm mới</h1>
+    <h1>Nhập mới</h1>
     <ul>
         <li><a href="">Sản phẩm</a></li>
         <li>Tạo sản phẩm</li>
@@ -19,9 +19,27 @@
 <div class="col-md-12">
     <div class="col-md-12">
         <p></p>
+        <div class="col-md-12">
+            @if (session('message.warning'))
+            <div class="alert alert-card alert-warning" role="alert">
+                <strong class="text-capitalize">Success!</strong> {{ session('message.warning') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
+            @if (session('message.success'))
+            <div class="alert alert-card alert-success" role="alert">
+                <strong class="text-capitalize">Success!</strong> {{ session('message.success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
+        </div>
         <div class="card mb-4">
             <div class="card-body">
-                <form class="needs-validation" method="POST" action="{{route('themmoiCN-add')}}" novalidate>
+                <form class="needs-validation" method="POST" action="{{route('nhapMoiSPham-add')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="row col-md-12">
                     <div class="col-md-8">
@@ -34,7 +52,7 @@
                                 <label for="TenChiNhanh" class="required">Chi nhánh:</label>
                                 <div class="input-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="TenChiNhanh" name="TenChiNhanh" placeholder="Chi nhánh ..." readonly required
+                                        <input type="text" class="form-control" id="TenChiNhanh" name="TenChiNhanh" readonly required
                                                 aria-describedby="inputGroupCN">
                                         <div class="input-group-append">
                                             <button id="inputGroupCN" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">...</button>
@@ -47,8 +65,7 @@
                                 <div class="input-group">
                                     <div class="input-group">
                                         <input type="text" class="form-control" id="validationCustom08" name="NguoiTao" readonly required
-                                            value="{{ auth()->user() ? auth()->user()->email : null }}"
-                                            aria-describedby="inputGroupQL">
+                                            value="{{ auth()->user() ? auth()->user()->email : null }}">
                                     </div>
                                     <div class="invalid-feedback">
                                         Người nhập được để trống!
@@ -59,7 +76,7 @@
                                 <label for="MaChiNhanh" class="required">Mã chi nhánh:</label>
                                 <div class="input-group">
                                     <div class="input-group">
-                                        <input type="text" disabled class="form-control" id="MaChiNhanh" name="MaChiNhanh" required aria-describedby="inputGroupQL">
+                                        <input type="text" readonly class="form-control" id="MaChiNhanh" name="MaChiNhanh" required >
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +135,8 @@
                             <div class="col-md-2">
                                 <label class="checkbox checkbox-primary" style="margin-top: 2.1rem !important">
                                     <span>Nhập theo lô</span>
-                                    <input type="checkbox" id="LoaiNhap" name="LoaiNhap" onchange="nhapTheoLo()">
+                                    <input type="checkbox" id="LoaiNhap" name="LoaiNhap" value="NhapLo" onchange="nhapTheoLo()">
+                                    <input hidden type="checkbox" name="LoaiNhap" value="NhapLe">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
@@ -126,7 +144,7 @@
                             <div class="col-md-2 mb-3">
                                 <label for="SoLuongNhap" class="required">Số lượng</label>
                                 <div class="form-group">
-                                    <input type="number" onfocusout="thayDoiSL()" disabled class="form-control" id="SoLuongNhap" name="SoLuongNhap" aria-describedby="inputGroupPrepend" required>
+                                    <input type="number" onfocusout="thayDoiSL()" readonly class="form-control" id="SoLuongNhap" name="SoLuongNhap" aria-describedby="inputGroupPrepend" required>
                                 </div>
                             </div>
 
@@ -189,12 +207,15 @@
 
                             <div class="col-md-4 mb-3">
                                 <label for="sel">Loại sản phẩm:</label>
-                                <select class="form-control" name="LoaiSanPham" id="sel">
-                                    <option value="">Tất cả</option>
+                                <select class="form-control" name="LoaiSanPham" id="sel" class="required" required>
+                                    <option value="">Chọn loại sản phẩm</option>
                                     @foreach($LoaiSP as $lsp)
                                         <option value="{{ $lsp->MaLoai }}">{{ $lsp->TenLoai }}</option>
                                     @endforeach
                                 </select>
+                                <div class="invalid-feedback">
+                                    Loại kích cỡ không được để trống!
+                                </div>
                             </div>
 
                             <div class="col-md-12 mb-3">
@@ -209,17 +230,20 @@
 
                             <div class="col-md-2 mb-3">
                                 <label for="sel">Loại kích cỡ:</label>
-                                <select class="form-control" name="LoaiKichCo" id="sel1">
-                                    <option value="">Tất cả</option>
+                                <select class="form-control" name="LoaiKichCo" id="sel1" class="required" required>
+                                    <option value="">Vui lòng chọn</option>
                                     @foreach($LoaiKC as $lkc)
                                         <option value="{{ $lkc->MaKichCo }}">{{ $lkc->TenKichCo }}</option>
                                     @endforeach
                                 </select>
+                                <div class="invalid-feedback">
+                                    Loại kích cỡ không được để trống!
+                                </div>
                             </div>
                             <div class="col-md-2 mb-3">
                                 <label for="KichCo" class="required">Kích cỡ *</label>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="KichCo" name="TenSanPham"  aria-describedby="inputGroupPrepend" required>
+                                    <input type="text" class="form-control" id="KichCo" name="KichCo"  aria-describedby="inputGroupPrepend" required>
                                     <div class="invalid-feedback">
                                         Kích cỡ không được để trống!
                                     </div>
@@ -242,18 +266,11 @@
                         <div class="col-md-12">
                             HÌNH ẢNH SẢN PHẨM
                             <div class="input-group mb-3">
-                                {{-- <div class="input-group-prepend">
-                                    <button type="submit" style="width: 75px; border-color: #10163a;" class="btn btn-primary" id="inputGroupFileAddon01">Tải lên</button>
-                                </div> --}}
                                 <div class="custom-file">
-                                    <input onchange="loadFile(event)" type="file" class="custom-file-input" name="AnhDaiDien" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept="image/*">
+                                    <input onchange="loadFile(event)" type="file" class="custom-file-input" name="HinhAnh" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept="image/*">
                                     <label class="custom-file-label" for="inputGroupFileAddon01"><span id="ChooseFile">Chọn ảnh</span></label>
                                 </div>
-                                {{-- @if (!true)
-                                    <img id="output" src="{{ asset('assets/images/faces/' . $user->AnhDaiDien) }}" style="padding: 10px 0px 0px 0px;" class="d-block w-100 -top-3" alt="First slide">
-                                @else --}}
-                                    <img id="output" style="padding: 10px 0px 0px 0px;" onerror="this.classList.add('no-image');" class="d-block w-100 -top-3 no-image">
-                                {{-- @endif --}}
+                                <img id="output" style="padding: 10px 0px 0px 0px;" onerror="this.classList.add('no-image');" class="d-block w-100 -top-3 no-image">
                             </div>
                         </div>
                         <div class="col-md-12 mb-3">
@@ -385,9 +402,9 @@ $(document).ready(function () {
     function nhapTheoLo() {
       var input = document.getElementById('SoLuongNhap');
       if (document.getElementById('LoaiNhap').checked) {
-        input.removeAttribute('disabled');
+        input.removeAttribute('readonly');
       } else {
-        input.setAttribute('disabled', true);
+        input.setAttribute('readonly', true);
         $('#SoLuongNhap').val(1);
       }
       thayDoiSL();
@@ -430,6 +447,7 @@ $(document).ready(function () {
         tinhSauVAT();
     }
     function thayDoiGiaTien() {
+        tinhGiaVAT();
         tinhTongTien();
         tinhSauVAT();
     }
