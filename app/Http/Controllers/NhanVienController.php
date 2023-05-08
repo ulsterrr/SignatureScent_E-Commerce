@@ -101,9 +101,10 @@ class NhanVienController extends Controller
     public function xoaNhanVien($id){
         $nhanvien = User::find($id);
         $nhanvien->TrangThai = "0";
-        $nhanvien->delete();
         $nhanvien->save();
-        return redirect()->route("quanlyKH-view");
+        $nhanvien->delete();
+
+        return redirect()->route("quanly-thongtin-nv-view");
     }
     public function doiAnhDaiDien($id, Request $request)
     {
@@ -129,7 +130,7 @@ class NhanVienController extends Controller
 
     public function layDsNvienAjax()
     {
-        $users = User::all();
+        $users = User::where([["LoaiTaiKhoan","E"],["TrangThai","1"]])->get();
         return DataTables::of($users)->make(true);
     }
 }
