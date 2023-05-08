@@ -170,7 +170,7 @@ class SanPhamSeeder extends Seeder
 
         Thương hiệu tuyên bố rằng họ muốn sáng tạo nên một phiên bản khác của những dòng nước hoa trước đó từ bộ sưu tập Jean Paul Gaultier mà vẫn tôn trọng DNA nổi tiếng của thương hiệu với mục tiêu là tạo ra thứ gì đó chất chơi hơn, gợi cảm và vui nhộn hơn, từ chai nước hoa đến chiến dịch quảng cáo.";
         $SP7->HinhAnh = "";
-        $SP7->LoaiKichCo = "KC05";
+        $SP7->LoaiKichCo = "KC01";
         $SP7->LoaiSanPham = "LSP02";
         $SP7->GhiChu = "";
         $SP7->NguoiTao = "Hồ Thanh Phúc";
@@ -192,7 +192,7 @@ class SanPhamSeeder extends Seeder
 
         Đậu Tonka, Vanilla hay kẹo Praline, những hương thơm ngon lành và ngọt ngào chực chờ lan tỏa, biến Good Girl trở thành một trong những mùi hương dành cho phái đẹp mang sắc màu ngọt ngào và gây sự chú ý nhất trên thị trường. Good Girl được yêu thích bởi phái đẹp, dường như qua cách mà mùi hương này thể hiện nét ngọt ngào nữ tính rất nịnh mũi các chị em.";
         $SP8->HinhAnh = "";
-        $SP8->LoaiKichCo = "KC05";
+        $SP8->LoaiKichCo = "KC01";
         $SP8->LoaiSanPham = "LSP02";
         $SP8->GhiChu = "";
         $SP8->NguoiTao = "Hồ Thanh Phúc";
@@ -214,7 +214,7 @@ class SanPhamSeeder extends Seeder
 
         Khu vườn mà Cristal tạo nên cũng không thiếu những khía cạnh khô hăng của Gỗ tuyết tùng, và cũng không thiếu nét hương man mát, the cay của Cam bergamot. Cứ như vậy, tất cả những nét vị ấy trộn lẫn vào nhau, ăn nhập và hoà quyện ăn ý.";
         $SP9->HinhAnh = "";
-        $SP9->LoaiKichCo = "KC03";
+        $SP9->LoaiKichCo = "KC01";
         $SP9->LoaiSanPham = "LSP02";
         $SP9->GhiChu = "";
         $SP9->NguoiTao = "Hồ Thanh Phúc";
@@ -279,7 +279,7 @@ class SanPhamSeeder extends Seeder
         được mô tả là 'lạnh và nóng, ngọt và cay, ánh sáng và bóng tối'. Khái niệm này được tạo ra dựa trên một câu chuyện đầy cảm hứng về tình yêu nồng nàn, với nhân vật chính là mùi hương của một người đàn ông mạnh mẽ, đam mê, tự tin, người có những tiếp xúc sâu sắc với cảm xúc của chính mình.
         Olivier Pescheux là chuyên gia nước hoa đã tạo ra Versace Eros Flame, với mong muốn tạo ra một chàng chai Eros mới, bùng nổ hơn, có chiều sâu hơn, và đặc biệt trong trong trái tim của Eros, luôn có một ngọn lửa đam mê không bao giờ ngừng tắt, bùng cháy như Versace Eros Flame.";
         $SP12->HinhAnh = "";
-        $SP12->LoaiKichCo = "KC08";
+        $SP12->LoaiKichCo = "KC01";
         $SP12->LoaiSanPham = "LSP01";
         $SP12->GhiChu = "";
         $SP12->NguoiTao = "Hồ Thanh Phúc";
@@ -298,7 +298,7 @@ class SanPhamSeeder extends Seeder
 
         Toy Boy là dòng nước hoa nam của thương hiệu Moschino mới được ra mắt vào năm 2019 và được thiết kế bởi giám đốc sáng tạo Jeremy Scott. Toy Boy diễn giải về một người đàn ông tự tin, năng động, đầy hoài bão và đam mê, nhưng không ngại thể hiện khía cạnh hóm hỉnh và hài hước của bản thân. Được chuyên gia nước hoa hàng đầu Yann Vasnier sáng tạo ra, Moschino Toy Boy thể hiện được đầy đủ sự tinh quái của ông cách tạo hương của ông, khi hương đầu là sự kết hợp mới lạ giữa sự tươi mát của Cam bergamot, trái lê và vị ấm nồng của hồng tiêu. Và mặc dù là nước hoa nam, trái tim của Toy Boy lại phủ đầy các note hương hoa đầy quyến rũ. Toy Boy thể hiện được sự trầm ngâm và nam tính nhất khi yên vị trên da ở tầng hương cuối, nơi có sự giao thoa mạnh mẽ giữa cỏ Vetiver và hương gỗ Cashmeran. Được đánh giá là một chai nước hoa khó phán đoán và xác định được các tầng hương cụ thể, Toy Boy còn gây ấn tượng mạnh với thiết kế đậm chất lạ của Moschino. ";
         $SP13->HinhAnh = "";
-        $SP13->LoaiKichCo = "KC08";
+        $SP13->LoaiKichCo = "KC01";
         $SP13->LoaiSanPham = "LSP01";
         $SP13->GhiChu = "";
         $SP13->NguoiTao = "hothanhphuc2468@gmail.com";
@@ -343,10 +343,81 @@ class SanPhamSeeder extends Seeder
 
         Mang đậm dấu ấn cổ điển nhưng không cũ kỹ, Mr. Burberry EDP đại diện cho những quý ông trang trọng lịch lãm thời hiện đại, vừa nam tính kiểu cách phức tạp, nhưng không kém phần thanh thoát và tươi trẻ. ";
         $SP15->HinhAnh = "";
-        $SP15->LoaiKichCo = "KC08";
+        $SP15->LoaiKichCo = "KC01";
         $SP15->LoaiSanPham = "LSP01";
         $SP15->GhiChu = "";
         $SP15->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP15->save();
+
+        $SP16 = new SanPham();
+        $SP16->MaSanPham = "SP00000017";
+        $SP16->TenSanPham = "Giorgio Armani Acqua Di Gio Absolu EDP";
+        $SP16->ThuongHieu ="Giorgio Armani" ;
+        $SP16->TrangThai ="1" ;
+        $SP16->GiaTien ="2500000" ;
+        $SP16->MoTa = "Các chai ABSOLU vẫn giữ hình dạng mang tính biểu tượng của Acqua di Giò nhưng thêm màu vàng ươm cho thấy hương thơm màu hổ phách sáng tươi trong một chai thủy tinh trong suốt rõ ràng. Ở phía trên, nắp làm từ gỗ tro có nguồn gốc bền vững tạo ra sự tương phản hoàn toàn cân bằng với phần cổ kim loại sáng bóng.
+
+        Hương đầu: hỗn hợp trái cây tươi, cam bergamot, nước biển
+
+        Hương giữa: phong lữ,oải hương, cây hương thảo
+
+        Hương cuối: hoắc hương, gỗ, nhựa lababnum, đậu tonka";
+        $SP16->HinhAnh = "";
+        $SP16->LoaiKichCo = "KC01";
+        $SP16->LoaiSanPham = "LSP01";
+        $SP16->GhiChu = "";
+        $SP16->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP16->save();
+
+        $SP17 = new SanPham();
+        $SP17->MaSanPham = "SP00000018";
+        $SP17->TenSanPham = "Dolce Gabbana Light Blue Pour Homme Forever EDP";
+        $SP17->ThuongHieu ="Dolce Gabbana" ;
+        $SP17->TrangThai ="1" ;
+        $SP17->GiaTien ="2100000" ;
+        $SP17->MoTa = "KHÔNG PHẢI BOM XỊT, ĐÂY LÀ PHIÊN BẢN LIGHT BLUE HOÀN HẢO NHẤT!!?
+
+        Sau mùa hè năm 2021, phiên bản mới nhất của D.G cuối cùng cũng được ra mắt dưới tên gọi D.G Light Blue Forever. Được xem như là một phiên bản limited, hoàn thiện hơn so với D.g light Blue 2007.
+
+        Tưởng như đây chỉ là một flanker mùa hè không có gì mới mẻ, nhưng phiên bản này đã đặt một ánh nhìn khác từ những người sành sỏi nước hoa lên bộ sưu tập Light Blue. Light Blue Forever (LBF) sẽ là phiên bản được dự đoán nằm TOP những designer hay nhất được ra mắt trong năm nay với perfume rating 4.31 trên 5 với 593 votes. (theo đánh giá từ phía cộng đồng fragrantica)
+        Không riêng gì những mùi Citrus, một mùi hương thường được đánh giá có hay hay không nằm ở độ thật mà người ta cảm nhận được. Và phần opening của LBF thực sự làm không ít người dùng bất ngờ; tất cả những hoài nghi về độ “đạt” của mùi hương này hầu như hoàn toàn tan biến chỉ ngay lần xịt đầu tiên.
+
+        Khác với những tiền bản trong bộ sưu tập D.g Pour Homme, LBF cho ra cảm giác mùi giống như vừa mới bổ ra một quả bưởi. Vỏ và phần thịt từ đó toé ra những tia nước li ti ra không khí mang theo cảm giác ngọt ngào, kèm chút vị the, đăng đắng dễ chịu. Nếu tinh ý, ta sẽ cảm nhận được chút cay nhẹ man mát,.
+
+        Đúng như cái tên “light blue”. Đó là một khoảng hương mang đầy năng lượng, sảng khoái và sự bừng sáng sau lớp hương của Cam bưởi. Mùi thơm mát mẻ, airy của biển theo đánh giá là rất thật, không quá tanh, không quá hoá học bù lại là cái vibe sạch sẽ, nam tính. Sau cùng, LBF để lại trên làn da chút hương hoa, xạ hương trắng và gỗ (tại đây là Java Vetiver, khác với Haiti Vetiver nó sẽ đặc quánh hơn, ấm và có vị khói; trên thực tế, nốt hương này như chấm phá thêm nét độc đáo cho toàn thể mùi hương LBF).";
+        $SP17->HinhAnh = "";
+        $SP17->LoaiKichCo = "KC01";
+        $SP17->LoaiSanPham = "LSP01";
+        $SP17->GhiChu = "";
+        $SP17->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP17->save();
+
+        $SP18 = new SanPham();
+        $SP18->MaSanPham = "SP00000019";
+        $SP18->TenSanPham = "Chanel Allure Homme Sport EDT";
+        $SP18->ThuongHieu ="Chanel" ;
+        $SP18->TrangThai ="1" ;
+        $SP18->GiaTien ="2300000" ;
+        $SP18->MoTa = "Allure Homme Sport được tạo thành bởi Jacques Polge – nhà thiết kế nước hoa đại tài của Chanel. Ông là người đứng sau hàng loạt những mùi hương đình đám của Chanel như Coco Noir, Coco Mademoiselle, Chance Eau Fraiche hay Bleu de Chanel. Chai nước hoa nhỏ mang thiết kế khỏe khoắn và đầy tươi mới với thân chai tráng bạc, logo được in bằng chữ đen chắc khỏe, nắp nhựa đen tuyền được bao quanh bởi một vòng thép cũng góp phần tạo nên sự nam tính mạnh mẽ.";
+        $SP18->HinhAnh = "";
+        $SP18->LoaiKichCo = "KC01";
+        $SP18->LoaiSanPham = "LSP01";
+        $SP18->GhiChu = "";
+        $SP18->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP18->save();
+
+        $SP19 = new SanPham();
+        $SP19->MaSanPham = "SP00000020";
+        $SP19->TenSanPham = "Chanel Allure Homme Sport Cologne Men EDT";
+        $SP19->ThuongHieu ="Chanel" ;
+        $SP19->TrangThai ="1" ;
+        $SP19->GiaTien ="2300000" ;
+        $SP19->MoTa = "Allure Homme Sport Cologne Men EDT được tạo thành bởi Jacques Polge – nhà thiết kế nước hoa đại tài của Chanel. Ông là người đứng sau hàng loạt những mùi hương đình đám của Chanel như Coco Noir, Coco Mademoiselle, Chance Eau Fraiche hay Bleu de Chanel. Chai nước hoa nhỏ mang thiết kế khỏe khoắn và đầy tươi mới với thân chai tráng bạc, logo được in bằng chữ đen chắc khỏe, nắp nhựa đen tuyền được bao quanh bởi một vòng thép cũng góp phần tạo nên sự nam tính mạnh mẽ.";
+        $SP19->HinhAnh = "";
+        $SP19->LoaiKichCo = "KC01";
+        $SP19->LoaiSanPham = "LSP01";
+        $SP19->GhiChu = "";
+        $SP19->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP19->save();
     }
 }

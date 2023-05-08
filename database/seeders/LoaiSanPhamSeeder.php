@@ -36,5 +36,12 @@ class LoaiSanPhamSeeder extends Seeder
         $LSP2->NguoiTao = "";
         $LSP2->save();
 
+        $LSP3 = new LoaiSanPham();
+        $LSP3->MaLoai = "LSP04";
+        $LSP3->TenLoai = "Son";
+        $LSP3->GhiChu = "Nước hoa dành cho cả nam và nữ";
+        $LSP3->NguoiTao = "";
+        $LSP3->save();
+
     }
 }

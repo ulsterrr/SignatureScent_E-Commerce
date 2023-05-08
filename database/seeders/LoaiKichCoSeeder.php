@@ -35,7 +35,7 @@ class LoaiKichCoSeeder extends Seeder
         $LCK2->NguoiTao = "hothanhphuc2468@gmail.com";
         $LCK2->GhiChu = "";
         $LCK2->save();
-
+        
         $LCK3 = new LoaiKichCo();
         $LCK3->MaKichCo = "KC04";
         $LCK3->TenKichCo = "Thùng";
