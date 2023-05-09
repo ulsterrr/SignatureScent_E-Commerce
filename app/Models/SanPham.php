@@ -10,7 +10,7 @@ class SanPham extends Model
 {
     use HasFactory;
     protected $table = 'san_phams';
-    protected $fillable=['MaSanPham','TenSanPham','ThuongHieu','TrangThai','GiaTien','MoTa','HinhAnh','LoaiKichCo','LoaiSanPham','GhiChu','NguoiTao'];
+    protected $fillable=['MaSanPham','TenSanPham','ThuongHieu','TrangThai','VAT','GiaVAT','GiaTien','MoTa','HinhAnh','LoaiKichCo','LoaiSanPham','GhiChu','NguoiTao'];
 
     // Khoá ngoại loại sản phẩm
     public function loaiSanPham()

@@ -34,7 +34,7 @@
         <div class="col-md-12 mb-4">
             <div class="card text-left">
                 <div class="card-header text-right bg-transparent">
-                    <a type="button" href="{{ route('themSPham-view') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm sản phẩm</a>
+                    <a type="button" href="{{ route('themSPham-view') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Nhập mới sản phẩm</a>
                 </div>
 
                 <div class="card-body">
@@ -42,13 +42,13 @@
                         @csrf
                         <div class="form-row">
                             <div class="col-md-2">
-                                <label for="validationCustomUsername2" class="required">Mã sản phẩm</label>
+                                <label for="CustomUsername2">Mã sản phẩm</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="validationCustomUsername2" name="MaSanPham" aria-describedby="inputGroupPrepend" required>
+                                    <input type="text" class="form-control" id="CustomUsername2" name="MaSanPham" aria-describedby="inputGroupPrepend" required>
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <label for="validationCustomUsername3" class="required">Tên sản phẩm</label>
+                                <label for="validationCustomUsername3">Tên sản phẩm</label>
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="validationCustomUsername3" name="TenSanPham" placeholder="" aria-describedby="inputGroupPrepend" required>
                                 </div>
@@ -156,6 +156,7 @@
 <script src="{{asset('assets/js/datatable-selectrow.script.js')}}"></script>
 
 <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
+
 <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
 
 {{-- Ajax load data cho ds user --}}
@@ -165,13 +166,9 @@
             processing: true
             , serverSide: true
             , destroy: true
-            // , scrollY: "1000px"
+            , scrollCollapse: true
             , scrollX: true
             , autoWidth: true
-            // , ajax: {
-            //     url: "{{ route('dsUserAjax') }}"
-            //     , type: 'GET',
-            // },
             ,ajax: {
                 url: "{{ route('layDsSanPhamAjax') }}",
                 type: "GET",
@@ -201,7 +198,7 @@
                         } else  var img = data.HinhAnh.toString();
                         if (data.HinhAnh) {
                             return `<td class="text-center">
-                                            <img class="avatar-lg" src="{{ asset('assets/images/faces/${img}') }}" alt="">
+                                        <img class="avatar-lg" src="{{ asset('assets/images/san_pham/${img}') }}" alt="">
                                     </td>`;
                         } else {
                             return `<td class="text-center">
@@ -254,7 +251,7 @@
                     , render: function(data) {
                         if(!data.loai_kich_co)
                         return '';
-                        else return data.loai_san_pham.TenKichCo;
+                        else return data.loai_kich_co.TenKichCo;
                     }
                 }
                 , {
