@@ -35,7 +35,7 @@
                 @endforeach
             </ul> --}}
             <div class="card-body">
-                <form class="needs-validation" action="{{ route('themTK-add') }}" method="POST">
+                <form id="new-user" action="{{ route('themTK-add') }}" method="POST">
                     @csrf
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
@@ -44,10 +44,10 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 </div>
-                                <input type="text" class="form-control" id="validationCustomUsername1" name="email" placeholder="email@mail.com" aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
+                                <input type="text" class="form-control" name="email" placeholder="email@mail.com" required>
+                                {{-- <div class="invalid-feedback">
                                     Tên tài khoản (Email) không được để trống!
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="col-md-12"></div>
@@ -80,7 +80,7 @@
                         <div class="col-md-6 form-group mb-3">
                             <label for="picker3">Ngày sinh</label>
                             <div class="input-group">
-                                <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" name="NgaySinh">
+                                <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" name="NgaySinh" required>
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="icon-regular i-Calendar-4"></i></span>
                                 </div>
@@ -97,7 +97,9 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom02">Địa chỉ</label>
-                            <input type="text" class="form-control" name="DiaChi" id="validationCustom02" placeholder="123 Đường ABC, phường ..." required>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="DiaChi" id="validationCustom02" placeholder="123 Đường ABC, phường ..." required>
+                            </div>
                             <div class="invalid-feedback">
                                 Địa chỉ không được để trống!
                             </div>
@@ -179,4 +181,39 @@
     });
 </script>
 
+<script>
+    $(document).ready(function() {
+      $("#new-user").validate({
+        errorPlacement: function(error, element) {
+            if(element.parent().hasClass("input-group")){
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },
+        rules: {
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 6
+            }
+        },
+        messages: {
+            name: "Vui lòng nhập họ tên của bạn",
+            email: {
+                required: "Vui lòng nhập địa chỉ email",
+                email: "Địa chỉ email không đúng định dạng"
+            },
+            password: {
+                required: "Vui lòng nhập mật khẩu",
+                minlength: "Mật khẩu phải có ít nhất 6 ký tự"
+            }
+        }
+      });
+    });
+  </script>
 @endsection
