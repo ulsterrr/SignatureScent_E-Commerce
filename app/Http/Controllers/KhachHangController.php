@@ -97,7 +97,15 @@ class KhachHangController extends Controller
 
     public function layDsKHangAjax()
     {
-        $users = User::all();
+        $users =  User::where([['LoaiTaiKhoan','C'],['TrangThai','1']])->get();
         return DataTables::of($users)->make(true);
+    }
+
+    public function xoaKhachHang($id){
+        $user = User::find($id);
+        $user->TrangThai = "0";
+        $user->save();
+        $user->delete();
+        return redirect()->route("quanlyKH-view");
     }
 }

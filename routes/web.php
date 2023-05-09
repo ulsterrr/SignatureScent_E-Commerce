@@ -114,7 +114,7 @@ Route::get('layLoaiSPAjax',[LoaiSanPhamController::class,'layLoaiSPAjax'])->name
 //View Quản Lý Nhân Viên
 Route::get('admin/quan-ly-nhan-vien',[NhanVienController::class,'loadDSNhanVienView'])->name('quanly-thongtin-nv-view');
 Route::get('admin/them-moi-nhan-vien',[NhanVienController::class,'themNhanVienView'])->name('them-thongtin-nv-view');
-Route::get('admin/chi-tiet-nhan-vien/{id}',[NhanVienController::class,'chiTietNhanVien'])
+Route::get('admin/chi-tiet-nhan-vien/{id}',[NhanVienController::class,'chiTietNhanVienView'])
 ->name('chi-tiet-nv-view');
 Route::get('admin/cap-nhat-nhan-vien/{id}',[NhanVienController::class,'capNhatThongTinNVienView'])
 ->name('capnhatTKNV-view');
@@ -129,7 +129,7 @@ Route::post('admin/cap-nhat-thong-tin-nhan-vien/{id}',[NhanVienController::class
 ->name('capnhat-thongtin-nv-upd');
 
 Route::get('admin/xoa-nhan-vien/{id}',[NhanVienController::class,'xoaNhanVien'])
-->name('xoa-thongtin-nv-del');
+->name('xoaNV-del');
 
 Route::post('admin/them-nhan-vien',[NhanVienController::class,'themNhanVien'])
 ->name('them-moi-nv-add');
@@ -148,6 +148,10 @@ Route::post('admin/xoa-chi-nhanh/{id}',[ChiNhanhController::class,'xoaChiNhanh']
 ->name('xoaCN-del');
 Route::post('admin/cap-nhat-khach-hang/{id}',[KhachHangController::class,'capNhatKhachHang'])
 ->name('capnhatKH-upd');
+Route::get('admin/chi-tiet-khach-hang/{id}',[KhachHangController::class,'chiTietKhachHangView'])
+->name('chitietKHview');
+Route::get('admin/xoa-khach-hang/{id}',[KhachHangController::class,'xoaKhachHang'])
+->name('xoaKH-del');
 
 //View Quản Lý Khách Hàng và Chi Nhánh
 Route::get('admin/quan-ly-khach-hang',[KhachHangController::class,'loadDSKhachHangView'])->name('quanlyKH-view');

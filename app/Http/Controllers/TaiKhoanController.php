@@ -107,8 +107,8 @@ class TaiKhoanController extends Controller
     public function xoaTaiKhoan($id){
         $user = User::find($id);
         $user->TrangThai = "0";
-        $user->delete();
         $user->save();
+        $user->delete();
         return redirect()->route("quanlyTKView");
     }
 
@@ -136,7 +136,7 @@ class TaiKhoanController extends Controller
 
     public function layDsUserAjax()
     {
-        $users = User::all();
+        $users = User::where("TrangThai","1")->get();
         return DataTables::of($users)->make(true);
     }
 }
