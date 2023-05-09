@@ -251,6 +251,11 @@
     <script src="{{asset('assets/js/numeral.min.js')}}"></script>
     <script src="{{asset('assets/js/cleave.min.js')}}"></script>
     <script src="{{asset('assets/js/cleave.js')}}"></script>
+
+    {{-- bộ thư viện jQuery Validate Plugin 1.19.5 --}}
+    <script src="{{asset('assets/js/validatior_plugin/jquery.validate.js')}}"></script>
+    <script src="{{asset('assets/js/validatior_plugin/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('assets/js/validatior_plugin/messages_vi.js')}}"></script>
     <script>
         // Cài đặt Cleave.js vào tất cả các thẻ input có type="money"
         document.querySelectorAll('input[type="money"]').forEach(function(input) {
