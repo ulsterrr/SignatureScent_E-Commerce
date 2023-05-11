@@ -56,20 +56,20 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form id = "new-LSP">
-                                    <div class="input-group">
+                                <form id="new-LSP">
+                                    <div class="form-group">
                                         <label for="MaLoai" class="required">Mã loại *</label>
                                         <input id="MaLoai"name="MaLoai" type="text" class="form-control" placeholder="VD: LSP0001, LSP0002,...">
                                     </div>
-                                    <div class="input-group">
+                                    <div class="form-group">
                                         <label for="TenLoai" class="required">Tên loại *</label>
                                         <input type="text" class="form-control" name="TenLoai" id="TenLoai" aria-describedby="emailHelp" placeholder="Loại A, B, C,...">
                                     </div>
-                                    <div class="input-group">
+                                    <div class="form-group">
                                         <label for="GhiChu">Ghi chú</label>
                                         <textarea class="form-control" name="GhiChu" id="GhiChu" rows="5" placeholder="..."></textarea>
                                     </div>
-                                    <div class="input-group">
+                                    <div class="form-group">
                                         <label for="NguoiTao">Người thực hiện</label>
                                         <input id="NguoiTao"name="NguoiTao" type="text" disabled class="form-control" value="{{ auth()->user() ? auth()->user()->HoTen : 'NULL' }}" placeholder="VD: LSP0001, LSP0002,...">
                                     </div>
@@ -96,7 +96,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form>
+                                <form id="upd-LSP">
                                     <input hidden id="IDLSP-e" name="IDLSP-e" type="text" class="form-control">
                                     <div class="form-group">
                                         <label for="MaLoai" class="required">Mã loại *</label>
@@ -312,84 +312,91 @@
     //button thêm mới
     $(document).ready(function() {
         $('#saveLSPModal').click(function() {
-            var ml = $('#MaLoai').val();
-            var tl = $('#TenLoai').val();
-            var gc = $('#GhiChu').val();
-            var token = $('meta[name="csrf-token"]').attr('content');
-            $.ajax({
-                url: "{{ route('themLoaiSPham-add') }}",
-                type: 'POST',
-                data: {
-                    MaLoai: ml,
-                    TenLoai: tl,
-                    GhiChu: gc,
-                    _token: token
-                },
-                success: function(response) {
-                    // Xử lý kết quả trả về từ server
-                    $('#MaLoai').val('');
-                    $('#TenLoai').val('');
-                    $('#GhiChu').val('');
-                    $('#ul-contact-list').DataTable().ajax.reload(null, false);
-                    $('#lspmodal-add').modal('hide'); // Ẩn modal
-                    $('#alert-card').removeClass('alert-danger').addClass('alert-success');
-                    $('#alert-card .alert-heading').html('Thành công');
-                    $('#alert-card .alert-body-content').html('Dữ liệu đã được cập nhật thành công.');
-                    $('#alert-card').fadeIn(500);
-                    setTimeout(function(){
-                        $("#alert-card").fadeOut();
-                    }, 5000);
-                },
-                error: function(response) {
-                    // Xử lý lỗi
-                }
-            });
+            $('#new-LSP').valid();
+            if($('#new-LSP').valid()){
+                var ml = $('#MaLoai').val();
+                var tl = $('#TenLoai').val();
+                var gc = $('#GhiChu').val();
+                var token = $('meta[name="csrf-token"]').attr('content');
+                $.ajax({
+                    url: "{{ route('themLoaiSPham-add') }}",
+                    type: 'POST',
+                    data: {
+                        MaLoai: ml,
+                        TenLoai: tl,
+                        GhiChu: gc,
+                        _token: token
+                    },
+                    success: function(response) {
+                        // Xử lý kết quả trả về từ server
+                        $('#MaLoai').val('');
+                        $('#TenLoai').val('');
+                        $('#GhiChu').val('');
+                        $('#ul-contact-list').DataTable().ajax.reload(null, false);
+                        $('#lspmodal-add').modal('hide'); // Ẩn modal
+                        $('#alert-card').removeClass('alert-danger').addClass('alert-success');
+                        $('#alert-card .alert-heading').html('Thành công');
+                        $('#alert-card .alert-body-content').html('Dữ liệu đã được cập nhật thành công.');
+                        $('#alert-card').fadeIn(500);
+                        setTimeout(function(){
+                            $("#alert-card").fadeOut();
+                        }, 5000);
+                    },
+                    error: function(response) {
+                        // Xử lý lỗi
+                    }
+                });
+            }
         });
     });
+
     //button cập nhật
     $(document).ready(function() {
         $('#updateLSPModal').click(function() {
-            var id = $('#IDLSP-e').val();
-            var ml = $('#MaLoai-e').val();
-            var tl = $('#TenLoai-e').val();
-            var gc = $('#GhiChu-e').val();
-            var token = $('meta[name="csrf-token"]').attr('content');
-            $.ajax({
-                url: "{{ route('capnhatLoaiSPham-upd', ['id' => ':id']) }}".replace(':id', id),
-                type: 'POST',
-                data: {
-                    Id: id,
-                    MaLoai: ml,
-                    TenLoai: tl,
-                    GhiChu: gc,
-                    _token: token
-                },
-                success: function(response) {
-                    // Xử lý kết quả trả về từ server
-                    $('#MaLoai').val('');
-                    $('#TenLoai').val('');
-                    $('#GhiChu').val('');
-                    $('#ul-contact-list').DataTable().ajax.reload(null, false);
-                    $('#lspmodal-edit').modal('hide'); // Ẩn modal
-                    $('#alert-card').removeClass('alert-danger').addClass('alert-success');
-                    $('#alert-card .alert-heading').html('Thành công');
-                    $('#alert-card .alert-body-content').html('Dữ liệu đã được cập nhật thành công.');
-                    $('#alert-card').fadeIn(500);
-                    setTimeout(function(){
-                        $("#alert-card").fadeOut();
-                    }, 5000);
-                },
-                error: function(response) {
-                    $('#lspmodal-edit').modal('hide'); // Ẩn modal
-                    $('#alert-card').removeClass('alert-success').addClass('alert-danger');
-                    $('#alert-card .alert-heading').html('Lỗi');
-                    $('#alert-card .alert-body-content').html('Dữ liệu không được xử lý thành công.');
-                    $('#alert-card').fadeIn(500);
-                    setTimeout(function(){
-                        $("#alert-card").fadeOut();
-                    }, 5000);
-                }
-            });
+            $('#upd-LSP').valid();
+            if($('#upd-LSP').valid()){
+                var id = $('#IDLSP-e').val();
+                var ml = $('#MaLoai-e').val();
+                var tl = $('#TenLoai-e').val();
+                var gc = $('#GhiChu-e').val();
+                var token = $('meta[name="csrf-token"]').attr('content');
+                $.ajax({
+                    url: "{{ route('capnhatLoaiSPham-upd', ['id' => ':id']) }}".replace(':id', id),
+                    type: 'POST',
+                    data: {
+                        Id: id,
+                        MaLoai: ml,
+                        TenLoai: tl,
+                        GhiChu: gc,
+                        _token: token
+                    },
+                    success: function(response) {
+                        // Xử lý kết quả trả về từ server
+                        $('#MaLoai').val('');
+                        $('#TenLoai').val('');
+                        $('#GhiChu').val('');
+                        $('#ul-contact-list').DataTable().ajax.reload(null, false);
+                        $('#lspmodal-edit').modal('hide'); // Ẩn modal
+                        $('#alert-card').removeClass('alert-danger').addClass('alert-success');
+                        $('#alert-card .alert-heading').html('Thành công');
+                        $('#alert-card .alert-body-content').html('Dữ liệu đã được cập nhật thành công.');
+                        $('#alert-card').fadeIn(500);
+                        setTimeout(function(){
+                            $("#alert-card").fadeOut();
+                        }, 5000);
+                    },
+                    error: function(response) {
+                        $('#lspmodal-edit').modal('hide'); // Ẩn modal
+                        $('#alert-card').removeClass('alert-success').addClass('alert-danger');
+                        $('#alert-card .alert-heading').html('Lỗi');
+                        $('#alert-card .alert-body-content').html('Dữ liệu không được xử lý thành công.');
+                        $('#alert-card').fadeIn(500);
+                        setTimeout(function(){
+                            $("#alert-card").fadeOut();
+                        }, 5000);
+                    }
+                });
+            }
         });
     });
 </script>
@@ -401,7 +408,8 @@
         errorPlacement: function(error, element) {
             if(element.parent().hasClass("input-group")){
                 error.insertAfter(element.parent());
-            } else {
+            }
+            else {
                 error.insertAfter(element);
             }
         },
@@ -413,6 +421,26 @@
         messages: {
             MaLoai: "Vui lòng nhập mã loại sản phẩm",
             TenLoai: "Vui lòng nhập tên loại",
+        },
+      });
+
+      $("#upd-LSP").validate({
+        errorPlacement: function(error, element) {
+            if(element.parent().hasClass("input-group")){
+                error.insertAfter(element.parent());
+            }
+            else {
+                error.insertAfter(element);
+            }
+        },
+        rules: {
+            'MaLoai-e': "required",
+            'TenLoai-e': "required",
+
+        },
+        messages: {
+            'MaLoai-e': "Vui lòng nhập mã loại sản phẩm",
+            'TenLoai-e': "Vui lòng nhập tên loại",
         }
       });
     });
