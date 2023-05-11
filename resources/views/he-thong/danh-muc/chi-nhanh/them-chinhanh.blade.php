@@ -16,12 +16,12 @@
 
 <div class="separator-breadcrumb border-top"></div>
 
-<div class="col-md-12">
+<div class="col-md-12">`
     <div class="col-md-12">
         <p></p>
         <div class="card mb-4">
             <div class="card-body">
-                <form class="needs-validation" method="POST" action="{{route('themmoiCN-add')}}" novalidate>
+                <form id="new-chinhanh" method="POST" action="{{route('themmoiCN-add')}}" novalidate>
                     @csrf
                     <div class="row col-md-12">
                     <div class="col-md-6">
@@ -29,9 +29,7 @@
                             <div class="col-md-8 mb-3">
                                 <label for="validationCustomUsername" class="required">Mã chi nhánh *</label>
                                     <input type="text" class="form-control" id="validationCustomUsername" name="MaChiNhanh" placeholder="CN-Q6" aria-describedby="inputGroupPrepend" required>
-                                    <div class="invalid-feedback">
-                                        Mã chi nhánh không được để trống!
-                                    </div>
+
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom07" class="required">Người quản lý *:</label>
@@ -43,9 +41,7 @@
                                             <button id="inputGroupPrependmodal" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">...</button>
                                         </div>
                                     </div>
-                                    <div class="invalid-feedback">
-                                        Người quản lý không được để trống!
-                                    </div>
+
                                 </div>
                             </div>
                             <!-- Large Modal -->
@@ -94,9 +90,7 @@
                                 <label for="validationCustomUsername" class="required">Tên chi nhánh *</label>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="validationCustomUsername" name="TenChiNhanh" placeholder="Quận 6, Bình Chánh, etc, ..." aria-describedby="inputGroupPrepend" required>
-                                    <div class="invalid-feedback">
-                                        Tên chi nhánh không được để trống!
-                                    </div>
+
                                 </div>
                             </div>
                             <div class="col-md-12 mb-3"></div>
@@ -107,9 +101,7 @@
                                         <span class="input-group-text" id="inputGroupPrepend">+84</span>
                                     </div>
                                     <input type="text" class="form-control" id="validationCustomSDT" name="SDT1" placeholder="0909909990" aria-describedby="inputGroupPrepend" required>
-                                    <div class="invalid-feedback">
-                                        Số điện thoại 1 không được để trống!
-                                    </div>
+
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
@@ -153,25 +145,19 @@
                             <div class="col-md-9 mb-3">
                                 <label for="validationCustom02">Địa chỉ</label>
                                 <input type="text" class="form-control" id="validationCustom02" name="DiaChi" placeholder="123 Đường ABC, phường ..." required>
-                                <div class="invalid-feedback">
-                                    Địa chỉ không được để trống!
-                                </div>
+
                             </div>
 
                             <div class="col-md-12"></div>
                             <div class="col-md-9 mb-3">
                                 <label for="validationCustom03">Quận/Huyện</label>
                                 <input type="text" class="form-control" id="validationCustom03" name="QuanHuyen" placeholder="Quận Cam" required>
-                                <div class="invalid-feedback">
-                                    Quận/Huyện không được để trống!
-                                </div>
+
                             </div>
                             <div class="col-md-9 mb-3">
                                 <label for="validationCustom05">Tỉnh/Thành phố</label>
                                 <input type="text" class="form-control" id="validationCustom05" name="TinhThanh" placeholder="TP HCM" required>
-                                <div class="invalid-feedback">
-                                    Tỉnh/Thành phố không được để trống!
-                                </div>
+
                             </div>
                         </div>
                         <button class="btn btn-primary" type="submit">Thêm mới</button>
@@ -213,7 +199,7 @@
 
 @section('page-js')
 
-<script src="{{asset('assets/js/form.validation.script.js')}}"></script>
+
 <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
 <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
 <script src="{{ asset('assets/js/vendor/datatables.min.js') }}"></script>
@@ -338,4 +324,45 @@ $(document).ready(function () {
     });
 });
 </script>
+
+<script>
+    $(document).ready(function() {
+      $("#new-chinhanh").validate({
+        errorPlacement: function(error, element) {
+            if(element.parent().hasClass("input-group")){
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },
+        rules: {
+            MaChiNhanh: "required",
+            NguoiQuanLy: "required",
+            SDT1: {
+                required: true,
+                number: true,
+                rangelength: [10, 11],
+            },
+            HoTen:"required ",
+            DiaChi: "required",
+            QuanHuyen: "required",
+            TinhThanh: "required",
+
+        },
+        messages: {
+            MaChiNhanh: "Vui lòng nhập mã chi nhánh của bạn",
+            NguoiQuanLy: "Vui lòng chọn người quản lý",
+            SDT1: {
+                required: "Vui lòng nhập số điện thoại",
+                number: "SDT không đúng định dạng",
+                rangelength: "Chiều dài SDT từ 10 đến 11 số",
+            }, // thiếu chỗ này
+            DiaChi: "Vui lòng nhập địa chỉ",
+            QuanHuyen: "Vui lòng nhập Quận Huyện",
+            TinhThanh: "Vui lòng nhập Tỉnh Thành",
+
+        }
+      });
+    });
+  </script>
 @endsection

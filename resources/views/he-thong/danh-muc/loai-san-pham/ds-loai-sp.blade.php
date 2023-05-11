@@ -56,20 +56,20 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
+                                <form id = "new-LSP">
+                                    <div class="input-group">
                                         <label for="MaLoai" class="required">Mã loại *</label>
                                         <input id="MaLoai"name="MaLoai" type="text" class="form-control" placeholder="VD: LSP0001, LSP0002,...">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="input-group">
                                         <label for="TenLoai" class="required">Tên loại *</label>
                                         <input type="text" class="form-control" name="TenLoai" id="TenLoai" aria-describedby="emailHelp" placeholder="Loại A, B, C,...">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="input-group">
                                         <label for="GhiChu">Ghi chú</label>
                                         <textarea class="form-control" name="GhiChu" id="GhiChu" rows="5" placeholder="..."></textarea>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="input-group">
                                         <label for="NguoiTao">Người thực hiện</label>
                                         <input id="NguoiTao"name="NguoiTao" type="text" disabled class="form-control" value="{{ auth()->user() ? auth()->user()->HoTen : 'NULL' }}" placeholder="VD: LSP0001, LSP0002,...">
                                     </div>
@@ -393,4 +393,28 @@
         });
     });
 </script>
+
+{{-- validation --}}
+<script>
+    $(document).ready(function() {
+      $("#new-LSP").validate({
+        errorPlacement: function(error, element) {
+            if(element.parent().hasClass("input-group")){
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },
+        rules: {
+            MaLoai: "required",
+            TenLoai: "required",
+
+        },
+        messages: {
+            MaLoai: "Vui lòng nhập mã loại sản phẩm",
+            TenLoai: "Vui lòng nhập tên loại",
+        }
+      });
+    });
+  </script>
 @endsection

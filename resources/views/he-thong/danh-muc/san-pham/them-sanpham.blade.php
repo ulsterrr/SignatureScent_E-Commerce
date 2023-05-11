@@ -39,7 +39,7 @@
         </div>
         <div class="card mb-4">
             <div class="card-body">
-                <form class="needs-validation" method="POST" action="{{route('nhapMoiSPham-add')}}" enctype="multipart/form-data">
+                <form id="new-SP"  method="POST" action="{{route('nhapMoiSPham-add')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="row col-md-12">
                     <div class="col-md-8">
@@ -236,17 +236,13 @@
                                         <option value="{{ $lkc->MaKichCo }}">{{ $lkc->TenKichCo }}</option>
                                     @endforeach
                                 </select>
-                                <div class="invalid-feedback">
-                                    Loại kích cỡ không được để trống!
-                                </div>
+
                             </div>
                             <div class="col-md-2 mb-3">
                                 <label for="KichCo" class="required">Kích cỡ *</label>
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="KichCo" name="KichCo"  aria-describedby="inputGroupPrepend" required>
-                                    <div class="invalid-feedback">
-                                        Kích cỡ không được để trống!
-                                    </div>
+
                                 </div>
                             </div>
                             <div class="col-md-12"></div>
@@ -452,5 +448,44 @@ $(document).ready(function () {
         tinhSauVAT();
     }
 </script>
+    {{-- Validation dữ liệu --}}
+<script>
+    $(document).ready(function() {
+      $("#new-SP").validate({
+        errorPlacement: function(error, element) {
+            if(element.parent().hasClass("input-group")){
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },
+        rules: {
+            TenChiNhanh: "required",
+            MaChiNhanh: "required",
+            GiaTien: "required",
+            SoLuong:"required ",
+            TenSanPham: "required",
+            LoaiSanPham: "required",
+            // SoLuongSerial: "required",
+            LoaiKichCo: "required",
+            KichCo: "required",
+            SoSerial : "required",
 
+        },
+        messages: {
+            TenChiNhanh: "Vui lòng chọn chi nhánh nhập hàng",
+            MaChiNhanh: "Vui lòng nhập mã chi nhánh",
+            SoLuong: "Vui lòng nhập số lượng",
+            GiaTien: "Vui lòng nhập giá tiền",
+            TenSanPham: "Vui lòng nhập tên sản phẩm",
+            LoaiSanPham: "Vui lòng chọn loại sản phẩm",
+            // SoLuongSerial: "Vui lòng nhập Tỉnh Thành",
+            LoaiKichCo:"Vui lòng chọn loại kích cỡ",
+            KichCo: "Vui lòng nhập kích cỡ",
+            SoSerial: "Vui lòng nhập số serial",
+
+        }
+      });
+    });
+  </script>
 @endsection
