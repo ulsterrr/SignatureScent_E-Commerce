@@ -20,52 +20,43 @@
         <p></p>
         <div class="card mb-4">
             <div class="card-body">
-                <form class="needs-validation" novalidate method="POST" action="{{route('themKH-add')}}">
+                <form id="new-khachhang" novalidate method="POST" action="{{route('themKH-add')}}">
                     @csrf
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustomUsername" class="required">Tên tài khoản (Email)*</label>
+                            <label for="validationCustomUsername1" class="required">Tên tài khoản (Email) *</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" name="email" placeholder="email@mail.com" aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Tên tài khoản (Email) không được để trống!
-                                </div>
+                                <input type="text" class="form-control" name="email" placeholder="email@mail.com" required>
                             </div>
                         </div>
                         <div class="col-md-12"></div>
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustomUsername" class="required">Mật khẩu*</label>
+                            <label for="validationCustomUsername2" class="required">Mật khẩu *</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="i-Password-Field"></i></span>
                                 </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" name="password" placeholder="********" aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Mật khẩu không được để trống!
-                                </div>
+                                <input type="password" class="form-control" id="validationCustomUsername2" name="password" placeholder="********" aria-describedby="inputGroupPrepend" required>
                             </div>
                         </div>
                         <div class="col-md-12"></div>
                         <div class="col-md-6 mb-3">
-                            <label for="validationCustomUsername" class="required">Số điện thoại*</label>
+                            <label for="validationCustomUsername3" class="required">Số điện thoại *</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">+84</span>
                                 </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" name="SDT" placeholder="0909909990" aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Số điện thoại không được để trống!
-                                </div>
+                                <input type="text" class="form-control" id="validationCustomUsername3" name="SDT" placeholder="0909909990" aria-describedby="inputGroupPrepend" required>
                             </div>
                         </div>
                         <div class="col-md-12"></div>
                         <div class="col-md-6 form-group mb-3">
                             <label for="picker3">Ngày sinh</label>
                             <div class="input-group">
-                                <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" name="NgaySinh">
+                                <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" name="NgaySinh" required>
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend"><i class="icon-regular i-Calendar-4"></i></span>
                                 </div>
@@ -74,31 +65,23 @@
                         <div class="col-md-12"></div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom01">Họ và Tên</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="Nguyễn Văn A" required name="HoTen">
-                            <div class="invalid-feedback">
-                                Họ và Tên không được để trống!
-                            </div>
+                            <input type="text" class="form-control" name="HoTen" id="validationCustom01" placeholder="Nguyễn Văn A" required>
+
+
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom02">Địa chỉ</label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="123 Đường ABC, phường ..." required name="DiaChi">
-                            <div class="invalid-feedback">
-                                Địa chỉ không được để trống!
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="DiaChi" id="validationCustom02" placeholder="123 Đường ABC, phường ..." required>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom03">Quận/Huyện</label>
-                            <input type="text" class="form-control" id="validationCustom03" placeholder="Quận Cam" required name="QuanHuyen">
-                            <div class="invalid-feedback">
-                                Quận/Huyện không được để trống!
-                            </div>
+                            <input type="text" class="form-control" name="QuanHuyen" id="validationCustom03" placeholder="Quận Cam" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom05">Tỉnh/Thành phố</label>
-                            <input type="text" class="form-control" id="validationCustom05" placeholder="TP HCM" required name="TinhThanh">
-                            <div class="invalid-feedback">
-                                Tỉnh/Thành phố không được để trống!
-                            </div>
+                            <input type="text" class="form-control" name="TinhThanh" id="validationCustom05" placeholder="TP HCM" required>
                         </div>
                     </div>
                     <div class="form-row">
@@ -141,7 +124,6 @@
 @section('page-js')
 
 
-<script src="{{asset('assets/js/form.validation.script.js')}}"></script>
 <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
 <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
 
@@ -155,5 +137,61 @@
         $('#picker2, #picker3').pickadate();
     });
 </script>
+<script>
+    $(document).ready(function() {
+      $("#new-khachhang").validate({
+        errorPlacement: function(error, element) {
+            if(element.parent().hasClass("input-group")){
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },
+        rules: {
+            name: "required",
+            NgaySinh: "required",
+            SDT: {
+                required: true,
+                number: true,
+                rangelength: [10, 11],
+            },
+            email: {
+                required: true,
+                email: true,
+            },
+            password: {
+                required: true,
+                minlength: 6,
+            },
+            HoTen:"required ",
+            DiaChi: "required",
+            QuanHuyen: "required",
+            TinhThanh: "required",
 
+        },
+        messages: {
+            name: "Vui lòng nhập họ tên của bạn",
+            NgaySinh: "Vui lòng chọn ngày sinh",
+            SDT: {
+                required: "Vui lòng nhập số điện thoại",
+                number: "SDT không đúng định dạng",
+                rangelength: "Chiều dài SDT từ 10 đến 11 số",
+            }, // thiếu chỗ này
+            email: {
+                required: "Vui lòng nhập địa chỉ email",
+                email: "Địa chỉ email không đúng định dạng",
+            },
+            password: {
+                required: "Vui lòng nhập mật khẩu",
+                minlength: "Mật khẩu phải có ít nhất 6 ký tự",
+            },
+            HoTen: "Vui lòng nhập họ tên",
+            DiaChi: "Vui lòng nhập địa chỉ",
+            QuanHuyen: "Vui lòng nhập Quận Huyện",
+            TinhThanh: "Vui lòng nhập Tỉnh Thành",
+
+        }
+      });
+    });
+  </script>
 @endsection
