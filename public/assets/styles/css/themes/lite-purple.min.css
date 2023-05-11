@@ -34440,6 +34440,18 @@ blockquote {
     margin-bottom: 4px
 }
 
+.dark-theme .modal .modal-dialog .modal-content .modal-body .form-group label.error {
+    font-size: 12px;
+    color: #ff7100 !important;
+    margin-bottom: 4px
+}
+
+.modal .modal-dialog .modal-content .modal-body .form-group label.error {
+    font-size: 12px;
+    color: tomato !important;
+    margin-bottom: 4px
+}
+
 .dark-theme .modal .modal-dialog .modal-content .modal-body .form-group .form-control {
     outline: initial !important;
     background: #161f28;

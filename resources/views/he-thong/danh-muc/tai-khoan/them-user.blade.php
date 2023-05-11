@@ -193,7 +193,7 @@
                 required: "Vui lòng nhập số điện thoại",
                 number: "SDT không đúng định dạng",
                 rangelength: "Chiều dài SDT từ 10 đến 11 số",
-            }, // thiếu chỗ này
+            },
             email: {
                 required: "Vui lòng nhập địa chỉ email",
                 email: "Địa chỉ email không đúng định dạng",
