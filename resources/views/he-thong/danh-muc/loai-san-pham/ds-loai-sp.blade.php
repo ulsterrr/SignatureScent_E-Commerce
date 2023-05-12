@@ -173,7 +173,11 @@
 {{-- Ajax load data cho ds user --}}
 <script>
     $(document).ready(function() {
+        var localization_vi = `{{ asset('assets/js/datatables-vi.json') }}`;
         var table = $('#ul-contact-list').DataTable({
+            language: {
+                url: localization_vi,
+            },
             processing: true
             , serverSide: true
             , destroy: true
