@@ -18,4 +18,6 @@ class KhoHangController extends Controller
     public function loadDSHangHoa(){
 
     }
+
+
 }
