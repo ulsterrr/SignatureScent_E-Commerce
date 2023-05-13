@@ -11,7 +11,7 @@ class LoaiSanPhamController extends Controller
 {
     public function loadLoaiSPView(){
         $loaisanpham = LoaiSanPham::all();
-        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp')->with('loaisanpham',$loaisanpham);
+        return view('he-thong.kho-hang.loai-san-pham.ds-loai-sp')->with('loaisanpham',$loaisanpham);
     }
     public function themLoaiSPhamView(){
         return view('');
@@ -24,19 +24,19 @@ class LoaiSanPhamController extends Controller
         $loaisanpham->NguoiTao = auth()->user()->email;
         $loaisanpham->save();
         session()->flash('message','Thêm loại sản phẩm thành công!');
-        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp');
+        return view('he-thong.kho-hang.loai-san-pham.ds-loai-sp');
 
     }
 
     public function chiTietLoaiSPhamView($id){
         $loaisanpham = LoaiSanPham::find($id);
-        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp',compact('loaisanpham'));
+        return view('he-thong.kho-hang.loai-san-pham.ds-loai-sp',compact('loaisanpham'));
 
     }
 
     public function capNhatLoaiSPhamView($id){
         $loaisanpham = LoaiSanPham::find($id);
-        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp',compact('loaisanpham'));
+        return view('he-thong.kho-hang.loai-san-pham.ds-loai-sp',compact('loaisanpham'));
     }
     public function capNhatLoaiSPham(Request $req, $id){
         $loaisanpham = LoaiSanPham::findOrFail($id);
@@ -48,12 +48,12 @@ class LoaiSanPhamController extends Controller
         $loaisanpham->updated_at = $dt;
         $loaisanpham->save();
         session()->flash('message','Cập nhật loại sản phẩm thành công!');
-        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp');
+        return view('he-thong.kho-hang.loai-san-pham.ds-loai-sp');
     }
     public function xoaLoaiSPham($id){
         $loaisanpham = LoaiSanPham::find($id);
         $loaisanpham->delete();
-        return view('he-thong.danh-muc.loai-san-pham.ds-loai-sp');
+        return view('he-thong.kho-hang.loai-san-pham.ds-loai-sp');
     }
 
     public function layLoaiSPAjax()
