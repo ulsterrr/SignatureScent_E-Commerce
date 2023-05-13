@@ -19,7 +19,7 @@ class SanPhamController extends Controller
         $sanpham = SanPham::all();
         $loaisp = LoaiSanPham::all();
         $loaikc = LoaiKichCo::all();
-        return view('he-thong.danh-muc.san-pham.ds-sanpham')->with([
+        return view('he-thong.kho-hang.san-pham.ds-sanpham')->with([
             'SanPham' => $sanpham,
             'LoaiSP' => $loaisp,
             'LoaiKC' => $loaikc
@@ -28,7 +28,7 @@ class SanPhamController extends Controller
     public function themSPhamView(){
         $loaisp = LoaiSanPham::all();
         $loaikc = LoaiKichCo::all();
-        return view('he-thong.danh-muc.san-pham.them-sanpham')->with([
+        return view('he-thong.kho-hang.san-pham.them-sanpham')->with([
             'LoaiSP' => $loaisp,
             'LoaiKC' => $loaikc
         ]);;
@@ -52,7 +52,7 @@ class SanPhamController extends Controller
 
     public function chiTietSPhamView($id){
         $sanpham = SanPham::find($id);
-        return view('he-thong.danh-muc.san-pham.thongtin-sanpham')->with('SanPham', $sanpham);
+        return view('he-thong.kho-hang.san-pham.thongtin-sanpham')->with('SanPham', $sanpham);
 
     }
 
@@ -61,7 +61,7 @@ class SanPhamController extends Controller
         $loaisp = LoaiSanPham::all();
         $loaikc = LoaiKichCo::all();
         response()->json($sanpham);
-        return view('he-thong.danh-muc.san-pham.capnhat-sanpham')->with([
+        return view('he-thong.kho-hang.san-pham.capnhat-sanpham')->with([
             'SanPham'=> $sanpham,
             'LoaiSP' => $loaisp,
             'LoaiKC' => $loaikc
@@ -126,7 +126,7 @@ class SanPhamController extends Controller
         $ctsp->updated_at = $dt;
         $ctsp->save();
         session()->flash('message','Cập nhật chi tiết sản phẩm thành công!');
-        return view('he-thong.danh-muc.san-pham.thongtin-sanpham');
+        return view('he-thong.kho-hang.san-pham.thongtin-sanpham');
     }
 
     public static function taoMaKhoaChinh($prefix){
