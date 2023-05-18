@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Yajra\DataTables\DataTables;
+use App\Jobs\NotifiJob;
 
 class KhachHangController extends Controller
 {
@@ -55,6 +56,9 @@ class KhachHangController extends Controller
         $newuser->NguoiTao = "";
         $newuser->save();
         session()->flash('message','Thêm tài khoản thành công!');
+        $job = (new NotifiJob($newuser->email, 'Chúc mừng bạn đã đăng ký thành công và là thành viên của SignatureScrent. Chúng
+        tôi rất hân hạnh được phục vụ quý khách, rất mong quý khách đồng hành cùng SignatureScrent.', 'Bạn đã đăng ký thành công'));
+        $this->dispatch($job);
         return redirect()->route('quanlyKH-view');
     }
     public function chiTietKhachHangView($id){
