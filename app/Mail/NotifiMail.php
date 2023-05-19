@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\User;
 
 class NotifiMail extends Mailable
 {
@@ -18,11 +19,13 @@ class NotifiMail extends Mailable
      */
     public $content;
     public $title;
+    public $user;
 
-    public function __construct($content,$title)
+    public function __construct(User $user, $content,$title)
     {
         $this->content = $content;
         $this->title = $title;
+        $this->user = $user;
     }
 
     /**
@@ -30,8 +33,22 @@ class NotifiMail extends Mailable
      *
      * @return $this
      */
+    // public function build()
+    // {
+    //     return $this->view('mail.notifi-mail')->subject($this->title)->with(['content' => $this->content, 'title'=>$this->title]);
+    // }
     public function build()
     {
-        return $this->view('mail.notifi-mail')->subject($this->title)->with(['content' => $this->content, 'title'=>$this->title]);
+        // $verificationUrl = $this->buildVerificationUrl($this->user->userId, $this->user->token);
+        // dd($this->user);
+        return $this->view('mail.notifi-mail')
+                    ->subject($this->title)
+                    ->with([
+                        'content' => $this->content,
+                        'user' => $this->user,
+                        'title'=>$this->title
+                    ]);
     }
+
 }
+

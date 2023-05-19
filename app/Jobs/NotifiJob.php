@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Mail\NotifiMail;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -20,11 +21,13 @@ class NotifiJob implements ShouldQueue
      *
      * @return void
      */
+    public $id;
     public $email;
     public $content;
     public $title;
-    public function __construct($email, $content,$title)
+    public function __construct($id, $email, $content,$title)
     {
+        $this->id = $id;
         $this->email = $email;
         $this->content = $content;
         $this->title = $title;
@@ -37,6 +40,7 @@ class NotifiJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->email)->send(new NotifiMail($this->content,$this->title));
+        $user = User::find($this->id);
+        Mail::to($this->email)->send(new NotifiMail($user, $this->content,$this->title));
     }
 }

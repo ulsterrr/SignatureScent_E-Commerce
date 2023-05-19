@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'email', 'email_verification_token',
         'password','LoaiTaiKhoan','HoTen','GioiTinh','DiaChi','SDT','QuanHuyen','TinhThanh','ChiNhanh','NgaySinh','TrangThai','NguoiTao','MaGiaoDien',
         'AnhDaiDien', 'AnhBia'
     ];
