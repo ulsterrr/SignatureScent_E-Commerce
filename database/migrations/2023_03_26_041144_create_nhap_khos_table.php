@@ -15,13 +15,16 @@ return new class extends Migration
     {
         Schema::create('nhap_khos', function (Blueprint $table) {
             $table->id();
+            $table->string("MaNhapKho")->unique();
             $table->string("MaSanPham");
             $table->string("MaChiNhanh")->nullable();
+            $table->integer("SoSerial")->nullable();
             $table->integer("SoLuongNhap")->nullable();
             $table->text("GhiChu")->nullable();
             $table->string("NguoiTao");
-            $table->string("MaKhoHang");
+            $table->string("MaKhoHang")->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

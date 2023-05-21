@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dieu_chuyens', function (Blueprint $table) {
+        Schema::create('chi_tiet_dieu_chuyens', function (Blueprint $table) {
             $table->id();
-            $table->string("MaPhieuDieuChuyen")->unique();
-            $table->string("LyDoDieuChuyen")->nullable();
-            $table->string("ChiNhanhHienTai");
-            $table->string("ChiNhanhDieuChuyen");
-            $table->date("NgayDieuChuyen")->nullable();
-            $table->string("NguoiDieuChuyen");
-            $table->string("TrangThai");
+            $table->string("MaCTDieuChuyen")->unique();
+            $table->string("MaPhieuDieuChuyen");
+            $table->string("MaSanPham");
+            $table->string("MaCTSanPham");
+            $table->string("TrangThaiHienTai");
+            $table->text("GhiChu");
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dieu_chuyens');
+        Schema::dropIfExists('chi_tiet_dieu_chuyens');
     }
 };

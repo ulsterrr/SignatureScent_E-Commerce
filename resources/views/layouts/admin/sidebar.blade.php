@@ -7,10 +7,16 @@
                     <span class="nav-text">Dashboard</span>
                 </a>
             </div>
-            <li class="nav-item {{ request()->is('he-thong/*') ? 'active' : '' }}" data-item="apps">
+            <li class="nav-item {{ request()->is('admin/*') ? 'active' : '' }}" data-item="apps">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Computer-Secure"></i>
                     <span class="nav-text">Quản lý danh mục</span>
+                </a>
+            </li>
+            <li class="nav-item {{ request()->is('he-thong/*') ? 'active' : '' }}" data-item="store">
+                <a class="nav-item-hold" href="#">
+                    <i class="nav-icon i-Post-Office"></i>
+                    <span class="nav-text">Quản lý kho hàng</span>
                 </a>
             </li>
         </ul>
@@ -105,6 +111,15 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='feedback' ? 'open' : '' }}" href="{{route('feedback')}}">
+                    <i class="nav-icon i-Speach-Bubbles"></i>
+                    <span class="item-name">Thông tin phản hồi</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="childNav" data-parent="store">
             <li class="nav-item dropdown-sidemenu">
                 <a>
                     <i class="nav-icon i-Suitcase"></i>
@@ -124,6 +139,21 @@
                             <span class="item-name">Danh sách sản phẩm</span>
                         </a>
                     </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown-sidemenu">
+                <a>
+                    <i class="nav-icon i-Download"></i>
+                    <span class="item-name">Nhập hàng</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ds-nhaphang-view' ? 'open' : '' }}" href="{{ route('ds-nhaphang-view') }}">
+                            <i class="nav-icon i-Notepad-2"></i>
+                            <span class="item-name">Danh sách nhập hàng</span>
+                        </a>
+                    </li>
                     <li>
                         <a class="{{ Route::currentRouteName()=='themSPham-view' ? 'open' : '' }}" href="{{ route('themSPham-view') }}">
                             <i class="nav-icon i-Add"></i>
@@ -132,11 +162,26 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='feedback' ? 'open' : '' }}" href="{{route('feedback')}}">
-                    <i class="nav-icon i-Speach-Bubbles"></i>
-                    <span class="item-name">Thông tin phản hồi</span>
+            <li class="nav-item dropdown-sidemenu">
+                <a>
+                    <i class="nav-icon i-Paper-Plane"></i>
+                    <span class="item-name">Điều chuyển</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
                 </a>
+                <ul class="submenu">
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ds-dieuchuyen-view' ? 'open' : '' }}" href="{{ route('ds-dieuchuyen-view') }}">
+                            <i class="nav-icon i-Arrow-Inside"></i>
+                            <span class="item-name">Danh sách điều chuyển</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='dieuChuyen-view' ? 'open' : '' }}" href="{{ route('dieuChuyen-view') }}">
+                            <i class="nav-icon i-Add"></i>
+                            <span class="item-name">Điều chuyển sản phẩm</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>
