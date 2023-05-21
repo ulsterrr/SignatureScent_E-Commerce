@@ -45,4 +45,11 @@ class ChiTietSanPham extends Model
         return $this->belongsTo(DonHang::class, 'MaDonHang');
     }
 
+    public static function layChiTietVaSanPham(){
+        return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh');
+    }
+
+    public static function layChiTietVaSanPhamTheoCN($mcn){
+        return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh')->where('MaChiNhanh', $mcn);
+    }
 }

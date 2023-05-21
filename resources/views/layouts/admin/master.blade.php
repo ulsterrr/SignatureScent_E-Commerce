@@ -244,7 +244,7 @@
 
 
     <script src="{{asset('assets/js/customizer.script.js')}}"></script>
-
+    <script src="{{asset('assets/js/moment.min.js')}}"></script>
     <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
     <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
     <script src="{{asset('assets/js/modal.script.js')}}"></script>

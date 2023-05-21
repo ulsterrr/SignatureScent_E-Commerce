@@ -45,8 +45,8 @@
                     <div class="col-md-8">
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
-                                <label for="validationCustomUsername" class="required">Mã sản phẩm *</label>
-                                <input type="text" class="form-control" id="validationCustomUsername" readonly name="MaSanPham" placeholder="Hệ thống tự sinh" aria-describedby="inputGroupPrepend" required>
+                                <label for="validationCustomUsername" class="required">Mã phiếu nhập *</label>
+                                <input type="text" class="form-control" id="validationCustomUsername" readonly name="MaPhieuNhap" placeholder="Hệ thống tự sinh" aria-describedby="inputGroupPrepend" required>
                             </div>
                             <div class="col-md-8 mb-3">
                                 <label for="TenChiNhanh" class="required">Chi nhánh:</label>
