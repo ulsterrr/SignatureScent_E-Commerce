@@ -13,6 +13,7 @@ use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\ThongKeController;
 use App\Http\Controllers\TaiKhoanController;
+use App\Http\Controllers\VerificationController;
 use App\Models\KhoHang;
 use App\Models\NhapHangMoi;
 use Illuminate\Support\Facades\Route;
@@ -240,3 +241,5 @@ Route::get('user/don-hang',[DonHangController::class,'loadDonHang'])->name('donh
 
 Route::get('user/don-hang/chi-tiet-don-hang',[DonHangController::class,'loadChiTietDonHang'])->name('chitiet-donhang-view');
 
+//verify email
+Route::get('/xac-thuc-email/{id}/{token}',[VerificationController::class,'verifyEmail'])->name('xacthuc-email');

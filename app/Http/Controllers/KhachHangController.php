@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Yajra\DataTables\DataTables;
+use App\Jobs\NotifiJob;
 
 class KhachHangController extends Controller
 {
@@ -20,20 +21,10 @@ class KhachHangController extends Controller
     }
 
     public function themKhachHang(Request $request){
-        $request->validate([
-            'email' => 'required|email|unique:users',
-            'password' => 'required',
-            'LoaiTaiKhoan' => 'required',
-            'HoTen' => 'required',
-            'GioiTinh' => 'required',
-            'DiaChi' => 'required',
-            'SDT' => 'required',
-            'NgaySinh' => 'required',
-            'TrangThai' => 'required',
-        ]);
         $newuser =  new User();
         $newuser->name = $request->HoTen;
         $newuser->email = $request->email;
+        $newuser->email_verification_token = $request->_token;
         $newuser->password = Hash::make($request->password);
         $newuser->LoaiTaiKhoan = $request->LoaiTaiKhoan;
         $newuser->HoTen = $request->HoTen;
@@ -45,16 +36,18 @@ class KhachHangController extends Controller
         $newuser->MaGiaoDien = "1";
         $newuser->ChiNhanh = "";
 
-
         //convert chuỗi ngày sang kiểu dữ liệu ngày lưu vào db
         $date_time = Carbon::createFromFormat('d/m/Y', $request->NgaySinh)->toDateTimeString();
 
         $newuser->NgaySinh = $date_time;
-
         $newuser->TrangThai = $request->TrangThai;
         $newuser->NguoiTao = "";
         $newuser->save();
         session()->flash('message','Thêm tài khoản thành công!');
+        $job = (new NotifiJob($newuser->id, $newuser->email, 'Chúc mừng bạn đã đăng ký thành công và là thành viên của SignatureScrent. Chúng
+        tôi rất hân hạnh được phục vụ quý khách, rất mong quý khách đồng hành cùng SignatureScent.
+        Quý khách vui lòng nhấn vào nút xác nhận để xác nhận email này. Xin cảm ơn quý khách', 'Bạn đã đăng ký thành công'));
+        $this->dispatch($job);
         return redirect()->route('quanlyKH-view');
     }
     public function chiTietKhachHangView($id){

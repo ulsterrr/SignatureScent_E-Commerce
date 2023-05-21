@@ -23,21 +23,6 @@ class TaiKhoanController extends Controller
         return view('he-thong.danh-muc.tai-khoan.them-user');
     }
     public function themTaiKhoan(Request $request){
-
-        // $request->validate([
-        // 'email' => 'required|email|unique:users',
-        // 'password' => 'required|min:6|max:30',
-        // 'SDT' => 'numeric',
-        // ],
-        // [
-        // 'email.required'=>'Email ko dc de trong',
-        // 'email.email' => 'Định dạng phải là email',
-        // 'email.unique' => 'email đã được sử dụng',
-        // 'password.min' => 'Mật khẩu phải ít nhất 8 ký tự',
-        // 'password.max' => 'Mật khẩu không quá 30 ký tự',
-        // 'SDT.numeric' => 'SDT không đúng định dạng',
-        // ]);
-
         $newuser =  new User();
         $newuser->name = $request->HoTen;
         $newuser->email = $request->email;
