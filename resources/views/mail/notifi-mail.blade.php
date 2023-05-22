@@ -107,49 +107,27 @@
 </head>
 <body style="background-color: #e9ecef;">
 
-    {{-- <!-- start preheader -->
-  <div class="preheader" style="display: none; max-width: 0; max-height: 0; overflow: hidden; font-size: 1px; line-height: 1px; color: #fff; opacity: 0;">
-    A preheader is the short summary text that follows the subject line when an email is viewed in the inbox.
-  </div>
-  <!-- end preheader --> --}}
 
-    {{-- <!-- start body -->
-  <table border="0" cellpadding="0" cellspacing="0" width="100%"> --}}
 
-    {{-- <!-- start logo -->
+    <!-- start logo -->
     <tr>
       <td align="center" bgcolor="#e9ecef">
-        <!--[if (gte mso 9)|(IE)]>
-        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
-        <tr>
-        <td align="center" valign="top" width="600">
-        <![endif]-->
         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
           <tr>
             <td align="center" valign="top" style="padding: 36px 24px;">
-              <a href="https://sendgrid.com" target="_blank" style="display: inline-block;">
-                <img src="./img/paste-logo-light@2x.png" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
+              <a  target="_blank" style="display: inline-block;">
+                <img src="http://127.0.0.1:8000/assets/images/logo.png" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
               </a>
             </td>
           </tr>
         </table>
-        <!--[if (gte mso 9)|(IE)]>
-        </td>
-        </tr>
-        </table>
-        <![endif]-->
       </td>
     </tr>
-    <!-- end logo --> --}}
+    <!-- end logo -->
 
     <!-- start hero -->
     <tr>
         <td align="center" bgcolor="#e9ecef">
-            <!--[if (gte mso 9)|(IE)]>
-        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
-        <tr>
-        <td align="center" valign="top" width="600">
-        <![endif]-->
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
                 <tr>
                     <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
@@ -157,7 +135,7 @@
                     </td>
                 </tr>
             </table>
-            <!--[if (gte mso 9)|(IE)]>
+
         </td>
         </tr>
 </table>
@@ -169,7 +147,7 @@
     <!-- start copy block -->
     <tr>
         <td align="center" bgcolor="#e9ecef">
-            <!--[if (gte mso 9)|(IE)]>
+
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
         <tr>
         <td align="center" valign="top" width="600">
@@ -214,11 +192,6 @@
                 <!-- end copy -->
 
             </table>
-            <!--[if (gte mso 9)|(IE)]>
-        </td>
-        </tr>
-        </table>
-        <![endif]-->
         </td>
     </tr>
     <!-- end copy block -->
@@ -226,11 +199,7 @@
     <!-- start footer -->
     <tr>
         <td align="center" bgcolor="#e9ecef" style="padding: 24px;">
-            <!--[if (gte mso 9)|(IE)]>
-        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
-        <tr>
-        <td align="center" valign="top" width="600">
-        <![endif]-->
+
             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
 
                 <!-- start permission -->
@@ -243,12 +212,6 @@
 
 
             </table>
-            <!--[if (gte mso 9)|(IE)]>
-        </td>
-        </tr>
-        </table>
-        <![endif]-->
-        </td>
     </tr>
     <!-- end footer -->
 
