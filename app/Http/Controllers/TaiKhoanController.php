@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
+use Illuminate\Validation\Rule;
 
 class TaiKhoanController extends Controller
 {
@@ -124,4 +125,12 @@ class TaiKhoanController extends Controller
         $users = User::where("TrangThai","1")->get();
         return DataTables::of($users)->make(true);
     }
+
+    public function kiemTraTrungEmail(Request $request)
+    {
+        $dup = User::where('email', $request->email)->first();
+        if(!$dup) return response()->json(['valid' => false]);
+        else return response()->json(['valid' => true]);
+    }
+
 }
