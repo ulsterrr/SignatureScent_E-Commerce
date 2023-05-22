@@ -29,6 +29,14 @@
                     </div>
                 @endif
             </div>
+
+            {{-- thông báo lỗi trùng email --}}
+            <div class="col-md-12 mt-3">
+                <div id="alert-card-sp-modal" class="alert alert-card fade show" role="alert"  style="display: none;">
+                    <div class="alert-body-content"></div>
+                </div>
+            </div>
+
             <div class="card-body">
                 <form id="new-user" action="{{ route('themTK-add') }}" method="POST">
                     @csrf
@@ -39,7 +47,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 </div>
-                                <input type="text" class="form-control" name="email" placeholder="email@mail.com" required>
+                                <input type="text" onfocusout="checkMaiUnique()" id="email" class="form-control" name="email" placeholder="email@mail.com" required>
                             </div>
                         </div>
                         <div class="col-md-12"></div>
@@ -210,5 +218,32 @@
         }
       });
     });
+
+    function checkMaiUnique() {
+        var fieldValue = $('#email').val();
+        var token = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: "{{ route('kiemtra-email') }}",
+            method: 'POST',
+            data: {
+                email: fieldValue, // Đặt giá trị của $recordId tương ứng với bản ghi hiện tại
+                _token: token
+            },
+            success: function(response) {
+                if (response.valid) {
+                    // Giá trị đã tồn tại, có lỗi
+                    $('#alert-card-sp-modal').css('display', '');
+                    $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-danger');
+                    $('#alert-card-sp-modal .alert-body-content').html(`Email: ${fieldValue} đã có thông tin tài khoản trong hệ thống.`);
+                    $('#alert-card-sp-modal').fadeIn(100);
+                } else {
+                    // Giá trị là duy nhất, không có lỗi
+                    $('#alert-card-sp-modal').css('display', 'none');
+                }
+            }
+        });
+    };
+
   </script>
 @endsection
