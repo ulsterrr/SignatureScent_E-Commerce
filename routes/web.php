@@ -159,6 +159,7 @@ Route::get('admin/chi-tiet-chi-nhanh/{id}',[ChiNhanhController::class,'chiTietCh
 Route::get('admin/quan-ly-feedback',[DanhMucController::class,'loadDSFeedback'])->name('feedback');
 Route::get('admin/cap-nhat-chi-nhanh/{id}',[ChiNhanhController::class,'capNhatChiNhanhView'])->name('capnhatCN-view');
 Route::get('admin/cap-nhat-khach-hang/{id}',[KhachHangController::class,'capNhatKhachHangView'])->name('capnhatKH-view');
+Route::get('/dang-ky',[KhachHangController::class,'dangKyView'])->name('dangKyView');
 
 //Quản Lý Sản Phẩm View
 Route::get('admin/quan-ly-san-pham',[SanPhamController::class,'loadSPView'])->name('qly-spham-view');

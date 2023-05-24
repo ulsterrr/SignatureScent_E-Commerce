@@ -14,6 +14,9 @@
     {{-- theme css --}}
     {{-- <link id="gull-theme" rel="stylesheet" href="{{  asset('assets/styles/css/themes/lite-purple.min.css')}}"> --}}
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/perfect-scrollbar.css')}}">
+    <link id="client-css" rel="stylesheet" href="{{  asset('assets/styles/css/themes/client-page.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic-client.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic-client.date.css')}}">
     {{-- page specific css --}}
     @yield('page-css')
     @include('layouts.homepage.headpage-client')
@@ -123,6 +126,31 @@
         };
         /* ]]> */
     </script>
+
+    <script>
+        $(document).ready(function(){
+            $('#picker2, #picker3').pickadate({
+                selectMonths: true,
+                selectYears:true,
+            });
+        });
+    </script>
+    <script src="{{asset('assets/js/moment.min.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
+    <script src="{{asset('assets/js/modal.script.js')}}"></script>
+    <script src="{{asset('assets/js/numeral.min.js')}}"></script>
+    <script src="{{asset('assets/js/cleave.min.js')}}"></script>
+    <script src="{{asset('assets/js/cleave.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
+
+    {{-- bộ thư viện jQuery Validate Plugin 1.19.5 --}}
+    <script src="{{asset('assets/js/validatior_plugin/jquery.validate.js')}}"></script>
+    <script src="{{asset('assets/js/validatior_plugin/jquery.validate.min.js')}}"></script>
+    <script src="{{asset('assets/js/validatior_plugin/messages_vi.js')}}"></script>
+
+
     <script type='text/javascript' src='{{ asset('assets/wp-content/themes/flatsome/assets/js/flatsome.js')}}'></script>
     <script type='text/javascript' src='{{ asset('assets/wp-content/themes/flatsome/assets/js/woocommerce.js')}}'></script>
     <script type='text/javascript' src='{{ asset('assets/wp-includes/js/wp-embed.min.js')}}'></script>

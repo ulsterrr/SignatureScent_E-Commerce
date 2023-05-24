@@ -15,9 +15,12 @@ class KhachHangController extends Controller
         return view('he-thong.danh-muc.khach-hang.ds-khachhang')->with('KhachHang',$khachhang);
     }
 
-
     public function themKhachHangView(){
         return view('he-thong.danh-muc.khach-hang.them-khachhang');
+    }
+
+    public function dangKyView(){
+        return view('layouts.tai-khoan.dang-ky');
     }
 
     public function themKhachHang(Request $request){
