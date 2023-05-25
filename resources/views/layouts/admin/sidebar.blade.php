@@ -164,6 +164,27 @@
             </li>
             <li class="nav-item dropdown-sidemenu">
                 <a>
+                    <i class="nav-icon i-Box-Full"></i>
+                    <span class="item-name">Nhập kho sản phẩm</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ds-dieuchuyen-view' ? 'open' : '' }}" href="{{ route('ds-dieuchuyen-view') }}">
+                            <i class="nav-icon i-Inbox-Into"></i>
+                            <span class="item-name">Danh sách nhập kho</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='dieuChuyen-view' ? 'open' : '' }}" href="{{ route('dieuChuyen-view') }}">
+                            <i class="nav-icon i-Add"></i>
+                            <span class="item-name">Nhập tồn kho</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown-sidemenu">
+                <a>
                     <i class="nav-icon i-Paper-Plane"></i>
                     <span class="item-name">Điều chuyển</span>
                     <i class="dd-arrow i-Arrow-Down"></i>

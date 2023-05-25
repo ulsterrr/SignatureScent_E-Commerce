@@ -4,21 +4,30 @@
 <div class="row row-main">
     <div class="large-12 col" style="margin-top: 3% !important;">
         <div class="col-inner">
+            <div class="col-md-12 mb-3">
+                <h3 class="uppercase">Đăng nhập</h3>
+            </div>
             <div class="woocommerce">
                 <div class="woocommerce-notices-wrapper"></div>
                 <div class="account-container lightbox-inner">
                     <div class="account-login-inner">
-                        <h3 class="uppercase">Đăng nhập</h3>
                         <form class="woocommerce-form woocommerce-form-login login" action="{{ route('xuly-dangnhap') }}" method="post">
                             @csrf
-                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                                <label for="username">Tên tài khoản hoặc địa chỉ email&nbsp;<span class="required">*</span></label>
+                            <div class="col-md-6">
+
+
+                                <label for="username">Email&nbsp;<span class="required">*</span></label>
                                 <input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="username" autocomplete="username" value="" />
-                            </p>
-                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+
+                            </div>
+                            <div class="col-md-6">
+
+
                                 <label for="password">Mật khẩu&nbsp;<span class="required">*</span></label>
                                 <input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" autocomplete="current-password" />
-                            </p>
+
+                            </div>
+
                             <h6 style="color:red;">
                                 <?php
                                 $message = Session::get('message');
@@ -28,15 +37,22 @@
                                 }
                                 ?>
                             </h6>
-                            <p class="form-row">
-                                <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="ce90bf198c" /><input type="hidden" name="_wp_http_referer" value="/scentsignature/" /> <button type="submit" class="woocommerce-Button button" id="login" name="login" value="Đăng nhập">Đăng nhập</button>
-                                <label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
-                                    <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span>Ghi nhớ mật khẩu</span>
-                                </label>
-                            </p>
-                            <p class="woocommerce-LostPassword lost_password">
-                                <a href="tai-khoan/lost-password/">Quên mật khẩu?</a>
-                            </p>
+                            <div class="col-md-12">
+                                <p class="form-row">
+                                    <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="ce90bf198c" /><input type="hidden" name="_wp_http_referer" value="/scentsignature/" /> <button type="submit" class="woocommerce-Button button" id="login" name="login" value="Đăng nhập">Đăng nhập</button>
+                                    <label class="woocommerce-form__label woocommerce-form__label-for-checkbox inline">
+                                        <input class="woocommerce-form__input woocommerce-form__input-checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <span>Ghi nhớ mật khẩu</span>
+                                    </label>
+                                </p>
+                                <p class="woocommerce-LostPassword lost_password">
+                                    <a href="tai-khoan/lost-password/">Quên mật khẩu?</a>
+                                </p>
+
+                                <p class="woocommerce-LostPassword lost_password">
+                                    Bạn chưa có tài khoản?
+                                    <a href="{{ route('dangKyView') }}">Đăng ký ngay</a>
+                                </p>
+                            </div>
                         </form>
                     </div>
                     <!-- .login-inner -->
@@ -59,7 +75,7 @@
         font-size: .97em;
         border-radius: 0;
         max-width: 100%;
-        width: 50%;
+        /* width: 10%; */
         vertical-align: middle;
         background-color: #fff;
         color: #333;
@@ -69,3 +85,4 @@
 
 </style>
 @endsection
+
