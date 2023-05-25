@@ -61,5 +61,11 @@ class LoaiSanPhamController extends Controller
         $lsp = LoaiSanPham::all();
         return DataTables::of($lsp)->make(true);
     }
+    public function kiemTraTrungMaLSP(Request $request)
+    {
+        $dup = LoaiSanPham::where('MaLoai', $request->MaLoai)->first();
+        if(!$dup) return response()->json(['valid' => false]);
+        else return response()->json(['valid' => true]);
+    }
 
 }
