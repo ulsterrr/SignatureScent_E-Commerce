@@ -98,4 +98,12 @@ class ChiNhanhController extends Controller
         $cn = ChiNhanh::with('nguoiQuanLy')->get();
         return DataTables::of($cn)->make(true);
     }
+
+    public function kiemTraTrungMaCN(Request $request)
+    {
+        $dup = ChiNhanh::where('MaChiNhanh', $request->MaChiNhanh)->first();
+        if(!$dup) return response()->json(['valid' => false]);
+        else return response()->json(['valid' => true]);
+    }
+
 }

@@ -20,6 +20,11 @@
     <div class="col-md-12">
         <p></p>
         <div class="card mb-4">
+            <div class="col-md-12 mt-3">
+                <div id="alert-card-sp-modal" class="alert alert-card fade show" role="alert"  style="display: none;">
+                    <div class="alert-body-content"></div>
+                </div>
+            </div>
             <div class="card-body">
                 <form id="new-chinhanh" method="POST" action="{{route('themmoiCN-add')}}" novalidate>
                     @csrf
@@ -28,7 +33,7 @@
                         <div class="form-row">
                             <div class="col-md-8 mb-3">
                                 <label for="validationCustomUsername" class="required">Mã chi nhánh *</label>
-                                    <input type="text" class="form-control" id="validationCustomUsername" name="MaChiNhanh" placeholder="CN-Q6" aria-describedby="inputGroupPrepend" required>
+                                    <input type="text" class="form-control" onfocusout="checkMaCNUnique()" id="MaChiNhanh"  name="MaChiNhanh" placeholder="CN01" aria-describedby="inputGroupPrepend" required>
 
                             </div>
                             <div class="col-md-4 mb-3">
@@ -364,5 +369,30 @@ $(document).ready(function () {
         }
       });
     });
+
+    function checkMaCNUnique() {
+        var fieldValue = $('#MaChiNhanh').val();
+        var token = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url: "{{ route('kiemtra-macn') }}",
+            method: 'POST',
+            data: {
+                MaChiNhanh: fieldValue, // Đặt giá trị của $recordId tương ứng với bản ghi hiện tại
+                _token: token
+            },
+            success: function(response) {
+                if (response.valid) {
+                    // Giá trị đã tồn tại, có lỗi
+                    $('#alert-card-sp-modal').css('display', '');
+                    $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-danger');
+                    $('#alert-card-sp-modal .alert-body-content').html(`MaChiNhanh: ${fieldValue} đã có thông tin tài khoản trong hệ thống.`);
+                    $('#alert-card-sp-modal').fadeIn(100);
+                } else {
+                    // Giá trị là duy nhất, không có lỗi
+                    $('#alert-card-sp-modal').css('display', 'none');
+                }
+            }
+        });
+    };
   </script>
 @endsection

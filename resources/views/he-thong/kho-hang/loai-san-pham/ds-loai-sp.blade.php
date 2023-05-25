@@ -55,11 +55,17 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
+                            <form id="new-LSP">
+                                <div class="card mb-4">
+                                    <div class="col-md-12 mt-3">
+                                        <div id="alert-card-sp-modal" class="alert alert-card fade show" role="alert"  style="display: none;">
+                                            <div class="alert-body-content"></div>
+                                        </div>
+                                    </div>
                             <div class="modal-body">
-                                <form id="new-LSP">
                                     <div class="form-group">
                                         <label for="MaLoai" class="required">Mã loại *</label>
-                                        <input id="MaLoai"name="MaLoai" type="text" class="form-control" placeholder="VD: LSP0001, LSP0002,...">
+                                        <input onfocusout="checkMaLSPUnique()" id="MaLoai" name="MaLoai" type="text" class="form-control" placeholder="VD: LSP01, LSP02,...">
                                     </div>
                                     <div class="form-group">
                                         <label for="TenLoai" class="required">Tên loại *</label>
@@ -448,5 +454,31 @@
         }
       });
     });
+
+    //Check trùng mã loại sp
+    function checkMaLSPUnique() {
+        var fieldValue = $('#MaLoai').val();
+        var token = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url: "{{ route('kiemtra-malsp') }}",
+            method: 'POST',
+            data: {
+                MaLoai: fieldValue, // Đặt giá trị của $recordId tương ứng với bản ghi hiện tại
+                _token: token
+            },
+            success: function(response) {
+                if (response.valid) {
+                    // Giá trị đã tồn tại, có lỗi
+                    $('#alert-card-sp-modal').css('display', '');
+                    $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-danger');
+                    $('#alert-card-sp-modal .alert-body-content').html(`MaLoai: ${fieldValue} đã có thông tin tài khoản trong hệ thống.`);
+                    $('#alert-card-sp-modal').fadeIn(100);
+                } else {
+                    // Giá trị là duy nhất, không có lỗi
+                    $('#alert-card-sp-modal').css('display', 'none');
+                }
+            }
+        });
+    };
   </script>
 @endsection

@@ -60,6 +60,15 @@
                                 <input type="password" class="form-control" id="validationCustomUsername2" name="password" placeholder="********" aria-describedby="inputGroupPrepend" required>
                             </div>
                         </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustomUsername2" class="required">Xác nhận mật khẩu</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupPrepend"><i class="i-Password-Field"></i></span>
+                                </div>
+                                <input type="password" class="form-control" id="validationCustomUsername2" name="password2" placeholder="********" aria-describedby="inputGroupPrepend" required>
+                            </div>
+                        </div>
                         <div class="col-md-12"></div>
                         <div class="col-md-6 mb-3">
                             <label for="validationCustomUsername3" class="required">Số điện thoại *</label>
@@ -188,6 +197,10 @@
                 required: true,
                 minlength: 6,
             },
+            password2: {
+                required: true,
+                minlength: 6,
+            },
             HoTen:"required ",
             DiaChi: "required",
             QuanHuyen: "required",
@@ -207,6 +220,10 @@
                 email: "Địa chỉ email không đúng định dạng",
             },
             password: {
+                required: "Vui lòng nhập mật khẩu",
+                minlength: "Mật khẩu phải có ít nhất 6 ký tự",
+            },
+            password2: {
                 required: "Vui lòng nhập mật khẩu",
                 minlength: "Mật khẩu phải có ít nhất 6 ký tự",
             },

@@ -148,6 +148,7 @@ Route::post('admin/xoa-chi-nhanh/{id}',[ChiNhanhController::class,'xoaChiNhanh']
 Route::post('admin/cap-nhat-khach-hang/{id}',[KhachHangController::class,'capNhatKhachHang'])->name('capnhatKH-upd');
 Route::get('admin/chi-tiet-khach-hang/{id}',[KhachHangController::class,'chiTietKhachHangView'])->name('chitietKHview');
 Route::get('admin/xoa-khach-hang/{id}',[KhachHangController::class,'xoaKhachHang'])->name('xoaKH-del');
+Route::post('kiemtra-chinhanh', [ChiNhanhController::class,'kiemTraTrungMaCN'])->name('kiemtra-macn');
 
 //View Quản Lý Khách Hàng và Chi Nhánh
 Route::get('admin/quan-ly-khach-hang',[KhachHangController::class,'loadDSKhachHangView'])->name('quanlyKH-view');
@@ -187,6 +188,7 @@ Route::get('admin/chi-tiet-loai-san-pham/{id}',[LoaiSanPhamController::class,'ch
 Route::get('admin/xoa-loai-san-pham/{id}',[LoaiSanPhamController::class,'xoaLoaiSPham'])->name('xoaLoaiSPham-del');
 Route::post('admin/them-moi-loai-san-pham',[LoaiSanPhamController::class,'themLoaiSPham'])->name('themLoaiSPham-add');
 Route::post('admin/cap-nhat-loai-san-pham/{id}',[LoaiSanPhamController::class,'capNhatLoaiSPham'])->name('capnhatLoaiSPham-upd');
+Route::post('kiemtra-loaiSP', [LoaiSanPhamController::class,'kiemTraTrungMaLSP'])->name('kiemtra-malsp');
 
 //Quản lý kho hàng
     // Nhập hàng
