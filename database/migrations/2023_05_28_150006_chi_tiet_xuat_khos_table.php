@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('xuat_khos', function (Blueprint $table) {
+        Schema::create('chi_tiet_xuat_khos', function (Blueprint $table) {
             $table->id();
-            $table->string("MaXuatKho")->unique();
-            $table->string("LyDoXuat")->nullable();
-            $table->string("ChiNhanhNhan");
-            $table->date("NgayXuat")->nullable();
-            $table->string("NguoiXuatKho");
-            $table->string("TrangThai");
+            $table->string("MaCTXuatKho")->unique();
+            $table->string("MaXuatKho");
+            $table->string("MaSanPham");
+            $table->string("MaCTSanPham");
+            $table->string("TrangThaiHienTai");
+            $table->text("GhiChu");
             $table->timestamps();
             $table->softDeletes();
         });
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('xuat_khos');
+        Schema::dropIfExists('chi_tiet_xuat_khos');
     }
 };

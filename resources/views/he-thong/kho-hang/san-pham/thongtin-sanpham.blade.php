@@ -351,9 +351,9 @@
                     , {
                         data: null
                         , render: function(data) {
-                            if(!data.MaSanPham)
+                            if(!data.MaPhieuNhap)
                             return '';
-                            else return data.MaSanPham;
+                            else return data.MaPhieuNhap;
                         }
                     }
                     , {

@@ -7,10 +7,9 @@
 
 @section('main-content')
 <div class="breadcrumb">
-    <h1>Điều chuyển</h1>
+    <h1>Xuất kho</h1>
     <ul>
         <li><a href="">Sản phẩm</a></li>
-        <li>Tạo điều chuyển</li>
     </ul>
 </div>
 
@@ -96,49 +95,6 @@
         </div>
         <!-- END Chọn sản phẩm Modal -->
 
-        <!-- Chi nhánh A Modal -->
-        <div class="col-md-12">
-            <div id="chinhanhA-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="chinhanhA-modal" aria-hidden="true">
-                <div class="modal-dialog modal-lg" style="max-width: 1000px !important;">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="chinhanhA-modal-Title">Tìm kiếm chi nhánh giao hàng</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="col-md-12">
-                                <div class="table-responsive col-md-12">
-                                    <table id="chinhanhA-list" class="display table">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center" style="width: 80px">Mã chi nhánh</th>
-                                                <th class="text-center" style="width: 180px">Tên chi nhánh</th>
-                                                <th class="text-center" style="width: 150px">Địa chỉ</th>
-                                                <th class="text-center" style="width: 100px">Số điện thoại</th>
-                                                <th class="text-center" style="width: 80px">Email người quản lý</th>
-                                                <th class="text-center" style="width: 80px">Người quản lý</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Dữ liệu sẽ được load bằng Ajax -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" onclick="getDataCNModal('chinhanhA-list')" class="btn btn-primary">Tìm kiếm</button>
-                            <button id="selectDataA" type="button" class="btn btn-primary">Chọn</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END A Modal -->
-
         <!-- Chi nhánh B Modal -->
         <div class="col-md-12">
             <div id="chinhanhB-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="chinhanhB-modal" aria-hidden="true">
@@ -184,15 +140,15 @@
 
         <div class="card mb-4">
             <div class="card-body">
-                <form id="new-DC" method="POST" action="{{route('dieuchuyenhang')}}" enctype="multipart/form-data">
+                <form id="new-DC" method="POST" action="{{route('xuatKhoSanPham')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="row col-md-12">
                     <div class="col-md-12">
-                        <button class="btn btn-primary mb-4" onclick="getDataAndSubmit()">Thêm mới điều chuyển</button>
+                        <button class="btn btn-primary mb-4" onclick="getDataAndSubmit()">Thêm xuất kho</button>
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
-                                <label for="validationCustomUsername" class="required">Mã phiếu điều chuyển</label>
-                                <input type="text" class="form-control" id="validationCustomUsername" readonly name="MaPhieuNhap" placeholder="Hệ thống tự sinh" aria-describedby="inputGroupPrepend">
+                                <label for="validationCustomUsername" class="required">Mã phiếu xuất kho</label>
+                                <input type="text" class="form-control" id="validationCustomUsername" readonly name="MaXuatKho" placeholder="Hệ thống tự sinh" aria-describedby="inputGroupPrepend">
                             </div>
 
                             <div class="col-md-4 mb-3">
@@ -205,42 +161,10 @@
 
                             <div class="col-md-12 mb-3"></div>
                             <div class="col-md-4 mb-3">
-                                <label for="MaChiNhanhA" class="required">Chi nhánh giao hàng:</label>
+                                <label for="MaChiNhanhNhan" class="required">Chi nhánh nhận hàng:</label>
                                 <div class="input-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="MaChiNhanhA" name="MaChiNhanhA" readonly required
-                                                aria-describedby="inputGroupCNA">
-                                        <div class="input-group-append">
-                                            <button id="inputGroupCNA" type="button" class="btn btn-primary" data-toggle="modal" data-target="#chinhanhA-modal">...</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 mb-3">
-                                <label for="TenChiNhanhA" class="required">Tên chi nhánh giao *:</label>
-                                <div class="input-group">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="TenChiNhanhA" name="TenChiNhanhA" readonly required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 mb-3">
-                                <label for="EmailA" class="required">Email quản lý chi nhánh giao *:</label>
-                                <div class="input-group">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="EmailA" name="EmailA" readonly required>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 mb-3"></div>
-                            <div class="col-md-4 mb-3">
-                                <label for="MaChiNhanhB" class="required">Chi nhánh nhận hàng:</label>
-                                <div class="input-group">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="MaChiNhanhB" name="MaChiNhanhB" readonly required
+                                        <input type="text" class="form-control" id="MaChiNhanhNhan" name="MaChiNhanhNhan" readonly required
                                                 aria-describedby="inputGroupCNB">
                                         <div class="input-group-append">
                                             <button id="inputGroupCNB" type="button" class="btn btn-primary" data-toggle="modal" data-target="#chinhanhB-modal">...</button>
@@ -249,10 +173,10 @@
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="TenChiNhanhB" class="required">Tên chi nhánh nhận *:</label>
+                                <label for="TenChiNhanhNhan" class="required">Tên chi nhánh nhận *:</label>
                                 <div class="input-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="TenChiNhanhB" name="TenChiNhanhB" readonly required>
+                                        <input type="text" class="form-control" id="TenChiNhanhNhan" name="TenChiNhanhNhan" readonly required>
                                     </div>
                                 </div>
                             </div>
@@ -267,16 +191,10 @@
                             </div>
 
                             <div class="col-md-12 mb-3"></div>
-                            {{-- <div class="col-md-8 mb-3">
-                                <label for="LyDoDieuChuyen" class="required">Lý do điều chuyển *</label>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="LyDoDieuChuyen" name="LyDoDieuChuyen"  aria-describedby="inputGroupPrepend" required>
-                                </div>
-                            </div> --}}
 
                             <div class="col-md-8 mb-3">
-                                <label for="LyDoDieuChuyen" class="required">Lý do điều chuyển *</label>
-                                <textarea class="form-control" style="width: 100% !important;" rows="2" name="LyDoDieuChuyen" id="LyDoDieuChuyen"></textarea>
+                                <label for="LyDoXuat" class="required">Lý do xuất kho *</label>
+                                <textarea class="form-control" style="width: 100% !important;" rows="2" name="LyDoXuat" id="LyDoXuat"></textarea>
                             </div>
                             <div class="col-md-12"></div>
                         </div>
@@ -284,7 +202,7 @@
 
                     <div class="col-md-12">
                         <div class="table-title-group">
-                            <h5 class="popup-title col-md-12">DANH SÁCH CÁC SẢN PHẨM ĐIỀU CHUYỂN</h5>
+                            <h5 class="popup-title col-md-12">DANH SÁCH CÁC SẢN PHẨM XUẤT KHO</h5>
                             <div class="action-button">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#cn-modal"><i class="i-Add"></i></button>
@@ -292,7 +210,7 @@
                             </div>
                         </div>
                         <div class="table-responsive col-md-12">
-                            <table id="ul-dieuchuyen-list" class="display table" caption="Danh sách người dùng">
+                            <table id="ul-xuatkho-list" class="display table" caption="Danh sách người dùng">
                                 <thead>
                                     <tr>
                                         <th name="rowChoose" class="text-center" style="width: 20px; margin-top: 0px; padding-bottom: 21px;">
@@ -361,7 +279,8 @@ var loadFile = function (event) {
 
 
 function getDataModal() {
-    var mcn = $('#MaChiNhanhA').val();
+    var mcn = "TatCaChiNhanh";
+    var mcn = "TrongKho";
     if (!mcn) {
         $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-warning');
         $('#alert-card-sp-modal .alert-heading').html('Lỗi');
@@ -375,7 +294,7 @@ function getDataModal() {
         $('#alert-card-sp-modal').css('display', 'none');;
     }
 
-    var getData = "{{ route('TatCaSanPhamModal', ['mcn' => ':id']) }}";
+    var getData = "{{ route('tatCaSanPhamModal', ['mcn' => ':id']) }}";
     var link = getData.replace(':id', mcn);
     var table = $('#ul-user-list').DataTable({
         processing: true
@@ -505,7 +424,7 @@ function getDataModal() {
             gc,
         ];
 
-        var table = $('#ul-dieuchuyen-list').DataTable();
+        var table = $('#ul-xuatkho-list').DataTable();
         var columnIndex = 1; // Chỉ số cột cần kiểm tra trùng
 
         // Lấy dữ liệu của cột đã có trong DataTables
@@ -518,7 +437,7 @@ function getDataModal() {
             // Xử lý khi có giá trị trùng
             $('#alert-card-sp-modal').css('display', '');
             $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-warning');
-            $('#alert-card-sp-modal .alert-body-content').html(`Sản phẩm mã: ${codectsp} đã được chọn trong danh sách điều chuyển.`);
+            $('#alert-card-sp-modal .alert-body-content').html(`Sản phẩm mã: ${codectsp} đã được chọn trong danh sách xuất kho.`);
             $('#alert-card-sp-modal').fadeIn(200);
             setTimeout(function(){ $("#alert-card-sp-modal").fadeOut(); }, 10000);
             console.log('Giá trị đã tồn tại trong cột!');
@@ -555,7 +474,7 @@ function getDataModal() {
             gc,
         ];
 
-        var table = $('#ul-dieuchuyen-list').DataTable();
+        var table = $('#ul-xuatkho-list').DataTable();
         var columnIndex = 1; // Chỉ số cột cần kiểm tra trùng
 
         // Lấy dữ liệu của cột đã có trong DataTables
@@ -568,7 +487,7 @@ function getDataModal() {
             // Xử lý khi có giá trị trùng
             $('#alert-card-sp-modal').css('display', '');
             $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-warning');
-            $('#alert-card-sp-modal .alert-body-content').html(`Sản phẩm mã: ${codectsp} đã được chọn trong danh sách điều chuyển.`);
+            $('#alert-card-sp-modal .alert-body-content').html(`Sản phẩm mã: ${codectsp} đã được chọn trong danh sách xuất kho.`);
             $('#alert-card-sp-modal').fadeIn(200);
             setTimeout(function(){ $("#alert-card-sp-modal").fadeOut(); }, 10000);
             console.log('Giá trị đã tồn tại trong cột!');
@@ -606,7 +525,7 @@ $(document).ready(function () {
         table.row('.selected').remove().draw(false);
     });
 
-    var dieuchuyentable = $('#ul-dieuchuyen-list').DataTable({
+    var dieuchuyentable = $('#ul-xuatkho-list').DataTable({
         dom: 'rt<"bottom"lip>',
         searching: false,
         "columnDefs": [
@@ -617,13 +536,13 @@ $(document).ready(function () {
     });
 
     $('#deleteButton').on('click', function() {
-        var data = $('#ul-dieuchuyen-list').DataTable().data().toArray();
+        var data = $('#ul-xuatkho-list').DataTable().data().toArray();
         // Lặp qua tất cả các checkbox trong cột đầu tiên
-        $('#ul-dieuchuyen-list tbody tr').each(function() {
+        $('#ul-xuatkho-list tbody tr').each(function() {
             var checkbox = $(this).find('input[type="checkbox"]');
             if (checkbox.is(':checked')) {
                 // Xoá dòng nếu checkbox đã được chọn
-                $('#ul-dieuchuyen-list').DataTable().row($(this)).remove().draw(false);
+                $('#ul-xuatkho-list').DataTable().row($(this)).remove().draw(false);
             }
             // Bỏ check của checkbox all
             var checkbox = document.getElementById('rowChoose');
@@ -637,7 +556,7 @@ $(document).ready(function () {
         var isChecked = $(this).is(':checked');
 
         // Set trạng thái cho tất cả các checkbox dưới <td>
-        $('#ul-dieuchuyen-list tbody input[type="checkbox"]').prop('checked', isChecked);
+        $('#ul-xuatkho-list tbody input[type="checkbox"]').prop('checked', isChecked);
     });
 });
 //{{-- Validation dữ liệu --}}
@@ -665,7 +584,7 @@ $(document).ready(function () {
 
         },
         messages: {
-            TenChiNhanh: "Vui lòng chọn chi nhánh điều chuyển",
+            TenChiNhanh: "Vui lòng chọn chi nhánh xuất kho",
             MaChiNhanh: "Vui lòng nhập mã chi nhánh",
             SoLuong: "Vui lòng nhập số lượng",
             GiaTien: "Vui lòng nhập giá tiền",
@@ -724,35 +643,11 @@ function getDataCNModal(type) {
         table.row('.selected').remove().draw(false);
     });
 
-    // Xử lý khi click vào nút "Chọn" A
-    $('#selectDataA').on('click', function() {
-      var data = $('#chinhanhA-list').DataTable().rows('.selected').data();
-      $('#MaChiNhanhA').val(data[0]['MaChiNhanh']);
-      $('#TenChiNhanhA').val(data[0]['TenChiNhanh']);
-      $('#EmailA').val(data[0]['NguoiQuanLy']);
-      $('#chinhanhA-modal').modal('hide');
-    });
-
-    $('#chinhanhA-list tbody').on('dblclick', 'tr', function() {
-        // Lấy giá trị của cột id và name trong hàng được chọn
-        var code = $(this).find('td:eq(0)').text();
-        var name = $(this).find('td:eq(1)').text();
-        var email = $(this).find('td:eq(4)').text();
-
-        // Hiển thị giá trị lên các input ở trên modal
-        $('#MaChiNhanhA').val(code);
-        $('#TenChiNhanhA').val(name);
-        $('#EmailA').val(email);
-
-        // Ẩn modal
-        $('#chinhanhA-modal').modal('hide');
-    });
-
-        // Xử lý khi click vào nút "Chọn" B
+    // Xử lý khi click vào nút "Chọn" B
     $('#selectDataB').on('click', function() {
       var data = $('#chinhanhB-list').DataTable().rows('.selected').data();
-      $('#MaChiNhanhB').val(data[0]['MaChiNhanh']);
-      $('#TenChiNhanhB').val(data[0]['TenChiNhanh']);
+      $('#MaChiNhanhNhan').val(data[0]['MaChiNhanh']);
+      $('#TenChiNhanhNhan').val(data[0]['TenChiNhanh']);
       $('#EmailB').val(data[0]['NguoiQuanLy']);
       $('#chinhanhB-modal').modal('hide');
     });
@@ -764,8 +659,8 @@ function getDataCNModal(type) {
         var email = $(this).find('td:eq(4)').text();
 
         // Hiển thị giá trị lên các input ở trên modal
-        $('#MaChiNhanhB').val(code);
-        $('#TenChiNhanhB').val(name);
+        $('#MaChiNhanhNhan').val(code);
+        $('#TenChiNhanhNhan').val(name);
         $('#EmailB').val(email);
 
         // Ẩn modal
@@ -775,11 +670,11 @@ function getDataCNModal(type) {
 // Lấy dữ liệu của datatable vào biến ẩn rồi submit form
 function getDataAndSubmit() {
   // Lấy dữ liệu từ DataTable
-  var tableData = $('#ul-dieuchuyen-list').DataTable().data().toArray();
+  var tableData = $('#ul-xuatkho-list').DataTable().data().toArray();
   // Lấy tên của biến trong mảng trả về
   var namedTableData = tableData.map(function(row) {
     var namedRow = {};
-    $('#ul-dieuchuyen-list th').each(function(index) {
+    $('#ul-xuatkho-list th').each(function(index) {
       var columnName = $(this).attr('name');
       var columnValue = row[index];
       namedRow[columnName] = columnValue;

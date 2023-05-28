@@ -13,7 +13,7 @@
     @yield('before-css')
     {{-- theme css --}}
     {{-- <link id="gull-theme" rel="stylesheet" href="{{  asset('assets/styles/css/themes/lite-purple.min.css')}}"> --}}
-    <link rel="stylesheet" href="{{asset('assets/styles/vendor/perfect-scrollbar.css')}}">
+    {{-- <link rel="stylesheet" href="{{asset('assets/styles/vendor/perfect-scrollbar.css')}}"> --}}
     <link id="client-css" rel="stylesheet" href="{{  asset('assets/styles/css/themes/client-page.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic-client.css')}}">
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic-client.date.css')}}">
@@ -107,7 +107,6 @@
     <script type='text/javascript' src='{{ asset('assets/wp-content/themes/flatsome/inc/extensions/flatsome-live-search/flatsome-live-search.js')}}'></script>
     <script type='text/javascript' src='{{ asset('assets/wp-includes/js/hoverIntent.min.js')}}'></script>
     <script type='text/javascript'>
-        /* <![CDATA[ */
         var flatsomeVars = {
             "ajaxurl": "http:\/\/assets\/wp-admin\/admin-ajax.php"
             , "rtl": ""
@@ -116,15 +115,6 @@
                 "can_edit_pages": false
             }
         };
-        /* ]]> */
-
-    </script>
-    <script type='text/javascript'>
-        /* <![CDATA[ */
-        var _zxcvbnSettings = {
-            "src": "http:\/assets\/wp-includes\/js\/zxcvbn.min.js"
-        };
-        /* ]]> */
     </script>
 
     <script>
@@ -157,9 +147,9 @@
     <script type='text/javascript' src='{{ asset('assets/wp-content/themes/flatsome/assets/libs/packery.pkgd.min.js')}}'></script>
     <script type='text/javascript' src='{{ asset('assets/wp-content/themes/flatsome/inc/shortcodes/ux_countdown/countdown-script-min.js')}}'></script>
     <script type='text/javascript' src='{{ asset('assets/wp-content/themes/flatsome/inc/shortcodes/ux_countdown/ux-countdown.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('assets/wp-includes/js/zxcvbn-async.min.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('assets/wp-includes/js/zxcvbn.min.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('assets/wp-admin/js/password-strength-meter.min.js')}}'></script>
+    {{-- <script type='text/javascript' src='{{ asset('assets/wp-includes/js/zxcvbn-async.min.js')}}'></script> --}}
+    {{-- <script type='text/javascript' src='{{ asset('assets/wp-includes/js/zxcvbn.min.js')}}'></script> --}}
+    {{-- <script type='text/javascript' src='{{ asset('assets/wp-admin/js/password-strength-meter.min.js')}}'></script> --}}
     <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/frontend/password-strength-meter.min.js')}}'></script>
     <style type="text/css"></style>
 

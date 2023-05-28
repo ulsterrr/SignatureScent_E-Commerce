@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string("MaNhapKho")->unique();
             $table->string("MaSanPham");
             $table->string("MaChiNhanh")->nullable();
-            $table->integer("SoSerial")->nullable();
+            $table->text("SoSerial")->nullable();
             $table->integer("SoLuongNhap")->nullable();
+            $table->string("KichCo")->nullable();
+            $table->decimal("TongTien", 18, 0)->nullable();
             $table->text("GhiChu")->nullable();
             $table->string("NguoiTao");
             $table->string("MaKhoHang")->nullable();
