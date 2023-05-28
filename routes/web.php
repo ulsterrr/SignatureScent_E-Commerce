@@ -142,6 +142,7 @@ Route::get('dsKHangAjax',[KhachHangController::class,'layDsKHangAjax'])->name('d
 
 //CRUD Quản Lý Khách hàng và Chi Nhánh
 Route::post('admin/them-moi-khach-hang',[KhachHangController::class,'themKhachHang'])->name('themKH-add');
+Route::post('client/dang-ky/',[KhachHangController::class,'themKhachHangClient'])->name('themKHC-add');
 Route::post('admin/them-moi-chi-nhanh',[ChiNhanhController::class,'themChiNhanh'])->name('themmoiCN-add');
 Route::post('admin/cap-nhat-chi-nhanh/{id}',[ChiNhanhController::class,'capNhatChiNhanh'])->name('capnhatCN-upd');
 Route::post('admin/xoa-chi-nhanh/{id}',[ChiNhanhController::class,'xoaChiNhanh'])->name('xoaCN-del');

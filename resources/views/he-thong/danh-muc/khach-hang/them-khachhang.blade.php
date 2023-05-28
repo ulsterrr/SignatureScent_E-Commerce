@@ -148,6 +148,7 @@
 @endsection
 
 @section('bottom-js')
+
 <script>
     $(document).ready(function(){
         $('#picker2, #picker3').pickadate({
@@ -220,29 +221,6 @@
         }
       });
     });
-    function checkMaiUnique() {
-    var fieldValue = $('#email').val();
-    var token = $('meta[name="csrf-token"]').attr('content');
-    $.ajax({
-        url: "{{ route('kiemtra-email') }}",
-        method: 'POST',
-        data: {
-            email: fieldValue, // Đặt giá trị của $recordId tương ứng với bản ghi hiện tại
-            _token: token
-        },
-        success: function(response) {
-            if (response.valid) {
-                // Giá trị đã tồn tại, có lỗi
-                $('#alert-card-sp-modal').css('display', '');
-                $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-danger');
-                $('#alert-card-sp-modal .alert-body-content').html(`Email: ${fieldValue} đã có thông tin tài khoản trong hệ thống.`);
-                $('#alert-card-sp-modal').fadeIn(100);
-            } else {
-                // Giá trị là duy nhất, không có lỗi
-                $('#alert-card-sp-modal').css('display', 'none');
-            }
-        }
-    });
-};
+
   </script>
 @endsection
