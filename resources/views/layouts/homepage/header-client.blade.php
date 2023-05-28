@@ -65,7 +65,7 @@
                         </li>
                         <span>&nbsp;/&nbsp;</span>
                         <li class="account-item has-icon">
-                            <a href="tai-khoan/" class="nav-top-link nav-top-not-logged-in " data-open="#register-form-popup">
+                            <a href="{{ route('dangKyView') }}" class="nav-top-link nav-top-not-logged-in">
                                 <span>Đăng ký</span>
                             </a>
                             <!-- .account-sign-link -->

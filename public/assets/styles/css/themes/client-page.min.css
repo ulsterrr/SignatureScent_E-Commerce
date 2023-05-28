@@ -30724,3 +30724,9 @@ blockquote {
         right: 5px
     }
 }
+
+label.error {
+    color: tomato;
+    padding-left: 5px;
+    padding-top: 3px;
+}
