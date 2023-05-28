@@ -81,7 +81,7 @@ p.name.product-title a {
 
 span.amount {
     white-space: nowrap;
-    color: #ff6c8d;
+    color: #1774cf;
     font-weight: bold;
 }
 
@@ -206,7 +206,7 @@ span.amount {
 #shop-sidebar ul li:hover,
 #product-sidebar ul li:hover,
 .post-sidebar ul li:hover {
-    background-color: #ff6c8d;
+    background-color: #1774cf;
 }
 
 #shop-sidebar ul li:hover a,
@@ -344,7 +344,7 @@ ul.product_list_widget {
 }
 
 .product-footer .tabbed-content .nav-pills>li.active>a {
-    background-color: #ff6c8d;
+    background-color: #1774cf;
 }
 
 .product-footer .tabbed-content .nav-pills>li:hover>a {
@@ -424,7 +424,7 @@ ul.mobile-nav.nav.nav-left {
 .header-main .nav>li.current-product-parent>a,
 .header-main .nav>li.current_page_parent>a,
 .header-main .nav>li.current-product-ancestor>a {
-    color: #ff6c8d;
+    color: #1774cf;
 }
 
 .header-bottom .nav>li>a {
@@ -433,7 +433,7 @@ ul.mobile-nav.nav.nav-left {
 
 .header-bottom .nav>li>a:hover,
 .header-bottom .nav>li.active>a {
-    color: #ff6c8d;
+    color: #1774cf;
 }
 
 /*-----style header bottom----*/
@@ -470,7 +470,7 @@ span.header-account-title,
 }
 
 ul.nav-dropdown.nav-dropdown-simple {
-    border-top: 2px solid #ff6c8d;
+    border-top: 2px solid #1774cf;
     margin-left: 15px;
 }
 
@@ -577,7 +577,7 @@ h1.a:before {
     margin-left: -60px;
     top: 140px;
     height: 1px;
-    border-color: #ff6c8d;
+    border-color: #1774cf;
 }
 
 h1.a:after {
@@ -590,7 +590,7 @@ h1.a:after {
     margin-left: -25px;
     top: 145px;
     height: 1px;
-    border-color: #ff6c8d;
+    border-color: #1774cf;
 }
 
 h1.b:before {
@@ -603,7 +603,7 @@ h1.b:before {
     margin-left: -60px;
     top: 185px;
     height: 1px;
-    border-color: #ff6c8d;
+    border-color: #1774cf;
 }
 
 h1.b:after {
@@ -616,7 +616,7 @@ h1.b:after {
     margin-left: -25px;
     top: 190px;
     height: 1px;
-    border-color: #ff6c8d;
+    border-color: #1774cf;
 }
 
 /*---style sec banner---*/
@@ -641,7 +641,7 @@ h1.b:after {
 /*-----style product2----*/
 
 .sec_product2 li.active span {
-    color: #ff6c8d !important;
+    color: #1774cf !important;
 }
 
 .sec_product2 li.tab span {
@@ -657,7 +657,7 @@ h1.b:after {
 /*----style sec commit---*/
 
 .sec_commit .col-inner:hover h5 {
-    color: #ff6c8d;
+    color: #1774cf;
 }
 
 /*----style sec product---*/
@@ -674,7 +674,7 @@ h1.b:after {
 }
 
 .sec_product .tabbed-content a:hover {
-    color: #ff6c8d
+    color: #1774cf
 }
 
 .sec_product .tabbed-content .tab.has-icon span {
@@ -764,7 +764,7 @@ h1.b:after {
 }
 
 #btn-gui-icon:hover {
-    color: #ff6c8d
+    color: #1774cf
 }
 
 .sec_footer button.flickity-button {
@@ -798,7 +798,7 @@ h1.b:after {
         margin-left: -60px;
         top: 110px;
         height: 1px;
-        border-color: #ff6c8d;
+        border-color: #1774cf;
     }
     h1.b:after {
         position: absolute !important;
@@ -810,7 +810,7 @@ h1.b:after {
         margin-left: -25px;
         top: 115px;
         height: 1px;
-        border-color: #ff6c8d;
+        border-color: #1774cf;
     }
 }
 
@@ -833,7 +833,7 @@ h1.b:after {
         margin-left: -60px;
         top: 100px;
         height: 1px;
-        border-color: #ff6c8d;
+        border-color: #1774cf;
     }
     h1.b:after {
         position: absolute !important;
@@ -845,7 +845,7 @@ h1.b:after {
         margin-left: -25px;
         top: 105px;
         height: 1px;
-        border-color: #ff6c8d;
+        border-color: #1774cf;
     }
     .sec_product2 li.tab span {
         padding: 0 25px 0 0;

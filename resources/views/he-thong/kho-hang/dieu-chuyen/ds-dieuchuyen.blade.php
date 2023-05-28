@@ -34,7 +34,7 @@
         <div class="col-md-12 mb-4">
             <div class="card text-left">
                 <div class="card-header text-right bg-transparent">
-                    <a type="button" href="{{ route('themSPham-view') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Nhập mới sản phẩm</a>
+                    <a type="button" href="{{ route('dieuChuyen-view') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm điều chuyển</a>
                 </div>
 
                 <div class="card-body">
@@ -203,7 +203,7 @@
                     , render: function(data, type, row) {
                         var detailUrl = "{{ route('chiTietDieuChuyenView', ['mdc' => ':id']) }}";
 
-                        if(data.TrangThai=='1'){
+                        if(data.TrangThai=='1' || data.TrangThai=='3') {
                             return `<td class="text-center">
                                     <a href="${detailUrl.replace(':id', data.MaPhieuDieuChuyen)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
                                         <i class="i-Eye-Visible"></i>
@@ -211,6 +211,9 @@
                                 </td>`;
                         } else
                         return `<td class="text-center">
+                                    <a href="${detailUrl.replace(':id', data.MaPhieuDieuChuyen)}" class="ul-link-action text-danger huy-dc" data-toggle="tooltip" data-placement="top" title="Huỷ điều chuyển">
+                                        <i class="i-Close"></i>
+                                    </a>
                                     <a href="${detailUrl.replace(':id', data.MaPhieuDieuChuyen)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
                                         <i class="i-Eye-Visible"></i>
                                     </a>
@@ -239,48 +242,92 @@
         });
 
         $('#ul-contact-list').on('click', 'a.confirm-dc', function(e) {
-        e.preventDefault(); // ngăn chặn mặc định của thẻ <a> khi click
+            e.preventDefault(); // ngăn chặn mặc định của thẻ <a> khi click
 
-        var table = $('#ul-contact-list').DataTable();
-        var data = table.row($(this).closest('tr')).data();
-        var mdc = data['MaPhieuDieuChuyen'];
+            var table = $('#ul-contact-list').DataTable();
+            var data = table.row($(this).closest('tr')).data();
+            var mdc = data['MaPhieuDieuChuyen'];
 
-        // Hiển thị popup confirm
-        swal({
-            title: 'Xác nhận điều chuyển?',
-            text: "Sau khi xác nhận " + mdc + " sẽ chuyển sang trạng thái hoàn thành điều chuyển!",
-            type: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Xác nhận!',
-            cancelButtonText: 'Huỷ!',
-            confirmButtonClass: 'btn btn-success mr-5',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true
-        }).then(function() {
-            $.ajax({
-                url: "{{ route('xacNhanDieuChuyen', ['mdc' => ':id']) }}".replace(':id', mdc),
-                type: 'POST',
-                data: {_token: '{{ csrf_token() }}'}, // Đảm bảo token csrf đúng
-                success: function(data) {
-                swal('Đã điều chuyển!', 'Phiếu điều chuyển thực hiện thành công.', 'success').then(function() {
-                    // Load lại datatable sau khi xoá thành công
-                    $('#ul-contact-list').DataTable().ajax.reload(null, false);
+            // Hiển thị popup confirm
+            swal({
+                title: 'Xác nhận điều chuyển?',
+                text: "Sau khi xác nhận " + mdc + " sẽ chuyển sang trạng thái hoàn thành điều chuyển!",
+                type: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Xác nhận!',
+                cancelButtonText: 'Huỷ!',
+                confirmButtonClass: 'btn btn-success mr-5',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: true
+            }).then(function() {
+                $.ajax({
+                    url: "{{ route('xacNhanDieuChuyen', ['mdc' => ':id']) }}".replace(':id', mdc),
+                    type: 'POST',
+                    data: {_token: '{{ csrf_token() }}'}, // Đảm bảo token csrf đúng
+                    success: function(data) {
+                    swal('Đã điều chuyển!', 'Phiếu điều chuyển thực hiện thành công.', 'success').then(function() {
+                        // Load lại datatable sau khi xoá thành công
+                        $('#ul-contact-list').DataTable().ajax.reload(null, false);
+                    });
+                    },
+                    error: function(xhr, status, error) {
+                    swal('Thất bại', 'Đã có lỗi xảy ra', 'error');
+                    }
                 });
-                },
-                error: function(xhr, status, error) {
-                swal('Thất bại', 'Đã có lỗi xảy ra', 'error');
-                }
-            });
-        }, function(dismiss) {
-                if (dismiss === 'cancel') {
-                    swal(
-                        'Huỷ'
-                        , 'Bạn vẫn có thể thực hiện lại thao tác này :)'
-                        , 'error'
-                    )
-                }
-            });
-    });
+            }, function(dismiss) {
+                    if (dismiss === 'cancel') {
+                        swal(
+                            'Huỷ'
+                            , 'Bạn vẫn có thể thực hiện lại thao tác này :)'
+                            , 'error'
+                        )
+                    }
+                });
+        });
+
+        $('#ul-contact-list').on('click', 'a.huy-dc', function(e) {
+            e.preventDefault(); // ngăn chặn mặc định của thẻ <a> khi click
+
+            var table = $('#ul-contact-list').DataTable();
+            var data = table.row($(this).closest('tr')).data();
+            var mdc = data['MaPhieuDieuChuyen'];
+
+            // Hiển thị popup confirm
+            swal({
+                title: 'Xác nhận HUỶ điều chuyển?',
+                text: "Sau khi huỷ " + mdc + " sẽ chuyển sang trạng thái hoàn thành huỷ điều chuyển!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Xác nhận!',
+                cancelButtonText: 'Huỷ!',
+                confirmButtonClass: 'btn btn-success mr-5',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: true
+            }).then(function() {
+                $.ajax({
+                    url: "{{ route('huyDieuChuyen', ['mdc' => ':id']) }}".replace(':id', mdc),
+                    type: 'POST',
+                    data: {_token: '{{ csrf_token() }}'}, // Đảm bảo token csrf đúng
+                    success: function(data) {
+                    swal('Đã huỷ điều chuyển!', 'Phiếu điều chuyển thực hiện huỷ bỏ.', 'success').then(function() {
+                        // Load lại datatable sau khi xoá thành công
+                        $('#ul-contact-list').DataTable().ajax.reload(null, false);
+                    });
+                    },
+                    error: function(xhr, status, error) {
+                    swal('Thất bại', 'Đã có lỗi xảy ra', 'error');
+                    }
+                });
+            }, function(dismiss) {
+                    if (dismiss === 'cancel') {
+                        swal(
+                            'Huỷ'
+                            , 'Bạn vẫn có thể thực hiện lại thao tác này :)'
+                            , 'error'
+                        )
+                    }
+                });
+        });
     });
 </script>
 @endsection

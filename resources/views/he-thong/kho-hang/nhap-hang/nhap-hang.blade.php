@@ -195,6 +195,13 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-6 mb-3">
+                                <label for="ThuongHieu" class="required">Thương hiệu</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="ThuongHieu" name="ThuongHieu"  aria-describedby="inputGroupPrepend" required>
+                                </div>
+                            </div>
+
                             <div class="col-md-8 mb-3">
                                 <label for="validationCustomUsername" class="required">Tên sản phẩm *</label>
                                 <div class="form-group">

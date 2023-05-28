@@ -170,18 +170,40 @@
                 </a>
                 <ul class="submenu">
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ds-dieuchuyen-view' ? 'open' : '' }}" href="{{ route('ds-dieuchuyen-view') }}">
+                        <a class="{{ Route::currentRouteName()=='ds-nhapkho-view' ? 'open' : '' }}" href="{{ route('ds-nhapkho-view') }}">
                             <i class="nav-icon i-Inbox-Into"></i>
                             <span class="item-name">Danh sách nhập kho</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ Route::currentRouteName()=='dieuChuyen-view' ? 'open' : '' }}" href="{{ route('dieuChuyen-view') }}">
+                        <a class="{{ Route::currentRouteName()=='nhapKhoView' ? 'open' : '' }}" href="{{ route('nhapKhoView') }}">
                             <i class="nav-icon i-Add"></i>
                             <span class="item-name">Nhập tồn kho</span>
                         </a>
                     </li>
                 </ul>
+            </li>
+            <li class="nav-item dropdown-sidemenu">
+                <a>
+                    <i class="nav-icon i-Inbox-Out"></i>
+                    <span class="item-name">Xuất kho</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ds-xuatkho-view' ? 'open' : '' }}" href="{{ route('ds-xuatkho-view') }}">
+                            <i class="nav-icon i-Inbox-Out"></i>
+                            <span class="item-name">Danh sách xuất kho</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='xuatKhoView' ? 'open' : '' }}" href="{{ route('xuatKhoView') }}">
+                            <i class="nav-icon i-Add"></i>
+                            <span class="item-name">Xuất kho sản phẩm</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             </li>
             <li class="nav-item dropdown-sidemenu">
                 <a>

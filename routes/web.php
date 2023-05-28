@@ -202,11 +202,26 @@ Route::post('admin/cap-nhat-loai-san-pham/{id}',[LoaiSanPhamController::class,'c
     Route::get('admin/dieu-chuyen-san-pham-view',[KhoHangController::class,'dieuChuyenHangView'])->name('dieuChuyen-view');
     Route::post('admin/dieu-chuyen-hang',[KhoHangController::class,'dieuChuyenHang'])->name('dieuchuyenhang');
     Route::post('admin/xac-nhan-dieu-chuyen/{mdc}',[KhoHangController::class,'xacNhanDieuChuyen'])->name('xacNhanDieuChuyen');
+    Route::post('admin/huy-dieu-chuyen/{mdc}',[KhoHangController::class,'huyDieuChuyen'])->name('huyDieuChuyen');
     Route::get('admin/xem-dieu-chuyen/{mdc}',[KhoHangController::class,'chiTietDieuChuyenView'])->name('chiTietDieuChuyenView');
         //Ajax
         Route::get('layDsDieuChuyenAjax',[KhoHangController::class,'layDsDieuChuyenAjax'])->name('layDsDieuChuyenAjax');
-        Route::get('TatCaSanPhamModal/{mcn}',[KhoHangController::class,'dsSanPhamModal'])->name('TatCaSanPhamModal');
+        Route::get('tatCaSanPhamModal/{mcn}',[KhoHangController::class,'dsSanPhamModal'])->name('tatCaSanPhamModal');
+    // Nhập tồn kho
+    Route::get('admin/danh-sach-nhap-kho',[KhoHangController::class,'dsNhapKhoHangView'])->name('ds-nhapkho-view');
+    Route::get('admin/nhap-kho-san-pham-view',[KhoHangController::class,'nhapKhoHangView'])->name('nhapKhoView');
+    Route::post('admin/nhap-kho-san-pham',[KhoHangController::class,'nhapKhoSanPham'])->name('nhapKhoSanPham');
+    Route::get('admin/xem-nhap-kho/{id}',[KhoHangController::class,'chiTietNhapKhoView'])->name('nhapKho-view');
+        //Ajax
+        Route::get('layDsNhapKhoAjax',[KhoHangController::class,'layDsNhapKhoAjax'])->name('layDsNhapKhoAjax');
 
+    // Xuất kho
+    Route::get('admin/danh-sach-xuat-kho',[KhoHangController::class,'dsXuatKhoView'])->name('ds-xuatkho-view');
+    Route::get('admin/xuat-kho-san-pham-view',[KhoHangController::class,'xuatKhoView'])->name('xuatKhoView');
+    Route::post('admin/xuat-kho-san-pham',[KhoHangController::class,'xuatKho'])->name('xuatKhoSanPham');
+    Route::get('admin/xem-xuat-kho/{id}',[KhoHangController::class,'chiTietXuatKhoView'])->name('chiTietXuatKhoView');
+        //Ajax
+        Route::get('layDsXuatKhoAjax',[KhoHangController::class,'layDsXuatKhoAjax'])->name('layDsXuatKhoAjax');
 
 
 //Quản Lý bán hàng
