@@ -78,125 +78,32 @@
             <!-- Notificaiton -->
             <div class="dropdown">
                 <div class="badge-top-container" role="button" id="dropdownNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="badge badge-primary">113</span>
+                    <span class="badge badge-primary">{{$thongbao->count()}}</span>
                     <i class="i-Bell text-muted header-icon"></i>
                 </div>
                 <!-- Notification dropdown -->
                 <div class="dropdown-menu dropdown-menu-right notification-dropdown rtl-ps-none" aria-labelledby="dropdownNotification" data-perfect-scrollbar data-suppress-scroll-x="true">
-                    <div class="dropdown-item d-flex">
-                        <div class="notification-icon">
-                            <i class="i-Speach-Bubble-6 text-primary mr-1"></i>
-                        </div>
-                        <div class="notification-details flex-grow-1">
-                            <p class="m-0 d-flex align-items-center">
-                                <span>Thông báo mới</span>
-                                <span class="badge badge-pill badge-primary ml-1 mr-1">mới</span>
-                                <span class="flex-grow-1"></span>
-                                <span class="text-small text-muted ml-auto">10 sec ago</span>
-                            </p>
-                            <p class="text-small text-muted m-0">James: Hey! are you busy?</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-item d-flex">
-                        <div class="notification-icon">
-                            <i class="i-Receipt-3 text-success mr-1"></i>
-                        </div>
-                        <div class="notification-details flex-grow-1">
-                            <p class="m-0 d-flex align-items-center">
-                                <span>Thanh toán đơn hàng</span>
-                                <span class="badge badge-pill badge-success ml-1 mr-1">mới</span>
-                                <span class="flex-grow-1"></span>
-                                <span class="text-small text-muted ml-auto">2 giờ trước</span>
-                            </p>
-                            <p class="text-small text-muted m-0">1 chai Versace, 10 chai AquaDi Giò</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-item d-flex">
-                        <div class="notification-icon">
-                            <i class="i-Empty-Box text-danger mr-1"></i>
-                        </div>
-                        <div class="notification-details flex-grow-1">
-                            <p class="m-0 d-flex align-items-center">
-                                <span>Sản phẩm hết hàng trong kho</span>
-                                <span class="badge badge-pill badge-danger ml-1 mr-1">3</span>
-                                <span class="flex-grow-1"></span>
-                                <span class="text-small text-muted ml-auto">10 giờ trước</span>
-                            </p>
-                            <p class="text-small text-muted m-0">Nước hoa mùi nữ dành cho nam</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-item d-flex">
-                        <div class="notification-icon">
-                            <i class="i-Empty-Box text-danger mr-1"></i>
-                        </div>
-                        <div class="notification-details flex-grow-1">
-                            <p class="m-0 d-flex align-items-center">
-                                <span>Sản phẩm hết hàng trong kho</span>
-                                <span class="badge badge-pill badge-danger ml-1 mr-1">3</span>
-                                <span class="flex-grow-1"></span>
-                                <span class="text-small text-muted ml-auto">13 giờ trước</span>
-                            </p>
-                            <p class="text-small text-muted m-0">Nước hoa mùi nam dành cho nữ</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-item d-flex">
-                        <div class="notification-icon">
-                            <i class="i-Data-Power text-success mr-1"></i>
-                        </div>
-                        <div class="notification-details flex-grow-1">
-                            <p class="m-0 d-flex align-items-center">
-                                <span>Có đơn hàng mới!</span>
-                                <span class="badge badge-pill badge-success ml-1 mr-1">3</span>
-                                <span class="flex-grow-1"></span>
-                                <span class="text-small text-muted ml-auto">14 giờ trước</span>
-                            </p>
-                            <p class="text-small text-muted m-0">Bạn nữ xinh đẹp vừa đặt một đơn hàng mới</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-item d-flex">
-                        <div class="notification-icon">
-                            <i class="i-Data-Power text-success mr-1"></i>
-                        </div>
-                        <div class="notification-details flex-grow-1">
-                            <p class="m-0 d-flex align-items-center">
-                                <span>Có đơn hàng mới!</span>
-                                <span class="badge badge-pill badge-success ml-1 mr-1">3</span>
-                                <span class="flex-grow-1"></span>
-                                <span class="text-small text-muted ml-auto">14 giờ trước</span>
-                            </p>
-                            <p class="text-small text-muted m-0">Bạn nam xinh đẹp vừa đặt một đơn hàng mới</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-item d-flex">
-                        <div class="notification-icon">
-                            <i class="i-Receipt-3 text-success mr-1"></i>
-                        </div>
-                        <div class="notification-details flex-grow-1">
-                            <p class="m-0 d-flex align-items-center">
-                                <span>Thanh toán đơn hàng</span>
-                                <span class="badge badge-pill badge-success ml-1 mr-1">mới</span>
-                                <span class="flex-grow-1"></span>
-                                <span class="text-small text-muted ml-auto">2 giờ trước</span>
-                            </p>
-                            <p class="text-small text-muted m-0">1 chai Versace, 10 chai AquaDi Giò</p>
-                        </div>
-                    </div>
-                    <div class="dropdown-item d-flex">
-                        <div class="notification-icon">
-                            <i class="i-Receipt-3 text-success mr-1"></i>
-                        </div>
-                        <div class="notification-details flex-grow-1">
-                            <p class="m-0 d-flex align-items-center">
-                                <span>Thanh toán đơn hàng</span>
-                                <span class="badge badge-pill badge-success ml-1 mr-1">mới</span>
-                                <span class="flex-grow-1"></span>
-                                <span class="text-small text-muted ml-auto">2 giờ trước</span>
-                            </p>
-                            <p class="text-small text-muted m-0">1 chai Versace, 10 chai AquaDi Giò</p>
-                        </div>
-                    </div>
+                        @foreach ($thongbao as $tb)
+                        <a href="{{asset($tb->DuongDan)}}">
+                            <div class="dropdown-item d-flex">
+                                <div class="notification-icon">
+                                    <i class="i-Speach-Bubble-6 text-primary mr-1"></i>
+                                </div>
+                            <div class="notification-details flex-grow-1">
+                                <p class="m-0 d-flex align-items-center">
+                                    <span>{{$tb->TieuDe}}</span>
+                                    <span class="badge badge-pill badge-primary ml-1 mr-1">{{$tb->TrangThai}}</span>
+
+                                    <span class="text-small text-muted ml-auto">{{$tb->created_at}}</span>
+                                </p>
+                                <p class="text-small text-muted m-0">{{$tb->NoiDung}}</p>
+                            </div>
+                            </div>
+                        </a>
+                        @endforeach
                 </div>
             </div>
+
             <!-- Notificaiton End -->
 
             <!-- User avatar dropdown -->

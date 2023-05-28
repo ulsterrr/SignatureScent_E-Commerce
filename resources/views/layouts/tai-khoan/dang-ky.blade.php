@@ -9,7 +9,7 @@
                 <div class="woocommerce-notices-wrapper"></div>
                 <div class="account-container lightbox-inner">
                     <div class="account-login-inner">
-                        <form class="woocommerce-form woocommerce-form-login login" action="{{ route('xuly-dangnhap') }}" method="post">
+                        <form  id = 'new-khachhang'class="woocommerce-form woocommerce-form-login login" action="{{ route('themKHC-add') }}" method="POST">
                             @csrf
                             <div class="row col-md-12">
                                 <div class="col-md-6">
@@ -46,7 +46,6 @@
                                         <option value="Khác">Khác</option>
                                     </select>
                                 </div>
-
                                 <div class="col-md-6">
                                     <label for="SDT">Số điện thoại&nbsp;<span class="required">*</span></label>
                                     <input type="text" name="SDT" id="SDT"/>
@@ -150,3 +149,105 @@
 </style>
 @endsection
 
+
+@section('page-js')
+
+
+<script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
+<script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
+
+
+
+@endsection
+
+@section('bottom-js')
+<script>
+    $(document).ready(function() {
+      $("#new-khachhang").validate({
+        errorPlacement: function(error, element) {
+            if(element.parent().hasClass("input-group")){
+                error.insertAfter(element.parent());
+            } else {
+                error.insertAfter(element);
+            }
+        },
+        rules: {
+            name: "required",
+            NgaySinh: "required",
+            SDT: {
+                required: true,
+                number: true,
+                rangelength: [10, 11],
+            },
+            email: {
+                required: true,
+                email: true,
+            },
+            password: {
+                required: true,
+                minlength: 6,
+            },
+            password2: {
+                required: true,
+                minlength: 6,
+            },
+            HoTen:"required ",
+            DiaChi: "required",
+            QuanHuyen: "required",
+            TinhThanh: "required",
+
+        },
+        messages: {
+            name: "Vui lòng nhập họ tên của bạn",
+            NgaySinh: "Vui lòng chọn ngày sinh",
+            SDT: {
+                required: "Vui lòng nhập số điện thoại",
+                number: "SDT không đúng định dạng",
+                rangelength: "Chiều dài SDT từ 10 đến 11 số",
+            }, // thiếu chỗ này
+            email: {
+                required: "Vui lòng nhập địa chỉ email",
+                email: "Địa chỉ email không đúng định dạng",
+            },
+            password: {
+                required: "Vui lòng nhập mật khẩu",
+                minlength: "Mật khẩu phải có ít nhất 6 ký tự",
+            },
+            password2: {
+                required: "Vui lòng nhập mật khẩu",
+                minlength: "Mật khẩu phải có ít nhất 6 ký tự",
+            },
+            HoTen: "Vui lòng nhập họ tên",
+            DiaChi: "Vui lòng nhập địa chỉ",
+            QuanHuyen: "Vui lòng nhập Quận Huyện",
+            TinhThanh: "Vui lòng nhập Tỉnh Thành",
+
+        }
+      });
+    });
+    function checkMaiUnique() {
+    var fieldValue = $('#email').val();
+    var token = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+        url: "{{ route('kiemtra-email') }}",
+        method: 'POST',
+        data: {
+            email: fieldValue, // Đặt giá trị của $recordId tương ứng với bản ghi hiện tại
+            _token: token
+        },
+        success: function(response) {
+            if (response.valid) {
+                // Giá trị đã tồn tại, có lỗi
+                $('#alert-card-sp-modal').css('display', '');
+                $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-danger');
+                $('#alert-card-sp-modal .alert-body-content').html(`Email: ${fieldValue} đã có thông tin tài khoản trong hệ thống.`);
+                $('#alert-card-sp-modal').fadeIn(100);
+            } else {
+                // Giá trị là duy nhất, không có lỗi
+                $('#alert-card-sp-modal').css('display', 'none');
+            }
+        }
+    });
+};
+  </script>
+@endsection

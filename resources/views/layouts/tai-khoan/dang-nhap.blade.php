@@ -29,13 +29,9 @@
                             </div>
 
                             <h6 style="color:red;">
-                                <?php
-                                $message = Session::get('message');
-                                if ($message) {
-                                    echo '<span class="text-alert"><strong>' . $message . '</strong></span>';
-                                    Session::put('message', null);
-                                }
-                                ?>
+                                @if (session('message'))
+                                    {{ session('message') }}
+                                @endif
                             </h6>
                             <div class="col-md-12">
                                 <p class="form-row">
