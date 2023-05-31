@@ -5,8 +5,8 @@
                 <!-- Logo -->
                 <div id="logo" class="flex-col logo">
                     <!-- Header logo -->
-                    <a href="#" title="Vani Beauty" rel="home">
-                        <img width="200" height="100" src="{{ asset('assets/wp-content/uploads/2019/05/logo-light.png') }}" class="header_logo header-logo" alt="Vani Beauty" /><img width="200" height="100" src="{{ asset('assets/wp-content/uploads/2019/05/logo-mona.png') }}" class="header-logo-dark" alt="Vani Beauty" /></a>
+                    <a href="" title="Vani Beauty" rel="home">
+                        <img width="260" height="70" src="{{ asset('assets/images/logo-horizon.png') }}" style="border-radius: 31px 3px 31px 3px;" class="header_logo header-logo" alt="Vani Beauty" /></a>
                 </div>
                 <!-- Mobile Left Elements -->
                 <div class="flex-col show-for-medium flex-left">

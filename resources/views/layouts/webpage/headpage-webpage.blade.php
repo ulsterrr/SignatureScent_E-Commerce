@@ -293,7 +293,7 @@
 </script>
 <style id="custom-css" type="text/css">
     :root {
-        --primary-color: #ff6c8d;
+        --primary-color: #1774cf;
     }
 
     .full-width .ubermenu-nav,
@@ -411,17 +411,17 @@
     .cart-icon strong,
     [data-color='primary'],
     .is-outline.primary {
-        color: #ff6c8d;
+        color: #1774cf;
     }
 
     /* Color !important */
     [data-text-color="primary"] {
-        color: #ff6c8d !important;
+        color: #1774cf !important;
     }
 
     /* Background Color */
     [data-text-bg="primary"] {
-        background-color: #ff6c8d;
+        background-color: #1774cf;
     }
 
     /* Background */
@@ -468,7 +468,7 @@
     input[type='reset'].button,
     input[type='button'].primary,
     .badge-inner {
-        background-color: #ff6c8d;
+        background-color: #1774cf;
     }
 
     /* Border */
@@ -492,25 +492,25 @@
     .slider-nav-circle .flickity-prev-next-button:hover svg,
     .slider-nav-circle .flickity-prev-next-button:hover .arrow,
     .primary.is-outline:hover {
-        border-color: #ff6c8d
+        border-color: #1774cf
     }
 
     .nav-tabs>li.active>a {
-        border-top-color: #ff6c8d
+        border-top-color: #1774cf
     }
 
     .widget_shopping_cart_content .blockUI.blockOverlay:before {
-        border-left-color: #ff6c8d
+        border-left-color: #1774cf
     }
 
     .woocommerce-checkout-review-order .blockUI.blockOverlay:before {
-        border-left-color: #ff6c8d
+        border-left-color: #1774cf
     }
 
     /* Fill */
     .slider .flickity-prev-next-button:hover svg,
     .slider .flickity-prev-next-button:hover .arrow {
-        fill: #ff6c8d;
+        fill: #1774cf;
     }
 
     @media screen and (max-width: 549px) {
@@ -581,12 +581,12 @@
     }
 
     a:hover {
-        color: #ff6c8d;
+        color: #1774cf;
     }
 
     .tagcloud a:hover {
-        border-color: #ff6c8d;
-        background-color: #ff6c8d;
+        border-color: #1774cf;
+        background-color: #1774cf;
     }
 
     @media screen and (min-width: 550px) {

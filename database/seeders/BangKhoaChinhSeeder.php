@@ -50,5 +50,26 @@ class BangKhoaChinhSeeder extends Seeder
         $MACTDC->TenGiaTri = 'Chi tiết điều chuyển sản phẩm';
         $MACTDC->TrangThai = 1;
         $MACTDC->save();
+
+        $MAPNK = new BangMaKhoaChinh();
+        $MAPNK->MaKhoaChinh = 'PNK';
+        $MAPNK->GiaTriHienTai = 1;
+        $MAPNK->TenGiaTri = 'Nhập kho sản phẩm';
+        $MAPNK->TrangThai = 1;
+        $MAPNK->save();
+
+        $MAPXK = new BangMaKhoaChinh();
+        $MAPXK->MaKhoaChinh = 'PXK';
+        $MAPXK->GiaTriHienTai = 1;
+        $MAPXK->TenGiaTri = 'Xuất kho sản phẩm';
+        $MAPXK->TrangThai = 1;
+        $MAPXK->save();
+
+        $MACTXK = new BangMaKhoaChinh();
+        $MACTXK->MaKhoaChinh = 'CTXK';
+        $MACTXK->GiaTriHienTai = 1;
+        $MACTXK->TenGiaTri = 'Chi tiết Xuất kho sản phẩm';
+        $MACTXK->TrangThai = 1;
+        $MACTXK->save();
     }
 }

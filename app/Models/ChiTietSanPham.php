@@ -19,7 +19,7 @@ class ChiTietSanPham extends Model
 
     // Điếm số lượng sản phẩm hiện có
     public static function soLuongSanPhamTonKho(){
-        $data=ChiTietSanPham::where('TinhTrang', 1)->count();
+        $data=ChiTietSanPham::where('TinhTrang', 0)->count();
         if($data){
             return $data;
         }
@@ -50,6 +50,12 @@ class ChiTietSanPham extends Model
     }
 
     public static function layChiTietVaSanPhamTheoCN($mcn){
+        if($mcn == 'TatCaChiNhanh'){
+            return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh');
+        }
+        if($mcn == 'TrongKho'){
+            return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh')->whereNull('MaChiNhanh')->orWhere('MaChiNhanh', '')->get();
+        }
         return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh')->where('MaChiNhanh', $mcn);
     }
 }

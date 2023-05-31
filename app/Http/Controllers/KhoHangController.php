@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\ChiTietDieuChuyen;
 use App\Models\ChiTietSanPham;
+use App\Models\ChiTietXuatKho;
 use App\Models\DieuChuyen;
 use App\Models\LoaiKichCo;
 use App\Models\LoaiSanPham;
 use App\Models\NhapHangMoi;
+use App\Models\NhapKho;
 use App\Models\SanPham;
+use App\Models\XuatKho;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -17,14 +20,20 @@ use Yajra\DataTables\DataTables;
 
 class KhoHangController extends Controller
 {
-    public function nhapHang(){
-
+    public function nhapKhoHangView(){
+        return view('he-thong.kho-hang.nhap-ton-kho.nhap-ton-kho');
+    }
+    public function dsNhapKhoHangView(){
+        return view('he-thong.kho-hang.nhap-ton-kho.ds-nhapkho');
     }
     public function nhapHangView(){
         return view('he-thong.kho-hang.nhap-hang.ds-nhaphang');
     }
-    public function xuatHang(){
-
+    public function xuatKhoView(){
+        return view('he-thong.kho-hang.xuat-kho.xuat-kho');
+    }
+    public function dsXuatKhoView(){
+        return view('he-thong.kho-hang.xuat-kho.ds-xuatkho');
     }
     public function dsDieuChuyenHangView(){
         return view('he-thong.kho-hang.dieu-chuyen.ds-dieuchuyen');
@@ -61,6 +70,59 @@ class KhoHangController extends Controller
         $dieuChuyen->save();
         return view('he-thong.kho-hang.dieu-chuyen.ds-dieuchuyen');
     }
+
+    public function xuatKho(Request $request){
+        // Lấy dữ liệu DataTable từ request
+        $dataTableData = json_decode($request->input('dataTableData'));
+
+        // Lưu thông tin vào bảng chính
+        $xuatKho = new XuatKho();
+        $xuatKho->MaXuatKho = $this->taoMaKhoaChinh('PXK');
+        $xuatKho->LyDoXuat = $request->LyDoXuat;
+        $xuatKho->ChiNhanhNhan = $request->MaChiNhanhNhan;
+        $xuatKho->NgayXuat = Carbon::now();
+        $xuatKho->NguoiXuatKho = Auth::user()->email;
+        $xuatKho->TrangThai = 1;
+
+        // Lưu thông tin vào bảng chi tiết
+        foreach ($dataTableData as $chitiet) {
+            $chiTietXuatKho = new ChiTietXuatKho();
+            $chiTietXuatKho->MaXuatKho = $xuatKho->MaXuatKho;
+            $chiTietXuatKho->MaCTXuatKho = $this->taoMaKhoaChinh('CTXK');
+            $chiTietXuatKho->MaSanPham = $chitiet->MSP;
+            $chiTietXuatKho->MaCTSanPham = $chitiet->CTSP;
+
+            // Cập nhật chi nhánh mới cho sản phẩm kho
+            $updateCTSP = ChiTietSanPham::where('MaCTSanPham', $chitiet->CTSP)->firstOrFail();
+            $updateCTSP->MaChiNhanh = $request->MaChiNhanhNhan;
+            $updateCTSP->updated_at = Carbon::now();
+            $updateCTSP->TinhTrang = 1;
+
+            $chiTietXuatKho->TrangThaiHienTai = $chitiet->TT;
+            $chiTietXuatKho->GhiChu = $chitiet->GC;
+            $chiTietXuatKho->save();
+            $updateCTSP->save();
+        }
+
+        $xuatKho->save();
+        return view('he-thong.kho-hang.xuat-kho.ds-xuatkho')->with('message', 'Thêm thành công xuất kho sản phẩm');
+    }
+    public function layDsXuatKhoAjax()
+    {
+        return DataTables::of(XuatKho::all())->make(true);
+    }
+    public function chiTietXuatKhoView($mpx){
+        $xk = XuatKho::layThongTinXuatKho($mpx);
+        return view('he-thong.kho-hang.xuat-kho.xem-xuatkho')->with('XuatKho', $xk);
+    }
+
+    public function huyDieuChuyen($mdc){
+        $pdc = DieuChuyen::where('MaPhieuDieuChuyen', $mdc)->firstOrFail();
+        $pdc->TrangThai = 3;
+        $pdc->updated_at = Carbon::now();
+        $pdc->save();
+    }
+
     public function layDsDieuChuyenAjax()
     {
         $dc = DieuChuyen::all();
@@ -174,7 +236,6 @@ class KhoHangController extends Controller
         if($req->input('LoaiNhap') == 'NhapLo'){ // Nếu nhập lô thì chia theo list serial đã cắt chuỗi ở trên
 
             for ($i=0; $i < $req->SoLuongNhap; $i++) {
-                # code...
                 $chitietsp = new ChiTietSanPham();
                 $chitietsp->MaCTSanPham = $this->taoMaKhoaChinh('CTSP');
                 $chitietsp->SoSerial = $dsSerial[$i] ? $dsSerial[$i] : null;
@@ -205,6 +266,69 @@ class KhoHangController extends Controller
         $nhapmoi->save();
         $sp->save();
         return back()->with('message.success','Nhập sản phẩm thành công!');
+    }
+
+    public function nhapKhoSanPham(Request $req){
+        // ----- Lưu thông tin nhập mới
+            $nhapkho = new NhapKho();
+            $nhapkho->MaNhapKho = $this->taoMaKhoaChinh('PNK');
+            $nhapkho->SoLuongNhap = $req->SoLuongNhap;
+            $nhapkho->MaSanPham = $req->MaSanPham;
+            $nhapkho->MaChiNhanh = $req->MaChiNhanh;
+            $nhapkho->TongTien = $req->TongTien;
+            $nhapkho->KichCo = $req->KichCo;
+            $nhapkho->SoSerial = $req->SoSerial;
+            $nhapkho->GhiChu = $req->GhiChu;
+            $nhapkho->NguoiTao = $req->NguoiTao;
+
+        // Mảng số serial để nhập lô hàng
+        $dsSerial = explode(",", $req->SoSerial);
+
+        if($req->SoLuongNhap > 1){ // Nếu nhập lô thì chia theo list serial đã cắt chuỗi ở trên
+
+            for ($i=0; $i < $req->SoLuongNhap; $i++) {
+                $chitietsp = new ChiTietSanPham();
+                $chitietsp->MaCTSanPham = $this->taoMaKhoaChinh('CTSP');
+                $chitietsp->SoSerial = $dsSerial[$i] ? $dsSerial[$i] : null;
+                $chitietsp->MaSanPham = $nhapkho->MaSanPham;
+                $chitietsp->KichCo = $nhapkho->KichCo;
+                $chitietsp->MaChiNhanh = $req->MaChiNhanh;
+                $chitietsp->MaPhieuNhap = $nhapkho->MaNhapKho;
+                $req->MaChiNhanh? $chitietsp->TinhTrang = 1 : $chitietsp->TinhTrang = 0;
+                $chitietsp->GhiChu = $req->GhiChu;
+                $chitietsp->NguoiTao = $req->NguoiTao;
+                $chitietsp->save();
+            }
+        }
+        else {
+            $chitietsp = new ChiTietSanPham();
+            $chitietsp->MaCTSanPham = $this->taoMaKhoaChinh('CTSP');
+            $chitietsp->SoSerial = $req->SoSerial;
+            $chitietsp->MaSanPham = $nhapkho->MaSanPham;
+            $chitietsp->KichCo = $nhapkho->KichCo;
+            $chitietsp->MaChiNhanh = $req->MaChiNhanh;
+            $chitietsp->MaPhieuNhap = $nhapkho->MaNhapKho;
+            $req->MaChiNhanh? $chitietsp->TinhTrang = 1 : $chitietsp->TinhTrang = 0;
+            $chitietsp->GhiChu = $req->GhiChu;
+            $chitietsp->NguoiTao = $req->NguoiTao;
+            $chitietsp->save();
+        }
+
+        $nhapkho->save();
+        if(auth()->user()->LoaiTaiKhoan == 'A' && empty($nhapkho->MaChiNhanh)) {
+            // Gửi email cho chi nhánh nếu người nhập là Admin
+
+        }
+        return back()->with('message.success','Nhập sản phẩm thành công!');
+    }
+
+    public function layDsNhapKhoAjax()
+    {
+        return DataTables::of(NhapKho::with('sanPhamNhap', 'getChiNhanh')->get())->make(true);
+    }
+    public function chiTietNhapKhoView($id){
+
+        return view('he-thong.kho-hang.nhap-ton-kho.xem-nhapkho')->with('NhapKho', NhapKho::layThongTinNhapKho($id));
     }
 
     public function dsSanPhamModal($mcn) {

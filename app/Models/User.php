@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(LoaiTaiKhoan::class, 'MaLoai','LoaiTaiKhoan');
     }
+
+    public function chiNhanh()
+    {
+        return $this->hasOne(ChiNhanh::class, 'MaChiNhanh','ChiNhanh');
+    }
 }

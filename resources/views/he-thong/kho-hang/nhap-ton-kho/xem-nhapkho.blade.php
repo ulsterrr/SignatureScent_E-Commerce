@@ -7,10 +7,9 @@
 
 @section('main-content')
 <div class="breadcrumb">
-    <h1>Nhập mới</h1>
+    <h1>Nhập kho</h1>
     <ul>
         <li><a href="">Sản phẩm</a></li>
-        <li>Tạo sản phẩm</li>
     </ul>
 </div>
 
@@ -20,193 +19,119 @@
     <div class="col-md-12">
         <div class="card mb-4">
             <div class="card-body">
-                <form id="new-SP" method="POST" enctype="multipart/form-data">
+                <form id="new-SP" method="POST" action="{{route('nhapKhoSanPham')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="row col-md-12">
-                    <div class="col-md-8">
-                        <div class="form-row">
-                            <div class="col-md-4 mb-3">
-                                <label for="validationCustomUsername" class="required">Mã phiếu nhập *</label>
-                                <input value="{{ $NhapHang->MaPhieuNhap }}" type="text" class="form-control" id="validationCustomUsername" readonly name="MaPhieuNhap" aria-describedby="inputGroupPrepend" required>
-                            </div>
-                            <div class="col-md-8 mb-3">
-                                <label for="TenChiNhanh" class="required">Chi nhánh:</label>
-                                <div class="input-group">
+                        <div class="col-md-8">
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="MaSanPham" class="required">Mã sản phẩm *</label>
                                     <div class="input-group">
-                                        <input value="{{ $NhapHang->getChiNhanh ? $NhapHang->getChiNhanh->TenChiNhanh : '' }}" type="text" class="form-control" id="TenChiNhanh" name="TenChiNhanh" readonly required
-                                                aria-describedby="inputGroupCN">
-                                        <div class="input-group-append">
-                                            <button id="inputGroupCN" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">...</button>
+                                        <input value="{{ $NhapKho->MaSanPham }}" type="text" class="form-control" id="MaSanPham" readonly name="MaSanPham" placeholder="Hãy chọn sản phẩm" aria-describedby="inputGroupPrepend" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="TenChiNhanh" class="required">Chi nhánh:</label>
+                                    <div class="input-group">
+                                        <input type="text"  value="{{ $NhapKho->getChiNhanh->MaChiNhanh . ' - ' . $NhapKho->getChiNhanh->TenChiNhanh }}" class="form-control" id="TenChiNhanh" name="TenChiNhanh" readonly required aria-describedby="inputGroupCN">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="NguoiTao" class="required">Người nhập *:</label>
+                                    <div class="input-group">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="NguoiTao" name="NguoiTao" readonly required value="{{ $NhapKho->NguoiTao }}">
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="validationCustom08" class="required">Người nhập *:</label>
-                                <div class="input-group">
-                                    <div class="input-group">
-                                        <input value="{{ $NhapHang->NguoiTao }}" type="text" class="form-control" id="validationCustom08" name="NguoiTao" readonly required
-                                            value="{{ auth()->user() ? auth()->user()->email : null }}">
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Người nhập được để trống!
+
+                                <div class="col-md-2 mb-3">
+                                    <label for="SoLuongNhap" class="required">Số lượng</label>
+                                    <div class="form-group">
+                                        <input type="number" value="{{ $NhapKho->SoLuongNhap }}" min="1" class="form-control" id="SoLuongNhap" name="SoLuongNhap" aria-describedby="inputGroupPrepend" required>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="MaChiNhanh" class="required">Mã chi nhánh:</label>
-                                <div class="input-group">
-                                    <div class="input-group">
-                                        <input value="{{ $NhapHang->MaChiNhanh ? $NhapHang->MaChiNhanh : '' }}" type="text" readonly class="form-control" id="MaChiNhanh" name="MaChiNhanh" required >
+
+                                <div class="col-md-2 mb-3">
+                                    <label for="SoLuongSerial" class="required">Tổng số Serial:</label>
+                                    <div class="form-group">
+                                        <input type="number" value="{{ count(explode(",", $NhapKho->SoSerial)) }}" readonly class="form-control" id="SoLuongSerial" name="SoLuongSerial" aria-describedby="inputGroupPrepend" required>
                                     </div>
                                 </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="GiaTien" class="required">Giá tiền *</label>
+                                    <div class="input-group">
+                                        <input type="money" value="{{ $NhapKho->sanPhamNhap->GiaTien }}" readonly class="form-control" id="GiaTien" name="GiaTien" min="0" aria-describedby="inputGroupPrepend2">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="TongTien" class="required">Tổng số tiền:</label>
+                                    <div class="form-group">
+                                        <input type="money" value="{{ $NhapKho->TongTien }}" readonly class="form-control" id="TongTien" name="TongTien" aria-describedby="inputGroupPrepend" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8 mb-3">
+                                    <label for="TenSanPham" class="required">Tên sản phẩm *</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{ $NhapKho->sanPhamNhap->TenSanPham }}" id="TenSanPham" name="TenSanPham" readonly aria-describedby="inputGroupPrepend" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 mb-3">
+                                    <label for="LoaiSanPham" class="required">Loại sản phẩm:</label>
+                                    <div class="form-group">
+                                        <input type="text" value="{{ $NhapKho->sanPhamNhap->loaiSanPham->TenLoai }}" class="form-control" id="LoaiSanPham" name="LoaiSanPham" readonly aria-describedby="inputGroupPrepend" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8 mb-3">
+                                    <label for="MoTa" class="required">Mô tả</label>
+                                    <textarea readonly class="form-control" style="width: 100% !important;" rows="1" name="MoTa" id="MoTa">{{ $NhapKho->sanPhamNhap->MoTa }}</textarea>
+                                </div>
+
+                                <div class="col-md-2 mb-3">
+                                    <label for="LoaiKichCo" class="required">Loại kích cỡ:</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" value="{{ $NhapKho->sanPhamNhap->loaiKichCo->TenKichCo }}" id="LoaiKichCo" name="LoaiKichCo" readonly aria-describedby="inputGroupPrepend" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2 mb-3">
+                                    <label for="KichCo" class="required">Kích cỡ *</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="KichCo" readonly value="{{ $NhapKho->KichCo }}" name="KichCo" aria-describedby="inputGroupPrepend" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 mb-3">
+                                    <label for="GhiChu" class="required">Ghi chú</label>
+                                    <textarea class="form-control" style="width: 100% !important;" readonly rows="2" name="GhiChu" id="GhiChu">{{ $NhapKho->GhiChu }}</textarea>
+                                </div>
+
+                                <div class="col-md-12"></div>
                             </div>
 
-                            <div class="col-md-4 mb-3">
-                                <label for="NQL" class="required">Người quản lý:</label>
-                                <div class="input-group">
-                                    <div class="input-group">
-                                        <input value="{{ $NhapHang->getChiNhanh ? $NhapHang->getChiNhanh->NguoiQuanLy : '' }}" type="text" class="form-control" id="NQL" name="NQL" disabled required aria-describedby="inputGroupQL">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-2">
-                                <label class="checkbox checkbox-primary" style="margin-top: 2.1rem !important">
-                                    <span>Nhập theo lô</span>
-                                    @if($NhapHang->LoaiNhap=='NhapLo')
-                                        <input checked type="checkbox" id="LoaiNhap" name="LoaiNhap">
-                                        <span class="checkmark"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-12">
+                                HÌNH ẢNH SẢN PHẨM
+                                <div class="input-group mb-3">
+                                    @if (!empty($NhapKho->sanPhamNhap->HinhAnh))
+                                    <img class="d-block w-100" src="{{ asset('assets/images/nhap-hang/' . $NhapKho->sanPhamNhap->HinhAnh) }}" alt="Ảnh sản phẩm">
                                     @else
-                                        <input type="checkbox" id="LoaiNhap" name="LoaiNhap">
-                                        <span class="checkmark"></span>
+                                    <img id="output" src="" style="padding: 10px 0px 0px 0px;" onerror="this.classList.add('no-image');" class="d-block w-100 -top-3 no-image">
                                     @endif
-                                </label>
-                            </div>
-
-                            <div class="col-md-2 mb-3">
-                                <label for="SoLuongNhap" class="required">Số lượng</label>
-                                <div class="form-group">
-                                    <input value="{{ $NhapHang->SoLuongNhap }}" type="number" readonly class="form-control" id="SoLuongNhap" name="SoLuongNhap" aria-describedby="inputGroupPrepend" required>
                                 </div>
                             </div>
-
-                            <div class="col-md-4 mb-3">
-                                <label for="SoLuongSerial" class="required">Tổng số Serial:</label>
-                                <div class="form-group">
-                                    <input value="{{ $NhapHang->SoLuongSerial }}" type="number" readonly class="form-control" id="SoLuongSerial" name="SoLuongSerial" aria-describedby="inputGroupPrepend" required>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 mb-3">
-                                <label for="TongTien" class="required">Tổng số tiền:</label>
-                                <div class="form-group">
-                                    <input value="{{ $NhapHang->TongTien }}" type="money" readonly class="form-control" id="TongTien" name="TongTien" aria-describedby="inputGroupPrepend" required>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 mb-3"></div>
-
-                            <div class="col-md-2 mb-3">
-                                <label for="VAT" class="required">% VAT *</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupPrepend1">%</span>
-                                    </div>
-                                    <input value="{{ $NhapHang->VAT }}" type="number" class="form-control" id="VAT" name="VAT" min="0" max="100" onfocusout="tinhGiaVAT()" aria-describedby="inputGroupPrepend1">
-                                </div>
-                            </div>
-
-                            <div class="col-md-2 mb-3">
-                                <label for="GiaVAT" class="required">Giá VAT</label>
-                                <div class="input-group">
-                                    <input value="{{ $NhapHang->GiaVAT }}" type="money" readonly class="form-control" id="GiaVAT" name="GiaVAT" aria-describedby="inputGroupPrepend1">
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 mb-3">
-                                <label for="GiaTien" class="required">Giá tiền *</label>
-                                <div class="input-group">
-                                    <input value="{{ $NhapHang->GiaTien }}" type="money" onfocusout="thayDoiGiaTien()" class="form-control" id="GiaTien" name="GiaTien" min="0" aria-describedby="inputGroupPrepend2">
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 mb-3">
-                                <label for="GiaTienSauThue" class="required">Giá tiền sau thuế</label>
-                                <div class="input-group">
-                                    <input value="{{ $NhapHang->GiaTienSauThue }}" type="money" readonly class="form-control" id="GiaTienSauThue" name="GiaTienSauThue" aria-describedby="inputGroupPrepend2">
-                                </div>
-                            </div>
-
-                            <div class="col-md-8 mb-3">
-                                <label for="validationCustomUsername" class="required">Tên sản phẩm *</label>
-                                <div class="form-group">
-                                    <input value="{{ $NhapHang->TenSanPham }}" type="text" class="form-control" id="validationCustomUsername" name="TenSanPham"  aria-describedby="inputGroupPrepend" required>
-                                    <div class="invalid-feedback">
-                                        Tên sản phẩm không được để trống!
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 mb-3">
-                                <label for="sel">Loại sản phẩm:</label>
-                                <select class="form-control" name="LoaiSanPham" id="sel" class="required" required>
-                                    <option selected>{{ $NhapHang->loaiSanPham->TenLoai }}</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Loại kích cỡ không được để trống!
-                                </div>
-                            </div>
-
                             <div class="col-md-12 mb-3">
-                                <label for="MoTa" class="required">Mô tả</label>
-                                <textarea class="form-control" style="width: 100% !important;" rows="3" name="MoTa" id="MoTa">{{ $NhapHang->MoTa }}</textarea>
-                            </div>
-
-                            <div class="col-md-8 mb-3">
-                                <label for="GhiChu" class="required">Ghi chú</label>
-                                <textarea class="form-control" style="width: 100% !important;" rows="2" name="GhiChu" id="GhiChu">{{ $NhapHang->GhiChu }}</textarea>
-                            </div>
-
-                            <div class="col-md-2 mb-3">
-                                <label for="sel">Loại kích cỡ:</label>
-                                <select class="form-control" name="LoaiKichCo" id="sel1" class="required" required>
-                                    <option selected>{{ $NhapHang->loaiKichCo->TenKichCo }}</option>
-                                </select>
-
-                            </div>
-                            <div class="col-md-2 mb-3">
-                                <label for="KichCo" class="required">Kích cỡ *</label>
-                                <div class="form-group">
-                                    <input value="{{ $NhapHang->KichCo }}" type="text" class="form-control" id="KichCo" name="KichCo"  aria-describedby="inputGroupPrepend" required>
-
-                                </div>
-                            </div>
-                            <div class="col-md-12"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="col-md-12">
-                            HÌNH ẢNH SẢN PHẨM
-                            <div class="input-group mb-3">
-                                <div disabled>
-                                    <input class="custom-file-input" name="HinhAnh" aria-describedby="inputGroupFileAddon01">
-                                    <label class="custom-file-label" for="inputGroupFileAddon01"><span>{{ $NhapHang->HinhAnh ? $NhapHang->HinhAnh : 'Chọn ảnh' }}</span></label>
-                                </div>
-                                {{-- <img id="output" src="{{ asset('assets/images/nhap-hang/ . speaker-1.jpg') }}" style="padding: 10px 0px 0px 0px;" onerror="this.classList.add('no-image');" class="d-block w-100 -top-3 no-image"> --}}
-                                @if ($NhapHang->HinhAnh)
-                                    <img class="d-block w-100" src="{{ asset('assets/images/nhap-hang/' . $NhapHang->HinhAnh) }}" alt="Ảnh sản phẩm">
-                                @else
-                                    <img class="d-block w-100" src="{{ asset('assets/images/faces/1.jpg') }}" alt="Ảnh sản phẩm">
-                                @endif
+                                <label for="SoSerial">Nhập số serial:</label>
+                                <textarea id="SoSerial" class="form-control" rows="5" readonly name="SoSerial" onfocusout="tinhSoLuongSerial()">{{ $NhapKho->SoSerial }}</textarea>
+                                <div style="padding-left: 5px;"><i>Nhập danh sách số serial được tách bằng dấu (,)</i></div>
                             </div>
                         </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="SoSerial">Nhập số serial:</label>
-                            <textarea id="SoSerial" class="form-control" rows="5" name="SoSerial" onfocusout="tinhSoLuongSerial()">{{ $NhapHang->SoSerial }}</textarea>
-                            <div style="padding-left: 5px;"><i>Nhập danh sách số serial được tách bằng dấu (,)</i></div>
-                        </div>
-                    </div>
                 </form>
             </div>
         </div>

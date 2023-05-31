@@ -59,9 +59,16 @@
                     <ul class="header-nav header-nav-main nav nav-left  nav-size-medium nav-uppercase">
                         <li class="account-item has-icon">
                             <a href="tai-khoan/" class="nav-top-link nav-top-not-logged-in " data-open="#login-form-popup">
-                                <span> Đăng nhập / Đăng ký </span>
+                                <span>Đăng nhập</span>
                             </a>
                             <!-- .account-login-link -->
+                        </li>
+                        <span>&nbsp;/&nbsp;</span>
+                        <li class="account-item has-icon">
+                            <a href="{{ route('dangKyView') }}" class="nav-top-link nav-top-not-logged-in">
+                                <span>Đăng ký</span>
+                            </a>
+                            <!-- .account-sign-link -->
                         </li>
                     </ul>
                 </div>

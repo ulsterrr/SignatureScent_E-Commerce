@@ -375,7 +375,7 @@ function getDataModal() {
         $('#alert-card-sp-modal').css('display', 'none');;
     }
 
-    var getData = "{{ route('TatCaSanPhamModal', ['mcn' => ':id']) }}";
+    var getData = "{{ route('tatCaSanPhamModal', ['mcn' => ':id']) }}";
     var link = getData.replace(':id', mcn);
     var table = $('#ul-user-list').DataTable({
         processing: true
