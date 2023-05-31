@@ -581,5 +581,103 @@ class SanPhamSeeder extends Seeder
         $SP29->GhiChu = "";
         $SP29->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP29->save();
+
+        $SP30 = new SanPham();
+        $SP30->MaSanPham = "SP00000031";
+        $SP30->TenSanPham = "Kilian Rose On Ice EDP";
+        $SP30->ThuongHieu ="Kilian" ;
+        $SP30->TrangThai ="1" ;
+        $SP30->GiaTien ="4790000" ;
+        $SP30->MoTa = "Kilian Rose On Ice quả thật xứng đáng, rất xứng đáng để trông chờ là đằng khác bởi tính phức tạp trong cách cấu thành mùi hương. Bởi khi đi đến tầng hương thứ hai, màn sương như biến mất, thay vào đó tôi lại mường tượng đến hình ảnh một thiếu nữ. Tôi không gọi đây là người phụ nữ, bởi mùi hương Hoa hồng lần này lại trẻ trung đến lạ, ấy thế, thiếu nữ trong Kilian Rose On Ice không hoạt bát, không hồn nhiên cũng không ngây thơ nốt, mà mang mác một nét trầm tư. Hay tôi phải gọi đúng hơn là nàng có đôi mắt buồn và thăm thẳm.";
+        $SP30->HinhAnh = "Rose_on_ice.jpeg";
+        $SP30->LoaiKichCo = "KC01";
+        $SP30->LoaiSanPham = "LSP06";
+        $SP30->GhiChu = "";
+        $SP30->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP30->save();
+
+        $SP31 = new SanPham();
+        $SP31->MaSanPham = "SP00000032";
+        $SP31->TenSanPham = "Tom Ford Bitter Peach EDP";
+        $SP31->ThuongHieu ="Tom Ford" ;
+        $SP31->TrangThai ="1" ;
+        $SP31->GiaTien ="4250000" ;
+        $SP31->MoTa = "Tom Ford Bitter Peach mang đến cho người thưởng thức hương vị đào ngọt ngào chín mọng nước, kết hợp cùng vị chua của ca làm tăng cường sự cân bằng giữa ngọt và chua trong một mùi hương. Thành phần dầu davana pha trong rượu rum và bạch đậu khấu tạo thêm sự ấm áp cho hương thơm. Mùi hương phóng khoáng, bí ẩn của tinh dầu hoắc hương và sang trọng thanh lịch hơn với mùi gỗ đàn hương. Nốt hương cuối cùng là sự xuất hiện của gỗ và vani, một điểm nhấn đặc trưng có trong rất nhiều hương thơm khác của nhà Tom Ford. ";
+        $SP31->HinhAnh = "TF_bitter.jpg";
+        $SP31->LoaiKichCo = "KC01";
+        $SP31->LoaiSanPham = "LSP06";
+        $SP31->GhiChu = "";
+        $SP31->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP31->save();
+
+        $SP32 = new SanPham();
+        $SP32->MaSanPham = "SP00000033";
+        $SP32->TenSanPham = "Tom Ford Rose Trick EDP";
+        $SP32->ThuongHieu ="Tom Ford" ;
+        $SP32->TrangThai ="1" ;
+        $SP32->GiaTien ="4250000" ;
+        $SP32->MoTa = "Hương đầu: Tiêu Tứ Xuyên, Củ nghệ.
+        Hương giữa: Hoa hồng tháng Năm, Hoa hồng Bulgaria, Hoa hồng Thổ Nhĩ Kỳ.
+        Hương cuối: Hoắc hương, Đậu Tonka.
+        Hoa hồng đẹp và kiêu kỳ nên thường được cưng chiều gọi bằng cái tên điệu đà và mỹ miều là Nữ hoàng của các loài hoa. Cũng giống với việc mỗi vương quốc chỉ có một nữ hoàng, ta thường chỉ gặp một loại Hoa hồng trong một chai nước hoa, rằng mùi hương đó như địa hạt mà bông Hồng cai trị.";
+        $SP32->HinhAnh = "TF_rose.jpeg";
+        $SP32->LoaiKichCo = "KC01";
+        $SP32->LoaiSanPham = "LSP06";
+        $SP32->GhiChu = "";
+        $SP32->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP32->save();
+
+        $SP33 = new SanPham();
+        $SP33->MaSanPham = "SP00000034";
+        $SP33->TenSanPham = "Parfums de Marly Cassili Royal Essence";
+        $SP33->ThuongHieu ="Parfums de Marly" ;
+        $SP33->TrangThai ="1" ;
+        $SP33->GiaTien ="5550000" ;
+        $SP33->MoTa = "Hương đầu: Nho đỏ, hoa hồng Bulgari, hoa trắng
+        Hương giữa: hoa mimosa, hoa đại, hương petalia.
+        Hương cuối: gỗ đàn hương, vỏ vanilla, đậu tonka
+        Parfums De Marly Cassili Royal Essence EDP là hương thơm mới vừa được ra mắt vào 2019 từ thương hiệu nước hoa đình đám Thế Giới mà các tín đồ yêu hương gọi đây là thứ mùi sang chảnh mà bất kỳ ai cũng từng bắt gặp trong tất cả các khách sạn Năm Sao”, gặp một lần là nhớ nhung mê luyến không dứt được.";
+        $SP33->HinhAnh = "PDM_cassili.jpeg";
+        $SP33->LoaiKichCo = "KC01";
+        $SP33->LoaiSanPham = "LSP06";
+        $SP33->GhiChu = "";
+        $SP33->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP33->save();
+
+        $SP34 = new SanPham();
+        $SP34->MaSanPham = "SP00000035";
+        $SP34->TenSanPham = "Kilian Rolling In Love EDP";
+        $SP34->ThuongHieu ="Kilian" ;
+        $SP34->TrangThai ="1" ;
+        $SP34->GiaTien ="5250000" ;
+        $SP34->MoTa = "Hương đầu: Cây vông vang, Hạnh nhân
+        Hương giữa: Lan nam phi, Diên vĩ
+        Hương cuối: Vanilla, Xạ hương, Đậu tonka, Hoa vòi voi
+        Rolling In Love nói cho tròn nghĩa, từng tầng hương thể hiện từng giai đoạn của chúng ta mỗi khi yêu. Nếu tầng hương đầu khởi sắc đầy phá cách, bùng nổ những tông vị ngọt sắc, thì tầng hương giữa lại dịu dàng, nền nã hơn bao giờ hết. Yêu một ai đủ lâu, ta ắt sẽ muốn tìm thấy bình yên khi ở bên cạnh họ. Cho đến tầng hương cuối, tình yêu lại trở nên mặn nồng và sắc nét nhất khi được là tâm giao với đúng người, đúng thứ mình yêu.";
+        $SP34->HinhAnh = "Kilian_RIL.jpeg";
+        $SP34->LoaiKichCo = "KC01";
+        $SP34->LoaiSanPham = "LSP06";
+        $SP34->GhiChu = "";
+        $SP34->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP34->save();
+
+        $SP35 = new SanPham();
+        $SP35->MaSanPham = "SP00000036";
+        $SP35->TenSanPham = "Parfums De Marly Delina EDP";
+        $SP35->ThuongHieu ="Parfums De Marly" ;
+        $SP35->TrangThai ="1" ;
+        $SP35->GiaTien ="4850000" ;
+        $SP35->MoTa = "HHương đầu: Cam Bergamot, Cây đại hoàng, Quả vải
+        Hương giữa: Hoa hồng Thổ Nhĩ Kỳ, Hoa mẫu đơn, Xạ hương
+        Hương cuối: Hương Cashmeran, Gỗ tuyết tùng
+        Nước hoa Parfums de Marly Delina cũng không phải ngoại lệ, Cô nàng kiêu kỳ này được tạo ra bởi chuyên gia nước hoa hàng đầu Quentin Bisch, một bậc kỳ tài trong việc đưa những cảm xúc lịch sử, kết hợp với những nguyên liệu cao quý và tạo ra những dòng nước hoa sang trọng, quý phái đến khó tin.
+        Delina gây ấn tượng đầu tiên với Hoa hồng Thổ Nhĩ Kỳ, tựa như một điệu nhảy mê hoặc khứu giác,
+        ngập tràn sự đam mê cùng Hoa mẫu đơn và sự ngọt ngào của Trái vải. Sự bí ẩn và kiêu kỳ ẩn hiện dưới sự giao thoa của Xạ hương cùng hương Cashmeran, khiến mọi ánh mắt phải dừng lại chỉ vì muốn được ngắm cô nàng Delina lâu hơn một chút nữa. ";
+        $SP35->HinhAnh = "PDM_delina.jpeg";
+        $SP35->LoaiKichCo = "KC01";
+        $SP35->LoaiSanPham = "LSP06";
+        $SP35->GhiChu = "";
+        $SP35->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP35->save();
     }
 }
