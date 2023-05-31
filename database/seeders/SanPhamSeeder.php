@@ -26,11 +26,11 @@ class SanPhamSeeder extends Seeder
         Không quá lời khi nói rằng, Versace Eros là mùi hương lấy lại vị thế cho nhà mốt lừng danh đến từ đất nước nước hình chiếc ủng trong thế kỷ 21. Tươi trẻ, sôi động và gợi cảm, đó là những tính từ có thể dùng để mô tả sát nghĩa nhất mùi hương nằm trong chai hương màu xanh đậm dấu ấn Địa Trung Hải này.
         Eros khởi đầu bằng mùi hương của Quả táo, một mùi hương Trái cây giòn tan, tươi tắn, được nhuộm vàng màu nắng bởi một Quả chanh vàng mọng nước. Bên cạnh Trái cây, Bạc hà the the, trẻ trung, phóng khoáng là nhân vật còn lại của điểm khởi đầu, đem theo một chút hậu vị ngọt ngọt nơi khoang mũi, để dẫn mùi hương của Eros vào với chủ điểm của nó, là sự ngọt ngào. Đậu Tonka, Vanilla quyện lấy nhau, một sự kết hợp ngọt ngào không xa lạ, khiến mùi hương trở nên mềm mại và gợi cảm hơn.
         Versace Eros Eau de Toilette là lựa chọn an toàn và hiệu quả cho mọi chàng trai trẻ trung, năng động, thích tiệc tùng và ưa ồn ào náo nhiệt.";
-        $SP->HinhAnh = "";
+        $SP->HinhAnh = "versace_eros.jpg";
         $SP->LoaiKichCo = "KC01";
         $SP->LoaiSanPham = "LSP01";
         $SP->GhiChu = "";
-        $SP->NguoiTao = "Hồ Thanh Phúc";
+        $SP->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP->save();
 
         $SP1 = new SanPham();
@@ -46,11 +46,11 @@ class SanPhamSeeder extends Seeder
         Vẫn giữ lại sự cuốn hút và nam tính của người anh Eros, nhưng sự phá cách trong cách tạo mùi hương của hãng Versace đã tạo ra một Eros Flame đầy cá tính với các tone mùi mang hương vị cam quýt và gỗ đàn hương, vani và tiêu đen, Hoa phong lữ và đậu tonka ,
         được mô tả là 'lạnh và nóng, ngọt và cay, ánh sáng và bóng tối'. Khái niệm này được tạo ra dựa trên một câu chuyện đầy cảm hứng về tình yêu nồng nàn, với nhân vật chính là mùi hương của một người đàn ông mạnh mẽ, đam mê, tự tin, người có những tiếp xúc sâu sắc với cảm xúc của chính mình.
         Olivier Pescheux là chuyên gia nước hoa đã tạo ra Versace Eros Flame, với mong muốn tạo ra một chàng chai Eros mới, bùng nổ hơn, có chiều sâu hơn, và đặc biệt trong trong trái tim của Eros, luôn có một ngọn lửa đam mê không bao giờ ngừng tắt, bùng cháy như Versace Eros Flame.";
-        $SP1->HinhAnh = "";
+        $SP1->HinhAnh = "versace_eros_flame.jpeg";
         $SP1->LoaiKichCo = "KC01";
         $SP1->LoaiSanPham = "LSP01";
         $SP1->GhiChu = "";
-        $SP1->NguoiTao = "Hồ Thanh Phúc";
+        $SP1->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP1->save();
 
         $SP2 = new SanPham();
@@ -65,11 +65,11 @@ class SanPhamSeeder extends Seeder
         Ra mắt từ năm 2015, với tuổi đời của chỉ vỏn vẹn 7 năm nhưng điều đó cũng không thể cản trở Dior Sauvage trở thành một trong những chai nước hoa kinh điển nhất của nhà mốt Christian Dior nói riêng và của thị trường nước hoa thế giới nói chung. Mặc cho rất nhiều ý kiến trái chiều về Dior Sauvage, không ai có thể phủ nhận rằng đây là một mùi hương rất nam tính và quyến rũ.
         Những đặc điểm nổi bật về mùi hương của Dior Sauvage là một mùi hương Xanh, nam tính và nịnh mũi với các nốt hương chủ đạo của Cam Chanh, hòa quyện với vị cay cay, mạnh mẽ của Tiêu và kết lại với nốt hương Ambroxan - nguyên liệu lấy cảm hứng từ món quà của đại dương, Long Diên Hương. Luôn đứng đầu danh sách những chai nước hoa được săn đón, phổ biến nhất, nhưng mùi hương của Dior Sauvage vẫn luôn giữ vững được phong độ, không hề mờ nhạt trước muôn vàn ấn phẩm mùi hương khác.
         Không chỉ xứng đáng sở hữu vì mùi hương mà độ bám tỏa của Dior Sauvage chắc chắn cũng sẽ làm bạn hài lòng. Đảm bảo Dior Sauvage sẽ mang lại cho bạn một trải nghiệm, hình ảnh của một người đàn ông nam tính, lịch lãm và có đôi phần hoang dã, phong trần như Johnny Depp trong chiến dịch quảng cáo cho mùi hương này.";
-        $SP2->HinhAnh = "";
+        $SP2->HinhAnh = "dior_sauvage.jpeg";
         $SP2->LoaiKichCo = "KC01";
         $SP2->LoaiSanPham = "LSP01";
         $SP2->GhiChu = "";
-        $SP2->NguoiTao = "Hồ Thanh Phúc";
+        $SP2->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP2->save();
 
         $SP3 = new SanPham();
@@ -84,11 +84,11 @@ class SanPhamSeeder extends Seeder
         Hai mươi bảy là ngưỡng tuổi mà tôi không còn dễ dàng bị hấp dẫn bởi những chàng trai có hình thể lực lưỡng hay các bạn trẻ năng nổ cá tính. Điều tôi cần là một người đàn ông trưởng thành, chín chắn, tự tin và bản lĩnh. Và tất thảy những điểm đó sẽ được thể hiện qua tính cách, lời nói và đôi khi chỉ là mùi hương nước hoa mà anh ấy dùng hằng ngày.
         Dolce & Gabbana The One EDP tiếp cận tôi bằng hương Bưởi, Húng quế và Rau mùi khiến khứu giác tôi như bừng tỉnh vì ấn tượng đầu tiên quá mãnh liệt. Tôi bị ấn tượng bởi chính sự hấp dẫn ấy với loạt cảm xúc như đang dần dâng trào từ Gừng, Bạch đậu khấu và Hoa cam kết hợp với nhau một cách đầy tinh tế và sâu lắng. Nhưng đó chưa phải là tất cả, thứ mùi hương như muốn nuốt chửng, khóa tôi lại cùng với những xúc cảm này đó chính là dư vị đàn ông của Thuốc lá, Hổ phách. Từ đó tôi quyết định cho cả hai cơ hội để có nhiều thời gian tìm hiểu về nhau hơn.
         Có thể nói Dolce & Gabbana The One EDP là một biểu tượng cho hình ảnh người đàn ông mà tôi muốn. Anh ta có cả sự trải đời, kinh nghiệm và hơn hết là rất đậm mùi đàn ông trưởng thành.";
-        $SP3->HinhAnh = "";
+        $SP3->HinhAnh = "DG_TheOne_EDPe.jpeg";
         $SP3->LoaiKichCo = "KC01";
         $SP3->LoaiSanPham = "LSP01";
         $SP3->GhiChu = "";
-        $SP3->NguoiTao = "Hồ Thanh Phúc";
+        $SP3->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP3->save();
 
         $SP4 = new SanPham();
@@ -103,11 +103,11 @@ class SanPhamSeeder extends Seeder
         Sự ra mắt của Bleu de Chanel năm 2010 giống như một người khởi xướng cho phong trào làm nước hoa “blue” tới từ các nhà hương, một phong cách mùi hương nịnh mũi, dễ gần và vô cùng đa dụng. Bleu de Chanel dường như đáp ứng đầy đủ các yêu cầu dành cho cánh mày râu khi cần tìm kiếm một mùi hương gây được dấu ấn của bản thân mình thời điểm đó. Với sự chu toàn của Chanel, việc cho ra một phiên bản nâng cấp để hoàn thiện tính hoàn hảo cho mùi hương là điều chắc chắn xảy ra, và chúng ta đã có Bleu de Chanel Eau de Parfum vào năm 2014.
         Vốn được rất nhiều người trong cộng đồng nước hoa đánh giá là phiên bản hoàn hảo nhất của dòng Bleu de Chanel, Bleu de Chanel Eau de Parfum vẫn đem tới cho các quý ông một khởi đầu tươi sáng và thanh lịch. Bưởi và Gừng, thứ được cho là dấu ấn của dòng hương nổi tiếng của Chanel, được tô đậm và làm sáng lên rõ ràng trong Bleu de Chanel Eau de Parfum, đa sắc và dày dặn hơn. Đi vào tâm của mùi hương cũng vậy, khi phiên bản Bleu de Chanel Eau de Parfum sở hữu một mùi hương có chiều sâu rõ rệt với sự xuất hiện của Nhựa hổ phách, bên cạnh hương Gỗ và Nhang đã tạo nên nhận diện đặc trưng ở tầng hương cuối cho dòng hương Bleu de Chanel.
         Vốn được sinh ra để thỏa mãn tất cả những người yêu thích phong cách hương thơm “kiểu Bleu de Chanel”, phiên bản Eau de Parfum này thực sự là một mảnh ghép hoàn hảo được Chanel đem tới để làm mãn nguyện những quý ông yêu thích dòng hương này.";
-        $SP4->HinhAnh = "";
+        $SP4->HinhAnh = "chanel_bleu_edp.jpeg";
         $SP4->LoaiKichCo = "KC01";
         $SP4->LoaiSanPham = "LSP01";
         $SP4->GhiChu = "";
-        $SP4->NguoiTao = "Hồ Thanh Phúc";
+        $SP4->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP4->save();
 
         $SP5 = new SanPham();
@@ -125,11 +125,11 @@ class SanPhamSeeder extends Seeder
         Để bàn về mùi hương của Acqua di Giò, ta không cần đến nhiều lời bàn luận nữa, chỉ cần nhìn cách Giò trắng sống mãi với thời gian, hay những ngày nắng vàng rụm bỗng thấy chúng thoang thoảng lướt qua mũi ta từ một người đồng nghiệp ghé ngang văn phòng. Một mùi hương cam chanh dễ chịu, hòa với hương nước sảng khoái cùng hương hoa nhẹ nhàng, quyện lẫn với nhau, nhuần nhuyễn và thuần thục qua bàn tay của nhà điều hương lừng danh Alberto Morillas.
 
         Dù đã hơn 26 năm kể từ ngày ra mắt, thế nhưng sức lan tỏa của Acqua di Giò vẫn là một thứ hiện diện rõ ràng, trong văn phòng, trên phố, quán café, hay tủ đựng nước hoa của bất kỳ người yêu hương nào";
-        $SP5->HinhAnh = "";
+        $SP5->HinhAnh = "acquadigio.jpg";
         $SP5->LoaiKichCo = "KC01";
         $SP5->LoaiSanPham = "LSP01";
         $SP5->GhiChu = "";
-        $SP5->NguoiTao = "Hồ Thanh Phúc";
+        $SP5->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP5->save();
 
         $SP6 = new SanPham();
@@ -147,11 +147,11 @@ class SanPhamSeeder extends Seeder
         Chưng cất hương thơm của một vườn hoa nào Nhài và Huệ vào buổi sớm, Gucci Bloom EDP toả hương thơm nức lòng người, kiều diễm và tràn đầy sức sống. Ấy thế, đâu đó len lỏi trong từng tầng hương vẫn là chút vị đắng nhưng tươi, bạn có thể lấy mùi hương của Trà để tưởng tượng.
 
         Từng phút từng giây trôi qua, ta chỉ ngày càng thêm yêu nét hương ý tứ, sang trọng mà Gucci Bloom EDP chưng cất. Nhiều người hỏi rằng Gucci Bloom EDP phù hợp với độ tuổi nào, mà quả thật thì tôi không biết chắc, vì với tôi, đây là một mùi hương không có tuổi và đẹp đẽ vô vàn.";
-        $SP6->HinhAnh = "";
+        $SP6->HinhAnh = "gucci_bloom.jpeg";
         $SP6->LoaiKichCo = "KC01";
         $SP6->LoaiSanPham = "LSP02";
         $SP6->GhiChu = "";
-        $SP6->NguoiTao = "Hồ Thanh Phúc";
+        $SP6->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP6->save();
 
         $SP7 = new SanPham();
@@ -169,11 +169,11 @@ class SanPhamSeeder extends Seeder
         Scandal được tạo nên với một sứ mệnh. để phá bỏ mọi rập khuôn, mang đến một cái gì đó mới mẻ và hiện đại, đồng thời mạnh mẽ và thanh lịch. Các nốt hương chính của thành phần là Cam Đỏ, Mật Ong, Hoắc Hương và Hoa Nhài. Một đặc điểm dễ nhận biết về mùi hương của Scandal rằng đây là một mùi hương ngọt ngào và béo ngậy nhờ vào nốt hương Mật Ong và Caramel. Ngọt nhưng không hề khó chịu hay nồng gắt bởi vì ở Scandal còn có những tông mùi nhẹ nhàng, nữ tính và thanh tao của hoa Nhài, hoa Sơn Chi cùng với vị ngọt ngào của những quả Cam và Đào tràn đầy năng lượng.
 
         Thương hiệu tuyên bố rằng họ muốn sáng tạo nên một phiên bản khác của những dòng nước hoa trước đó từ bộ sưu tập Jean Paul Gaultier mà vẫn tôn trọng DNA nổi tiếng của thương hiệu với mục tiêu là tạo ra thứ gì đó chất chơi hơn, gợi cảm và vui nhộn hơn, từ chai nước hoa đến chiến dịch quảng cáo.";
-        $SP7->HinhAnh = "";
+        $SP7->HinhAnh = "scandal.jpg";
         $SP7->LoaiKichCo = "KC01";
         $SP7->LoaiSanPham = "LSP02";
         $SP7->GhiChu = "";
-        $SP7->NguoiTao = "Hồ Thanh Phúc";
+        $SP7->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP7->save();
 
         $SP8 = new SanPham();
@@ -191,11 +191,11 @@ class SanPhamSeeder extends Seeder
         Với thông điệp “good to be bad”, Good Girl dường như là phát ngôn mà Carolina Herrera muốn gửi tới các chị em, rằng hãy là chính mình, bộc lộ những cá tính đặc biệt của bản thân là một cách tốt đẹp để trở nên tuyệt vời hơn. Good Girl Eau de Parfum đem tới một mùi hương gây sự chú ý ngay từ những làn hương đầu tiên, với Hạnh nhân và Cà phê, thơm ngậy và hơi khô, nhưng đảm bảo một sự ngọt ngào dành cho các quý cô ngay từ giai đoạn mở đầu. Hỗn hợp Hoa trắng kéo theo sau, Huệ, Nhài, cùng nhau bung tỏa hương thơm trong khứu giác, phủ lên chút hiền dịu ôn hòa của Hoa cam.
 
         Đậu Tonka, Vanilla hay kẹo Praline, những hương thơm ngon lành và ngọt ngào chực chờ lan tỏa, biến Good Girl trở thành một trong những mùi hương dành cho phái đẹp mang sắc màu ngọt ngào và gây sự chú ý nhất trên thị trường. Good Girl được yêu thích bởi phái đẹp, dường như qua cách mà mùi hương này thể hiện nét ngọt ngào nữ tính rất nịnh mũi các chị em.";
-        $SP8->HinhAnh = "";
+        $SP8->HinhAnh = "good_girll.jpg";
         $SP8->LoaiKichCo = "KC01";
         $SP8->LoaiSanPham = "LSP02";
         $SP8->GhiChu = "";
-        $SP8->NguoiTao = "Hồ Thanh Phúc";
+        $SP8->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP8->save();
 
         $SP9 = new SanPham();
@@ -217,7 +217,7 @@ class SanPhamSeeder extends Seeder
         $SP9->LoaiKichCo = "KC01";
         $SP9->LoaiSanPham = "LSP02";
         $SP9->GhiChu = "";
-        $SP9->NguoiTao = "Hồ Thanh Phúc";
+        $SP9->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP9->save();
 
         $SP10 = new SanPham();
@@ -235,7 +235,7 @@ class SanPhamSeeder extends Seeder
         Tôi cũng không muốn bóc tách từng hương hoa một, ngộ nhỡ làm mất đi vẻ đặc sắc vốn có của Cristal. Mà tôi chỉ biết nói rằng âm hưởng của các nét hương Hoa có trầm có bổng, có thanh có đậm. Những khi hương thơm có phần sắc lại, đanh và nồng nàn, bạn có thể nói rằng khi ấy có sự xuất hiện của Hoa nhài, hoa lan Nam Phi và Hoa cam. Và khi hương thơm mềm mại lại và miên man hơn, khi ấy hẳn Hoa hồng và Xạ hương đã tự mình kết hợp và ngát hương.
 
         Khu vườn mà Cristal tạo nên cũng không thiếu những khía cạnh khô hăng của Gỗ tuyết tùng, và cũng không thiếu nét hương man mát, the cay của Cam bergamot. Cứ như vậy, tất cả những nét vị ấy trộn lẫn vào nhau, ăn nhập và hoà quyện ăn ý.";
-        $SP10->HinhAnh = "";
+        $SP10->HinhAnh = "Cristal.jpg";
         $SP10->LoaiKichCo = "KC10";
         $SP10->LoaiSanPham = "LSP02";
         $SP10->GhiChu = "";
@@ -245,7 +245,7 @@ class SanPhamSeeder extends Seeder
 
         $SP11 = new SanPham();
         $SP11->MaSanPham = "SP0000012";
-        $SP11->TenSanPham = "Jean Paul Gaultier Scandal";
+        $SP11->TenSanPham = "Jean Paul Gaultier So Scandal";
         $SP11->ThuongHieu ="Jean Paul Gaultier" ;
         $SP11->TrangThai ="1" ;
         $SP11->GiaTien ="320000" ;
@@ -258,7 +258,7 @@ class SanPhamSeeder extends Seeder
         Scandal được tạo nên với một sứ mệnh. để phá bỏ mọi rập khuôn, mang đến một cái gì đó mới mẻ và hiện đại, đồng thời mạnh mẽ và thanh lịch. Các nốt hương chính của thành phần là Cam Đỏ, Mật Ong, Hoắc Hương và Hoa Nhài. Một đặc điểm dễ nhận biết về mùi hương của Scandal rằng đây là một mùi hương ngọt ngào và béo ngậy nhờ vào nốt hương Mật Ong và Caramel. Ngọt nhưng không hề khó chịu hay nồng gắt bởi vì ở Scandal còn có những tông mùi nhẹ nhàng, nữ tính và thanh tao của hoa Nhài, hoa Sơn Chi cùng với vị ngọt ngào của những quả Cam và Đào tràn đầy năng lượng.
 
         Thương hiệu tuyên bố rằng họ muốn sáng tạo nên một phiên bản khác của những dòng nước hoa trước đó từ bộ sưu tập Jean Paul Gaultier mà vẫn tôn trọng DNA nổi tiếng của thương hiệu với mục tiêu là tạo ra thứ gì đó chất chơi hơn, gợi cảm và vui nhộn hơn, từ chai nước hoa đến chiến dịch quảng cáo.";
-        $SP11->HinhAnh = "";
+        $SP11->HinhAnh = "so_scandal.jpg";
         $SP11->LoaiKichCo = "KC10";
         $SP11->LoaiSanPham = "LSP02";
         $SP11->GhiChu = "";
@@ -267,22 +267,24 @@ class SanPhamSeeder extends Seeder
 
         $SP12 = new SanPham();
         $SP12->MaSanPham = "SP00000013";
-        $SP12->TenSanPham = "Versace Eros Flame";
+        $SP12->TenSanPham = "Versace Pour Homme";
         $SP12->ThuongHieu ="Versaces" ;
         $SP12->TrangThai ="1" ;
         $SP12->GiaTien ="1790000" ;
-        $SP12->MoTa = "Hương đầu: Chinotto, Quả chanh vàng, Quả quýt hồng, Tiêu đen, Cây hương thảo
-        Hương giữa: Hoa hồng, Hoa phong lữ, Tiêu
-        Hương cuối: Gỗ tuyết tùng Texas, Cây hoắc hương, Đậu Tonka, Hương Vani, Gỗ đàn hương
-        Versace Eros Flame được ra mắt vào năm 2018, được miêu tả như một dòng cảm xúc chứa đầy nội tâm cùng những sắc thái biểu cảm xung đột, mâu thuẫn đầy tâm trạng của những người đàn ông với vẻ bề ngoài mạnh mẽ, tự tin và thành đạt.
-        Vẫn giữ lại sự cuốn hút và nam tính của người anh Eros, nhưng sự phá cách trong cách tạo mùi hương của hãng Versace đã tạo ra một Eros Flame đầy cá tính với các tone mùi mang hương vị cam quýt và gỗ đàn hương, vani và tiêu đen, Hoa phong lữ và đậu tonka ,
-        được mô tả là 'lạnh và nóng, ngọt và cay, ánh sáng và bóng tối'. Khái niệm này được tạo ra dựa trên một câu chuyện đầy cảm hứng về tình yêu nồng nàn, với nhân vật chính là mùi hương của một người đàn ông mạnh mẽ, đam mê, tự tin, người có những tiếp xúc sâu sắc với cảm xúc của chính mình.
-        Olivier Pescheux là chuyên gia nước hoa đã tạo ra Versace Eros Flame, với mong muốn tạo ra một chàng chai Eros mới, bùng nổ hơn, có chiều sâu hơn, và đặc biệt trong trong trái tim của Eros, luôn có một ngọn lửa đam mê không bao giờ ngừng tắt, bùng cháy như Versace Eros Flame.";
-        $SP12->HinhAnh = "";
+        $SP12->MoTa = "Hương đầu: Quả chanh vàng, Cam Bergamot, Neroli, Hoa hồng tháng 5.
+        Hương giữa: Hoa lục bình, Gỗ tuyết tùng, Xô thơm, Hoa phong lữ.
+        Hương cuối: Đậu Tonka, Xạ hương, Amber.
+        Đến từ bàn tay của nhà điều hương được mệnh danh là “chuyên gia hương tươi” Alberto Morillas,
+        Versace Pour Homme đem tới cho phải mạnh một mùi hương Aromatic Fougere (Thảo mộc - Dương xỉ) nhẹ nhàng và đầy thanh lịch.
+        Versace Pour Homme mở đầu với hương thơm cam chanh sảng khoái, gây một chút liên tưởng tới sự mát mẻ của Acqua di Giò, nhưng tăng lên một chút hứng khởi trong thái độ của mùi hương. Xô thơm tươi,
+        xanh, sáng màu, đẩy lên một sắc thái nam tính rõ ràng theo một cách cổ điển kiểu thảo mộc cho mùi hương Versace Pour Homme. Trẻ trung, năng động nhưng cũng đủ cứng cáp và rắn rỏi.
+        Về hậu hương, chai nước hoa này đem tới cho các chàng trai một hương ngọt dịu bám lấy da dai dẳng hơn hẳn những gì chúng ta có với Acqua di Giò.
+        Như một lựa chọn không thể thiếu với nam giới vào những ngày oi bức, Versace Pour Homme là mùi hương được rất được ưa chuộng cho các anh đang bắt đầu tìm cho mình một mùi hương dễ chịu, dễ gần và đa dụng.";
+        $SP12->HinhAnh = "versace_pour_homme.jpeg";
         $SP12->LoaiKichCo = "KC01";
         $SP12->LoaiSanPham = "LSP01";
         $SP12->GhiChu = "";
-        $SP12->NguoiTao = "Hồ Thanh Phúc";
+        $SP12->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP12->save();
 
 
@@ -297,7 +299,7 @@ class SanPhamSeeder extends Seeder
         Hương cuối: Cỏ Vetiver, Gỗ Cashmeran
 
         Toy Boy là dòng nước hoa nam của thương hiệu Moschino mới được ra mắt vào năm 2019 và được thiết kế bởi giám đốc sáng tạo Jeremy Scott. Toy Boy diễn giải về một người đàn ông tự tin, năng động, đầy hoài bão và đam mê, nhưng không ngại thể hiện khía cạnh hóm hỉnh và hài hước của bản thân. Được chuyên gia nước hoa hàng đầu Yann Vasnier sáng tạo ra, Moschino Toy Boy thể hiện được đầy đủ sự tinh quái của ông cách tạo hương của ông, khi hương đầu là sự kết hợp mới lạ giữa sự tươi mát của Cam bergamot, trái lê và vị ấm nồng của hồng tiêu. Và mặc dù là nước hoa nam, trái tim của Toy Boy lại phủ đầy các note hương hoa đầy quyến rũ. Toy Boy thể hiện được sự trầm ngâm và nam tính nhất khi yên vị trên da ở tầng hương cuối, nơi có sự giao thoa mạnh mẽ giữa cỏ Vetiver và hương gỗ Cashmeran. Được đánh giá là một chai nước hoa khó phán đoán và xác định được các tầng hương cụ thể, Toy Boy còn gây ấn tượng mạnh với thiết kế đậm chất lạ của Moschino. ";
-        $SP13->HinhAnh = "";
+        $SP13->HinhAnh = "moschino.jpeg";
         $SP13->LoaiKichCo = "KC01";
         $SP13->LoaiSanPham = "LSP01";
         $SP13->GhiChu = "";
@@ -306,10 +308,10 @@ class SanPhamSeeder extends Seeder
 
         $SP14 = new SanPham();
         $SP14->MaSanPham = "SP00000015";
-        $SP14->TenSanPham = "Mr. Mr. Burberry Eau de Parfum Eau de Parfum";
+        $SP14->TenSanPham = "Mr. Mr. Burberry Eau de Parfum Eau de Toliet";
         $SP14->ThuongHieu ="Burberry" ;
         $SP14->TrangThai ="1" ;
-        $SP14->GiaTien ="2800000" ;
+        $SP14->GiaTien ="2400000" ;
         $SP14->MoTa = "Hương đầu: Bạch đậu khấu, Bạc hà, Lá ngải giấm.
         Hương giữa: Hoa oải hương, Nhục đậu khấu, Gỗ tuyết tùng.
         Hương cuối: Hoắc hương, Quế, Nhựa hổ phách, Nhựa hương Benzoin, Cỏ hương bài, Gỗ đàn hương.
@@ -319,7 +321,7 @@ class SanPhamSeeder extends Seeder
         Mr. Burberry EDP đem tới một mùi hương với phong cách cổ điển, và Burberry tự công nhận rằng nó không phải là một thứ hương mới lạ. Chỉ là Gỗ, Gia vị và Thảo mộc quen thuộc, nhưng được biến hóa để trở nên hiện đại và tươi mới hơn bằng những nguyên liệu được tuyển chọn kỹ lưỡng cùng bàn tay sáng tạo của bậc thầy Francis Kurkdjian. Mr. Burberry khởi đầu bằng một hỗn hợp hương Thảo mộc được hòa trộn mượt mà của Bạc hà và Ngải giấm, xen lẫn với hương Gia vị ấm áp của Quế, Bạch đậu khấu và Nhục đậu khấu. Chuyển đến tâm của mùi hương, Gỗ tuyết tùng tươi và sạch xuất hiện, làm nền cho hương Oải hương chững chạc nhưng gợi cảm, mang tới cho Mr. Burberry EDP một nét nam tính kiểu mùi hương Gỗ - Dương xỉ quen thuộc nhưng hiện đại, tươi mới và năng động. Khi mùi hương trôi dần về cuối, Mr. Burberry EDP dần dà chuyển hoàn toàn thành một quý ông trưởng thành và ấm áp, có chiều sâu hơn bằng Hoắc hương và Nhựa hương, cùng một chút ngọt ngậy dậy mùi của Gỗ đàn hương.
 
         Mang đậm dấu ấn cổ điển nhưng không cũ kỹ, Mr. Burberry EDP đại diện cho những quý ông trang trọng lịch lãm thời hiện đại, vừa nam tính kiểu cách phức tạp, nhưng không kém phần thanh thoát và tươi trẻ. ";
-        $SP14->HinhAnh = "";
+        $SP14->HinhAnh = "mrburberry.jpeg";
         $SP14->LoaiKichCo = "KC01";
         $SP14->LoaiSanPham = "LSP01";
         $SP14->GhiChu = "";
@@ -342,7 +344,7 @@ class SanPhamSeeder extends Seeder
         Mr. Burberry EDP đem tới một mùi hương với phong cách cổ điển, và Burberry tự công nhận rằng nó không phải là một thứ hương mới lạ. Chỉ là Gỗ, Gia vị và Thảo mộc quen thuộc, nhưng được biến hóa để trở nên hiện đại và tươi mới hơn bằng những nguyên liệu được tuyển chọn kỹ lưỡng cùng bàn tay sáng tạo của bậc thầy Francis Kurkdjian. Mr. Burberry khởi đầu bằng một hỗn hợp hương Thảo mộc được hòa trộn mượt mà của Bạc hà và Ngải giấm, xen lẫn với hương Gia vị ấm áp của Quế, Bạch đậu khấu và Nhục đậu khấu. Chuyển đến tâm của mùi hương, Gỗ tuyết tùng tươi và sạch xuất hiện, làm nền cho hương Oải hương chững chạc nhưng gợi cảm, mang tới cho Mr. Burberry EDP một nét nam tính kiểu mùi hương Gỗ - Dương xỉ quen thuộc nhưng hiện đại, tươi mới và năng động. Khi mùi hương trôi dần về cuối, Mr. Burberry EDP dần dà chuyển hoàn toàn thành một quý ông trưởng thành và ấm áp, có chiều sâu hơn bằng Hoắc hương và Nhựa hương, cùng một chút ngọt ngậy dậy mùi của Gỗ đàn hương.
 
         Mang đậm dấu ấn cổ điển nhưng không cũ kỹ, Mr. Burberry EDP đại diện cho những quý ông trang trọng lịch lãm thời hiện đại, vừa nam tính kiểu cách phức tạp, nhưng không kém phần thanh thoát và tươi trẻ. ";
-        $SP15->HinhAnh = "";
+        $SP15->HinhAnh = "mrburberry_edp.jpeg";
         $SP15->LoaiKichCo = "KC01";
         $SP15->LoaiSanPham = "LSP01";
         $SP15->GhiChu = "";
@@ -362,7 +364,7 @@ class SanPhamSeeder extends Seeder
         Hương giữa: phong lữ,oải hương, cây hương thảo
 
         Hương cuối: hoắc hương, gỗ, nhựa lababnum, đậu tonka";
-        $SP16->HinhAnh = "";
+        $SP16->HinhAnh = "gio_absolu_edp.jpeg";
         $SP16->LoaiKichCo = "KC01";
         $SP16->LoaiSanPham = "LSP01";
         $SP16->GhiChu = "";
@@ -385,7 +387,7 @@ class SanPhamSeeder extends Seeder
         Khác với những tiền bản trong bộ sưu tập D.g Pour Homme, LBF cho ra cảm giác mùi giống như vừa mới bổ ra một quả bưởi. Vỏ và phần thịt từ đó toé ra những tia nước li ti ra không khí mang theo cảm giác ngọt ngào, kèm chút vị the, đăng đắng dễ chịu. Nếu tinh ý, ta sẽ cảm nhận được chút cay nhẹ man mát,.
 
         Đúng như cái tên “light blue”. Đó là một khoảng hương mang đầy năng lượng, sảng khoái và sự bừng sáng sau lớp hương của Cam bưởi. Mùi thơm mát mẻ, airy của biển theo đánh giá là rất thật, không quá tanh, không quá hoá học bù lại là cái vibe sạch sẽ, nam tính. Sau cùng, LBF để lại trên làn da chút hương hoa, xạ hương trắng và gỗ (tại đây là Java Vetiver, khác với Haiti Vetiver nó sẽ đặc quánh hơn, ấm và có vị khói; trên thực tế, nốt hương này như chấm phá thêm nét độc đáo cho toàn thể mùi hương LBF).";
-        $SP17->HinhAnh = "";
+        $SP17->HinhAnh = "DG_light_blue.jpeg";
         $SP17->LoaiKichCo = "KC01";
         $SP17->LoaiSanPham = "LSP01";
         $SP17->GhiChu = "";
@@ -399,7 +401,7 @@ class SanPhamSeeder extends Seeder
         $SP18->TrangThai ="1" ;
         $SP18->GiaTien ="2300000" ;
         $SP18->MoTa = "Allure Homme Sport được tạo thành bởi Jacques Polge – nhà thiết kế nước hoa đại tài của Chanel. Ông là người đứng sau hàng loạt những mùi hương đình đám của Chanel như Coco Noir, Coco Mademoiselle, Chance Eau Fraiche hay Bleu de Chanel. Chai nước hoa nhỏ mang thiết kế khỏe khoắn và đầy tươi mới với thân chai tráng bạc, logo được in bằng chữ đen chắc khỏe, nắp nhựa đen tuyền được bao quanh bởi một vòng thép cũng góp phần tạo nên sự nam tính mạnh mẽ.";
-        $SP18->HinhAnh = "";
+        $SP18->HinhAnh = "allure_homme.jpeg";
         $SP18->LoaiKichCo = "KC01";
         $SP18->LoaiSanPham = "LSP01";
         $SP18->GhiChu = "";
@@ -413,11 +415,269 @@ class SanPhamSeeder extends Seeder
         $SP19->TrangThai ="1" ;
         $SP19->GiaTien ="2300000" ;
         $SP19->MoTa = "Allure Homme Sport Cologne Men EDT được tạo thành bởi Jacques Polge – nhà thiết kế nước hoa đại tài của Chanel. Ông là người đứng sau hàng loạt những mùi hương đình đám của Chanel như Coco Noir, Coco Mademoiselle, Chance Eau Fraiche hay Bleu de Chanel. Chai nước hoa nhỏ mang thiết kế khỏe khoắn và đầy tươi mới với thân chai tráng bạc, logo được in bằng chữ đen chắc khỏe, nắp nhựa đen tuyền được bao quanh bởi một vòng thép cũng góp phần tạo nên sự nam tính mạnh mẽ.";
-        $SP19->HinhAnh = "";
+        $SP19->HinhAnh = "Allure_Cologne.jpeg";
         $SP19->LoaiKichCo = "KC01";
         $SP19->LoaiSanPham = "LSP01";
         $SP19->GhiChu = "";
         $SP19->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP19->save();
+
+        $SP20 = new SanPham();
+        $SP20->MaSanPham = "SP00000021";
+        $SP20->TenSanPham = "Roja Parfums Elysium Pour Homme Parfum";
+        $SP20->ThuongHieu ="Roja" ;
+        $SP20->TrangThai ="1" ;
+        $SP20->GiaTien ="9900000" ;
+        $SP20->MoTa = "Hương chính: Hợp hương cam chanh, oải hương, hoa lan chuông, hoa hồng tháng năm, hoa nhài vùng Grasse, táo xanh, nho đen, tiêu hồng, quả bách xù, nhựa hương, da thuộc, long diên hương, xạ hương.
+        Kiệt tác thơm đương đại dành cho tuýp nam giới trẻ trung trưởng thành.
+        Elysium bản parfum thanh lịch, tràn trề nhiệt năng, và không che dấu bản năng dẫn dắt, lôi cuốn, dẫn đầu.
+        Thanh sạch hợp hương chanh tươi và sắc, kết hợp cùng tiêu hồng và quả bách xù, Elysium khơi gợi hiệu ứng thơm cocktail có base là vodka kèm gin rõ rệt. Hào hứng và hào sảng, hợp hương tươi tắn thanh sắc các loại quả có tép sực hương rượu tràn trề nhiệt năng, kết hợp cùng note hương da thuộc và long diên hương kiến tạo nên tuýp nam giới tích cực, hào hoa, lôi cuốn, và có gu.
+        ";
+        $SP20->HinhAnh = "Roja_parfume_elysium.jpeg";
+        $SP20->LoaiKichCo = "KC01";
+        $SP20->LoaiSanPham = "LSP05";
+        $SP20->GhiChu = "";
+        $SP20->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP20->save();
+
+        $SP21 = new SanPham();
+        $SP21->MaSanPham = "SP00000022";
+        $SP21->TenSanPham = "Ormonde Jayne QI Parfum";
+        $SP21->ThuongHieu ="Ormonde" ;
+        $SP21->TrangThai ="1" ;
+        $SP21->GiaTien ="6800000" ;
+        $SP21->MoTa = "Nước hoa này được lấy cảm hứng từ tình yêu của người dân Trung Hoa dành cho những mùi hương nhẹ nhàng và tinh tế nhất. Mùi hương của Qi mong manh như làn khói nhưng dai dẳng khôn nguôi. Không quá ồn ào kỳ vỹ, không làm tổn thương đến ai, nhưng sẽ làm vương vấn cho ai đó nếu vô tình chạm phải mùi hương này.
+
+        Qi không phá bỏ bất kỳ bức tường vĩ đại nào, mà là một thứ gì đó ngoạn mục hơn, giống như một bình minh tuyệt vời, một làn gió mỏng manh thơm nhẹ. Qi là một loại nước hoa tự nhiên, cởi mở, nhưng rất là thanh khiết. Nó tạo dấu ấn cho những ai không muốn quá rõ ràng nhưng có thể cảm thấy chưa hoàn thành nếu không có nó.
+
+        Qi có độ lưu hương lâu: 6 giờ đến 12 giờ và độ tỏa hương thuộc dạng rất xa: toả hương trong vòng bán kính trên 2 mét. Qi phù hợp để sử dụng trong cả ngày lẫn đêm vào mùa xuân, hạ. Bên cạnh đó, Trà và Hoa chanh vàng là hai hương bạn có thể dễ dàng cảm nhận được nhất khi sử dụng nước hoa này.";
+        $SP21->HinhAnh = "QI.jpeg";
+        $SP21->LoaiKichCo = "KC01";
+        $SP21->LoaiSanPham = "LSP05";
+        $SP21->GhiChu = "";
+        $SP21->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP21->save();
+
+        $SP22 = new SanPham();
+        $SP22->MaSanPham = "SP00000023";
+        $SP22->TenSanPham = "Roja Parfums Oceania Limited";
+        $SP22->ThuongHieu ="Roja" ;
+        $SP22->TrangThai ="1" ;
+        $SP22->GiaTien ="9900000" ;
+        $SP22->MoTa = "Vào năm 2009, thương hiệu nước hoa niche đắt tiền Roja Dove đã cho ra mắt nước hoa Roja Parfums Oceania Limited dành cho cả nam lẫn nữ trong sự hào hứng của các tín đồ về thương hiệu nước hoa này.
+
+        Roja Parfums Oceania Limited là một loại nước hoa thiên về sự trải nghiệm cảm xúc vô tận của đại dương, một hương vị biển được sáng tạo từ các nguyên liệu tự nhiên đắc giá. Oceania là mùi hương cởi mở, thoáng đãng, phù hợp dùng cho mọi hoàn cảnh, mọi điều kiện thời tiết. Kết cấu mùi được hoàn thiện tinh tế, chỉn chu, song có tính ứng dụng cao, rất được yêu thích bởi cả hai giới.";
+        $SP22->HinhAnh = "Roja_Oceania.jpeg";
+        $SP22->LoaiKichCo = "KC01";
+        $SP22->LoaiSanPham = "LSP05";
+        $SP22->GhiChu = "";
+        $SP22->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP22->save();
+
+
+        $SP23 = new SanPham();
+        $SP23->MaSanPham = "SP00000024";
+        $SP23->TenSanPham = "Diptyque Tam Dao EDP";
+        $SP23->ThuongHieu ="Diptyque" ;
+        $SP23->TrangThai ="1" ;
+        $SP23->GiaTien ="4350000" ;
+        $SP23->MoTa = "Một mùi hương thật đẹp, không cầu kỳ. Tamdao EDP hiện lên là mùi gỗ tinh khiết, trong trẻo, mát lạnh, hơi creamy một chút, pha lẫn trong đó là mùi hơi âm ẩm của rêu sồi. Cảm giác như trước mắt là một bức tường đá cổ kính, phủ trên đó là màu xanh cũ kĩ của rêu sồi, và phả vào ta là hơi sương sớm mát lạnh trong một khu rừng vậy.
+
+        Là nguồn hứng khởi được đong đếm bằng mùi hương, Diptyque Tam Dao EDP không đơn giản chỉ là nước hoa, mà nó chính là cảm xúc. Những cảm xúc đắt tiền.";
+        $SP23->HinhAnh = "Diptyque_tamdao.jpeg";
+        $SP23->LoaiKichCo = "KC01";
+        $SP23->LoaiSanPham = "LSP05";
+        $SP23->GhiChu = "";
+        $SP23->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP23->save();
+
+        $SP24 = new SanPham();
+        $SP24->MaSanPham = "SP00000025";
+        $SP24->TenSanPham = "Diptyque Do Son EDP";
+        $SP24->ThuongHieu ="Diptyque" ;
+        $SP24->TrangThai ="1" ;
+        $SP24->GiaTien ="3950000" ;
+        $SP24->MoTa = "Một mùi hương thật đẹp, không cầu kỳ. Tamdao EDP hiện lên là mùi gỗ tinh khiết, trong trẻo, mát lạnh, hơi creamy một chút, pha lẫn trong đó là mùi hơi âm ẩm của rêu sồi. Cảm giác như trước mắt là một bức tường đá cổ kính, phủ trên đó là màu xanh cũ kĩ của rêu sồi, và phả vào ta là hơi sương sớm mát lạnh trong một khu rừng vậy.
+
+        Là nguồn hứng khởi được đong đếm bằng mùi hương, Diptyque Do Son EDP không đơn giản chỉ là nước hoa, mà nó chính là cảm xúc. Những cảm xúc đắt tiền.";
+        $SP24->HinhAnh = "Diptyque_doson.jpeg";
+        $SP24->LoaiKichCo = "KC01";
+        $SP24->LoaiSanPham = "LSP05";
+        $SP24->GhiChu = "";
+        $SP24->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP24->save();
+
+        $SP25 = new SanPham();
+        $SP25->MaSanPham = "SP00000026";
+        $SP25->TenSanPham = "Byredo Sunday Cologne EDP";
+        $SP25->ThuongHieu ="Byredo" ;
+        $SP25->TrangThai ="1" ;
+        $SP25->GiaTien ="2650000" ;
+        $SP25->MoTa = "Hương chính: Cam bergamot, Cỏ hương bài và hoa tím
+        Một quý ông đĩnh đạc và lịch thiệp, một quý cô kiêu kì và quyến rũ. Đó như là mặt nạ mà ai cũng phải mang ngoài xã hội.
+        Về nhà, chúng ta chỉ mưu cầu sự thư giãn và là chính mình. Ngày Chủ Nhật là ngày duy nhất trong tuần mà chúng ta hoàn toàn có thể buông thả mọi thứ để tìm đến sự nhẹ nhàng và an yên.";
+        $SP25->HinhAnh = "Byredo_Sunday.jpeg";
+        $SP25->LoaiKichCo = "KC01";
+        $SP25->LoaiSanPham = "LSP05";
+        $SP25->GhiChu = "";
+        $SP25->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP25->save();
+
+        $SP26 = new SanPham();
+        $SP26->MaSanPham = "SP00000027";
+        $SP26->TenSanPham = "Byredo Pulp EDP EDP";
+        $SP26->ThuongHieu ="Byredo" ;
+        $SP26->TrangThai ="1" ;
+        $SP26->GiaTien ="2650000" ;
+        $SP26->MoTa = "PULP được biết đến như một đại sứ thương hiệu cho nhà Byredo. Khi nhắc tới Byredo, không thể không nhắc đến PULP-đại diện cho hương nước hoa trái cây với vẻ đẹp về mùi hương cũng như sự toàn vẹn cho khướu giác.
+        PULP xứng đáng là một chai nước hoa mang cảm giác tươi mát như ly cocktail cho những ngày hè oi ả. Mở đầu bằng hỗn hợp trái cây ngọt ngào Cam bergamot, Bạch đậu khấu và quả Lý chua đen, một chút e thẹn và ngại ngùng. Nhưng điều đấy lại làm PULP trở nên mạnh mẽ, muốn thể hiện mình ở những nốt chính của quả sung, một ít sự hào sảng của táo đỏ và hoa Tiare.";
+        $SP26->HinhAnh = "Byredo_Pulp.jpeg";
+        $SP26->LoaiKichCo = "KC01";
+        $SP26->LoaiSanPham = "LSP05";
+        $SP26->GhiChu = "";
+        $SP26->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP26->save();
+
+        $SP27 = new SanPham();
+        $SP27->MaSanPham = "SP00000028";
+        $SP27->TenSanPham = "Amouage Interlude 53 Man Extrait EDP";
+        $SP27->ThuongHieu ="Amouage" ;
+        $SP27->TrangThai ="1" ;
+        $SP27->GiaTien ="4790000" ;
+        $SP27->MoTa = "Với những người yêu hương, hẳn không ai không biết tới sáng tạo mang tính biểu tượng nhất của Amouage - Interlude Man.
+
+        Sau 8 năm phát hành và tạo được tiếng vang lớn, Amouage đã quyết định nâng cấp Interlude lên một tầm cao mới . Đây thực sự là một quyết định táo bạo và đầy mạo hiểm bởi khi Interlude Man đã quá thành công thì nâng cấp lên một phiên bản khác đậm đặc hơn liệu có khiến nó thoát khỏi cái bóng của bản gốc và vượt lên tạo được một bước tiến vang dội";
+        $SP27->HinhAnh = "Amouage_interlude53.jpeg";
+        $SP27->LoaiKichCo = "KC01";
+        $SP27->LoaiSanPham = "LSP05";
+        $SP27->GhiChu = "";
+        $SP27->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP27->save();
+
+        $SP28 = new SanPham();
+        $SP28->MaSanPham = "SP00000029";
+        $SP28->TenSanPham = "Kilian Angels' Share EDP";
+        $SP28->ThuongHieu ="Kilian" ;
+        $SP28->TrangThai ="1" ;
+        $SP28->GiaTien ="4790000" ;
+        $SP28->MoTa = "Angel's Share mang chúng ta đến với một quầy bar cổ điển trên một con đường của đất nước Pháp xinh đẹp. Bước vào quán ta có thể dễ dàng cảm nhận hương rượu Cognac thoang thoảng. Ngồi xuống và người bartender nhanh chóng đưa cho bạn một ly rượu, đó là một ly Brabdy mix Smoke, là sự pha trộn của Cognac, quế ấm nồng, vanille ngọt thanh thoát và gỗ sáng rực rỡ. Thưởng thức vị ngon ấy làm cho tâm hồn bạn bỗng trở nên ấm áp trong cái lạnh khi cơn gió mùa thu đông đã kéo về.";
+        $SP28->HinhAnh = "Angel_share.jpg";
+        $SP28->LoaiKichCo = "KC01";
+        $SP28->LoaiSanPham = "LSP06";
+        $SP28->GhiChu = "";
+        $SP28->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP28->save();
+
+        $SP29 = new SanPham();
+        $SP29->MaSanPham = "SP00000030";
+        $SP29->TenSanPham = "Louis Vuitton Spell On You EDP";
+        $SP29->ThuongHieu ="Louis Vuitton" ;
+        $SP29->TrangThai ="1" ;
+        $SP29->GiaTien ="8790000" ;
+        $SP29->MoTa = "Louis Vuitton Spell On You là thành viên mới nhất được ra mắt trong BST Les Parfum của thương hiệu Louis Vuitton. Nhà sáng tạo gửi gắm mùi hương này đến với mọi cô gái ngày nay. Nó dành tặng cho các nàng một sự quyến rũ khó diễn tả, hương thơm tỏa ra sức quyến rũ mạnh mẽ. Louis Vuitton Spell On You giống như một câu thần chú phù phép lên cơ thể nàng. Câu thần chú này mang mùi hương vừa tinh tế lại vừa mê hoặc bởi hỗn hợp mùi hương đến từ nhóm hương hoa cỏ. Tạo nên một người phụ nữ vừa lãng mạn, nhẹ nhàng vừa lại là người yêu cái đẹp và thích chinh phục.";
+        $SP29->HinhAnh = "LV_Spell_On_You.jpeg";
+        $SP29->LoaiKichCo = "KC01";
+        $SP29->LoaiSanPham = "LSP06";
+        $SP29->GhiChu = "";
+        $SP29->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP29->save();
+
+        $SP30 = new SanPham();
+        $SP30->MaSanPham = "SP00000031";
+        $SP30->TenSanPham = "Kilian Rose On Ice EDP";
+        $SP30->ThuongHieu ="Kilian" ;
+        $SP30->TrangThai ="1" ;
+        $SP30->GiaTien ="4790000" ;
+        $SP30->MoTa = "Kilian Rose On Ice quả thật xứng đáng, rất xứng đáng để trông chờ là đằng khác bởi tính phức tạp trong cách cấu thành mùi hương. Bởi khi đi đến tầng hương thứ hai, màn sương như biến mất, thay vào đó tôi lại mường tượng đến hình ảnh một thiếu nữ. Tôi không gọi đây là người phụ nữ, bởi mùi hương Hoa hồng lần này lại trẻ trung đến lạ, ấy thế, thiếu nữ trong Kilian Rose On Ice không hoạt bát, không hồn nhiên cũng không ngây thơ nốt, mà mang mác một nét trầm tư. Hay tôi phải gọi đúng hơn là nàng có đôi mắt buồn và thăm thẳm.";
+        $SP30->HinhAnh = "Rose_on_ice.jpeg";
+        $SP30->LoaiKichCo = "KC01";
+        $SP30->LoaiSanPham = "LSP06";
+        $SP30->GhiChu = "";
+        $SP30->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP30->save();
+
+        $SP31 = new SanPham();
+        $SP31->MaSanPham = "SP00000032";
+        $SP31->TenSanPham = "Tom Ford Bitter Peach EDP";
+        $SP31->ThuongHieu ="Tom Ford" ;
+        $SP31->TrangThai ="1" ;
+        $SP31->GiaTien ="4250000" ;
+        $SP31->MoTa = "Tom Ford Bitter Peach mang đến cho người thưởng thức hương vị đào ngọt ngào chín mọng nước, kết hợp cùng vị chua của ca làm tăng cường sự cân bằng giữa ngọt và chua trong một mùi hương. Thành phần dầu davana pha trong rượu rum và bạch đậu khấu tạo thêm sự ấm áp cho hương thơm. Mùi hương phóng khoáng, bí ẩn của tinh dầu hoắc hương và sang trọng thanh lịch hơn với mùi gỗ đàn hương. Nốt hương cuối cùng là sự xuất hiện của gỗ và vani, một điểm nhấn đặc trưng có trong rất nhiều hương thơm khác của nhà Tom Ford. ";
+        $SP31->HinhAnh = "TF_bitter.jpg";
+        $SP31->LoaiKichCo = "KC01";
+        $SP31->LoaiSanPham = "LSP06";
+        $SP31->GhiChu = "";
+        $SP31->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP31->save();
+
+        $SP32 = new SanPham();
+        $SP32->MaSanPham = "SP00000033";
+        $SP32->TenSanPham = "Tom Ford Rose Trick EDP";
+        $SP32->ThuongHieu ="Tom Ford" ;
+        $SP32->TrangThai ="1" ;
+        $SP32->GiaTien ="4250000" ;
+        $SP32->MoTa = "Hương đầu: Tiêu Tứ Xuyên, Củ nghệ.
+        Hương giữa: Hoa hồng tháng Năm, Hoa hồng Bulgaria, Hoa hồng Thổ Nhĩ Kỳ.
+        Hương cuối: Hoắc hương, Đậu Tonka.
+        Hoa hồng đẹp và kiêu kỳ nên thường được cưng chiều gọi bằng cái tên điệu đà và mỹ miều là Nữ hoàng của các loài hoa. Cũng giống với việc mỗi vương quốc chỉ có một nữ hoàng, ta thường chỉ gặp một loại Hoa hồng trong một chai nước hoa, rằng mùi hương đó như địa hạt mà bông Hồng cai trị.";
+        $SP32->HinhAnh = "TF_rose.jpeg";
+        $SP32->LoaiKichCo = "KC01";
+        $SP32->LoaiSanPham = "LSP06";
+        $SP32->GhiChu = "";
+        $SP32->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP32->save();
+
+        $SP33 = new SanPham();
+        $SP33->MaSanPham = "SP00000034";
+        $SP33->TenSanPham = "Parfums de Marly Cassili Royal Essence";
+        $SP33->ThuongHieu ="Parfums de Marly" ;
+        $SP33->TrangThai ="1" ;
+        $SP33->GiaTien ="5550000" ;
+        $SP33->MoTa = "Hương đầu: Nho đỏ, hoa hồng Bulgari, hoa trắng
+        Hương giữa: hoa mimosa, hoa đại, hương petalia.
+        Hương cuối: gỗ đàn hương, vỏ vanilla, đậu tonka
+        Parfums De Marly Cassili Royal Essence EDP là hương thơm mới vừa được ra mắt vào 2019 từ thương hiệu nước hoa đình đám Thế Giới mà các tín đồ yêu hương gọi đây là thứ mùi sang chảnh mà bất kỳ ai cũng từng bắt gặp trong tất cả các khách sạn Năm Sao”, gặp một lần là nhớ nhung mê luyến không dứt được.";
+        $SP33->HinhAnh = "PDM_cassili.jpeg";
+        $SP33->LoaiKichCo = "KC01";
+        $SP33->LoaiSanPham = "LSP06";
+        $SP33->GhiChu = "";
+        $SP33->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP33->save();
+
+        $SP34 = new SanPham();
+        $SP34->MaSanPham = "SP00000035";
+        $SP34->TenSanPham = "Kilian Rolling In Love EDP";
+        $SP34->ThuongHieu ="Kilian" ;
+        $SP34->TrangThai ="1" ;
+        $SP34->GiaTien ="5250000" ;
+        $SP34->MoTa = "Hương đầu: Cây vông vang, Hạnh nhân
+        Hương giữa: Lan nam phi, Diên vĩ
+        Hương cuối: Vanilla, Xạ hương, Đậu tonka, Hoa vòi voi
+        Rolling In Love nói cho tròn nghĩa, từng tầng hương thể hiện từng giai đoạn của chúng ta mỗi khi yêu. Nếu tầng hương đầu khởi sắc đầy phá cách, bùng nổ những tông vị ngọt sắc, thì tầng hương giữa lại dịu dàng, nền nã hơn bao giờ hết. Yêu một ai đủ lâu, ta ắt sẽ muốn tìm thấy bình yên khi ở bên cạnh họ. Cho đến tầng hương cuối, tình yêu lại trở nên mặn nồng và sắc nét nhất khi được là tâm giao với đúng người, đúng thứ mình yêu.";
+        $SP34->HinhAnh = "Kilian_RIL.jpeg";
+        $SP34->LoaiKichCo = "KC01";
+        $SP34->LoaiSanPham = "LSP06";
+        $SP34->GhiChu = "";
+        $SP34->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP34->save();
+
+        $SP35 = new SanPham();
+        $SP35->MaSanPham = "SP00000036";
+        $SP35->TenSanPham = "Parfums De Marly Delina EDP";
+        $SP35->ThuongHieu ="Parfums De Marly" ;
+        $SP35->TrangThai ="1" ;
+        $SP35->GiaTien ="4850000" ;
+        $SP35->MoTa = "HHương đầu: Cam Bergamot, Cây đại hoàng, Quả vải
+        Hương giữa: Hoa hồng Thổ Nhĩ Kỳ, Hoa mẫu đơn, Xạ hương
+        Hương cuối: Hương Cashmeran, Gỗ tuyết tùng
+        Nước hoa Parfums de Marly Delina cũng không phải ngoại lệ, Cô nàng kiêu kỳ này được tạo ra bởi chuyên gia nước hoa hàng đầu Quentin Bisch, một bậc kỳ tài trong việc đưa những cảm xúc lịch sử, kết hợp với những nguyên liệu cao quý và tạo ra những dòng nước hoa sang trọng, quý phái đến khó tin.
+        Delina gây ấn tượng đầu tiên với Hoa hồng Thổ Nhĩ Kỳ, tựa như một điệu nhảy mê hoặc khứu giác,
+        ngập tràn sự đam mê cùng Hoa mẫu đơn và sự ngọt ngào của Trái vải. Sự bí ẩn và kiêu kỳ ẩn hiện dưới sự giao thoa của Xạ hương cùng hương Cashmeran, khiến mọi ánh mắt phải dừng lại chỉ vì muốn được ngắm cô nàng Delina lâu hơn một chút nữa. ";
+        $SP35->HinhAnh = "PDM_delina.jpeg";
+        $SP35->LoaiKichCo = "KC01";
+        $SP35->LoaiSanPham = "LSP06";
+        $SP35->GhiChu = "";
+        $SP35->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP35->save();
     }
 }

@@ -23,6 +23,10 @@ class KhachHangController extends Controller
         return view('layouts.tai-khoan.dang-ky');
     }
 
+
+    public function quenMatKhauView(){
+        return view('layouts.tai-khoan.quen-mat-khau');
+    }
     public function themKhachHang(Request $request){
         $newuser =  new User();
         $newuser->name = $request->HoTen;

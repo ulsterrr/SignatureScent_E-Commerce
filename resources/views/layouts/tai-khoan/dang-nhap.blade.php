@@ -41,7 +41,7 @@
                                     </label>
                                 </p>
                                 <p class="woocommerce-LostPassword lost_password">
-                                    <a href="tai-khoan/lost-password/">Quên mật khẩu?</a>
+                                    <a href="{{ route('quenMatKhauView') }}">Quên mật khẩu?</a>
                                 </p>
 
                                 <p class="woocommerce-LostPassword lost_password">
