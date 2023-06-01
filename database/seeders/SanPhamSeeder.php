@@ -222,21 +222,16 @@ class SanPhamSeeder extends Seeder
 
         $SP10 = new SanPham();
         $SP10->MaSanPham = "SP0000011";
-        $SP10->TenSanPham = "Narciso Eau de Parfum Cristal";
-        $SP10->ThuongHieu ="Narciso" ;
+        $SP10->TenSanPham = "Lancome La Vie Est Belle EDP";
+        $SP10->ThuongHieu ="Lancome" ;
         $SP10->TrangThai ="1" ;
-        $SP10->GiaTien ="265000" ;
-        $SP10->MoTa = "Hương đầu: Hoa lan Nam Phi, Hoa cam, Cam bergamot
-        Hương giữa: Xạ hương, Hoa trắng, Hoa hồng, Hoa nhài
-        Hương cuối: Len cashmere, Gỗ tuyết tùng, Hổ phách, Benzoin
-
-        Narciso Eau de Parfum Cristal từ giây phút đầu tiên tiếp xúc đã gây ấn tượng với người dùng về sự phức tạp trong mùi hương. Lớp hương này chồng lên lớp hương kia, loài hoa này đan xen với loài hoa kia. Cảm giác bối rối là dễ hiểu, và sự băn khoăn không biết phải miêu tả hương thơm này như thế này, cũng là dễ hiểu nốt. Để ví von cho nhanh thì chỉ có thể nói Cristal là một khu vườn um tùm hoa lá, thoạt nhiên không thể đếm hết các màu sắc hiện hữu trong không gian, nhưng chính vì thế mà chúng trở nên thật đặc biệt và đẹp đẽ.
-
-        Tôi cũng không muốn bóc tách từng hương hoa một, ngộ nhỡ làm mất đi vẻ đặc sắc vốn có của Cristal. Mà tôi chỉ biết nói rằng âm hưởng của các nét hương Hoa có trầm có bổng, có thanh có đậm. Những khi hương thơm có phần sắc lại, đanh và nồng nàn, bạn có thể nói rằng khi ấy có sự xuất hiện của Hoa nhài, hoa lan Nam Phi và Hoa cam. Và khi hương thơm mềm mại lại và miên man hơn, khi ấy hẳn Hoa hồng và Xạ hương đã tự mình kết hợp và ngát hương.
-
-        Khu vườn mà Cristal tạo nên cũng không thiếu những khía cạnh khô hăng của Gỗ tuyết tùng, và cũng không thiếu nét hương man mát, the cay của Cam bergamot. Cứ như vậy, tất cả những nét vị ấy trộn lẫn vào nhau, ăn nhập và hoà quyện ăn ý.";
-        $SP10->HinhAnh = "Cristal.jpg";
-        $SP10->LoaiKichCo = "KC10";
+        $SP10->GiaTien ="2950000" ;
+        $SP10->MoTa = "Hương đầu: nho đen Hy Lạp, quả lê
+        Hương giữa: hoa Iris, hoa nhài, hoa cam
+        Hương cuối: hoắc hương, đậu Tonka, hương vani, kẹo hạnh nhân
+        La Vie Est Belle một hương thơm mới vừa ra đời trong mùa thu năm 2012 bởi thương hiệu nổi tiếng Lancôme mang đến sự tự do, hạnh phúc cho phái đẹp. Với khẩu hiệu “Mang đến sự tự tin cho phụ nữ vì họ xứng đáng được như thế”, La Vie Est Belle là một trong 10 sản phẩm bán chạy nhất trên thị trường nước hoa năm 2 năm trở lại đây.";
+        $SP10->HinhAnh = "LaVieEst.jpg";
+        $SP10->LoaiKichCo = "KC01";
         $SP10->LoaiSanPham = "LSP02";
         $SP10->GhiChu = "";
         $SP10->NguoiTao = "hothanhphuc2468@gmail.com";
@@ -259,7 +254,7 @@ class SanPhamSeeder extends Seeder
 
         Thương hiệu tuyên bố rằng họ muốn sáng tạo nên một phiên bản khác của những dòng nước hoa trước đó từ bộ sưu tập Jean Paul Gaultier mà vẫn tôn trọng DNA nổi tiếng của thương hiệu với mục tiêu là tạo ra thứ gì đó chất chơi hơn, gợi cảm và vui nhộn hơn, từ chai nước hoa đến chiến dịch quảng cáo.";
         $SP11->HinhAnh = "so_scandal.jpg";
-        $SP11->LoaiKichCo = "KC10";
+        $SP11->LoaiKichCo = "KC01";
         $SP11->LoaiSanPham = "LSP02";
         $SP11->GhiChu = "";
         $SP11->NguoiTao = "hothanhphuc2468@gmail.com";
@@ -661,23 +656,134 @@ class SanPhamSeeder extends Seeder
         $SP34->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP34->save();
 
-        $SP35 = new SanPham();
-        $SP35->MaSanPham = "SP00000036";
-        $SP35->TenSanPham = "Parfums De Marly Delina EDP";
-        $SP35->ThuongHieu ="Parfums De Marly" ;
-        $SP35->TrangThai ="1" ;
-        $SP35->GiaTien ="4850000" ;
-        $SP35->MoTa = "HHương đầu: Cam Bergamot, Cây đại hoàng, Quả vải
-        Hương giữa: Hoa hồng Thổ Nhĩ Kỳ, Hoa mẫu đơn, Xạ hương
-        Hương cuối: Hương Cashmeran, Gỗ tuyết tùng
-        Nước hoa Parfums de Marly Delina cũng không phải ngoại lệ, Cô nàng kiêu kỳ này được tạo ra bởi chuyên gia nước hoa hàng đầu Quentin Bisch, một bậc kỳ tài trong việc đưa những cảm xúc lịch sử, kết hợp với những nguyên liệu cao quý và tạo ra những dòng nước hoa sang trọng, quý phái đến khó tin.
-        Delina gây ấn tượng đầu tiên với Hoa hồng Thổ Nhĩ Kỳ, tựa như một điệu nhảy mê hoặc khứu giác,
-        ngập tràn sự đam mê cùng Hoa mẫu đơn và sự ngọt ngào của Trái vải. Sự bí ẩn và kiêu kỳ ẩn hiện dưới sự giao thoa của Xạ hương cùng hương Cashmeran, khiến mọi ánh mắt phải dừng lại chỉ vì muốn được ngắm cô nàng Delina lâu hơn một chút nữa. ";
-        $SP35->HinhAnh = "PDM_delina.jpeg";
-        $SP35->LoaiKichCo = "KC01";
-        $SP35->LoaiSanPham = "LSP06";
-        $SP35->GhiChu = "";
-        $SP35->NguoiTao = "hothanhphuc2468@gmail.com";
-        $SP35->save();
+        $SP36 = new SanPham();
+        $SP36->MaSanPham = "SP00000036";
+        $SP36->TenSanPham = "Moschino Toy 2 EDP";
+        $SP36->ThuongHieu ="Moschino" ;
+        $SP36->TrangThai ="1" ;
+        $SP36->GiaTien ="1500000" ;
+        $SP36->MoTa = "Moschino Toy 2 EDP
+
+        Nếu bạn đang tìm một chai nước hoa ăn điểm cả về ngoại hình lẫn mùi hương, thì MOSCHINO TOY 2 là một lựa chọn khá chính xác đấy!!
+
+         TOY 2 là một phiên bản mới được MOSCHINO giới thiệu vào năm 2018 sau thành công của chai nước hoa TOY vào 4 năm trước.
+
+         Như một phiên bản nâng cấp hơn, TOY 2 xuất hiện với ngoại hình cực kì bắt mắt: chú gấu thủy tinh với phần thân trong suốt và chiếc đầu nhỏ nhắn như đang ôm trọn lấy phần chai nước hoa còn lại. ";
+        $SP36->HinhAnh = "moschino_toy2.jpeg";
+        $SP36->LoaiKichCo = "KC01";
+        $SP36->LoaiSanPham = "LSP02";
+        $SP36->GhiChu = "";
+        $SP36->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP36->save();
+
+        $SP37 = new SanPham();
+        $SP37->MaSanPham = "SP00000037";
+        $SP37->TenSanPham = "Thierry Mugler Alien EDP";
+        $SP37->ThuongHieu ="Thierry Mugler" ;
+        $SP37->TrangThai ="1" ;
+        $SP37->GiaTien ="2750000" ;
+        $SP37->MoTa = " Alien với thân chai được làm bằng thủy tinh mang màu tím sẫm lạ mắt, kết hợp với viền trang trí quanh thân chai màu vàng cùng dòng chữ 'Alien'
+        với font chữ lạ mắt như một loại bùa chú nào đó. Dễ dàng khiến người nhìn thu hút và liên tưởng ngay đến một viên đá quý đầy quyền lực của các phù thủy cổ xưa,
+         hay một loại đá phép thuật huyền ảo và lạ kì.  Hương thơm của Alien đơn giản và độc đáo chỉ với 3 note hương chính hòa vào nhau: hoa nhài, hổ phách và hương gỗ.
+         Hương thơm quyến rũ và bí ẩn của Alien bắt đầu với một chút nồng nàn mùi hoa nhài và hổ phách, để rồi tạo nên sự thu hút hơn khi các note hương vơi bớt. Để lại trên da một làn hương dịu nhẹ, dễ chịu nhưng vẫn độc lạ.";
+        $SP37->HinhAnh = "Alien.jpeg";
+        $SP37->LoaiKichCo = "KC01";
+        $SP37->LoaiSanPham = "LSP02";
+        $SP37->GhiChu = "";
+        $SP37->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP37->save();
+
+        $SP38 = new SanPham();
+        $SP38->MaSanPham = "SP00000038";
+        $SP38->TenSanPham = "Armaf Club De Nuit Women EDP";
+        $SP38->ThuongHieu ="Armaf" ;
+        $SP38->TrangThai ="1" ;
+        $SP38->GiaTien ="850000" ;
+        $SP38->MoTa = "Club De Nuit Women của nhã hiệu nước hoa Armaf là một mùi hương nước hoa thuộc nhóm hương trái cây dành cho nữ. Hương đầu là cam bergamot, bưởi, đào, cam. Nốt hương giữa là sự hòa trộn tinh tế của hoa phong lữ, hoa nhài, hoa hồng và vải thiều. Nốt hương cuối là hoắc hương, xạ hương, vanilla và cỏ vertiver. Hương thơm này được các chuyên gia đánh giá tương tự như đàn chị Chanel Coco Mademoiselle đã lừng danh bấy lâu này, nhưng giá cả chỉ bằng 1/3. ";
+        $SP38->HinhAnh = "CDN.jpeg";
+        $SP38->LoaiKichCo = "KC01";
+        $SP38->LoaiSanPham = "LSP02";
+        $SP38->GhiChu = "";
+        $SP38->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP38->save();
+
+        $SP39 = new SanPham();
+        $SP39->MaSanPham = "SP00000039";
+        $SP39->TenSanPham = "Narciso Rodriguez For Her EDP";
+        $SP39->ThuongHieu ="Narciso Rodriguez" ;
+        $SP39->TrangThai ="1" ;
+        $SP39->GiaTien ="3450000" ;
+        $SP39->MoTa = "Narciso Rodriguez For Her – Khi nước hoa mang mùi hương da thịt ✨
+        🌸 Đã từng được nhắc đến cách đây không lâu trong các bài viết của Chietnuochoa, đặc điểm chung của các dòng nước hoa nhà Narciso là note xạ hương không thể nhầm lẫn. Và trong số đó, Narciso Rodriguez For Her (EDP) là được đánh giá là hương xạ nổi bật nhất, ma mị và quyến rũ hơn so với các phiên bản Narciso trước và sau nó.
+        🌸 Không dành cho các cô gái trẻ còn ngây thơ trong sáng, xạ hương của Narciso thấm đẫm vị ái tình, là hương thơm trên da người phụ nữ từng trải và hoang dại. Thoang thoảng hoa hồng kết hợp cùng vị đào xen lẫn, những note hương đầu tiên như vẫn còn e ấp phấn son. Nhưng khi mùi đào qua đi rồi, những gì còn lại trên da chỉ là hoa hồng thơm ngát và xạ hương quyến rũ. Được xử lý rất khéo nên xạ hương của Narciso EDP không gây cho người đối diện cảm giác ngột ngạt, đó là mùi xạ hương được quện chặt vào da và thơm như chính mùi da thịt vậy, nhưng tinh tế và nữ tính hơn rất nhiều. Do đó, lọ nước hoa nhiều lần được bình chọn là mùi hương thích hợp nhất để dùng khi đi hẹn hò. Còn gì bằng một buổi tối se lạnh, bôi một chút Narciso ở cổ tay và trao nhau những lời yêu thương mật ngọt. Hương hoa hồng xen lẫn xạ hương dịu dàng mà vẫn quyến rũ như dư vị của một nụ hôn 💋";
+        $SP39->HinhAnh = "Narforher.jpeg";
+        $SP39->LoaiKichCo = "KC01";
+        $SP39->LoaiSanPham = "LSP02";
+        $SP39->GhiChu = "";
+        $SP39->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP39->save();
+
+        $SP40 = new SanPham();
+        $SP40->MaSanPham = "SP00000040";
+        $SP40->TenSanPham = "Narciso Rodriguez Musc Noir Rose EDP";
+        $SP40->ThuongHieu ="Narciso Rodriguez" ;
+        $SP40->TrangThai ="1" ;
+        $SP40->GiaTien ="2700000" ;
+        $SP40->MoTa = "Trước khi nói thêm điều gì về Musc Noir Rose, thì ta phải nhấn mạnh rằng, dù mang cái tên Rose, nhưng ấn phẩm mùi hương này từ nhà Narciso lại không hề chưng cất chút tinh chất nào của Hoa hồng. Mà đúng hơn, Rose ở đây ám chỉ cho sắc hồng qua ánh nhìn của người thiếu nữ, và cũng là tông màu chủ đạo cho thiết kế chai.
+        Ấy vậy, khi đào sâu hơn về ý nghĩa của mùi hương, bóc tách từng lớp, ta sẽ thật sự nhận ra với khứu giác tinh tường của mình, rằng những cá thể đơn lẻ khi hợp lại sẽ tạo nên thứ hương bồng bềnh, vui tươi và dễ yêu như chính sắc hồng mà Musc Noir Rose mang.
+        Nó là kết tinh của chút ngọt thanh của Mận, hoà vào vẻ thanh tao, nhã nhặn của Cam Bergamot và Tiêu Hồng. Hít một hơi thật sâu, và sự miên man, đậm đà của Hoa Huệ đã ở đó. Chúng va vào nhau, ăn nhập và bung toả nét đẹp phương phi khó tả. Chọn kết thúc hành trình hương sắc của mình với Vanilla và Da thuộc, vị ngọt đẫm hương phấn quyện cùng vị ngọt day dặn đầy xác thịt, Musc Noir Rose cuối cùng để lại cho người ta cái cảm giác bồng bềnh, lãng đãng khó quên ";
+        $SP40->HinhAnh = "Nar_MNoir.jpeg";
+        $SP40->LoaiKichCo = "KC01";
+        $SP40->LoaiSanPham = "LSP02";
+        $SP40->GhiChu = "";
+        $SP40->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP40->save();
+
+        $SP41 = new SanPham();
+        $SP41->MaSanPham = "SP00000041";
+        $SP41->TenSanPham = "Christian Dior Joy Intense EDP";
+        $SP41->ThuongHieu ="Christian Dior" ;
+        $SP41->TrangThai ="1" ;
+        $SP41->GiaTien ="3150000" ;
+        $SP41->MoTa = "🌸 JOY BY DIOR - HẠNH PHÚC CÓ HƯƠNG GÌ?? 🌸
+
+        ✨ Tiếp nối thành công của Dior Joy, vào giữa năm 2019 này Christian Dior tiếp tục cho ra mắt một phiên bản nâng cấp hơn của Dior Joy. Sâu sắc hơn, nữ tính hơn, đậm đà hơn, đó là Dior Joy Intense. Với phong cách gợi cảm, lãng mạn, tươi sáng và thanh lịch cho người dùng, Joy Intense by Dior hứa hẹn là một mùi hương không thể bỏ qua của các tín đồ nước hoa. Cập nhật cùng xu hướng thế giới, Chietnuochoa vừa về lọ nước hoa nhỏ màu hồng phấn xinh xắn này, vội vàng làm một quick review đến với các khách hàng thân thiết của shop 😌
+
+        - “Hạnh phúc có hương của gì? Của hoa hồng cánh mỏng mới cắt từ vườn quê, của trái cam mới bổ đôi tứa nước, của gỗ ấm và xạ hương nồng thủ thỉ gần nhau đi thế vẫn còn xa lắm...” - Blogger Nàng Thơ viết về JOY.";
+        $SP41->HinhAnh = "Dior_Joy.jpeg";
+        $SP41->LoaiKichCo = "KC01";
+        $SP41->LoaiSanPham = "LSP02";
+        $SP41->GhiChu = "";
+        $SP41->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP41->save();
+
+        $SP42 = new SanPham();
+        $SP42->MaSanPham = "SP00000042";
+        $SP42->TenSanPham = "Valentino Uomo EDT";
+        $SP42->ThuongHieu ="Valentino" ;
+        $SP42->TrangThai ="1" ;
+        $SP42->GiaTien ="2450000" ;
+        $SP42->MoTa = "Lấy cảm hứng từ một ngày nắng đẹp tại Venice – thành phố màu nhiệm nhất châu Âu với vẻ đẹp lãng mạn đến mê mẩn, nước hoa Valentino Uomo EDT 100ml được Valentino tạo nên như một dấu ấn dành cho phái mạnh. Ý tưởng sáng tạo nên Valentino Uomo Eau De Toilette hướng tới đấng mày râu theo đuổi phong cách cổ điển và đơn giản. Hương thơm chất lượng, liên hệ mật thiết với những “siêu phẩm” thời trang từ Valentino. Quảng bá cho dòng sản phẩm đình đám này, địa điểm lý tưởng được lựa chọn chính là Rome – thành phố vĩnh hằng tại Ý.";
+        $SP42->HinhAnh = "Valentino_uomo.jpeg";
+        $SP42->LoaiKichCo = "KC01";
+        $SP42->LoaiSanPham = "LSP01";
+        $SP42->GhiChu = "";
+        $SP42->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP42->save();
+
+        $SP43 = new SanPham();
+        $SP43->MaSanPham = "SP00000043";
+        $SP43->TenSanPham = "Viktor & Rolf Spicebomb Infrared EDT";
+        $SP43->ThuongHieu ="Viktor & Rolf" ;
+        $SP43->TrangThai ="1" ;
+        $SP43->GiaTien ="2350000" ;
+        $SP43->MoTa = "Lần đầu tiên khi xịt Infrared, nó khiến tôi nhớ đến phiên bản Spicebomb Original, bởi mùi hương khá giống bản gốc, nhưng Infrared đậm hơn, cay hơn và ngọt hơn. Infrared bắt đầu với vị ngọt cay từ red fruit và hạt tiêu hồng.
+        Nhưng đến hương giữa, nó bắt đầu chuyển sang mùi cay của ớt, với vị ngọt nhạt dần nhưng không mất hẳn. Trong khi tất cả đều có chung một DNA thì Infrared giống bản gốc nhất, nhưng được bổ sung thêm một số note trái cây màu đỏ, vừa đủ để cân bằng các loại gia vị.";
+        $SP43->HinhAnh = "VR_Spice_Infraned.jpeg";
+        $SP43->LoaiKichCo = "KC01";
+        $SP43->LoaiSanPham = "LSP01";
+        $SP43->GhiChu = "";
+        $SP43->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP43->save();
     }
 }
