@@ -35,13 +35,16 @@ class KhachHangController extends Controller
             $errorMessage = 'Email quý khách không tồn tại, vui lòng đăng nhập lại!';
             return redirect()->route('quenMatKhauView')->with('message', $errorMessage);
         }
-        $quenMK->password = Hash::make('screntsignature123456');
+        $newPass = explode($request->Email, '@')[0] . time();
+
+        $quenMK->password = Hash::make($newPass);
         $quenMK->save();
-        return redirect()->route('quenMatKhauView')->with('message', 'Khôi phục mật khẩu thành công');
         $job = (new ResetPasswordJob($quenMK->email,'Xin chào quý khách của Scent Signature chúng tôi đã nhận được yêu cầu quên mật khẩu của quý khác.
-        Mật khẩu mới sẽ được cung cấp là "screntsignature123456".Quý khách vui lòng đổi lại mật khẩu nhằm để bảo mật tốt hơn. Không cung cấp mật khẩu
-        cho bất kỳ ai. Chúng tôi xin cảm ơn quý khách','Cung cấp lại mật khẩu'));
+                                                    Mật khẩu mới được cung cấp là: ' . $newPass .
+                                                    'Quý khách vui lòng đổi lại mật khẩu nhằm để bảo mật tốt hơn. Không cung cấp mật khẩu
+                                                    cho bất kỳ ai. Chúng tôi xin cảm ơn quý khách','Cung cấp lại mật khẩu'));
         $this->dispatch($job);
+        return redirect()->route('quenMatKhauView')->with('message', 'Khôi phục mật khẩu thành công');
     }
     public function themKhachHang(Request $request){
         $newuser =  new User();

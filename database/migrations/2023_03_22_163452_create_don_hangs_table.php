@@ -23,14 +23,12 @@ return new class extends Migration
             $table->string("TinhThanh")->nullable();
             $table->string("QuanHuyen")->nullable();
             $table->text("GhiChu")->nullable();
-            $table->string("MaKhuyenMai");
+            $table->string("MaKhuyenMai")->nullable();
             $table->string("LoaiThanhToan");
-            // $table->timestamps("NgayTao");
-            // $table->timestamps("NgayCapNhat");
             $table->string("VanChuyen")->nullable();
-            $table->string("ChiNhanh");
+            $table->string("ChiNhanh")->nullable();
             $table->string("NguoiTao");
-            $table->integer("MaGioHang");
+            $table->integer("MaGioHang")->nullable();
             $table->timestamps();
         });
     }

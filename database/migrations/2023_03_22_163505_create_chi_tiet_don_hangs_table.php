@@ -17,13 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string("MaCTDonHang")->unique();
             $table->string("MaDonHang");
+            $table->string("MaSanPham");
             $table->string("SoLuong")->nullable();
             $table->string("GiaTien")->nullable();
             $table->string("TongTien")->nullable();
-            $table->string("TenSanPham")->nullable();
-            $table->string("MaSanPham");
-            // $table->timestamps("NgayTao");
-            // $table->timestamps("NgayCapNhat");
             $table->timestamps();
         });
     }
