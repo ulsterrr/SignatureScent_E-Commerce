@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Yajra\DataTables\DataTables;
 use App\Jobs\NotifiJob;
+use App\Jobs\QuenMKJob;
+use App\Jobs\ResetPasswordJob;
 
 class KhachHangController extends Controller
 {
@@ -26,6 +28,20 @@ class KhachHangController extends Controller
 
     public function quenMatKhauView(){
         return view('layouts.tai-khoan.quen-mat-khau');
+    }
+    public function quenMatKhau(Request $request){
+        $quenMK = User::where('email',$request->Email)->first();
+        if (empty($quenMK->email)) {
+            $errorMessage = 'Email quý khách không tồn tại, vui lòng đăng nhập lại!';
+            return redirect()->route('quenMatKhauView')->with('message', $errorMessage);
+        }
+        $quenMK->password = Hash::make('screntsignature123456');
+        $quenMK->save();
+        return redirect()->route('quenMatKhauView')->with('message', 'Khôi phục mật khẩu thành công');
+        $job = (new ResetPasswordJob($quenMK->email,'Xin chào quý khách của Scent Signature chúng tôi đã nhận được yêu cầu quên mật khẩu của quý khác.
+        Mật khẩu mới sẽ được cung cấp là "screntsignature123456".Quý khách vui lòng đổi lại mật khẩu nhằm để bảo mật tốt hơn. Không cung cấp mật khẩu
+        cho bất kỳ ai. Chúng tôi xin cảm ơn quý khách','Cung cấp lại mật khẩu'));
+        $this->dispatch($job);
     }
     public function themKhachHang(Request $request){
         $newuser =  new User();
@@ -81,8 +97,8 @@ class KhachHangController extends Controller
         $newuser->NguoiTao = "";
         $newuser->save();
         session()->flash('message','Thêm tài khoản thành công!');
-        $job = (new NotifiJob($newuser->id, $newuser->email, 'Chúc mừng bạn đã đăng ký thành công và là thành viên của SignatureScrent. Chúng
-        tôi rất hân hạnh được phục vụ quý khách, rất mong quý khách đồng hành cùng SignatureScent.
+        $job = (new NotifiJob($newuser->id, $newuser->email, 'Chúc mừng bạn đã đăng ký thành công và là thành viên của ScentSignature. Chúng
+        tôi rất hân hạnh được phục vụ quý khách, rất mong quý khách đồng hành cùng ScentSignature.
         Quý khách vui lòng nhấn vào nút xác nhận để xác nhận email này. Xin cảm ơn quý khách', 'Bạn đã đăng ký thành công'));
         $this->dispatch($job);
 

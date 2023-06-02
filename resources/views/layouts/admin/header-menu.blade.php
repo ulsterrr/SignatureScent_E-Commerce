@@ -20,7 +20,7 @@
                             <div class="col-md-6 p-4">
                                 <p class="text-primary text--cap border-bottom-primary d-inline-block">Tính năng</p>
                                 <div class="menu-icon-grid w-auto p-0">
-                                    <a href="#"><i class="i-Shop-4"></i> Trang chủ</a>
+                                    <a href="{{route('homepage')}}"><i class="i-Shop-4"></i> Trang chủ</a>
                                     <a href="#"><i class="i-Library"></i> Tiện ích</a>
                                     <a href="#"><i class="i-Drop"></i> Ứng dụng</a>
                                     <a href="#"><i class="i-Checked-User"></i> Hỗ trợ</a>
@@ -31,13 +31,13 @@
                             <div class="col-md-6 p-4">
                                 <p class="text-primary text--cap border-bottom-primary d-inline-block">Danh mục</p>
                                 <ul class="links">
-                                    <li><a href="#">Trang chủ</a></li>
+                                    <li><a href="{{route('homepage')}}">Trang chủ</a></li>
                                     <li><a href="#">Tiện ích</a></li>
                                     <li><a href="#">Ứng dụng</a></li>
                                     <li><a href="#">Hỗ trợ</a></li>
                                     <li><a href="#">Giới thiệu</a></li>
                                     <li><a href="#">Liên hệ</a></li>
-                                    <li><a href="#">Trang chủ</a></li>
+                                    <li><a href="{{route('homepage')}}">Trang chủ</a></li>
                                     <li><a href="#">Tiện ích</a></li>
                                     <li><a href="#">Ứng dụng</a></li>
                                     <li><a href="#">Hỗ trợ</a></li>

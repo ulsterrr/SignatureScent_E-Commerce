@@ -9,28 +9,28 @@
                 <div class="woocommerce-notices-wrapper"></div>
                 <div class="account-container lightbox-inner">
                     <div class="account-login-inner">
-                        <form id="new-khachhang" class="woocommerce-form woocommerce-form-login login" action="{{ route('themKHC-add') }}" method="POST">
+                        <form id="new-khachhang" class="woocommerce-form woocommerce-form-login login" action="{{ route('quenMatKhau') }}" method="POST">
                             @csrf
-                            <div class="row col-md-12">
+                            <div class="row col-md-12" >
                                 <div class="col-md-6">
                                     <label for="email">Nhập email đã đăng ký&nbsp;<span class="required">*</span></label>
-                                    <input type="text" name="email" id="email" placeholder="email@mail.com" autocomplete="email" value="" />
-                                    <a>Chúng tôi sẽ cung cấp mật khẩu mới đến email của quý khách, xin quý khách vui lòng kiểm tra email của mình</a>
+                                    <input type="text" name="Email" id="email" placeholder="email@mail.com" autocomplete="email" value="" />
+
                                 </div>
-
-
-                            <h6 style="color:red;">
-                                <?php
-                                $message = Session::get('message');
-                                if ($message) {
-                                    echo '<span class="text-alert mt-3"><strong>' . $message . '</strong></span>';
-                                    Session::put('message', null);
-                                }
-                                ?>
-                            </h6>
-
-                            <div class="row col-md-12">
-                                <div class="col-md-6">
+                                <div class="col-md-6"  style="padding-top: 10px;">
+                                    <label for="email">Chú ý :&nbsp;<span class="required"></span></label>
+                                    <label>Chúng tôi sẽ cung cấp mật khẩu mới đến email của quý khách, xin quý khách vui lòng kiểm tra email của mình</label>
+                                </div>
+                                <h6 style="color:red;">
+                                    <?php
+                                    $message = Session::get('message');
+                                    if ($message) {
+                                        echo '<span class="text-alert mt-3"><strong>' . $message . '</strong></span>';
+                                        Session::put('message', null);
+                                    }
+                                    ?>
+                                </h6>
+                                <div class="col-md-6"   style="padding-top: 10px;">
                                     <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="ce90bf198c" /><input type="hidden" name="_wp_http_referer" value="/scentsignature/" />
                                     <button type="submit" class="woocommerce-Button button" id="login" name="login" value="Đăng nhập">Gửi</button>
                                     <div class="woocommerce-LostPassword lost_password mt-2">
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-md-6">
                                 </div>
-                            </div>
+
                         </form>
                     </div>
                     <!-- .login-inner -->
