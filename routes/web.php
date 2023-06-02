@@ -28,10 +28,11 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('dashboard.dashboard');
 // });
-Route::get('/', function () {
-    return view('layouts.homepage.home');
-})->name('homepage');
-
+// Route::get('/', function () {
+//     return view('layouts.homepage.home');
+// })->name('homepage');
+Route::get('/',[SanPhamController::class,'loadSPClient']
+)->name('homepage');
 Route::get('large-compact-sidebar/dashboard/dashboard', function () {
     // đặt giao diện menu compact
     session(['layout' => 'compact']);

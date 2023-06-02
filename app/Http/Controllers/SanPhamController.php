@@ -129,4 +129,8 @@ class SanPhamController extends Controller
         return view('he-thong.kho-hang.san-pham.thongtin-sanpham');
     }
 
+    public function loadSPClient(){
+        $sp = SanPham::all();
+        return view('layouts.homepage.home')->with('SPNam',$sp);
+    }
 }
