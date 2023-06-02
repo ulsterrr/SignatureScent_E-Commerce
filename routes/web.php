@@ -151,6 +151,7 @@ Route::post('admin/cap-nhat-khach-hang/{id}',[KhachHangController::class,'capNha
 Route::get('admin/chi-tiet-khach-hang/{id}',[KhachHangController::class,'chiTietKhachHangView'])->name('chitietKHview');
 Route::get('admin/xoa-khach-hang/{id}',[KhachHangController::class,'xoaKhachHang'])->name('xoaKH-del');
 Route::post('kiemtra-chinhanh', [ChiNhanhController::class,'kiemTraTrungMaCN'])->name('kiemtra-macn');
+Route::post('/quen-mat-khau',[KhachHangController::class,'quenMatKhau'])->name('quenMatKhau');
 
 //View Quản Lý Khách Hàng và Chi Nhánh
 Route::get('admin/quan-ly-khach-hang',[KhachHangController::class,'loadDSKhachHangView'])->name('quanlyKH-view');
@@ -164,6 +165,7 @@ Route::get('admin/cap-nhat-chi-nhanh/{id}',[ChiNhanhController::class,'capNhatCh
 Route::get('admin/cap-nhat-khach-hang/{id}',[KhachHangController::class,'capNhatKhachHangView'])->name('capnhatKH-view');
 Route::get('/dang-ky',[KhachHangController::class,'dangKyView'])->name('dangKyView');
 Route::get('/quen-mat-khau',[KhachHangController::class,'quenMatKhauView'])->name('quenMatKhauView');
+
 
 //Quản Lý Sản Phẩm View
 Route::get('admin/quan-ly-san-pham',[SanPhamController::class,'loadSPView'])->name('qly-spham-view');

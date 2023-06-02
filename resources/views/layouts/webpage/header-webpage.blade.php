@@ -140,7 +140,7 @@
             <div class="flex-row container">
                 <div class="flex-col hide-for-medium flex-center">
                     <ul class="nav header-nav header-bottom-nav nav-center  nav-size-medium nav-uppercase">
-                        <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  menu-item-24"><a href="#" class="nav-top-link">Trang chủ</a></li>
+                        <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  menu-item-24"><a href="{{route('homepage')}}" class="nav-top-link">Trang chủ</a></li>
                         <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-22"><a href="#" class="nav-top-link">Giới thiệu</a></li>
                         <li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  menu-item-54 has-dropdown"><a href="#" class="nav-top-link">Cửa hàng<i class="icon-angle-down"></i></a>
                             <ul class='nav-dropdown nav-dropdown-simple'>

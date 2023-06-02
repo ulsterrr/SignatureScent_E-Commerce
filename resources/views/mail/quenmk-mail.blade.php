@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Email Confirmation</title>
+    <title>Email Quên Mật Khẩu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style type="text/css">
         /**
@@ -163,7 +163,7 @@
                 <!-- end copy -->
 
 
-                     <!-- start button -->
+                     {{-- <!-- start button -->
                 <tr>
                     <td align="left" bgcolor="#ffffff">
                     <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -173,7 +173,7 @@
                             <tr>
                                 <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
                                     <a target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;"
-                                     href="{{ route('xacthuc-email', ['id' => $user->id, 'token' => $user->email_verification_token]) }}">Xác nhận</a>
+
                                 </td>
                             </tr>
                             </table>
@@ -182,7 +182,7 @@
                     </table>
                     </td>
                 </tr>
-          <!-- end button -->
+          <!-- end button --> --}}
                 <!-- start copy -->
                 <tr>
                     <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
