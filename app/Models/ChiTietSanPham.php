@@ -40,9 +40,9 @@ class ChiTietSanPham extends Model
         return $this->belongsTo(GioHang::class, 'id');
     }
     // chi tiết sản phẩm thuộc đơn hàng
-    public function donHang()
+    public function donHang($mdh)
     {
-        return $this->belongsTo(DonHang::class, 'MaDonHang');
+        return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh')->where('MaDonHang', $mdh);
     }
 
     public static function layChiTietVaSanPham(){

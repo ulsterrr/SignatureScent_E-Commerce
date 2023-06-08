@@ -17,6 +17,7 @@
     <link id="client-css" rel="stylesheet" href="{{  asset('assets/styles/css/themes/client-page.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic-client.css')}}">
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic-client.date.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/styles/vendor/datatables.min.css') }}">
     {{-- page specific css --}}
     @yield('page-css')
     @include('layouts.homepage.headpage-client')
@@ -134,6 +135,7 @@
     <script src="{{asset('assets/js/cleave.js')}}"></script>
     <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
     <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
+    <script src="{{ asset('assets/js/vendor/datatables.min.js') }}"></script>
 
     {{-- bộ thư viện jQuery Validate Plugin 1.19.5 --}}
     <script src="{{asset('assets/js/validatior_plugin/jquery.validate.js')}}"></script>

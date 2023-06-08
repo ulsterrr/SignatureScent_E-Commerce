@@ -233,7 +233,8 @@ Route::post('kiemtra-loaiSP', [LoaiSanPhamController::class,'kiemTraTrungMaLSP']
 
 //Quản Lý bán hàng
 //CRUD Đơn hàng
-Route::post('admin/tao-don-hang',[BanHangController::class,'taoDonHang'])->name('taodonhang-add');
+Route::get('admin/ban-hang/chi-tiet-don-hang',[BanHangController::class,'loadChiTietDonHang'])->name('chiTietDonhangView');
+Route::post('admin/ban-hang/tao-don-hang',[BanHangController::class,'taoDonHang'])->name('taodonhang-add');
 Route::post('admin/sua-don-hang',[BanHangController::class,'suaDonHang'])->name('suadonhang-upd');
 Route::get('admin/xoa-don-hang',[BanHangController::class,'xoaDonHang'])->name('xoadonhang-del');
 
