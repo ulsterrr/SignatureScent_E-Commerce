@@ -9,7 +9,4 @@ class DonHangController extends Controller
     public function loadDonHang(){
 
     }
-    public function loadChiTietDonHang(){
-
-    }
 }

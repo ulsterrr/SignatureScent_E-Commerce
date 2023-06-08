@@ -1,331 +1,631 @@
-@extends('layouts.admin.master')
-@section('page-css')
+<script>
+    function getDataModal() {
+        var mcn = "TatCaChiNhanh";
+        var getData = "{{ route('tatCaSanPhamModal', ['mcn' => ':id']) }}";
+        var link = getData.replace(':id', mcn);
+        var table = $('#ul-ctsp-list').DataTable({
+            processing: true
+            , serverSide: true
+            , destroy: true
+            , scrollX: true
+            , autoWidth: true
+            , ajax: {
+                url: link.toString()
+                , type: "GET"
+            , }
+            , columnDefs: [
+                { width: '20%' , targets: 0 },
+                { width: '20%' , targets: 1 },
+                { width: '20%' , targets: 2 },
+                { width: '20%' , targets: 3 },
+                { width: '20%' , targets: 4 },
+                { width: '20%' , targets: 5 },
+                { width: '20%' , targets: 6 },
+                { width: '20%' , targets: 7 },
+                { width: '20%' , targets: 8 },
+                { width: '20%' , targets: 9 },
+            ]
+            , createdRow: function(row, data, dataIndex) {
+                $(row).find('td').css('vertical-align', 'middle');
+                $(row).find('td').css('text-align', 'center');
+            }
+            , columns: [
+                { data: 'MaSanPham' } ,
+                { data: 'MaCTSanPham' },
+                { data: null , render: function(data) { if (!data.chi_tiet_cua_san_pham) return ''; else return data.chi_tiet_cua_san_pham.TenSanPham; } },
+                { data: 'SoSerial' },
+                { data: null , render: function(data) {
+                        if (!data.chi_tiet_cua_san_pham) return '';
+                        let amount = data.chi_tiet_cua_san_pham.GiaTien;
+                        if (!amount) return 0;
+                        let formattedAmount = numeral(amount).format('0,0'); // "1.000.000 ₫"
+                        return formattedAmount;
+                    }
+                },
+                { data: null , render: function(data) {
+                        if (!data.chi_tiet_cua_san_pham.loai_kich_co) return '';
+                        else return data.chi_tiet_cua_san_pham.loai_kich_co.TenKichCo;
+                    }
+                },
+                { data: 'KichCo' },
+                { data: null , render: function(data) { if (!data.get_chi_nhanh) return ''; else return data.get_chi_nhanh.TenChiNhanh; } },
+                { data: 'TinhTrang' , render: function(data) { if (data == '1') { return 'Bình thường'; } else if (data == '0') { return 'Ngưng nhập hàng'; } else { return 'Tồn kho'; } } },
+                { data: 'GhiChu' }
+            ]
+            , "drawCallback": function(settings) {
+                $(settings.nTable).find('.paginate_button').click(function() {
+                    settings._iDisplayStart = settings._iDisplayLength * parseInt($(this).attr(
+                        'data-page'));
+                    $(settings.nTable).dataTable(settings);
+                });
+            }
+        });
+
+        // Xử lý khi click vào nút "Chọn"
+        $('#selectData').on('click', function() {
+            var data = $('#ul-ctsp-list').DataTable().rows('.selected').data();
+            // Lấy giá trị của cột id và name trong hàng được chọn
+            var codesp = data[0]['MaSanPham'];
+            var codectsp = data[0]['MaCTSanPham'];
+            var name = data[0].chi_tiet_cua_san_pham.TenSanPham;
+            var sr = data[0]['SoSerial'];
+            var qc = data[0].chi_tiet_cua_san_pham.loai_kich_co.TenKichCo;
+            var kc = data[0]['KichCo'];
+            var tt = data[0]['TinhTrang'];
+            var table = $('#table-ctsanpham').DataTable();
+
+            // Lấy số thứ tự lớn nhất hiện tại
+            var maxIndex = 0;
+            table.column(0).data().each(function(value) {
+                if (value > maxIndex) {
+                    maxIndex = value;
+                }
+            });
+            var newData = [
+                maxIndex + 1
+                , codesp
+                , codectsp
+                , name
+                , sr
+                , qc
+                , kc
+                , tt
+                , `<a id="xoactsp-${codectsp}" onclick="xoaCTSanPhamDonHang(this)" href="javascript:;" class="delete-row"><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a>`
+            ];
+
+            var columnIndex = 2; // Chỉ số cột cần kiểm tra trùng
+
+            // Lấy dữ liệu của cột đã có trong DataTables
+            var existingData = table.column(columnIndex).data().toArray();
+
+            // Kiểm tra giá trị mới có tồn tại trong mảng dữ liệu đã có hay không
+            var isDuplicate = existingData.includes(newData[columnIndex]);
+
+            if (isDuplicate) {
+                // Xử lý khi có giá trị trùng
+                $('#alert-card-ctsp-modal').css('display', '');
+                $('#alert-card-ctsp-modal').removeClass('alert-success').addClass('alert-warning');
+                $('#alert-card-ctsp-modal .alert-body-content').html(
+                    `Sản phẩm mã: ${codectsp} đã được chọn trong danh sách.`);
+                $('#alert-card-ctsp-modal').fadeIn(200);
+                setTimeout(function() {
+                    $("#alert-card-ctsp-modal").fadeOut();
+                }, 10000);
+                console.log('Giá trị đã tồn tại trong cột!');
+            } else {
+                $('#alert-card-ctsp-modal').css('display', 'none');;
+                // Thêm dòng dữ liệu mới vào DataTables
+                var newRowNode = table.row.add(newData).draw().node();
+                $(newRowNode).find('td').addClass('text-center');
+                $('#cn-modal').modal('hide');
+            }
+        });
+
+        $('#ul-ctsp-list tbody').on('dblclick', 'tr', function() {
+            // Lấy giá trị của cột id và name trong hàng được chọn
+            var codesp = $(this).find('td:eq(0)').text();
+            var codectsp = $(this).find('td:eq(1)').text();
+            var name = $(this).find('td:eq(2)').text();
+            var sr = $(this).find('td:eq(3)').text();
+            var qc = $(this).find('td:eq(5)').text();
+            var kc = $(this).find('td:eq(6)').text();
+            var tt = $(this).find('td:eq(8)').text();
+            var table = $('#table-ctsanpham').DataTable();
+
+            // Lấy số thứ tự lớn nhất hiện tại
+            var maxIndex = 0;
+            table.column(0).data().each(function(value) {
+                if (value > maxIndex) {
+                    maxIndex = value;
+                }
+            });
+            var newData = [
+                maxIndex + 1
+                , codesp
+                , codectsp
+                , name
+                , sr
+                , qc
+                , kc
+                , tt
+                , `<a id="xoactsp-${codectsp}" onclick="xoaCTSanPhamDonHang(this)" href="javascript:;" class="delete-row"><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a>`
+            ];
+
+            var columnIndex = 2; // Chỉ số cột cần kiểm tra trùng
+
+            // Lấy dữ liệu của cột đã có trong DataTables
+            var existingData = table.column(columnIndex).data().toArray();
+
+            // Kiểm tra giá trị mới có tồn tại trong mảng dữ liệu đã có hay không
+            var isDuplicate = existingData.includes(newData[columnIndex]);
+
+            if (isDuplicate) {
+                // Xử lý khi có giá trị trùng
+                $('#alert-card-ctsp-modal').css('display', '');
+                $('#alert-card-ctsp-modal').removeClass('alert-success').addClass('alert-warning');
+                $('#alert-card-ctsp-modal .alert-body-content').html(
+                    `Sản phẩm mã: ${codectsp} đã được chọn trong danh sách.`);
+                $('#alert-card-ctsp-modal').fadeIn(200);
+                setTimeout(function() {
+                    $("#alert-card-ctsp-modal").fadeOut();
+                }, 10000);
+                console.log('Giá trị đã tồn tại trong cột!');
+            } else {
+                $('#alert-card-ctsp-modal').css('display', 'none');;
+                // Thêm dòng dữ liệu mới vào DataTables
+                var newRowNode = table.row.add(newData).draw().node();
+                $(newRowNode).find('td').addClass('text-center');
+            }
+        });
+    };
 
 
-@endsection
+    $(document).ready(function() {
+        var table = $('#ul-ctsp-list').DataTable();
 
-@section('main-content')
-
-<div class="breadcrumb">
-    <h1>Checkout</h1>
-    <ul>
-        <li><a href="">Apps</a></li>
-        <li>Ecommerce</li>
-    </ul>
-</div>
-<div class="separator-breadcrumb border-top"></div>
-
-
-<section class="chekout-page">
-    <div class="row">
-      <div class="col-lg-4 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="card-title">Product Cart</div>
-            <span class="text-muted">Gull Modern Cart</span>
-
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Product</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="">
-                    <td scope="row">
-                      <img class="profile-picture avatar-sm mb-2 img-fluid" src="{{ asset('assets/images/faces/1.jpg') }}"
-                        alt="" />
-                      <div class="ul-product-cart__detail d-inline-block align-middle ">
-                        <a href="">
-                          <h6 class="heading">Nike Air Jordan</h6>
-                        </a>
-                        <span class="text-mute">size-14 mode:664</span>
-                      </div>
-                    </td>
-                    <td>$2,000</td>
-                    <td>4</td>
-                    <td>$8,000</td>
-                    <td>
-                      <a href=""><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a>
-                    </td>
-                  </tr>
-                  <tr class="">
-                    <td scope="row">
-                      <img class="profile-picture avatar-sm mb-2 img-fluid" src="{{ asset('assets/images/faces/2.jpg') }}"
-                        alt="" />
-                      <div class="ul-product-cart__detail d-inline-block align-middle ">
-                        <a href="">
-                          <h6 class="heading">Nike Air Jordan</h6>
-                        </a>
-                        <span class="text-mute">size-14 mode:664</span>
-                      </div>
-                    </td>
-                    <td>$2,000</td>
-                    <td>4</td>
-                    <td>$8,000</td>
-                    <td>
-                      <a href=""><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a>
-                    </td>
-                  </tr>
-                  <tr class="">
-                    <td scope="row">
-                      <img class="profile-picture avatar-sm mb-2 img-fluid" src="{{ asset('assets/images/faces/3.jpg') }}"
-                        alt="" />
-                      <div class="ul-product-cart__detail d-inline-block align-middle ">
-                        <a href="">
-                          <h6 class="heading">Nike Air Jordan</h6>
-                        </a>
-                        <span class="text-mute">size-14 mode:664</span>
-                      </div>
-                    </td>
-                    <td>$2,000</td>
-                    <td>4</td>
-                    <td>$8,000</td>
-                    <td>
-                      <a href=""><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="row ">
-              <div class="col-lg-12 mt-5">
-                <div class="ul-product-cart__invoice">
-                  <div class="card-title">
-                    <h4 class="heading text-primary">Total Payment</h4>
-                  </div>
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <th scope="row" class="text-16">Subtotal</th>
-                        <td class="text-16 text-success font-weight-700">
-                          $5,000
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="text-16">Shipping</th>
-                        <td>
-                          <ul class="list-unstyled mb-0">
-                            <li>
-                              <div class="">
-                                <label class="radio radio-primary" checked="">
-                                  <input type="radio" name="radio" value="0" />
-                                  <span>Shipping Charge : $15.00</span>
-                                  <span class="checkmark"></span>
-                                </label>
-                              </div>
-                            </li>
-                            <li>
-                              <div class="">
-                                <label class="radio radio-primary">
-                                  <input type="radio" name="radio" value="0" />
-                                  <span>Shipping Charge : $15.00</span>
-                                  <span class="checkmark"></span>
-                                </label>
-                              </div>
-                            </li>
-                            <li>
-                              <a href="" class="text-dark font-weight-bold">Change Address</a>
-                            </li>
-                          </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row" class="text-primary text-16">
-                          Total:
-                        </th>
-                        <td class="font-weight-700 text-16">$5,015</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-8">
-        <div class="card">
-          <div class="card-body">
-            <form action="">
-              <div class="card-body">
-                <div class="card-title">Delivery Address</div>
-
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputtext11" class="ul-form__label">First Name:</label>
-                    <input type="text" class="form-control" id="inputtext11" />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputEmail12" class="ul-form__label">Last Name:</label>
-                    <input type="text" class="form-control" id="inputEmail12" />
-                  </div>
-                </div>
-
-                <div class="custom-separator"></div>
-
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputtext14" class="ul-form__label">Delivery Address:</label>
-                    <input type="text" class="form-control" id="inputtext14" />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputEmail15" class="ul-form__label">Address:</label>
-                    <div class="input-right-icon">
-                      <input type="text" class="form-control" id="inputEmail15" />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="custom-separator"></div>
-
-                <div class="form-row">
-                  <div class="form-group col-md-4">
-                    <label for="inputtext14" class="ul-form__label">City:</label>
-                    <input type="text" class="form-control" id="inputtext14" />
-                  </div>
-                  <div class="form-group col-md-4">
-                    <label for="inputEmail15" class="ul-form__label">State:</label>
-                    <select class="form-control" id="sel1">
-                      <option>Select</option>
-                      <option>California</option>
-                      <option>Ukraine</option>
-                      <option>UK</option>
-                      <option>Finland</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group col-md-4">
-                    <label for="inputEmail16" class="ul-form__label">Country:</label>
-                    <select class="form-control" id="sel1">
-                      <option>Select</option>
-                      <option>USA</option>
-                      <option>UK</option>
-                      <option>Finland</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <div class="card mt-4">
-          <div class="card-body">
-            <div class="card-title">Billing Details</div>
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="home-basic-tab" data-toggle="tab" href="#homeBasic" role="tab"
-                  aria-controls="homeBasic" aria-selected="true">
-                  <i class="i-Credit-Card-2 text-danger text-16 align-middle mr-1"></i>
-                  <span>credit card</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="profile-basic-tab" data-toggle="tab" href="#profileBasic" role="tab"
-                  aria-controls="profileBasic" aria-selected="false">
-                  <i class="i-Paypal text-primary text-16 align-middle mr-1"></i>
-                  <span>Paypal</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="contact-basic-tab" data-toggle="tab" href="#contactBasic" role="tab"
-                  aria-controls="contactBasic" aria-selected="false">
-                  <i class="i-Bitcoin text-warning text-16 align-middle mr-1"></i>
-                  <span>Bitcoin</span>
-                </a>
-              </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="homeBasic" role="tabpanel"
-                aria-labelledby="home-basic-tab">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputtext11" class="ul-form__label">Card Number:</label>
-                    <input type="text" class="form-control" id="inputtext11" value="card number" />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputEmail12" class="ul-form__label">Full Name:</label>
-                    <input type="text" class="form-control" id="inputEmail12" value="full name" />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputtext11" class="ul-form__label">Ex Date:</label>
-                    <input type="text" class="form-control" id="inputtext11" value="dd/mm/yy" />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputEmail12" class="ul-form__label">CCV:</label>
-                    <input type="text" class="form-control" id="inputEmail12" value="CVC" />
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="profileBasic" role="tabpanel" aria-labelledby="profile-basic-tab">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputtext11" class="ul-form__label">Card Number:</label>
-                    <input type="text" class="form-control" id="inputtext11" value="card number" />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputEmail12" class="ul-form__label">Full Name:</label>
-                    <input type="text" class="form-control" id="inputEmail12" value="full name" />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputtext11" class="ul-form__label">Ex Date:</label>
-                    <input type="text" class="form-control" id="inputtext11" value="dd/mm/yy" />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputEmail12" class="ul-form__label">CCV:</label>
-                    <input type="text" class="form-control" id="inputEmail12" value="CVC" />
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="contactBasic" role="tabpanel" aria-labelledby="contact-basic-tab">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputtext11" class="ul-form__label">Card Number:</label>
-                    <input type="text" class="form-control" id="inputtext11" value="card number" />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputEmail12" class="ul-form__label">Full Name:</label>
-                    <input type="text" class="form-control" id="inputEmail12" value="full name" />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputtext11" class="ul-form__label">Ex Date:</label>
-                    <input type="text" class="form-control" id="inputtext11" value="dd/mm/yy" />
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputEmail12" class="ul-form__label">CCV:</label>
-                    <input type="text" class="form-control" id="inputEmail12" value="CVC" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="row text-right">
-              <div class="col-lg-12 ">
-                <button type="button" class="btn btn-success m-1">
-                  Pay Now
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        $('#table-sanpham').DataTable({
+            columnDefs: [{
+                    "orderable": false
+                    , "targets": 6
+                } // Tắt sắp xếp cho cột thứ hai (chỉ mục 1)
+                , {
+                    visible: false
+                    , "targets": 7
+                } // Ẩn cột Mã Sản phẩm cho cột số 7
+                , {
+                    "orderable": false
+                    , "targets": 7
+                } // Tắt sắp xếp cho cột thứ hai (chỉ mục 7)
+            ]
+        });
+        $('#table-ctsanpham').DataTable({
+            columnDefs: [{
+                    "orderable": false
+                    , "targets": 7
+                } // Tắt sắp xếp cho cột thứ hai (chỉ mục 1)
+                // , { visible: false, "targets": 1 } // Ẩn cột Mã Sản phẩm cho cột số 2
+            ]
+        });
 
 
+        $('#ul-ctsp-list tbody').on('click', 'tr', function() {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            } else {
+                $('tr.odd.selected').removeClass('selected');
+                $('tr.even.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+        });
 
-@endsection
+        $('#button').click(function() {
+            table.row('.selected').remove().draw(false);
+        });
+    });
 
-@section('page-js')
+    function getDataSPModal() {
+        var table = $('#ul-sp-list').DataTable({
+            processing: true
+            , serverSide: true
+            , destroy: true
+            , scrollX: true
+            , autoWidth: true
+            , ajax: {
+                url: "{{ route('layDsSanPhamAjax') }}"
+                , type: "GET"
+            , }
+            , columnDefs: [
+                { width: '100px' , targets: 0 },
+                { width: '20%' , targets: 1 },
+                { width: '20%' , targets: 2 },
+                { width: '20%' , targets: 3 },
+                { width: '20%' , targets: 4 },
+                { width: '20%' , targets: 5 },
+                { width: '20%' , targets: 6 },
+                { width: '20%' , targets: 7 },
+                { width: '20%' , targets: 8 },
+            ]
+            , createdRow: function(row, data, dataIndex) {
+                $(row).find('td').css('vertical-align', 'middle');
+                $(row).find('td').css('text-align', 'center');
+            }
+            , columns: [
+                { data: 'MaSanPham' }, { data: 'TenSanPham' },
+                { data: null , render: function(data) {
+                        let amount = data.GiaTien;
+                        if (!amount) return 0;
+                        let formattedAmount = numeral(amount).format('0,0'); // "1.000.000 ₫"
+                        return formattedAmount;
+                    }
+                }, { data: 'created_at' , render: function(data) { return moment(data).format('DD/MM/YYYY HH:mm:ss'); } },
+                { data: 'ThuongHieu' }, { data: null , render: function(data) { if (!data.loai_san_pham) return ''; else return data.loai_san_pham.TenLoai; } },
+                { data: null , render: function(data) { if (!data.loai_kich_co) return ''; else return data.loai_kich_co.TenKichCo; } },
+                { data: 'TrangThai' , render: function(data) { if (data == '1') { return 'Bình thường'; } else if (data == '0') { return 'Ngưng nhập hàng'; } else { return 'Tồn kho'; } } },
+                { data: 'GhiChu' }
+            ]
+            , "drawCallback": function(settings) {
+                $(settings.nTable).find('.paginate_button').click(function() {
+                    settings._iDisplayStart = settings._iDisplayLength * parseInt($(this).attr(
+                        'data-page'));
+                    $(settings.nTable).dataTable(settings);
+                });
+            }
+        });
+
+        // Xử lý khi click vào nút "Chọn"
+        $('#selectDataSp').on('click', function() {
+            var data = $('#ul-sp-list').DataTable().rows('.selected').data();
+            var tablesp = $('#table-sanpham').DataTable();
+
+            var code = data[0].MaSanPham;
+            var name = data[0].TenSanPham;
+            var gia = data[0].GiaTien;
+            var tt = gia;
+
+            // Lấy số thứ tự lớn nhất hiện tại
+            var maxIndex = 0;
+            tablesp.column(0).data().each(function(value) {
+                if (value > maxIndex) {
+                    maxIndex = value;
+                }
+            });
+            var newData = [
+                maxIndex + 1
+                , code
+                , name
+                , gia
+                , `<input type="number" min="0" class="form-control text-center soluongsp" style="width:90px;height: 23px;" id="soluongsp-${code}" value="${1}" />`
+                , tt
+                , `<a id="xoasp-${code}" onclick="xoaSanPhamDonHang(this)" href="javascript:;" class="delete-row"><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a>`
+                , 1
+            ];
+            var columnIndex = 1; // Chỉ số cột cần kiểm tra trùng
+
+            // Lấy dữ liệu của cột đã có trong DataTables
+            var existingData = tablesp.column(columnIndex).data().toArray();
+
+            // Kiểm tra giá trị mới có tồn tại trong mảng dữ liệu đã có hay không
+            var isDuplicate = existingData.includes(newData[columnIndex]);
+
+            if (isDuplicate) {
+                // Xử lý khi có giá trị trùng
+                $('#alert-card-sp-modal').css('display', '');
+                $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-warning');
+                $('#alert-card-sp-modal .alert-body-content').html(
+                    `Sản phẩm mã: ${code} đã được chọn trong danh sách.`);
+                $('#alert-card-sp-modal').fadeIn(200);
+                setTimeout(function() {
+                    $("#alert-card-sp-modal").fadeOut();
+                }, 10000);
+                console.log('Giá trị đã tồn tại trong cột!');
+            } else {
+                $('#alert-card-sp-modal').css('display', 'none');
+                // Thêm dữ liệu mới vào DataTables
+                var newRow = tablesp.row.add(newData).draw().node();
+                $(newRow).find('td:first-child').addClass('text-center');
+                // Tính tổng tiền ở phần thanh toán
+                tinhTongTien();
+            }
+
+            $('#sp-modal').modal('hide');
+        });
+
+        $('#ul-sp-list tbody').on('dblclick', 'tr', function() {
+            var data = table.row(this).data();
+            // Lấy giá trị của cột id và name trong hàng được chọn
+            var code = $(this).find('td:eq(0)').text();
+            var name = $(this).find('td:eq(1)').text();
+            var gia = $(this).find('td:eq(2)').text();
+            var tt = gia;
+            var tablesp = $('#table-sanpham').DataTable();
+
+            // Lấy số thứ tự lớn nhất hiện tại
+            var maxIndex = 0;
+            tablesp.column(0).data().each(function(value) {
+                if (value > maxIndex) {
+                    maxIndex = value;
+                }
+            });
+            var newData = [
+                maxIndex + 1
+                , code
+                , name
+                , gia
+                , `<input type="number" min="0" class="form-control text-center soluongsp" style="width:90px;height: 23px;" id="soluongsp-${code}" value="${1}" />`
+                , tt
+                , `<a id="xoasp-${code}" onclick="xoaSanPhamDonHang(this)" href="javascript:;" class="delete-row"><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a>`
+                , 1
+            ];
+            var columnIndex = 1; // Chỉ số cột cần kiểm tra trùng
+
+            // Lấy dữ liệu của cột đã có trong DataTables
+            var existingData = tablesp.column(columnIndex).data().toArray();
+
+            // Kiểm tra giá trị mới có tồn tại trong mảng dữ liệu đã có hay không
+            var isDuplicate = existingData.includes(newData[columnIndex]);
+
+            if (isDuplicate) {
+                // Xử lý khi có giá trị trùng
+                $('#alert-card-sp-modal').css('display', '');
+                $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-warning');
+                $('#alert-card-sp-modal .alert-body-content').html(
+                    `Sản phẩm mã: ${code} đã được chọn trong danh sách.`);
+                $('#alert-card-sp-modal').fadeIn(200);
+                setTimeout(function() {
+                    $("#alert-card-sp-modal").fadeOut();
+                }, 10000);
+                console.log('Giá trị đã tồn tại trong cột!');
+            } else {
+                $('#alert-card-sp-modal').css('display', 'none');
+                // Thêm dữ liệu mới vào DataTables
+                var newRow = tablesp.row.add(newData).draw().node();
+                $(newRow).find('td:first-child').addClass('text-center');
+                // Tính tổng tiền ở phần thanh toán
+                tinhTongTien();
+            }
+        });
+
+        $(document).ready(function() {
+            var table = $('#ul-sp-list').DataTable();
+
+            $('#ul-sp-list tbody').on('click', 'tr', function() {
+                if ($(this).hasClass('selected')) {
+                    $(this).removeClass('selected');
+                } else {
+                    $('tr.odd.selected').removeClass('selected');
+                    $('tr.even.selected').removeClass('selected');
+                    $(this).addClass('selected');
+                }
+            });
+
+            $('#button').click(function() {
+                table.row('.selected').remove().draw(false);
+            });
+        });
+    };
+
+    function xoaSanPhamDonHang(cur) {
+        var table = $('#table-sanpham').DataTable();
+        // Xoá row khỏi DataTables
+        var row = $(cur).closest('tr');
+        table.row(row).remove().draw();
+
+        // Reset số thứ tự
+        table.rows().every(function(index) {
+            var rowData = this.data();
+            rowData[0] = index + 1;
+            this.data(rowData);
+        });
+        tinhTongTien();
+    }
+
+    function xoaCTSanPhamDonHang(cur) {
+        var table = $('#table-ctsanpham').DataTable();
+        // Xoá row khỏi DataTables
+        var row = $(cur).closest('tr');
+        table.row(row).remove().draw();
+
+        // Reset số thứ tự
+        table.rows().every(function(index) {
+            var rowData = this.data();
+            rowData[0] = index + 1;
+            this.data(rowData);
+        });
+    }
+    $(document).ready(function() {
+        var table = $('#table-sanpham').DataTable();
+
+        // Lắng nghe sự kiện change trên input số
+        $('#table-sanpham').on('change, input change', '.soluongsp', function() { // Xử lý khi thay đổ số tính tổng tiền lại
+            var row = $(this).closest('tr');
+            var SoLuong = $(this).val();
+            var price = $(row).find('td:eq(3)').text();
+
+            var giaTien = parseInt(price.replace(/,/g, ''), 10);
+            let tongTien = SoLuong * (giaTien ? giaTien : 0);
+            let m = formatMoneyNumber(tongTien); // đổi định dạng ,
+
+            // Cập nhật tổng tiền
+            $(row).find('td:eq(5)').text(m);
+            // Tính tổng tiền ở phần thanh toán
+            // Cập nhật dữ liệu trong DataTables
+            var dataTable = $('#table-sanpham').DataTable();
+            var rowIndex = dataTable.row(row).index();
+            // dataTable.cell({ row: rowIndex, column: 4 }).data(SoLuong).draw();
+            dataTable.cell({
+                row: rowIndex
+                , column: 7
+            }).data(SoLuong); // Lưu giá trị số lượng cho col ẩn, còn col kia vẫn giữ input cho nhập
+            // dataTable.cell({ row: rowIndex, column: 4 }).data('<input type="number" min="0" class="form-control text-center soluongsp" style="width:90px;height: 23px;" value="' + SoLuong + '" />').draw();
+            dataTable.cell({
+                row: rowIndex
+                , column: 5
+            }).data(m).draw();
+            tinhTongTien();
+        });
+    });
+
+    function getDataAndSubmit() {
+        // Lấy dữ liệu từ DataTable
+        var tableDataSP = $('#table-sanpham').DataTable().data().toArray();
+        var tableDataCTSP = $('#table-ctsanpham').DataTable().data().toArray();
+
+        // Lấy tên của cột gán cho biến trong mảng trả về
+        var namedTableData = tableDataSP.map(function(row) {
+            var namedRow = {};
+            $('#table-sanpham th').each(function(index) {
+                var columnName = $(this).attr('name');
+                var columnValue = row[index];
+                if (index == 3 || index == 5) {
+                    columnValue = formatToMoneyNumber(columnValue);
+                }
+                if (index == 4) {
+                    columnValue = parseInt(columnValue.match(/value=\"(\d+)\"/)[1]);
+                }
+                if (index == 6) {
+                    columnValue = '';
+                    columnValue = ''; // Trên 6 là nút xoá sẽ gán lại rỗng
+                    namedRow['SL'] = row[index + 1]; // Gán lấy số lượng cột số 7 bị ẩn ko chạy index cho tên biến mảng SL
+                }
+                namedRow[columnName] = columnValue;
+            });
+            return namedRow;
+        });
+        var namedTableData2 = tableDataCTSP.map(function(row) {
+            var namedRow = {};
+            $('#table-ctsanpham th').each(function(index) {
+                var columnName = $(this).attr('name');
+                var columnValue = row[index];
+                if (index >= 8) { // là 8 thì bỏ nút xoá
+                    columnValue = '';
+                } else namedRow[columnName] = row[index];
+
+            });
+            return namedRow;
+        });
+
+        if (checkMSPMatching(namedTableData, namedTableData2).length > 1) {
+            $('#alert-card-check-modal').css('display', '');
+            $('#alert-card-check-modal').removeClass('alert-success').addClass('alert-danger');
+            $('#alert-card-check-modal .alert-body-content').html(checkMSPMatching(namedTableData, namedTableData2));
+            $('#alert-card-check-modal').fadeIn(200);
+            setTimeout(function() {
+                $("#alert-card-check-modal").fadeOut();
+            }, 10000);
+            // Sử dụng phương thức scrollTo() của window để cuộn lên đầu trang
+            window.scrollTo({
+                top: 0
+                , behavior: "smooth" // Sử dụng hiệu ứng cuộn mượt (smooth)
+            });
+            return;
+        } else {
+            $('#alert-card-check-modal').css('display', 'none');
+        }
+
+        // Lấy thẻ div đang được hiển thị (có class active)
+        var activeTab = document.querySelector('.tab-pane.fade.show.active');
+        // Lấy tên id của tab gán cho loại thanh toán
+        var tabId = activeTab.getAttribute('id');
+
+        // In tên name và id của tab
+        console.log('Tên name của tab:', tabName);
+        console.log('Giá trị id của tab:', tabId);
+        $ThanhToan = $('<input>').attr('type', 'hidden').attr('name', 'ThanhToan').val(tabId);
 
 
+        // Thêm dữ liệu vào các input ẩn trong form
+        var $form = $('#form-donhang');
+        // Tạo 2 biến input cho request để chứa mảng dữ liệu của sản phẩm
+        $tableDataInput = $('<input>').attr('type', 'hidden').attr('name', 'dataTableDataSP').val(JSON.stringify(namedTableData));
+        $tableDataInput2 = $('<input>').attr('type', 'hidden').attr('name', 'dataTableDataCTSP').val(JSON.stringify(namedTableData2));
+        $form.append($tableDataInput, $tableDataInput2, $ThanhToan);
 
-@endsection
+        // Submit form
+        $form.submit();
+    }
+
+    function checkMSPMatching(dataTableDataSP, dataTableDataCTSP) {
+        var countMap = {};
+        var mismatchedMSPs = [];
+        if (dataTableDataSP.length == 0) {
+            return "Danh sách sản phẩm đơn hàng không được để trống!"
+        }
+        if (dataTableDataCTSP.length == 0) {
+            return "Danh sách chi tiết sản phẩm bán hàng không được để trống!"
+        }
+        // Đếm số lần xuất hiện của MSP trong mảng dataTableDataCTSP
+        dataTableDataCTSP.forEach(function(item) {
+            var msp = item.MSP;
+            countMap[msp] = (countMap[msp] || 0) + 1;
+        });
+
+        // Kiểm tra số lần xuất hiện của MSP trong mảng dataTableDataCTSP và so sánh với SL trong mảng dataTableDataSP
+        dataTableDataSP.forEach(function(item) {
+            var msp = item.MSP;
+            var sl = item.SL;
+
+            if (countMap[msp] !== sl) {
+                mismatchedMSPs.push({
+                    MSP: msp
+                    , SoLuongDon: sl
+                    , SoLuongBan: countMap[msp] || 0
+                });
+            }
+        });
+
+        if (mismatchedMSPs.length > 0) {
+            var message = 'Các sản phẩm chọn bán không khớp với số lượng Sản phẩm trên đơn hàng:<br>';
+            mismatchedMSPs.forEach(function(item) {
+                message += ' - Mã sản phẩm: ' + item.MSP + ' - Số lượng đơn: ' + item.SoLuongDon + ' - Số lượng chọn bán: ' + item.SoLuongBan + '<br>';
+            });
+            return message;
+        } else {
+            return '';
+        }
+
+    }
+
+    var phiVanChuyen = 0;
+    var totalPay = 0;
+
+    function tinhVanChuyen() {
+        var radioButtonVC = document.getElementsByName("VanChuyen");
+        var isChecked;
+        // Check xem trong mảng 2 checkbox get được cái nào đang check và lấy giá trị theo thẻ input khai báo value
+        for (var i = 0; i < radioButtonVC.length; i++) {
+            if (radioButtonVC[i].checked) {
+                isChecked = radioButtonVC[i].value;
+                break;
+            }
+        }
+        if (isChecked == "1") {
+            phiVanChuyen = 15000;
+        }
+        if (isChecked == "0") {
+            phiVanChuyen = 0;
+        }
+        tinhTongTien();
+    }
+
+    function tinhTongTien() {
+        var table = $('#table-sanpham').DataTable();
+        var total = table.column(5).data().reduce(function(acc, value) {
+            var number = parseFloat(value.replace(/,/g, ''));
+            return acc + (isNaN(number) ? 0 : number);
+        }, 0);
+        totalPay = total + phiVanChuyen;
+        var tongTienSP = document.getElementById('TongTienSanPham');
+        var tongTien = document.getElementById('TongTien');
+        tongTienSP.textContent = formatMoneyNumber(total);
+        tongTien.textContent = formatMoneyNumber(totalPay);
+    }
+
+    function formatMoneyNumber(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    function formatToMoneyNumber(number) {
+        return parseInt(number.toString().replace(/,/g, ''));
+    }
+
+</script>

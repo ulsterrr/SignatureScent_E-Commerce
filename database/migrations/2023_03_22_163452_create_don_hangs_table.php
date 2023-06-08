@@ -23,11 +23,13 @@ return new class extends Migration
             $table->string("TinhThanh")->nullable();
             $table->string("QuanHuyen")->nullable();
             $table->text("GhiChu")->nullable();
+            $table->decimal("TongTien", 18, 0)->nullable();
             $table->string("MaKhuyenMai")->nullable();
             $table->string("LoaiThanhToan");
             $table->string("VanChuyen")->nullable();
             $table->string("ChiNhanh")->nullable();
             $table->string("NguoiTao");
+            $table->string("TrangThai")->nullable();
             $table->integer("MaGioHang")->nullable();
             $table->timestamps();
         });
