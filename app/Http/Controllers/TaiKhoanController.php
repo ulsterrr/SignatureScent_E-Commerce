@@ -133,4 +133,39 @@ class TaiKhoanController extends Controller
         else return response()->json(['valid' => true]);
     }
 
+    public function kiemTraMatKhau(Request $request)
+    {
+        $user = User::find($request->userid);
+        if($user && Hash::check($request->passwordcurrent, $user->password))
+        return response()->json(['valid' => false]);
+        else return response()->json(['valid' => true]);
+    }
+
+    public function thongTinTaiKhoanView($id)
+    {
+        $user = User::find($id);
+        return view('he-thong.danh-muc.tai-khoan.thongtin-admin',compact('user'));
+    }
+    public function thongTinTaiKhoan(Request $req,$id)
+    {
+        $user = User::find($id);
+
+            $user->password = $req->MatKhauMoi;
+            $user->HoTen = $req->HoTen;
+            $user->SDT = $req->SDT;
+            $user->email = $req->Email;
+            $user->DiaChi = $req->DiaChi;
+            session()->flash('message','cập nhật thành công!');
+
+
+        return redirect()->route('thongtinTK-view',['id'=>$user->id]);
+    }
+    public function doiMKAmin(Request $req,$id)
+    {
+        $user = User::find($id);
+        $user->password = $req->MatKhauMoi;
+            session()->flash('message','cập nhật thành công!');
+
+        return redirect()->route('thongtinTK-view',['id'=>$user->id]);
+    }
 }
