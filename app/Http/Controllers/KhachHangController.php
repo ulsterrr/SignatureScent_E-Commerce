@@ -9,6 +9,7 @@ use Yajra\DataTables\DataTables;
 use App\Jobs\NotifiJob;
 use App\Jobs\QuenMKJob;
 use App\Jobs\ResetPasswordJob;
+use Illuminate\Support\Str;
 
 class KhachHangController extends Controller
 {
@@ -35,7 +36,7 @@ class KhachHangController extends Controller
             $errorMessage = 'Email quý khách không tồn tại, vui lòng đăng nhập lại!';
             return redirect()->route('quenMatKhauView')->with('message', $errorMessage);
         }
-        $newPass = explode($request->Email, '@')[0] . time();
+        $newPass = Str::random(8, 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789');;
 
         $quenMK->password = Hash::make($newPass);
         $quenMK->save();

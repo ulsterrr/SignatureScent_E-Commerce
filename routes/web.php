@@ -251,7 +251,7 @@ Route::get('user/danh-sach-yeu-thich',[SanPhamController::class,'loadSDYeuThich'
 Route::get('user/gio-hang',[GioHangController::class,'loadGioHang'])->name('giohang-view');
 Route::get('user/gio-hang/chi-tiet-gio-hang',[GioHangController::class,'loadChiTietGioHang'])->name('chitiet-giohang-view');
 Route::get('user/gio-hang/chi-tiet-gio-hang/thanh-toan')->name('thanhtoan-view');
-Route::get('user/chi-tiet-san-pham',[SanPhamController::class,'loadChiTietSP'])->name('chitiet-sanpham-view');
+Route::get('user/chi-tiet-san-pham',[SanPhamController::class,'loadSPClient'])->name('chitiet-sanpham-view');
 Route::get('user/loai-san-pham',[SanPhamController::class,'loadSPTheoLoai'])->name('loaisanpham-view');
 Route::get('user/don-hang',[DonHangController::class,'loadDonHang'])->name('donhang-view');
 Route::get('user/don-hang/chi-tiet-don-hang',[DonHangController::class,'loadChiTietDonHang'])->name('chitiet-donhang-view');
