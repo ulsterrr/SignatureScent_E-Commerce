@@ -109,7 +109,7 @@
             <!-- User avatar dropdown -->
             <div class="dropdown">
                 <div class="user col align-self-end">
-                    @if(Auth::check())
+                    @if(Auth::check() && auth()->user()->AnhDaiDien != '')
                         <img src="{{ asset('assets/images/faces/' . auth()->user()->AnhDaiDien) }}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @else
                         <img src="{{asset('assets/images/faces/2.jpg')}}" id="userDropdown" alt="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

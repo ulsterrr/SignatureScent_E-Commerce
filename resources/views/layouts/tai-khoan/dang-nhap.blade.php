@@ -28,11 +28,14 @@
 
                             </div>
 
-                            <h6 style="color:red;">
-                                @if (session('message'))
-                                    {{ session('message') }}
-                                @endif
-                            </h6>
+                            <div class="col-md-12 mt-1 mb-1">
+                                <h6 style="color:red;">
+                                    @if (session('message'))
+                                        {{ session('message') }}
+                                    @endif
+                                </h6>
+                            </div>
+
                             <div class="col-md-12">
                                 <p class="form-row">
                                     <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="ce90bf198c" /><input type="hidden" name="_wp_http_referer" value="/scentsignature/" /> <button type="submit" class="woocommerce-Button button" id="login" name="login" value="Đăng nhập">Đăng nhập</button>

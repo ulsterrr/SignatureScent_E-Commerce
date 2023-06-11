@@ -71,5 +71,19 @@ class BangKhoaChinhSeeder extends Seeder
         $MACTXK->TenGiaTri = 'Chi tiết Xuất kho sản phẩm';
         $MACTXK->TrangThai = 1;
         $MACTXK->save();
+
+        $MADH = new BangMaKhoaChinh();
+        $MADH->MaKhoaChinh = 'MDH';
+        $MADH->GiaTriHienTai = 1;
+        $MADH->TenGiaTri = 'Mã đơn hàng';
+        $MADH->TrangThai = 1;
+        $MADH->save();
+
+        $MACTDH = new BangMaKhoaChinh();
+        $MACTDH->MaKhoaChinh = 'CTDH';
+        $MACTDH->GiaTriHienTai = 1;
+        $MACTDH->TenGiaTri = 'Chi tiết đơn hàng';
+        $MACTDH->TrangThai = 1;
+        $MACTDH->save();
     }
 }

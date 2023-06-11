@@ -19,6 +19,13 @@
                     <span class="nav-text">Quản lý kho hàng</span>
                 </a>
             </li>
+            </li>
+            <li class="nav-item {{ request()->is('ban-hang/*') ? 'active' : '' }}" data-item="shop">
+                <a class="nav-item-hold" href="#">
+                    <i class="nav-icon i-Shop-3"></i>
+                    <span class="nav-text">Quản lý bán hàng</span>
+                </a>
+            </li>
         </ul>
     </div>
 
@@ -222,6 +229,29 @@
                         <a class="{{ Route::currentRouteName()=='dieuChuyen-view' ? 'open' : '' }}" href="{{ route('dieuChuyen-view') }}">
                             <i class="nav-icon i-Add"></i>
                             <span class="item-name">Điều chuyển sản phẩm</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="childNav" data-parent="shop">
+            <li class="nav-item dropdown-sidemenu">
+                <a>
+                    <i class="nav-icon i-Receipt-4"></i>
+                    <span class="item-name">Đơn hàng</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ds-donhang-view' ? 'open' : '' }}" href="{{ route('ds-donhang-view') }}">
+                            <i class="nav-icon i-Receipt-3"></i>
+                            <span class="item-name">Danh sách đơn hàng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
+                            <i class="nav-icon i-Add"></i>
+                            <span class="item-name">Tạo đơn hàng</span>
                         </a>
                     </li>
                 </ul>
