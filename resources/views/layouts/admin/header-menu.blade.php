@@ -124,7 +124,7 @@
                                 Please login
                             @endif
                         </div>
-                        <a class="dropdown-item">Cài đặt tài khoản</a>
+                        <a class="dropdown-item" href="{{route('thongtinTK-view',['id' => auth()->user()->id])}}">Cài đặt tài khoản</a>
                         <a class="dropdown-item">Cấu hình</a>
                         <a class="dropdown-item" href="{{route('xuly-dangxuat')}}">Đăng xuất</a>
                     </div>
