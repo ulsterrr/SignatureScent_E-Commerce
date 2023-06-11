@@ -7,6 +7,12 @@
         <div class="col-inner">
             <div class="woocommerce">
                 <div class="woocommerce-notices-wrapper"></div>
+                {{-- thông báo lỗi trùng email --}}
+                <div class="col-md-12 mt-3">
+                    <div id="alert-card-sp-modal" class="alert alert-card fade show" role="alert"  style="display: none;">
+                        <div class="alert-body-content"></div>
+                    </div>
+                </div>
                 <div class="account-container lightbox-inner">
                     <div class="account-login-inner">
                         <form id="new-khachhang" class="woocommerce-form woocommerce-form-login login" action="{{ route('themKHC-add') }}" method="POST">
