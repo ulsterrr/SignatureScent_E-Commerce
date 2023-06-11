@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class ChiTietSanPham extends Model
 {
@@ -40,9 +41,8 @@ class ChiTietSanPham extends Model
         return $this->belongsTo(GioHang::class, 'id');
     }
     // chi tiết sản phẩm thuộc đơn hàng
-    public function donHang($mdh)
-    {
-        return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh')->where('MaDonHang', $mdh);
+    public static function donHang($mdh) {
+        return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh')->where('MaDonHang',$mdh)->get();
     }
 
     public static function layChiTietVaSanPham(){
@@ -57,5 +57,15 @@ class ChiTietSanPham extends Model
             return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh')->whereNull('MaChiNhanh')->orWhere('MaChiNhanh', '')->get();
         }
         return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh')->where('MaChiNhanh', $mcn);
+    }
+
+    // Lấy các chi tiết trong list sản phẩm đã chọn của đơn hàng
+    public static function layChiTietTheoSanPhamDH($listMSP){
+        $listMSP = explode(",", $listMSP); // Đẩy ra thành dạng mảng để thực hiện where in cho MySQL
+        return ChiTietSanPham::with('chiTietCuaSanPham', 'chiTietCuaSanPham.loaiKichCo', 'chiTietCuaSanPham.loaiSanPham')
+                            ->whereIn('MaSanPham', $listMSP)
+                            ->whereNull('MaDonHang')
+                            ->orWhere('MaDonHang', '')
+                            ->get();
     }
 }

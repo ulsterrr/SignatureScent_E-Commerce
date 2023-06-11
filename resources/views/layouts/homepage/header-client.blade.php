@@ -6,7 +6,9 @@
                 <div id="logo" class="flex-col logo">
                     <!-- Header logo -->
                     <a href="" title="ScentSignature" rel="home">
-                        <img width="200" height="100" src="{{ asset('assets/wp-content/uploads/2019/05/logo-light.png') }}" class="header_logo header-logo" alt="ScentSignature" /><img width="200" height="100" src="{{ asset('assets/wp-content/uploads/2019/05/logo-mona.png')}}" class="header-logo-dark" alt="ScentSignature" /></a>
+                        <img width="260" height="70" src="{{ asset('assets/images/logo-horizon.png') }}" style="border-radius: 31px 3px 31px 3px;" class="header_logo header-logo" alt="Vani Beauty" />
+                        <img width="200" height="70" src="{{ asset('assets/images/logo-horizon.png')}}" style="border-radius: 31px 3px 31px 3px;" class="header-logo-dark" alt="ScentSignature" />
+                    </a>
                 </div>
                 <!-- Mobile Left Elements -->
                 <div class="flex-col show-for-medium flex-left">
@@ -58,7 +60,7 @@
                 <div class="flex-col hide-for-medium flex-left">
                     <ul class="header-nav header-nav-main nav nav-left  nav-size-medium nav-uppercase">
                         <li class="account-item has-icon">
-                            <a href="tai-khoan/" class="nav-top-link nav-top-not-logged-in " data-open="#login-form-popup">
+                            <a href="#" class="nav-top-link nav-top-not-logged-in " data-open="#login-form-popup">
                                 <span>Đăng nhập</span>
                             </a>
                             <!-- .account-login-link -->
