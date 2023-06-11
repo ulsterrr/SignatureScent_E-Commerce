@@ -243,13 +243,13 @@
                 </a>
                 <ul class="submenu">
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ds-dieuchuyen-view' ? 'open' : '' }}" href="{{ route('ds-dieuchuyen-view') }}">
+                        <a class="{{ Route::currentRouteName()=='ds-donhang-view' ? 'open' : '' }}" href="{{ route('ds-donhang-view') }}">
                             <i class="nav-icon i-Receipt-3"></i>
                             <span class="item-name">Danh sách đơn hàng</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ Route::currentRouteName()=='chiTietDonhangView' ? 'open' : '' }}" href="{{ route('chiTietDonhangView') }}">
+                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
                             <i class="nav-icon i-Add"></i>
                             <span class="item-name">Tạo đơn hàng</span>
                         </a>

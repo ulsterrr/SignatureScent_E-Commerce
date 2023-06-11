@@ -12,7 +12,7 @@
 <div class="breadcrumb">
     <h1>Danh sách </h1>
     <ul>
-        <li><a href="">điều chuyển</a></li>
+        <li><a href="">đơn hàng</a></li>
         {{-- <li>Liên hệ</li> --}}
     </ul>
 </div>
@@ -34,7 +34,7 @@
         <div class="col-md-12 mb-4">
             <div class="card text-left">
                 <div class="card-header text-right bg-transparent">
-                    <a type="button" href="{{ route('dieuChuyen-view') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm điều chuyển</a>
+                    <a type="button" href="{{ route('taoDonhangView') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm đơn hàng</a>
                 </div>
 
                 <div class="card-body">
@@ -49,7 +49,6 @@
                                     <th style="width: 50%">Email người nhận</th>
                                     <th style="width: 50%">Họ tên</th>
                                     <th style="width: 30%">Địa chỉ</th>
-                                    <th style="width: 30%">Tỉnh thành</th>
                                     <th style="width: 20%">Ghi chú</th>
                                     <th style="width: 20%">Ngày tạo</th>
                                     <th style="width: 30%">Người tạo</th>
@@ -99,7 +98,7 @@
             , scrollX: true
             , autoWidth: true
             ,ajax: {
-                url: "{{ route('layDsDieuChuyenAjax') }}",
+                url: "{{ route('layDsDonHangAjax') }}",
                 type: "GET",
             },
             columnDefs: [
@@ -111,34 +110,57 @@
                 { width: '30%', targets: 5 },
                 { width: '10%', targets: 6 },
                 { width: '10%', targets: 7 },
+                { width: '10%', targets: 8 },
+                { width: '10%', targets: 9 },
+                { width: '10%', targets: 10 },
             ]
             , createdRow: function(row, data, dataIndex) {
                 $(row).find('td').css('vertical-align', 'middle');
             }
             , columns: [
                 {
-                    data: 'MaPhieuDieuChuyen'
+                    data: 'MaDonHang'
                 }
                 , {
-                    data: 'LyDoDieuChuyen'
+                    data: 'TongTien'
                 }
                 , {
-                    data: 'ChiNhanhHienTai'
-                }
-                , {
-                    data: 'ChiNhanhDieuChuyen'
+                    data: 'LoaiThanhToan', render: function (data) {
+                        switch (data) {
+                            case 'momo': return 'Ví điện tử Momo'; break;
+                            case 'atm': return 'Thẻ tín dụng'; break;
+                            case 'bitcoin': return 'Bitcoin'; break;
+                            case 'money': return 'Thanh toán trực tiếp'; break;
+                            default: return 'Chưa thanh toán'; break;
+                        }
+                    }
                 }
                 , {
                     data: 'TrangThai'
                     , render: function (data) {
-                        if (data == '1') {
-                            return 'Đã điều chuyển';
-                        } else if (data == '0') {
-                            return 'Đang chuyển hàng';
-                        } else {
-                            return 'Huỷ điều chuyển';
+                        switch (data) {
+                            case '0': return 'Mới tạo'; break;
+                            case '1': return 'Đang vận chuyển'; break;
+                            case '2': return 'Đã giao hàng'; break;
+                            case '3': return 'Hoàn thành'; break;
+                            case '4': return 'Huỷ đơn'; break;
+                            default: return 'Nháp'; break;
                         }
                     }
+                }
+                , {
+                    data: 'Email'
+                }
+                , {
+                    data: 'HoTen'
+                }
+                , {
+                    data: null , render: function (data) {
+                        return (data.DiaChi || 0) + ', ' + (data.QuanHuyen || 0) + ', ' + (data.TinhThanh || 0)
+                    }
+                }
+                , {
+                    data: 'GhiChu'
                 }
                 , {
                     data: 'created_at'
@@ -147,29 +169,56 @@
                     }
                 }
                 , {
-                    data: 'NguoiDieuChuyen'
+                    data: 'NguoiTao'
                 }
                 , {
                     data: null
                     , render: function(data, type, row) {
-                        var detailUrl = "{{ route('chiTietDieuChuyenView', ['mdc' => ':id']) }}";
+                        var detailUrl = "{{ route('chiTietDonhangView', ['mdh' => ':id']) }}";
+                        var updUrl = "{{ route('capNhatDonhangView', ['mdh' => ':id']) }}";
 
-                        if(data.TrangThai=='1' || data.TrangThai=='3') {
+                        if(data.TrangThai=='0' || !data.TrangThai) {
                             return `<td class="text-center">
-                                    <a href="${detailUrl.replace(':id', data.MaPhieuDieuChuyen)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                                    <a href="#" class="ul-link-action text-danger huy-dh" data-toggle="tooltip" data-placement="top" title="Huỷ đơn hàng">
+                                        <i class="i-Close"></i>
+                                    </a>
+                                    <a href="${updUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-primary" data-toggle="tooltip" data-placement="top" title="Cập nhật đơn">
+                                        <i class="i-Pen-2"></i>
+                                    </a>
+                                    <a href="${detailUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
                                         <i class="i-Eye-Visible"></i>
+                                    </a>
+                                    <a class="ul-link-action text-success ship-dh" data-toggle="tooltip" data-placement="top" title="Gửi vận chuyển">
+                                        <i class="i-Ship-2"></i>
                                     </a>
                                 </td>`;
                         } else
-                        return `<td class="text-center">
-                                    <a href="${detailUrl.replace(':id', data.MaPhieuDieuChuyen)}" class="ul-link-action text-danger huy-dc" data-toggle="tooltip" data-placement="top" title="Huỷ điều chuyển">
-                                        <i class="i-Close"></i>
+                        if(data.TrangThai=='3') {
+                            return  `<td class="text-center">
+                                        <a href="${detailUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                                            <i class="i-Eye-Visible"></i>
+                                        </a>
+                                    </td>`;
+                        }
+                        if(data.TrangThai=='4') {
+                            return  `<td class="text-center">
+                                    <a href="${updUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-primary" data-toggle="tooltip" data-placement="top" title="Cập nhật đơn">
+                                        <i class="i-Pen-2"></i>
                                     </a>
-                                    <a href="${detailUrl.replace(':id', data.MaPhieuDieuChuyen)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                                    <a href="${detailUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
                                         <i class="i-Eye-Visible"></i>
                                     </a>
-                                    <a class="ul-link-action text-success confirm-dc" data-toggle="tooltip" data-placement="top" title="Xác nhận hoàn thành">
-                                        <i class="i-Yes"></i>
+                                </td>`;
+                        }
+                        return  `<td class="text-center">
+                                    <a href="#" class="ul-link-action text-danger huy-dh" data-toggle="tooltip" data-placement="top" title="Huỷ đơn hàng">
+                                        <i class="i-Close"></i>
+                                    </a>
+                                    <a href="${updUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-primary" data-toggle="tooltip" data-placement="top" title="Cập nhật đơn">
+                                        <i class="i-Pen-2"></i>
+                                    </a>
+                                    <a href="${detailUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                                        <i class="i-Eye-Visible"></i>
                                     </a>
                                 </td>`;
                     },
@@ -192,17 +241,17 @@
             selectYears:true,
         });
 
-        $('#ul-contact-list').on('click', 'a.confirm-dc', function(e) {
+        $('#ul-contact-list').on('click', 'a.confirm-dh', function(e) {
             e.preventDefault(); // ngăn chặn mặc định của thẻ <a> khi click
 
             var table = $('#ul-contact-list').DataTable();
             var data = table.row($(this).closest('tr')).data();
-            var mdc = data['MaPhieuDieuChuyen'];
+            var mdh = data['MaDonHang'];
 
             // Hiển thị popup confirm
             swal({
-                title: 'Xác nhận điều chuyển?',
-                text: "Sau khi xác nhận " + mdc + " sẽ chuyển sang trạng thái hoàn thành điều chuyển!",
+                title: 'Xác nhận đơn hàng?',
+                text: "Sau khi xác nhận " + mdh + " sẽ chuyển sang trạng thái hoàn thành đơn hàng!",
                 type: 'question',
                 showCancelButton: true,
                 confirmButtonText: 'Xác nhận!',
@@ -212,11 +261,11 @@
                 buttonsStyling: true
             }).then(function() {
                 $.ajax({
-                    url: "{{ route('xacNhanDieuChuyen', ['mdc' => ':id']) }}".replace(':id', mdc),
+                    url: "{{ route('xacNhanDonHang', ['mdh' => ':id']) }}".replace(':id', mdh),
                     type: 'POST',
                     data: {_token: '{{ csrf_token() }}'}, // Đảm bảo token csrf đúng
                     success: function(data) {
-                    swal('Đã điều chuyển!', 'Phiếu điều chuyển thực hiện thành công.', 'success').then(function() {
+                    swal('Đã hoàn tất!', 'Đơn hàng thực hiện thành công.', 'success').then(function() {
                         // Load lại datatable sau khi xoá thành công
                         $('#ul-contact-list').DataTable().ajax.reload(null, false);
                     });
@@ -236,17 +285,61 @@
                 });
         });
 
-        $('#ul-contact-list').on('click', 'a.huy-dc', function(e) {
+        $('#ul-contact-list').on('click', 'a.ship-dh', function(e) {
             e.preventDefault(); // ngăn chặn mặc định của thẻ <a> khi click
 
             var table = $('#ul-contact-list').DataTable();
             var data = table.row($(this).closest('tr')).data();
-            var mdc = data['MaPhieuDieuChuyen'];
+            var mdh = data['MaDonHang'];
 
             // Hiển thị popup confirm
             swal({
-                title: 'Xác nhận HUỶ điều chuyển?',
-                text: "Sau khi huỷ " + mdc + " sẽ chuyển sang trạng thái hoàn thành huỷ điều chuyển!",
+                title: 'Gửi đơn hàng vận chuyển?',
+                text: "Sau khi xác nhận " + mdh + " sẽ chuyển sang trạng thái vận chuyển đơn hàng!",
+                type: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Xác nhận!',
+                cancelButtonText: 'Huỷ!',
+                confirmButtonClass: 'btn btn-success mr-5',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: true
+            }).then(function() {
+                $.ajax({
+                    url: "{{ route('vanChuyenDonHang', ['mdh' => ':id']) }}".replace(':id', mdh),
+                    type: 'POST',
+                    data: {_token: '{{ csrf_token() }}'}, // Đảm bảo token csrf đúng
+                    success: function(data) {
+                    swal('Đã hoàn tất!', 'Đơn hàng đang thực hiện vận chuyển.', 'success').then(function() {
+                        // Load lại datatable sau khi xoá thành công
+                        $('#ul-contact-list').DataTable().ajax.reload(null, false);
+                    });
+                    },
+                    error: function(xhr, status, error) {
+                    swal('Thất bại', 'Đã có lỗi xảy ra', 'error');
+                    }
+                });
+            }, function(dismiss) {
+                    if (dismiss === 'cancel') {
+                        swal(
+                            'Huỷ'
+                            , 'Bạn vẫn có thể thực hiện lại thao tác này :)'
+                            , 'error'
+                        )
+                    }
+                });
+        });
+
+        $('#ul-contact-list').on('click', 'a.huy-dh', function(e) {
+            e.preventDefault(); // ngăn chặn mặc định của thẻ <a> khi click
+
+            var table = $('#ul-contact-list').DataTable();
+            var data = table.row($(this).closest('tr')).data();
+            var mdh = data['MaDonHang'];
+
+            // Hiển thị popup confirm
+            swal({
+                title: 'Xác nhận HUỶ đơn hàng?',
+                text: "Sau khi huỷ " + mdh + " sẽ chuyển sang trạng thái hoàn thành huỷ đơn hàng!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Xác nhận!',
@@ -256,11 +349,11 @@
                 buttonsStyling: true
             }).then(function() {
                 $.ajax({
-                    url: "{{ route('huyDieuChuyen', ['mdc' => ':id']) }}".replace(':id', mdc),
+                    url: "{{ route('huyDonHang', ['mdh' => ':id']) }}".replace(':id', mdh),
                     type: 'POST',
                     data: {_token: '{{ csrf_token() }}'}, // Đảm bảo token csrf đúng
                     success: function(data) {
-                    swal('Đã huỷ điều chuyển!', 'Phiếu điều chuyển thực hiện huỷ bỏ.', 'success').then(function() {
+                    swal('Đã huỷ đơn hàng!', 'Đơn hàng thực hiện huỷ bỏ.', 'success').then(function() {
                         // Load lại datatable sau khi xoá thành công
                         $('#ul-contact-list').DataTable().ajax.reload(null, false);
                     });

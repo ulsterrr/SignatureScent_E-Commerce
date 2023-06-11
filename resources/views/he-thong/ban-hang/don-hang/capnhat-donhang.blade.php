@@ -27,12 +27,22 @@
     <h1>Thanh toán</h1>
     <ul>
         <li><a href="{{ route('ds-donhang-view') }}">Đơn hàng</a></li>
-        <li>Xử lý đơn hàng</li>
+        <li><span style="color: #00c5ff !important" name="MaDonHang">{{ $DonHang->MaDonHang }}</span></li>
     </ul>
 </div>
 <div class="separator-breadcrumb border-top"></div>
 
 <section class="chekout-page">
+    <div class="col-md-12 mt-3">
+        @if (session('message'))
+        <div class="alert alert-card alert-warning" role="alert" style="display: block;">
+            <strong class="text-capitalize">Success!</strong> {{ session('message') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
+    </div>
     <!-- Chọn sản phẩm Modal -->
     <div class="col-md-12">
         <div id="sp-modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="sp-modal" aria-hidden="true">
@@ -146,17 +156,7 @@
             <div class="alert-body-content"></div>
         </div>
     </div>
-    <div class="mt-3">
-        @if (session('message'))
-        <div class="alert alert-card alert-warning" role="alert">
-            <strong class="text-capitalize">Success!</strong> {{ session('message') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        @endif
-    </div>
-    <form id="form-donhang" method="POST" action="{{ route('taodonhang-add') }}" enctype="multipart/form-data">
+    <form id="form-donhang" method="POST" action="{{ route('suadonhang-upd') }}" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-lg-7 mb-4">
@@ -227,15 +227,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="inputtext11" class="ul-form__label">Họ Tên:</label>
-                                    <input type="text" class="form-control" id="HoTen" name="HoTen" />
+                                    <input type="text" class="form-control" id="HoTen" name="HoTen" value="{{ $DonHang->HoTen }}"/>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputEmail12" class="ul-form__label">Số điện thoại:</label>
-                                    <input type="text" class="form-control" id="SDT" name="SDT" />
+                                    <input type="text" class="form-control" id="SDT" name="SDT" value="{{ $DonHang->SDT }}"/>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputEmail12" class="ul-form__label">Email nhận thông báo:</label>
-                                    <input type="text" class="form-control" id="Email" name="Email" />
+                                    <input type="text" class="form-control" id="Email" name="Email" value="{{ $DonHang->Email }}"/>
                                 </div>
                             </div>
 
@@ -244,16 +244,16 @@
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="inputtext14" class="ul-form__label">Địa chỉ:</label>
-                                    <input type="text" class="form-control" id="DiaChi" name="DiaChi" />
+                                    <input type="text" class="form-control" id="DiaChi" name="DiaChi" value="{{ $DonHang->DiaChi }}"/>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputtext14" class="ul-form__label">Quận/Huyện:</label>
-                                    <input type="text" class="form-control" id="QuanHuyen" name="QuanHuyen" />
+                                    <input type="text" class="form-control" id="QuanHuyen" name="QuanHuyen" value="{{ $DonHang->QuanHuyen }}"/>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputEmail15" class="ul-form__label">Tỉnh/Thành:</label>
                                     <div class="input-right-icon">
-                                        <input type="text" class="form-control" id="TinhThanh" name="TinhThanh" />
+                                        <input type="text" class="form-control" id="TinhThanh" name="TinhThanh" value="{{ $DonHang->TinhThanh }}"/>
                                     </div>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="inputtext14" class="ul-form__label">Ghi chú:</label>
-                                    <textarea type="text" class="form-control" id="GhiChu" name="GhiChu"></textarea>
+                                    <textarea type="text" class="form-control" id="GhiChu" name="GhiChu">{{ $DonHang->GhiChu }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -292,7 +292,7 @@
                                                         <li>
                                                             <div class="">
                                                                 <label class="radio radio-primary" checked="">
-                                                                    <input type="radio" id="LayHang" name="VanChuyen" value="0" checked onchange="tinhVanChuyen()" />
+                                                                    <input type="radio" id="LayHang" name="VanChuyen" checked="{{ $DonHang->VanChuyen == 0 }}" value="0" onchange="tinhVanChuyen()" />
                                                                     <span id="FreePhiVanChuyen" name="FreePhiVanChuyen">Nhận tại cửa hàng: 0 VND</span>
                                                                     <span class="checkmark"></span>
                                                                 </label>
@@ -301,7 +301,7 @@
                                                         <li>
                                                             <div class="">
                                                                 <label class="radio radio-primary">
-                                                                    <input type="radio" id="VanChuyen" name="VanChuyen" value="1" onchange="tinhVanChuyen()" />
+                                                                    <input type="radio" id="VanChuyen" checked="{{ $DonHang->VanChuyen == 1 }}" name="VanChuyen" value="1" onchange="tinhVanChuyen()" />
                                                                     <span id="PhiVanChuyen" name="PhiVanChuyen">Giao hàng: 15,000 VND</span>
                                                                     <span class="checkmark"></span>
                                                                 </label>
@@ -315,7 +315,7 @@
                                                     Nhập mã giảm giá:
                                                 </th>
                                                 <td>
-                                                    <input type="text" class="form-control" id="MaKhuyenMai" name="MaKhuyenMai" />
+                                                    <input type="text" class="form-control" id="MaKhuyenMai" name="MaKhuyenMai" value="{{ $DonHang->MaKhuyenMai }}"/>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -339,19 +339,19 @@
                         <div class="card-title">Phương thức thanh toán</div>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-basic-tab" data-toggle="tab" href="#momo" role="tab" aria-controls="momotab" aria-selected="true">
+                                <a class="nav-link {{ $DonHang->LoaiThanhToan == 'momo' ? 'active' : '' }}" id="home-basic-tab" data-toggle="tab" href="#momo" role="tab" aria-controls="momotab" aria-selected="true">
                                     <i class="icon-momo text-16 align-middle mr-1"></i>
                                     <span>Ví Momo</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="home-basic-tab" data-toggle="tab" href="#atm" role="tab" aria-controls="homeBasic" aria-selected="false">
+                                <a class="nav-link {{ $DonHang->LoaiThanhToan == 'atm' ? 'active' : '' }}" id="home-basic-tab" data-toggle="tab" href="#atm" role="tab" aria-controls="homeBasic" aria-selected="false">
                                     <i class="i-Credit-Card-2 text-danger text-16 align-middle mr-1"></i>
                                     <span>Chuyển khoản</span>
                                 </a>
                             </li>
                             {{-- <li class="nav-item">
-                                <a class="nav-link" disabled id="contact-basic-tab" data-toggle="tab" href="#bitcoin" role="tab" aria-controls="contactBasic" aria-selected="false">
+                                <a class="nav-link {{ $DonHang->LoaiThanhToan == 'bitcoin' ? 'active' : '' }}" disabled id="contact-basic-tab" data-toggle="tab" href="#bitcoin" role="tab" aria-controls="contactBasic" aria-selected="false">
                                     <i class="i-Bitcoin text-warning text-16 align-middle mr-1"></i>
                                     <span>Bitcoin</span>
                                 </a>
@@ -413,7 +413,7 @@
                         <div class="row text-right">
                             <div class="col-lg-12 ">
                                 <button id="btn-xacnhan" onclick="getDataAndSubmit()" type="button" class="btn btn-success m-1">
-                                    Tạo đơn hàng
+                                    Cập nhật đơn hàng
                                 </button>
                             </div>
                         </div>
@@ -434,5 +434,5 @@
 
 @section('bottom-js')
 {{-- Gọi phần xử lý đơn hàng, chia file để dễ thuận tiện xử lý tránh code quá dài --}}
-@include('he-thong.ban-hang.don-hang.xuly-donhang')
+@include('he-thong.ban-hang.don-hang.xuly-capnhat-donhang')
 @endsection

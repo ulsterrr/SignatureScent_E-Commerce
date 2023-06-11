@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string("MaCTDonHang")->unique();
             $table->string("MaDonHang");
             $table->string("MaSanPham");
-            $table->string("SoLuong")->nullable();
-            $table->string("GiaTien")->nullable();
-            $table->string("TongTien")->nullable();
+            $table->decimal("SoLuong", 18, 0)->nullable();
+            $table->decimal("GiaTien", 18, 0)->nullable();
+            $table->decimal("TongTien", 18, 0)->nullable();
             $table->timestamps();
         });
     }
