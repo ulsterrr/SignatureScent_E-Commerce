@@ -18,56 +18,26 @@
                                 <div class="image-tools absolute top show-on-hover right z-3">
                                 </div>
                                 <figure class="woocommerce-product-gallery__wrapper product-gallery-slider slider slider-nav-small mb-half" data-flickity-options='{ "cellAlign": "center", "wrapAround": true, "autoPlay": false, "prevNextButtons":true, "adaptiveHeight": true, "imagesLoaded": true, "lazyLoad": 1, "dragThreshold" : 15, "pageDots": false, "rightToLeft": false       }'>
-                                    <div data-thumb="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1-100x100.jpg" class="woocommerce-product-gallery__image slide first"><a href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1.jpg"><img width="450" height="585" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1.jpg" class="wp-post-image skip-lazy" alt="" title="41-450x585" data-caption="" data-src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1.jpg" data-large_image="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1.jpg" data-large_image_width="450" data-large_image_height="585" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1.jpg 450w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1-231x300.jpg 231w" sizes="(max-width: 450px) 100vw, 450px" /></a></div>
-                                    <div data-thumb="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-100x100.jpg" class="woocommerce-product-gallery__image slide"><a href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1.jpg"><img width="600" height="778" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-600x778.jpg" class="skip-lazy" alt="" title="1" data-caption="" data-src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1.jpg" data-large_image="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1.jpg" data-large_image_width="600" data-large_image_height="778" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1.jpg 600w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-231x300.jpg 231w" sizes="(max-width: 600px) 100vw, 600px" /></a></div>
-                                    <div data-thumb="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-100x100.jpg" class="woocommerce-product-gallery__image slide"><a href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14.jpg"><img width="600" height="778" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-600x778.jpg" class="skip-lazy" alt="" title="14" data-caption="" data-src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14.jpg" data-large_image="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14.jpg" data-large_image_width="600" data-large_image_height="778" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14.jpg 600w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-231x300.jpg 231w" sizes="(max-width: 600px) 100vw, 600px" /></a></div>
-                                    <div data-thumb="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585-100x100.jpg" class="woocommerce-product-gallery__image slide"><a href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585.jpg"><img width="450" height="585" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585.jpg" class="skip-lazy" alt="" title="8-450x585" data-caption="" data-src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585.jpg" data-large_image="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585.jpg" data-large_image_width="450" data-large_image_height="585" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585.jpg 450w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585-231x300.jpg 231w" sizes="(max-width: 450px) 100vw, 450px" /></a></div>
+                                    <div  class="woocommerce-product-gallery__image slide first"><img style="width:400px !important; height:500px !important" src="{{ asset('assets/images/san_pham/'.$SanPham->HinhAnh) }}" class="wp-post-image skip-lazy" alt="" title="41-450x585" data-caption=""></div>
                                 </figure>
                                 <div class="image-tools absolute bottom left z-3">
                                     <a href="#product-zoom" class="zoom-button button is-outline circle icon tooltip hide-for-small" title="Zoom">
                                         <i class="icon-expand"></i> </a>
                                 </div>
                             </div>
-                            <div class="product-thumbnails thumbnails slider-no-arrows slider row row-small row-slider slider-nav-small small-columns-4" data-flickity-options='{ "cellAlign": "left", "wrapAround": false, "autoPlay": false, "prevNextButtons": true, "asNavFor": ".product-gallery-slider", "percentPosition": true, "imagesLoaded": true, "pageDots": false, "rightToLeft": false, "contain": true }'>
-                                <div class="col is-nav-selected first">
-                                    <a>
-                                        <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1-300x300.jpg" alt="" width="300" height="300" class="attachment-woocommerce_thumbnail" /> </a>
-                                </div>
-                                <div class="col"><a><img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg" alt="" width="300" height="300" class="attachment-woocommerce_thumbnail" /></a></div>
-                                <div class="col"><a><img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-300x300.jpg" alt="" width="300" height="300" class="attachment-woocommerce_thumbnail" /></a></div>
-                                <div class="col"><a><img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585-300x300.jpg" alt="" width="300" height="300" class="attachment-woocommerce_thumbnail" /></a></div>
-                            </div>
                             <!-- .product-thumbnails -->
                         </div>
                         <div class="product-info summary col-fit col entry-summary product-summary">
-                            <nav class="woocommerce-breadcrumb breadcrumbs"><a href="http://mauweb.monamedia.net/vanibeauty">Trang chủ</a> <span class="divider">&#47;</span> <a href="http://mauweb.monamedia.net/vanibeauty/danh-muc/vani-beauty/">Vani Beauty</a></nav>
-                            <h1 class="product-title product_title entry-title"> Armani black suit</h1>
+                            <h1 class="product-title product_title entry-title">{{$SanPham->TenSanPham}}</h1>
                             <div class="is-divider small"></div>
-                            <ul class="next-prev-thumbs is-small show-for-medium">
-                                <li class="prod-dropdown has-dropdown">
-                                    <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/sem-qwase-eiusmod-default-2/" rel="next" class="button icon is-outline circle">
-                                        <i class="icon-angle-left"></i> </a>
-                                    <div class="nav-dropdown">
-                                        <a title="Sem qwase eiusmod default" href="http://mauweb.monamedia.net/vanibeauty/san-pham/sem-qwase-eiusmod-default-2/">
-                                            <img width="100" height="100" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-100x100.jpg" class="attachment-woocommerce_gallery_thumbnail size-woocommerce_gallery_thumbnail wp-post-image" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-100x100.jpg 100w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-300x300.jpg 300w" sizes="(max-width: 100px) 100vw, 100px" /></a>
-                                    </div>
-                                </li>
-                                <li class="prod-dropdown has-dropdown">
-                                    <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/printed-chiffon-default/" rel="next" class="button icon is-outline circle">
-                                        <i class="icon-angle-right"></i> </a>
-                                    <div class="nav-dropdown">
-                                        <a title="Printed chiffon default" href="http://mauweb.monamedia.net/vanibeauty/san-pham/printed-chiffon-default/">
-                                            <img width="100" height="100" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585-100x100.jpg" class="attachment-woocommerce_gallery_thumbnail size-woocommerce_gallery_thumbnail wp-post-image" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585-100x100.jpg 100w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585-300x300.jpg 300w" sizes="(max-width: 100px) 100vw, 100px" /></a>
-                                    </div>
-                                </li>
-                            </ul>
+
                             <div class="price-wrapper">
                                 <p class="price product-page-price ">
-                                    <span class="woocommerce-Price-amount amount">550,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                                    <span class="woocommerce-Price-amount amount">{{ number_format($SanPham->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
                                 </p>
                             </div>
                             <div class="product-short-description">
-                                <p><strong>Lorem Ipsum</strong> chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành công nghiệp in ấn</p>
+                                <p><strong>Thương hiệu :</strong> {{$SanPham->ThuongHieu}}</p>
                             </div>
                             <form class="cart" action="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/" method="post" enctype='multipart/form-data'>
                                 <div class="quantity buttons_added">
@@ -80,147 +50,15 @@
                             <div class="row row-small" id="row-1335089997">
                                 <div class="col medium-6 small-12 large-6">
                                     <div class="col-inner">
-                                        <p><strong>Tính phí ship tự động</strong></p>
-                                        <div class="row large-columns-3 medium-columns- small-columns-2 row-xsmall">
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghn.jpg" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghn.jpg" class="attachment-original size-original" alt="" ids="338,339,340,341,342,343" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghn.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghn-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghn-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghn-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghn-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
-                                                        </div>
-                                                        <!-- .box -->
-                                                    </a>
-                                                </div>
-                                                <!-- .col-inner -->
-                                            </div>
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghtk.jpg" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghtk.jpg" class="attachment-original size-original" alt="" ids="338,339,340,341,342,343" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghtk.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghtk-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghtk-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghtk-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ghtk-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
-                                                        </div>
-                                                        <!-- .box -->
-                                                    </a>
-                                                </div>
-                                                <!-- .col-inner -->
-                                            </div>
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ninja-van.jpg" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ninja-van.jpg" class="attachment-original size-original" alt="" ids="338,339,340,341,342,343" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ninja-van.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ninja-van-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ninja-van-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ninja-van-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-ninja-van-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
-                                                        </div>
-                                                        <!-- .box -->
-                                                    </a>
-                                                </div>
-                                                <!-- .col-inner -->
-                                            </div>
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-shipchung.jpg" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-shipchung.jpg" class="attachment-original size-original" alt="" ids="338,339,340,341,342,343" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-shipchung.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-shipchung-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-shipchung-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-shipchung-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-shipchung-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
-                                                        </div>
-                                                        <!-- .box -->
-                                                    </a>
-                                                </div>
-                                                <!-- .col-inner -->
-                                            </div>
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-viettle-post.jpg" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-viettle-post.jpg" class="attachment-original size-original" alt="" ids="338,339,340,341,342,343" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-viettle-post.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-viettle-post-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-viettle-post-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-viettle-post-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-viettle-post-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
-                                                        </div>
-                                                        <!-- .box -->
-                                                    </a>
-                                                </div>
-                                                <!-- .col-inner -->
-                                            </div>
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vn-post.jpg" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vn-post.jpg" class="attachment-original size-original" alt="" ids="338,339,340,341,342,343" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vn-post.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vn-post-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vn-post-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vn-post-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vn-post-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
-                                                        </div>
-                                                        <!-- .box -->
-                                                    </a>
-                                                </div>
-                                                <!-- .col-inner -->
-                                            </div>
-                                            <!-- .col -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col medium-6 small-12 large-6">
-                                    <div class="col-inner">
                                         <p><strong>Thanh toán</strong></p>
                                         <div class="row large-columns-3 medium-columns- small-columns-2 row-xsmall">
+                                            <!-- .col -->
                                             <div class="gallery-col col">
                                                 <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-acb.jpg" title="">
+                                                    <a class="image-lightbox lightbox-gallery" href="{{ asset('assets/images/san_pham/momo.png') }}" title="">
                                                         <div class="box has-hover gallery-box box-overlay dark">
                                                             <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-acb.jpg" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-acb.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-acb-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-acb-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-acb-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-acb-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
+                                                                <img width="400" height="200" src="{{ asset('assets/images/san_pham/momo.png') }}" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)"  sizes="(max-width: 200px) 100vw, 400px" />
                                                                 <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
                                                                 </div>
                                                             </div>
@@ -235,128 +73,36 @@
                                                 </div>
                                                 <!-- .col-inner -->
                                             </div>
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-techcombank.jpg" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-techcombank.jpg" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-techcombank.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-techcombank-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-techcombank-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-techcombank-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-techcombank-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
-                                                        </div>
-                                                        <!-- .box -->
-                                                    </a>
-                                                </div>
-                                                <!-- .col-inner -->
-                                            </div>
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vib.jpg" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vib.jpg" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vib.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vib-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vib-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vib-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vib-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
-                                                        </div>
-                                                        <!-- .box -->
-                                                    </a>
-                                                </div>
-                                                <!-- .col-inner -->
-                                            </div>
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vcb.jpg" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vcb.jpg" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vcb.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vcb-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vcb-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vcb-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-vcb-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
-                                                        </div>
-                                                        <!-- .box -->
-                                                    </a>
-                                                </div>
-                                                <!-- .col-inner -->
-                                            </div>
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-paypal.jpg" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-paypal.jpg" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-paypal.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-paypal-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-paypal-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-paypal-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-paypal-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
-                                                        </div>
-                                                        <!-- .box -->
-                                                    </a>
-                                                </div>
-                                                <!-- .col-inner -->
-                                            </div>
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-mastercard.jpg" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-mastercard.jpg" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-mastercard.jpg 400w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-mastercard-300x150.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-mastercard-24x12.jpg 24w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-mastercard-36x18.jpg 36w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2018/10/logo-mastercard-48x24.jpg 48w" sizes="(max-width: 400px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
-                                                        </div>
-                                                        <!-- .box -->
-                                                    </a>
-                                                </div>
-                                                <!-- .col-inner -->
-                                            </div>
-                                            <!-- .col -->
+
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col small-12 large-12">
-                                    <div class="col-inner">
-                                        <p><strong>"Hãy trở thành Affilicate của chúng tôi để tìm thêm thu nhập thụ động, kiếm tiền online"</strong></p>
-                                        <a href="http://mauweb.monamedia.net/vanibeauty/dang-ky-affilicate/" target="_self" class="button primary lowercase">
-                                            <span>Đăng ký Affilicate</span>
-                                        </a>
+                                        <div class="row large-columns-3 medium-columns- small-columns-2 row-xsmall">
+                                            <!-- .col -->
+                                            <div class="gallery-col col">
+                                                <div class="col-inner">
+                                                    <a class="image-lightbox lightbox-gallery" href="{{ asset('assets/images/san_pham/mbs.png') }}" title="">
+                                                        <div class="box has-hover gallery-box box-overlay dark">
+                                                            <div class="box-image">
+                                                                <img width="400" height="200" src="{{ asset('assets/images/san_pham/mbs.png') }}" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)"  sizes="(max-width: 200px) 100vw, 400px" />
+                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
+                                                                </div>
+                                                            </div>
+                                                            <!-- .image -->
+                                                            <div class="box-text text-left">
+                                                                <p></p>
+                                                            </div>
+                                                            <!-- .text -->
+                                                        </div>
+                                                        <!-- .box -->
+                                                    </a>
+                                                </div>
+                                                <!-- .col-inner -->
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                                 <style scope="scope">
                                 </style>
-                            </div>
-                            <div class="product_meta">
-                                <span class="posted_in">Danh mục: <a href="http://mauweb.monamedia.net/vanibeauty/danh-muc/gloss/" rel="tag">Gloss</a>, <a href="http://mauweb.monamedia.net/vanibeauty/danh-muc/lipstick/" rel="tag">Lipstick</a>, <a href="http://mauweb.monamedia.net/vanibeauty/danh-muc/nail/" rel="tag">Nail</a>, <a href="http://mauweb.monamedia.net/vanibeauty/danh-muc/skincare/" rel="tag">Skincare</a>, <a href="http://mauweb.monamedia.net/vanibeauty/danh-muc/vani-beauty/" rel="tag">Vani Beauty</a></span>
                             </div>
                         </div>
                         <!-- .summary -->
@@ -507,16 +253,8 @@
                             <div class="tab-panels">
                                 <div class="panel entry-content active" id="tab-description">
                                     <div>
-                                        <h2>Lorem Ipsum là gì?</h2>
-                                        <p><strong>Lorem Ipsum</strong> chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành công nghiệp in ấn từ những năm 1500, khi một họa sĩ vô danh ghép nhiều đoạn văn bản với nhau để tạo thành một bản mẫu văn bản. Đoạn văn bản này không những đã tồn tại năm thế kỉ, mà khi được áp dụng vào tin học văn phòng, nội dung của nó vẫn không hề bị thay đổi. Nó đã được phổ biến trong những năm 1960 nhờ việc bán những bản giấy Letraset in những đoạn Lorem Ipsum, và gần đây hơn, được sử dụng trong các ứng dụng dàn trang, như Aldus PageMaker.</p>
-                                    </div>
-                                    <div>
-                                        <h2>Tại sao lại sử dụng nó?</h2>
-                                        <p>Chúng ta vẫn biết rằng, làm việc với một đoạn văn bản dễ đọc và rõ nghĩa dễ gây rối trí và cản trở việc tập trung vào yếu tố trình bày văn bản. Lorem Ipsum có ưu điểm hơn so với đoạn văn bản chỉ gồm nội dung kiểu “Nội dung, nội dung, nội dung” là nó khiến văn bản giống thật hơn, bình thường hơn. Nhiều phần mềm thiết kế giao diện web và dàn trang ngày nay đã sử dụng Lorem Ipsum làm đoạn văn bản giả, và nếu bạn thử tìm các đoạn “Lorem ipsum” trên mạng thì sẽ khám phá ra nhiều trang web hiện vẫn đang trong quá trình xây dựng. Có nhiều phiên bản khác nhau đã xuất hiện, đôi khi do vô tình, nhiều khi do cố ý (xen thêm vào những câu hài hước hay thông tục).</p>
-                                    </div>
-                                    <div>
-                                        <h2>Nó đến từ đâu?</h2>
-                                        <p>Trái với quan điểm chung của số đông, Lorem Ipsum không phải chỉ là một đoạn văn bản ngẫu nhiên. Người ta tìm thấy nguồn gốc của nó từ những tác phẩm văn học la-tinh cổ điển xuất hiện từ năm 45 trước Công Nguyên, nghĩa là nó đã có khoảng hơn 2000 tuổi. Một giáo sư của trường Hampden-Sydney College (bang Virginia – Mỹ) quan tâm tới một trong những từ la-tinh khó hiểu nhất, “consectetur”, trích từ một đoạn của Lorem Ipsum, và đã nghiên cứu tất cả các ứng dụng của từ này trong văn học cổ điển, để từ đó tìm ra nguồn gốc không thể chối cãi của Lorem Ipsum. Thật ra, nó được tìm thấy trong các đoạn 1.10.32 và 1.10.33 của “De Finibus Bonorum et Malorum” (Đỉnh tối thượng của Cái Tốt và Cái Xấu) viết bởi Cicero vào năm 45 trước Công Nguyên. Cuốn sách này là một luận thuyết đạo lí rất phổ biến trong thời kì Phục Hưng.</p>
+                                        <h2>{{$SanPham->TenSanPham}}</h2>
+                                        <p>{{$SanPham->MoTa}}</p>
                                     </div>
                                 </div>
                                 <div class="panel entry-content " id="tab-reviews">

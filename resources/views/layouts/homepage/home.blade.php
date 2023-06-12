@@ -143,11 +143,11 @@
                                                 <div class="box-image">
                                                     @if ($data->HinhAnh)
                                                     <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                        <a href="san-pham/printed-summer-dress-simple/">
+                                                        <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                             <img width="300" height="300" src="{{ asset('assets/images/san_pham/' . $data->HinhAnh) }}"  class="attachment-original size-original" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                     </div>
                                                     @else
-                                                    <a href="san-pham/printed-summer-dress-simple/">
+                                                    <a >
                                                         <img width="300" height="300" src="{{ asset('assets/images/faces/1.jpg') }}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                     @endif
 
@@ -159,7 +159,7 @@
                                                 <!-- box-image -->
                                                 <div class="box-text text-center">
                                                     <div class="title-wrapper">
-                                                        <p class="name product-title"><a href="san-pham/printed-summer-dress-simple/">{{$data->TenSanPham}}</a></p>
+                                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}" >{{$data->TenSanPham}}</a></p>
                                                     </div>
                                                     <div class="price-wrapper">
                                                         <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
@@ -187,11 +187,11 @@
                                                 <div class="box-image">
                                                     @if ($data->HinhAnh)
                                                     <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                        <a href="san-pham/printed-summer-dress-simple/">
+                                                        <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                             <img width="300" height="300" src="{{ asset('assets/images/san_pham/' . $data->HinhAnh) }}"  class="attachment-original size-original" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                     </div>
                                                     @else
-                                                    <a href="san-pham/printed-summer-dress-simple/">
+                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                         <img width="300" height="300" src="{{ asset('assets/images/faces/1.jpg') }}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                     @endif
 
@@ -203,7 +203,7 @@
                                                 <!-- box-image -->
                                                 <div class="box-text text-center">
                                                     <div class="title-wrapper">
-                                                        <p class="name product-title"><a href="san-pham/printed-summer-dress-simple/">{{$data->TenSanPham}}</a></p>
+                                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">{{$data->TenSanPham}}</a></p>
                                                     </div>
                                                     <div class="price-wrapper">
                                                         <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
@@ -233,11 +233,11 @@
                                                 <div class="box-image">
                                                     @if ($data->HinhAnh)
                                                     <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                        <a href="san-pham/printed-summer-dress-simple/">
+                                                        <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                             <img width="300" height="300" src="{{ asset('assets/images/san_pham/' . $data->HinhAnh) }}"  class="attachment-original size-original" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                     </div>
                                                     @else
-                                                    <a href="san-pham/printed-summer-dress-simple/">
+                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                         <img width="300" height="300" src="{{ asset('assets/images/faces/1.jpg') }}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                     @endif
 
@@ -249,7 +249,7 @@
                                                 <!-- box-image -->
                                                 <div class="box-text text-center">
                                                     <div class="title-wrapper">
-                                                        <p class="name product-title"><a href="san-pham/printed-summer-dress-simple/">{{$data->TenSanPham}}</a></p>
+                                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">{{$data->TenSanPham}}</a></p>
                                                     </div>
                                                     <div class="price-wrapper">
                                                         <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
@@ -278,11 +278,11 @@
                                                 <div class="box-image">
                                                     @if ($data->HinhAnh)
                                                     <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                        <a href="san-pham/printed-summer-dress-simple/">
+                                                        <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                             <img width="300" height="300" src="{{ asset('assets/images/san_pham/' . $data->HinhAnh) }}"  class="attachment-original size-original" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                     </div>
                                                     @else
-                                                    <a href="san-pham/printed-summer-dress-simple/">
+                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                         <img width="300" height="300" src="{{ asset('assets/images/faces/1.jpg') }}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                     @endif
 
@@ -294,7 +294,7 @@
                                                 <!-- box-image -->
                                                 <div class="box-text text-center">
                                                     <div class="title-wrapper">
-                                                        <p class="name product-title"><a href="san-pham/printed-summer-dress-simple/">{{$data->TenSanPham}}</a></p>
+                                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">{{$data->TenSanPham}}</a></p>
                                                     </div>
                                                     <div class="price-wrapper">
                                                         <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
@@ -323,11 +323,11 @@
                                                 <div class="box-image">
                                                     @if ($data->HinhAnh)
                                                     <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                        <a href="san-pham/printed-summer-dress-simple/">
+                                                        <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                             <img width="300" height="300" src="{{ asset('assets/images/san_pham/' . $data->HinhAnh) }}"  class="attachment-original size-original" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                     </div>
                                                     @else
-                                                    <a href="san-pham/printed-summer-dress-simple/">
+                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                         <img width="300" height="300" src="{{ asset('assets/images/faces/1.jpg') }}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                     @endif
 
@@ -339,7 +339,7 @@
                                                 <!-- box-image -->
                                                 <div class="box-text text-center">
                                                     <div class="title-wrapper">
-                                                        <p class="name product-title"><a href="san-pham/printed-summer-dress-simple/">{{$data->TenSanPham}}</a></p>
+                                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">{{$data->TenSanPham}}</a></p>
                                                     </div>
                                                     <div class="price-wrapper">
                                                         <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
@@ -401,7 +401,7 @@
                                                         <div class="product-small box has-hover box-bounce box-text-bottom">
                                                             <div class="box-image">
                                                                 <div class="image-zoom image-cover" style="padding-top:158%;">
-                                                                    <a href="san-pham/printed-summer-dress-simple/">
+                                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                                         <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                                 </div>
                                                                 <div class="image-tools top right show-on-hover">
@@ -412,7 +412,7 @@
                                                             <!-- box-image -->
                                                             <div class="box-text text-center is-large">
                                                                 <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/printed-summer-dress-simple/">Printed summer dress simple</a></p>
+                                                                    <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">Printed summer dress simple</a></p>
                                                                 </div>
                                                                 <div class="price-wrapper">
                                                                     <span class="price"><span class="woocommerce-Price-amount amount">150,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
@@ -535,7 +535,7 @@
                                                         <div class="product-small box has-hover box-bounce box-text-bottom">
                                                             <div class="box-image">
                                                                 <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/printed-summer-dress-simple/">
+                                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                                         <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                                 </div>
                                                                 <div class="image-tools top right show-on-hover">
@@ -546,7 +546,7 @@
                                                             <!-- box-image -->
                                                             <div class="box-text text-center">
                                                                 <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/printed-summer-dress-simple/">Printed summer dress simple</a></p>
+                                                                    <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">Printed summer dress simple</a></p>
                                                                 </div>
                                                                 <div class="price-wrapper">
                                                                     <span class="price"><span class="woocommerce-Price-amount amount">150,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
@@ -743,7 +743,7 @@
                                                         <div class="product-small box has-hover box-bounce box-text-bottom">
                                                             <div class="box-image">
                                                                 <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/printed-summer-dress-simple/">
+                                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                                         <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                                 </div>
                                                                 <div class="image-tools top right show-on-hover">
@@ -754,7 +754,7 @@
                                                             <!-- box-image -->
                                                             <div class="box-text text-center">
                                                                 <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/printed-summer-dress-simple/">Printed summer dress simple</a></p>
+                                                                    <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">Printed summer dress simple</a></p>
                                                                 </div>
                                                                 <div class="price-wrapper">
                                                                     <span class="price"><span class="woocommerce-Price-amount amount">150,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
@@ -1079,7 +1079,7 @@
                                                         <div class="product-small box has-hover box-bounce box-text-bottom">
                                                             <div class="box-image">
                                                                 <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/printed-summer-dress-simple/">
+                                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
                                                                         <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
                                                                 </div>
                                                                 <div class="image-tools top right show-on-hover">
@@ -1090,7 +1090,7 @@
                                                             <!-- box-image -->
                                                             <div class="box-text text-center">
                                                                 <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/printed-summer-dress-simple/">Printed summer dress simple</a></p>
+                                                                    <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">Printed summer dress simple</a></p>
                                                                 </div>
                                                                 <div class="price-wrapper">
                                                                     <span class="price"><span class="woocommerce-Price-amount amount">150,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
