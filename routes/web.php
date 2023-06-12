@@ -249,10 +249,11 @@ Route::get('admin/bao-cao-san-pham-ban-chay',[ThongKeController::class,'loadSPBa
 
 //User
 Route::get('/danh-sach-yeu-thich',[NguoiDungController::class,'loadSDYeuThich'])->name('danhsach-yeuthich-view');
-Route::get('/gio-hang',[GioHangController::class,'loadGioHang'])->name('giohang-view');
+Route::get('/gio-hang',[GioHangController::class,'loadGioHangView'])->name('giohang-view');
 Route::get('/gio-hang/chi-tiet-gio-hang',[GioHangController::class,'loadChiTietGioHang'])->name('chitiet-giohang-view');
 Route::get('/gio-hang/chi-tiet-gio-hang/thanh-toan')->name('thanhtoan-view');
-Route::get('/chi-tiet-san-pham',[NguoiDungController::class,'thongTinSanPhamView'])->name('chitiet-sanpham-view');
+Route::get('/chi-tiet-san-pham/{id}',[NguoiDungController::class,'thongTinSanPhamView'])->name('chitiet-sanpham-view');
+Route::post('/chi-tiet-san-pham/{id}',[NguoiDungController::class,'thongTinSanPham'])->name('chitiet-sanpham');
 Route::get('/loai-san-pham',[SanPhamController::class,'loadSPTheoLoai'])->name('loaisanpham-view');
 Route::get('/don-hang',[DonHangController::class,'loadDonHang'])->name('donhang-view');
 Route::get('/don-hang/chi-tiet-don-hang',[DonHangController::class,'loadChiTietDonHang'])->name('chitiet-donhang-view');

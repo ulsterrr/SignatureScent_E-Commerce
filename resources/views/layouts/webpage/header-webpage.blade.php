@@ -84,7 +84,7 @@
                             </div>
                         </li>
                         <li class="cart-item has-icon has-dropdown">
-                            <a href="#" title="Giỏ hàng" class="header-cart-link is-small">
+                            <a href="{{route('giohang-view')}}" title="Giỏ hàng" class="header-cart-link is-small">
                                 <i class="icon-shopping-basket" data-icon-label="0">
                                 </i>
                             </a>
