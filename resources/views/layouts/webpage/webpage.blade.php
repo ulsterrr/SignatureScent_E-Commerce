@@ -43,8 +43,8 @@
 
             <div id="wrapper">
                 @include('layouts.webpage.header-webpage')
-
                 <!-- ============ end of header menu ============= -->
+                @yield('before-content')
                 <main id="main" class="">
                     <div id="content" role="main">
                     {{-- <div class="main-content"> --}}
@@ -153,6 +153,12 @@
     {{-- <script type='text/javascript' src='{{ asset('assets/wp-includes/js/zxcvbn.min.js')}}'></script> --}}
     {{-- <script type='text/javascript' src='{{ asset('assets/wp-admin/js/password-strength-meter.min.js')}}'></script> --}}
     <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/frontend/password-strength-meter.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/frontend/price-slider.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/frontend/accounting.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/jquery/ui/core.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/jquery/ui/widget.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/jquery/ui/mouse.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/jquery/ui/slider.min.js')}}'></script>
     <style type="text/css"></style>
 
     @yield('bottom-js')
