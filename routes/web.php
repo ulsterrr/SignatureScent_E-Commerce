@@ -110,7 +110,6 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
     Route::get('admin/chi-tiet-tai-khoan/{id}',[TaiKhoanController::class,'chiTietTaiKhoanView'])->name('chitietTK');
     Route::get('admin/cap-nhat-tai-khoan/{id}',[TaiKhoanController::class,'capNhatTaiKhoanView'])->name('capnhatTK-view');
     Route::post('admin/cap-nhat-tai-khoan/doi-anh-dai-dien/{id}', [TaiKhoanController::class, 'doiAnhDaiDien'])->name('capnhat-AnhDaiDien');
-
     //lấy ds user cho modal
     Route::get('dsUserModal',[TaiKhoanController::class,'layDsUserModal'])->name('dsUserModal');
     Route::get('dsUserAjax',[TaiKhoanController::class,'layDsUserAjax'])->name('dsUserAjax');

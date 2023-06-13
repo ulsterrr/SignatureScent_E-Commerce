@@ -26,7 +26,7 @@ class SanPhamSeeder extends Seeder
         Không quá lời khi nói rằng, Versace Eros là mùi hương lấy lại vị thế cho nhà mốt lừng danh đến từ đất nước nước hình chiếc ủng trong thế kỷ 21. Tươi trẻ, sôi động và gợi cảm, đó là những tính từ có thể dùng để mô tả sát nghĩa nhất mùi hương nằm trong chai hương màu xanh đậm dấu ấn Địa Trung Hải này.
         Eros khởi đầu bằng mùi hương của Quả táo, một mùi hương Trái cây giòn tan, tươi tắn, được nhuộm vàng màu nắng bởi một Quả chanh vàng mọng nước. Bên cạnh Trái cây, Bạc hà the the, trẻ trung, phóng khoáng là nhân vật còn lại của điểm khởi đầu, đem theo một chút hậu vị ngọt ngọt nơi khoang mũi, để dẫn mùi hương của Eros vào với chủ điểm của nó, là sự ngọt ngào. Đậu Tonka, Vanilla quyện lấy nhau, một sự kết hợp ngọt ngào không xa lạ, khiến mùi hương trở nên mềm mại và gợi cảm hơn.
         Versace Eros Eau de Toilette là lựa chọn an toàn và hiệu quả cho mọi chàng trai trẻ trung, năng động, thích tiệc tùng và ưa ồn ào náo nhiệt.";
-        $SP->HinhAnh = "versace_eros.jpg";
+        $SP->HinhAnh = "versace_eros.jpeg";
         $SP->LoaiKichCo = "KC01";
         $SP->LoaiSanPham = "LSP01";
         $SP->GhiChu = "";

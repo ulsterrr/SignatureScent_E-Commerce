@@ -9,7 +9,12 @@ class NguoiDungController extends Controller
 {
     public function thongTinSanPhamView($id) {
         $sanpham = SanPham::find($id);
-        return view('nguoi-dung.xem-sanpham')->with('SanPham',$sanpham);
+        $LoaiSanPham = $sanpham->LoaiSanPham;
+
+        $sanphamtuongtu = SanPham::where('LoaiSanPham',$LoaiSanPham)->get();
+        return view('nguoi-dung.xem-sanpham')->with([
+            'SanPham' => $sanpham,
+            'SanPhamTT' => $sanphamtuongtu]);
     }
     // public function thongTinSanPham($id){
 
