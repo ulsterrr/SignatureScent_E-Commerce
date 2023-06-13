@@ -11,6 +11,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Auth;
+
 
 class SanPhamController extends Controller
 {
@@ -44,6 +46,8 @@ class SanPhamController extends Controller
     }
 
     public function chiTietSPhamView($id){
+        if(Auth::user()->LoaiTaiKhoan == 'A')
+        {
         $sanpham = SanPham::with('loaiSanPham', 'loaiKichCo')->find($id);
         $loaisp = LoaiSanPham::all();
         $loaikc = LoaiKichCo::all();
@@ -53,11 +57,34 @@ class SanPhamController extends Controller
             'LoaiSP' => $loaisp,
             'LoaiKC' => $loaikc
         ]);;
+         }
+        $sanpham = SanPham::where('MaChiNhanh',Auth::user()->ChiNhanh)::with('loaiSanPham', 'loaiKichCo')->find($id);
+        $loaisp = LoaiSanPham::all();
+        $loaikc = LoaiKichCo::all();
+        response()->json($sanpham);
+        return view('he-thong.kho-hang.san-pham.thongtin-sanpham')->with([
+            'SanPham'=> $sanpham,
+            'LoaiSP' => $loaisp,
+            'LoaiKC' => $loaikc
+        ]);;
+
 
     }
 
     public function capNhatSPhamView($id){
-        $sanpham = SanPham::with('loaiSanPham', 'loaiKichCo')->find($id);
+        if(Auth::user()->LoaiTaiKhoan == 'A')
+        {
+            $sanpham = SanPham::with('loaiSanPham', 'loaiKichCo')->find($id);
+            $loaisp = LoaiSanPham::all();
+            $loaikc = LoaiKichCo::all();
+            response()->json($sanpham);
+            return view('he-thong.kho-hang.san-pham.capnhat-sanpham')->with([
+                'SanPham'=> $sanpham,
+                'LoaiSP' => $loaisp,
+                'LoaiKC' => $loaikc
+            ]);;
+        }
+        $sanpham = SanPham::where('MaChiNhanh',Auth::user()->ChiNhanh)::with('loaiSanPham', 'loaiKichCo')->find($id);
         $loaisp = LoaiSanPham::all();
         $loaikc = LoaiKichCo::all();
         response()->json($sanpham);

@@ -18,7 +18,7 @@
                                 <div class="image-tools absolute top show-on-hover right z-3">
                                 </div>
                                 <figure class="woocommerce-product-gallery__wrapper product-gallery-slider slider slider-nav-small mb-half" data-flickity-options='{ "cellAlign": "center", "wrapAround": true, "autoPlay": false, "prevNextButtons":true, "adaptiveHeight": true, "imagesLoaded": true, "lazyLoad": 1, "dragThreshold" : 15, "pageDots": false, "rightToLeft": false       }'>
-                                    <div  class="woocommerce-product-gallery__image slide first"><img style="width:400px !important; height:500px !important" src="{{ asset('assets/images/san_pham/'.$SanPham->HinhAnh) }}" class="wp-post-image skip-lazy" alt="" title="41-450x585" data-caption=""></div>
+                                    <div  class="woocommerce-product-gallery__image slide first"><img style="width:500px !important; height:500px !important" src="{{ asset('assets/images/san_pham/'.$SanPham->HinhAnh) }}" class="wp-post-image skip-lazy" alt="" title="41-450x585" data-caption=""></div>
                                 </figure>
                                 <div class="image-tools absolute bottom left z-3">
                                     <a href="#product-zoom" class="zoom-button button is-outline circle icon tooltip hide-for-small" title="Zoom">
@@ -128,110 +128,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <aside id="woocommerce_products-2" class="widget woocommerce widget_products"><span class="widget-title shop-sidebar">Sản phẩm</span>
-                                    <div class="is-divider small"></div>
-                                    <ul class="product_list_widget">
-                                        <li>
-                                            <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/fermentum-magna/">
-                                                <img width="100" height="100" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-1-450x585-100x100.jpg" class="attachment-woocommerce_gallery_thumbnail size-woocommerce_gallery_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-1-450x585-100x100.jpg 100w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-1-450x585-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-1-450x585-300x300.jpg 300w" sizes="(max-width: 100px) 100vw, 100px" /> <span class="product-title">Fermentum magna</span>
-                                            </a>
-                                            <span class="woocommerce-Price-amount amount">520,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/sem-qwase-eiusmod-default-2/">
-                                                <img width="100" height="100" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-100x100.jpg" class="attachment-woocommerce_gallery_thumbnail size-woocommerce_gallery_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-100x100.jpg 100w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-300x300.jpg 300w" sizes="(max-width: 100px) 100vw, 100px" /> <span class="product-title">Sem qwase eiusmod default</span>
-                                            </a>
-                                            <span class="woocommerce-Price-amount amount">650,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/">
-                                                <img width="100" height="100" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1-100x100.jpg" class="attachment-woocommerce_gallery_thumbnail size-woocommerce_gallery_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1-100x100.jpg 100w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/41-450x585-1-300x300.jpg 300w" sizes="(max-width: 100px) 100vw, 100px" /> <span class="product-title">Armani black suit</span>
-                                            </a>
-                                            <span class="woocommerce-Price-amount amount">550,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/printed-chiffon-default/">
-                                                <img width="100" height="100" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585-100x100.jpg" class="attachment-woocommerce_gallery_thumbnail size-woocommerce_gallery_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585-100x100.jpg 100w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/8-450x585-300x300.jpg 300w" sizes="(max-width: 100px) 100vw, 100px" /> <span class="product-title">Printed chiffon default</span>
-                                            </a>
-                                            <span class="woocommerce-Price-amount amount">470,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                        </li>
-                                        <li>
-                                            <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/azrouel-dress-variable/">
-                                                <img width="100" height="100" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-450x585-100x100.jpg" class="attachment-woocommerce_gallery_thumbnail size-woocommerce_gallery_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-450x585-100x100.jpg 100w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-450x585-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-450x585-300x300.jpg 300w" sizes="(max-width: 100px) 100vw, 100px" /> <span class="product-title">Azrouel dress variable</span>
-                                            </a>
-                                            <span class="woocommerce-Price-amount amount">190,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                        </li>
-                                    </ul>
-                                </aside>
-                                <aside id="flatsome_recent_posts-3" class="widget flatsome_recent_posts"> <span class="widget-title shop-sidebar">Bài viết mới nhất</span>
-                                    <div class="is-divider small"></div>
-                                    <ul>
-                                        <li class="recent-blog-posts-li">
-                                            <div class="flex-row recent-blog-posts align-top pt-half pb-half">
-                                                <div class="flex-col mr-half">
-                                                    <div class="badge post-date  badge-circle">
-                                                        <div class="badge-inner bg-fill" style="background: url(http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/2-1-150x150.jpg); border:0;">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- .flex-col -->
-                                                <div class="flex-col flex-grow">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/lorem-ipsum-la-van-ban-gia/" title="Lorem Ipsum là văn bản giả">Lorem Ipsum là văn bản giả</a>
-                                                    <span class="post_comments op-7 block is-xsmall"><a href="http://mauweb.monamedia.net/vanibeauty/lorem-ipsum-la-van-ban-gia/#respond"></a></span>
-                                                </div>
-                                            </div>
-                                            <!-- .flex-row -->
-                                        </li>
-                                        <li class="recent-blog-posts-li">
-                                            <div class="flex-row recent-blog-posts align-top pt-half pb-half">
-                                                <div class="flex-col mr-half">
-                                                    <div class="badge post-date  badge-circle">
-                                                        <div class="badge-inner bg-fill" style="background: url(http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/6-1-150x150.jpg); border:0;">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- .flex-col -->
-                                                <div class="flex-col flex-grow">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/lorem-ipsum-la-van-ban-gia-2/" title="Lorem Ipsum là văn bản giả">Lorem Ipsum là văn bản giả</a>
-                                                    <span class="post_comments op-7 block is-xsmall"><a href="http://mauweb.monamedia.net/vanibeauty/lorem-ipsum-la-van-ban-gia-2/#respond"></a></span>
-                                                </div>
-                                            </div>
-                                            <!-- .flex-row -->
-                                        </li>
-                                        <li class="recent-blog-posts-li">
-                                            <div class="flex-row recent-blog-posts align-top pt-half pb-half">
-                                                <div class="flex-col mr-half">
-                                                    <div class="badge post-date  badge-circle">
-                                                        <div class="badge-inner bg-fill" style="background: url(http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-1-150x150.jpg); border:0;">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- .flex-col -->
-                                                <div class="flex-col flex-grow">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/lorem-ipsum-la-van-ban-gia-3/" title="Lorem Ipsum là văn bản giả">Lorem Ipsum là văn bản giả</a>
-                                                    <span class="post_comments op-7 block is-xsmall"><a href="http://mauweb.monamedia.net/vanibeauty/lorem-ipsum-la-van-ban-gia-3/#respond"></a></span>
-                                                </div>
-                                            </div>
-                                            <!-- .flex-row -->
-                                        </li>
-                                        <li class="recent-blog-posts-li">
-                                            <div class="flex-row recent-blog-posts align-top pt-half pb-half">
-                                                <div class="flex-col mr-half">
-                                                    <div class="badge post-date  badge-circle">
-                                                        <div class="badge-inner bg-fill" style="background: url(http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/4-150x150.jpg); border:0;">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- .flex-col -->
-                                                <div class="flex-col flex-grow">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/lorem-ipsum-la-van-ban-gia-4/" title="Lorem Ipsum là văn bản giả">Lorem Ipsum là văn bản giả</a>
-                                                    <span class="post_comments op-7 block is-xsmall"><a href="http://mauweb.monamedia.net/vanibeauty/lorem-ipsum-la-van-ban-gia-4/#respond"></a></span>
-                                                </div>
-                                            </div>
-                                            <!-- .flex-row -->
-                                        </li>
-                                    </ul>
-                                </aside>
                             </div>
                             <!-- .sidebar-inner -->
                         </div>
@@ -298,6 +194,9 @@
                         <div class="related related-products-wrapper product-section">
                             <h3 class="product-section-title container-width product-section-title-related pt-half pb-half uppercase"> Sản phẩm tương tự </h3>
                             <div class="row large-columns-5 medium-columns-3 small-columns-2 row-small slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
+                                @foreach ( $SanPhamTT as $data )
+
+
                                 <div class="product-small col has-hover post-796 product type-product status-publish has-post-thumbnail product_cat-gloss product_cat-lipstick product_cat-nail product_cat-skincare product_cat-vani-beauty instock shipping-taxable purchasable product-type-simple">
                                     <div class="col-inner">
                                         <div class="badge-container absolute left top z-1">
@@ -305,23 +204,16 @@
                                         <div class="product-small box ">
                                             <div class="box-image">
                                                 <div class="image-fade_in_back">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/fermentum-magna/">
-                                                        <img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-1-450x585-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-1-450x585-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-1-450x585-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/3-1-450x585-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
+                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
+                                                        <img width="300" height="300" src="{{ asset('assets/images/san_pham/'.$data->HinhAnh) }}"  alt=""  300w, sizes="(max-width: 300px, max-height: 300px) 100vw, 300px" /> </a>
                                             </div>
                                             <!-- box-image -->
                                             <div class="box-text box-text-products text-center grid-style-2">
                                                 <div class="title-wrapper">
-                                                    <p class="name product-title"><a href="http://mauweb.monamedia.net/vanibeauty/san-pham/fermentum-magna/">Fermentum magna</a></p>
+                                                    <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">{{$data->TenSanPham}}</a></p>
                                                 </div>
                                                 <div class="price-wrapper">
-                                                    <span class="price"><span class="woocommerce-Price-amount amount">520,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                                                    <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
                                                     </span>
                                                 </div>
                                             </div>
@@ -332,245 +224,9 @@
                                     <!-- .col-inner -->
                                 </div>
                                 <!-- col -->
-                                <div class="product-small col has-hover post-760 product type-product status-publish has-post-thumbnail product_cat-gloss product_cat-lipstick product_cat-nail product_cat-skincare product_cat-vani-beauty instock shipping-taxable purchasable product-type-simple">
-                                    <div class="col-inner">
-                                        <div class="badge-container absolute left top z-1">
-                                        </div>
-                                        <div class="product-small box ">
-                                            <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/zrouel-dress-variable/">
-                                                        <img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/42-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/42-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/42-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/42-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                            </div>
-                                            <!-- box-image -->
-                                            <div class="box-text box-text-products text-center grid-style-2">
-                                                <div class="title-wrapper">
-                                                    <p class="name product-title"><a href="http://mauweb.monamedia.net/vanibeauty/san-pham/zrouel-dress-variable/">Zrouel dress variable</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                    <span class="price"><span class="woocommerce-Price-amount amount">250,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <!-- box-text -->
-                                        </div>
-                                        <!-- box -->
-                                    </div>
-                                    <!-- .col-inner -->
-                                </div>
-                                <!-- col -->
-                                <div class="product-small col has-hover post-782 product type-product status-publish has-post-thumbnail product_cat-gloss product_cat-lipstick product_cat-nail product_cat-skincare product_cat-vani-beauty last instock shipping-taxable purchasable product-type-simple">
-                                    <div class="col-inner">
-                                        <div class="badge-container absolute left top z-1">
-                                        </div>
-                                        <div class="product-small box ">
-                                            <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/sleeve-odio-external/">
-                                                        <img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/11-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/11-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/11-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/11-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                            </div>
-                                            <!-- box-image -->
-                                            <div class="box-text box-text-products text-center grid-style-2">
-                                                <div class="title-wrapper">
-                                                    <p class="name product-title"><a href="http://mauweb.monamedia.net/vanibeauty/san-pham/sleeve-odio-external/">Sleeve odio external</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                    <span class="price"><span class="woocommerce-Price-amount amount">280,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <!-- box-text -->
-                                        </div>
-                                        <!-- box -->
-                                    </div>
-                                    <!-- .col-inner -->
-                                </div>
-                                <!-- col -->
-                                <div class="product-small col has-hover post-795 product type-product status-publish has-post-thumbnail product_cat-gloss product_cat-lipstick product_cat-nail product_cat-skincare product_cat-vani-beauty first instock shipping-taxable purchasable product-type-simple">
-                                    <div class="col-inner">
-                                        <div class="badge-container absolute left top z-1">
-                                        </div>
-                                        <div class="product-small box ">
-                                            <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/sem-qwase-eiusmod-default-2/">
-                                                        <img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                            </div>
-                                            <!-- box-image -->
-                                            <div class="box-text box-text-products text-center grid-style-2">
-                                                <div class="title-wrapper">
-                                                    <p class="name product-title"><a href="http://mauweb.monamedia.net/vanibeauty/san-pham/sem-qwase-eiusmod-default-2/">Sem qwase eiusmod default</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                    <span class="price"><span class="woocommerce-Price-amount amount">650,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <!-- box-text -->
-                                        </div>
-                                        <!-- box -->
-                                    </div>
-                                    <!-- .col-inner -->
-                                </div>
-                                <!-- col -->
-                                <div class="product-small col has-hover post-785 product type-product status-publish has-post-thumbnail product_cat-gloss product_cat-lipstick product_cat-nail product_cat-skincare product_cat-vani-beauty instock shipping-taxable purchasable product-type-simple">
-                                    <div class="col-inner">
-                                        <div class="badge-container absolute left top z-1">
-                                        </div>
-                                        <div class="product-small box ">
-                                            <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/sem-qwase-eiusmod-default/">
-                                                        <img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/10-450x585-1-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/10-450x585-1-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/10-450x585-1-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/10-450x585-1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                            </div>
-                                            <!-- box-image -->
-                                            <div class="box-text box-text-products text-center grid-style-2">
-                                                <div class="title-wrapper">
-                                                    <p class="name product-title"><a href="http://mauweb.monamedia.net/vanibeauty/san-pham/sem-qwase-eiusmod-default/">Sem qwase eiusmod default</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                    <span class="price"><span class="woocommerce-Price-amount amount">250,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <!-- box-text -->
-                                        </div>
-                                        <!-- box -->
-                                    </div>
-                                    <!-- .col-inner -->
-                                </div>
-                                <!-- col -->
-                                <div class="product-small col has-hover post-789 product type-product status-publish has-post-thumbnail product_cat-gloss product_cat-lipstick product_cat-nail product_cat-skincare product_cat-vani-beauty instock shipping-taxable purchasable product-type-simple">
-                                    <div class="col-inner">
-                                        <div class="badge-container absolute left top z-1">
-                                        </div>
-                                        <div class="product-small box ">
-                                            <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/framed-sleeve-tops-group/">
-                                                        <img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/28-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/28-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/28-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/28-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                            </div>
-                                            <!-- box-image -->
-                                            <div class="box-text box-text-products text-center grid-style-2">
-                                                <div class="title-wrapper">
-                                                    <p class="name product-title"><a href="http://mauweb.monamedia.net/vanibeauty/san-pham/framed-sleeve-tops-group/">Framed-Sleeve Tops Group</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                    <span class="price"><span class="woocommerce-Price-amount amount">340,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <!-- box-text -->
-                                        </div>
-                                        <!-- box -->
-                                    </div>
-                                    <!-- .col-inner -->
-                                </div>
-                                <!-- col -->
-                                <div class="product-small col has-hover post-787 product type-product status-publish has-post-thumbnail product_cat-gloss product_cat-lipstick product_cat-nail product_cat-skincare product_cat-vani-beauty last instock shipping-taxable purchasable product-type-simple">
-                                    <div class="col-inner">
-                                        <div class="badge-container absolute left top z-1">
-                                        </div>
-                                        <div class="product-small box ">
-                                            <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/printed-summer-dress-simple/">
-                                                        <img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/5-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                            </div>
-                                            <!-- box-image -->
-                                            <div class="box-text box-text-products text-center grid-style-2">
-                                                <div class="title-wrapper">
-                                                    <p class="name product-title"><a href="http://mauweb.monamedia.net/vanibeauty/san-pham/printed-summer-dress-simple/">Printed summer dress simple</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                    <span class="price"><span class="woocommerce-Price-amount amount">150,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <!-- box-text -->
-                                        </div>
-                                        <!-- box -->
-                                    </div>
-                                    <!-- .col-inner -->
-                                </div>
-                                <!-- col -->
-                                <div class="product-small col has-hover post-784 product type-product status-publish has-post-thumbnail product_cat-gloss product_cat-lipstick product_cat-nail product_cat-skincare product_cat-vani-beauty first instock shipping-taxable purchasable product-type-simple">
-                                    <div class="col-inner">
-                                        <div class="badge-container absolute left top z-1">
-                                        </div>
-                                        <div class="product-small box ">
-                                            <div class="box-image">
-                                                <div class="image-fade_in_back">
-                                                    <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/pilot-jacket-simple/">
-                                                        <img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-300x300.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="300" height="300" src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-300x300.jpg 300w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-150x150.jpg 150w, http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/1-100x100.jpg 100w" sizes="(max-width: 300px) 100vw, 300px" /> </a>
-                                                </div>
-                                                <div class="image-tools is-small top right show-on-hover">
-                                                </div>
-                                                <div class="image-tools is-small hide-for-small bottom left show-on-hover">
-                                                </div>
-                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                </div>
-                                            </div>
-                                            <!-- box-image -->
-                                            <div class="box-text box-text-products text-center grid-style-2">
-                                                <div class="title-wrapper">
-                                                    <p class="name product-title"><a href="http://mauweb.monamedia.net/vanibeauty/san-pham/pilot-jacket-simple/">Pilot jacket simple</a></p>
-                                                </div>
-                                                <div class="price-wrapper">
-                                                    <span class="price"><span class="woocommerce-Price-amount amount">550,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <!-- box-text -->
-                                        </div>
-                                        <!-- box -->
-                                    </div>
-                                    <!-- .col-inner -->
-                                </div>
                                 <!-- col -->
                             </div>
+                            @endforeach
                         </div>
                     </div>
                     <!-- container -->
