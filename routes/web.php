@@ -94,12 +94,10 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
 |--------------------------------------------------------------------------
 
 */
-
-//Admin
-//Quản Lý Danh Mục
-    //CRUD Quản Lý Tài Khoản
-    Route::get('admin/xoa-tai-khoan/{id}',[TaiKhoanController::class,'xoaTaiKhoan'])->name('xoaTK-del');
+//ADMIN Quản lý
+//CRUD Quản Lý Tài Khoản
     Route::post('admin/cap-nhat-tai-khoan/{id}',[TaiKhoanController::class,'capNhatTaiKhoan'])->name('capnhatTK-upd');
+    Route::get('admin/xoa-tai-khoan/{id}',[TaiKhoanController::class,'xoaTaiKhoan'])->name('xoaTK-del');
     Route::post('admin/them-tai-khoan',[TaiKhoanController::class,'themTaiKhoan'])->name('themTK-add');
     Route::post('kiemtra-email', [TaiKhoanController::class,'kiemTraTrungEmail'])->name('kiemtra-email');
 
@@ -125,12 +123,10 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
     Route::get('dsNVienModal',[NhanVienController::class,'layDsNvienModal'])->name('dsNVienModal');
     Route::get('dsNvienAjax',[NhanVienController::class,'layDsNVienAjax'])->name('dsNvienAjax');
 
-
     //CRUD Quản Lý Nhân Viên
-    Route::get('admin/xoa-nhan-vien/{id}',[NhanVienController::class,'xoaNhanVien'])->name('xoaNV-del');
     Route::post('admin/cap-nhat-thong-tin-nhan-vien/{id}',[NhanVienController::class,'capNhatThongTinNVien'])->name('capnhat-thongtin-nv-upd');
+    Route::get('admin/xoa-nhan-vien/{id}',[NhanVienController::class,'xoaNhanVien'])->name('xoaNV-del');
     Route::post('admin/them-nhan-vien',[NhanVienController::class,'themNhanVien'])->name('them-moi-nv-add');
-//
 
     //lấy ds khách hàng cho modal
     Route::get('dsKHangModal',[KhachHangController::class,'layDsKHangModal'])->name('dsKHangModal');
@@ -261,6 +257,7 @@ Route::get('/gioi-thieu',[NguoiDungController::class,'gioiThieuView'])->name('gi
 Route::get('/tin-tuc',[NguoiDungController::class,'tinTucView'])->name('tintuc-view');
 Route::get('/xem-tintuc',[NguoiDungController::class,'xemTinTucView'])->name('xemtintuc-view');
 Route::get('/lien-he',[NguoiDungController::class,'lienHeView'])->name('lienhe-view');
+Route::get('/gio-hang',[NguoiDungController::class,'gioHangView'])->name('giohang-view');
 
 //verify email
 Route::get('/xac-thuc-email/{id}/{token}',[VerificationController::class,'verifyEmail'])->name('xacthuc-email');
