@@ -100,13 +100,18 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
     Route::get('admin/xoa-tai-khoan/{id}',[TaiKhoanController::class,'xoaTaiKhoan'])->name('xoaTK-del');
     Route::post('admin/them-tai-khoan',[TaiKhoanController::class,'themTaiKhoan'])->name('themTK-add');
     Route::post('kiemtra-email', [TaiKhoanController::class,'kiemTraTrungEmail'])->name('kiemtra-email');
-
+    Route::post('admin/thong-tin-tai-khoan/{id}',[TaiKhoanController::class,'thongTinTaiKhoan'])->name('thongtinTK');
+    Route::post('admin/doi-mat-khau/{id}',[TaiKhoanController::class,'doiMKAmin'])->name('doiMK-Amin');
+    Route::post('admin/kiem-mat-khau',[TaiKhoanController::class,'kiemTraMatKhau'])->name('kiemtra-matkhau');
 
     //View Quản Lý Tài Khoản
     Route::get('admin/quan-ly-tai-khoan',[TaiKhoanController::class,'loadDSTaiKhoanView'])->name('quanlyTKView');
     Route::get('admin/them-moi-tai-khoan',[TaiKhoanController::class,'themTaiKhoanView'])->name('themTKView');
     Route::get('admin/chi-tiet-tai-khoan/{id}',[TaiKhoanController::class,'chiTietTaiKhoanView'])->name('chitietTK');
     Route::get('admin/cap-nhat-tai-khoan/{id}',[TaiKhoanController::class,'capNhatTaiKhoanView'])->name('capnhatTK-view');
+    Route::get('admin/thong-tin-tai-khoan/{id}',[TaiKhoanController::class,'thongTinTaiKhoanView'])->name('thongtinTK-view');
+
+
     Route::post('admin/cap-nhat-tai-khoan/doi-anh-dai-dien/{id}', [TaiKhoanController::class, 'doiAnhDaiDien'])->name('capnhat-AnhDaiDien');
     //lấy ds user cho modal
     Route::get('dsUserModal',[TaiKhoanController::class,'layDsUserModal'])->name('dsUserModal');
@@ -258,6 +263,7 @@ Route::get('/tin-tuc',[NguoiDungController::class,'tinTucView'])->name('tintuc-v
 Route::get('/xem-tintuc',[NguoiDungController::class,'xemTinTucView'])->name('xemtintuc-view');
 Route::get('/lien-he',[NguoiDungController::class,'lienHeView'])->name('lienhe-view');
 Route::get('/gio-hang',[NguoiDungController::class,'gioHangView'])->name('giohang-view');
+Route::get('/gioi-thieu',[NguoiDungController::class,'gioiThieuView'])->name('gioithieu-view');
 
 //verify email
 Route::get('/xac-thuc-email/{id}/{token}',[VerificationController::class,'verifyEmail'])->name('xacthuc-email');
