@@ -24,7 +24,7 @@
                                     <a href="#"><i class="i-Library"></i> Tiện ích</a>
                                     <a href="#"><i class="i-Drop"></i> Ứng dụng</a>
                                     <a href="#"><i class="i-Checked-User"></i> Hỗ trợ</a>
-                                    <a href="#"><i class="i-Checked-User"></i> Giới thiệu</a>
+                                    <a href="{{route('gioithieu-view')}}"><i class="i-Checked-User"></i> Giới thiệu</a>
                                     <a href="#"><i class="i-Ambulance"></i> Liên hệ</a>
                                 </div>
                             </div>
@@ -35,14 +35,14 @@
                                     <li><a href="#">Tiện ích</a></li>
                                     <li><a href="#">Ứng dụng</a></li>
                                     <li><a href="#">Hỗ trợ</a></li>
-                                    <li><a href="#">Giới thiệu</a></li>
-                                    <li><a href="#">Liên hệ</a></li>
+                                    <li><a href="{{route('gioithieu-view')}}">Giới thiệu</a></li>
+                                    <li><a href="{{route('lienhe-view')}}">Liên hệ</a></li>
                                     <li><a href="{{route('homepage')}}">Trang chủ</a></li>
                                     <li><a href="#">Tiện ích</a></li>
                                     <li><a href="#">Ứng dụng</a></li>
                                     <li><a href="#">Hỗ trợ</a></li>
-                                    <li><a href="#">Giới thiệu</a></li>
-                                    <li><a href="#">Liên hệ</a></li>
+                                    <li><a href="{{route('gioithieu-view')}}">Giới thiệu</a></li>
+                                    <li><a href="{{route('lienhe-view')}}">Liên hệ</a></li>
                                 </ul>
                             </div>
                         </div>

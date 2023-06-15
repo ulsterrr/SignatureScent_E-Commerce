@@ -18,6 +18,8 @@ class SanPhamController extends Controller
 {
     //Xử lý hàm sp dành cho admin
     public function loadSPView(){
+        if(Auth::user()->LoaiTaiKhoan == 'A')
+        {
         $sanpham = SanPham::all();
         $loaisp = LoaiSanPham::all();
         $loaikc = LoaiKichCo::all();
@@ -26,6 +28,16 @@ class SanPhamController extends Controller
             'LoaiSP' => $loaisp,
             'LoaiKC' => $loaikc
         ]);
+        }
+        $sanpham = SanPham::where('MaChiNhanh',Auth::user()->ChiNhanh)::all();
+        $loaisp = LoaiSanPham::all();
+        $loaikc = LoaiKichCo::all();
+        return view('he-thong.kho-hang.san-pham.ds-sanpham')->with([
+            'SanPham' => $sanpham,
+            'LoaiSP' => $loaisp,
+            'LoaiKC' => $loaikc
+        ]);
+
     }
 
     public function themSPham(Request $req){
@@ -158,6 +170,9 @@ class SanPhamController extends Controller
 
     public function loadSPClient(){
         $sp = SanPham::all();
-        return view('layouts.homepage.home')->with('SPNam',$sp);
+        $spgiatot = SanPham::whereBetween('GiaTien', [500000, 2000000])->get();
+        return view('layouts.homepage.home')->with([
+            'SPNam' => $sp,
+            'SPGiaTot' => $spgiatot  ]);
     }
 }

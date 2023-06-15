@@ -47,6 +47,20 @@
                                 </div>
                                 <button type="submit" name="add-to-cart" value="794" class="single_add_to_cart_button button alt">Thêm vào giỏ</button>
                             </form>
+                            <div class="container">
+                                <form>
+                                    @foreach ($CTSP as $macn )
+                                    <label>
+                                        <input type="radio" name="radio" checked/>
+                                        <span>{{$macn->getChiNhanh->TenChiNhanh}}</span>
+
+                                    </label>
+                                    <label>
+                                        <span>Số lượng : Còn {{$macn->TonKho}} sản phẩm</span>
+                                    </label>
+                                    @endforeach
+                                </form>
+                            </div>
                             <div class="row row-small" id="row-1335089997">
                                 <div class="col medium-6 small-12 large-6">
                                     <div class="col-inner">
@@ -239,3 +253,4 @@
     <!-- shop container -->
 </div>
 @endsection
+
