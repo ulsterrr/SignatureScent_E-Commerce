@@ -310,10 +310,10 @@
                                 <div class="menu-menu-footer-company-container">
                                     <ul id="menu-menu-footer-company" class="menu">
                                         <li id="menu-item-361" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-361"><a href="">Trang chủ</a></li>
-                                        <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="gioi-thieu/">Giới thiệu</a></li>
-                                        <li id="menu-item-362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="cua-hang/">Cửa hàng</a></li>
-                                        <li id="menu-item-365" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="category/tin-tuc/">Tin tức</a></li>
-                                        <li id="menu-item-364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="lien-he/">Liên hệ</a></li>
+                                        <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="{{route('gioithieu-view')}}">Giới thiệu</a></li>
+                                        <li id="menu-item-362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="{{route('cuahang-view')}}">Cửa hàng</a></li>
+                                        <li id="menu-item-365" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="{{route('tintuc-view')}}">Tin tức</a></li>
+                                        <li id="menu-item-364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="{{route('lienhe-view')}}">Liên hệ</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -328,10 +328,10 @@
                                 <div class="menu-menu-footer-company-container">
                                     <ul id="menu-menu-footer-company-1" class="menu">
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-361"><a href="">Trang chủ</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="gioi-thieu/">Giới thiệu</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="cua-hang/">Cửa hàng</a></li>
-                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="category/tin-tuc/">Tin tức</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="lien-he/">Liên hệ</a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="{{route('gioithieu-view')}}">Giới thiệu</a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="{{route('cuahang-view')}}">Cửa hàng</a></li>
+                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="{{route('tintuc-view')}}">Tin tức</a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="{{route('lienhe-view')}}">Liên hệ</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -346,10 +346,10 @@
                                 <div class="menu-menu-footer-company-container">
                                     <ul id="menu-menu-footer-company-2" class="menu">
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-361"><a href="">Trang chủ</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="gioi-thieu/">Giới thiệu</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="cua-hang/">Cửa hàng</a></li>
-                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="category/tin-tuc/">Tin tức</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="lien-he/">Liên hệ</a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="{{route('gioithieu-view')}}">Giới thiệu</a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="{{route('cuahang-view')}}">Cửa hàng</a></li>
+                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="{{route('tintuc-view')}}">Tin tức</a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="{{route('lienhe-view')}}">Liên hệ</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -364,10 +364,10 @@
                                 <div class="menu-menu-footer-company-container">
                                     <ul id="menu-menu-footer-company-3" class="menu">
                                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-361"><a href="">Trang chủ</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="gioi-thieu/">Giới thiệu</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="cua-hang/">Cửa hàng</a></li>
-                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="category/tin-tuc/">Tin tức</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="lien-he/">Liên hệ</a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="{{route('gioithieu-view')}}">Giới thiệu</a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="{{route('cuahang-view')}}">Cửa hàng</a></li>
+                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="{{route('tintuc-view')}}">Tin tức</a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="{{route('lienhe-view')}}">Liên hệ</a></li>
                                     </ul>
                                 </div>
                             </div>

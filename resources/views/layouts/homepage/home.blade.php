@@ -359,10 +359,107 @@
 
                         </div>
                     </div>
+                    <div class="tabbed-content">
+                        <ul class="nav nav-line-bottom nav-uppercase nav-size-xlarge nav-center">
+                            <li class="tab has-icon"><a href="#tab_bestsell"><span>Bán chạy</span></a></li>
+                            <li class="tab active has-icon"><a href="#tab_nuochoa_giatot"><span>Giá tốt</span></a></li>
+                        </ul>
+                        <div class="tab-panels">
+                            <div class="panel entry-content" id="tab_bestsell">
+                                <div class="row large-columns-4 medium-columns-3 small-columns-2 row-normal row-full-width">
+                                    @foreach ($SPNam as $data)
+                                    <div class="col">
+                                        <div class="col-inner">
+                                            <div class="badge-container absolute left top z-1">
+                                            </div>
+                                            <div class="product-small box has-hover box-normal box-text-bottom">
+                                                <div class="box-image">
+                                                    @if ($data->HinhAnh)
+                                                    <div class="image-zoom image-cover" style="padding-top:100%;">
+                                                        <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
+                                                            <img width="300" height="300" src="{{ asset('assets/images/san_pham/' . $data->HinhAnh) }}"  class="attachment-original size-original" sizes="(max-width: 600px) 100vw, 600px" /> </a>
+                                                    </div>
+                                                    @else
+                                                    <a >
+                                                        <img width="300" height="300" src="{{ asset('assets/images/faces/1.jpg') }}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
+                                                    @endif
+
+                                                    <div class="image-tools top right show-on-hover">
+                                                    </div>
+                                                    <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                                    </div>
+                                                </div>
+                                                <!-- box-image -->
+                                                <div class="box-text text-center">
+                                                    <div class="title-wrapper">
+                                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}" >{{$data->TenSanPham}}</a></p>
+                                                    </div>
+                                                    <div class="price-wrapper">
+                                                        <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <!-- box-text -->
+                                            </div>
+                                            <!-- box -->
+                                        </div>
+                                        <!-- .col-inner -->
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="panel active entry-content" id="tab_nuochoa_giatot">
+                                <div class="row large-columns-4 medium-columns-3 small-columns-2 row-normal row-full-width">
+                                    @foreach ($SPGiaTot as $data)
+                                    @if ($data->LoaiSanPham == "LSP01")
+                                    <div class="col">
+                                        <div class="col-inner">
+                                            <div class="badge-container absolute left top z-1">
+                                            </div>
+                                            <div class="product-small box has-hover box-normal box-text-bottom">
+                                                <div class="box-image">
+                                                    @if ($data->HinhAnh)
+                                                    <div class="image-zoom image-cover" style="padding-top:100%;">
+                                                        <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
+                                                            <img width="300" height="300" src="{{ asset('assets/images/san_pham/' . $data->HinhAnh) }}"  class="attachment-original size-original" sizes="(max-width: 600px) 100vw, 600px" /> </a>
+                                                    </div>
+                                                    @else
+                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
+                                                        <img width="300" height="300" src="{{ asset('assets/images/faces/1.jpg') }}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
+                                                    @endif
+
+                                                    <div class="image-tools top right show-on-hover">
+                                                    </div>
+                                                    <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
+                                                    </div>
+                                                </div>
+                                                <!-- box-image -->
+                                                <div class="box-text text-center">
+                                                    <div class="title-wrapper">
+                                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">{{$data->TenSanPham}}</a></p>
+                                                    </div>
+                                                    <div class="price-wrapper">
+                                                        <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <!-- box-text -->
+                                            </div>
+                                            <!-- box -->
+                                        </div>
+                                        <!-- .col-inner -->
+                                    </div>
+                                    @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!-- .section-content -->
     <style scope="scope">
         #section_179462801 {
@@ -378,743 +475,7 @@
     <div class="bg section-bg fill bg-fill  bg-loaded">
     </div>
     <!-- .section-bg -->
-    <div class="section-content relative">
-        <div class="row" id="row-651617024">
-            <div class="col small-12 large-12">
-                <div class="col-inner" style="padding:60px 0px 0px 0px;margin:0px 0px -40px 0px;">
-                    <div class="tabbed-content">
-                        <ul class="nav nav-simple nav-uppercase nav-size-xlarge nav-left">
-                            <li class="tab active has-icon"><a href="#tab_bÁn-chẠy"><span>BÁN CHẠY</span></a></li>
-                            <li class="tab has-icon"><a href="#tab_giÁ-tỐt"><span>GIÁ TỐT</span></a></li>
-                            <li class="tab has-icon"><a href="#tab_nổi-bật"><span>nổi bật</span></a></li>
-                        </ul>
-                        <div class="tab-panels">
-                            <div class="panel active entry-content" id="tab_bÁn-chẠy">
-                                <div class="row" id="row-2051118083">
-                                    <div class="col hide-for-medium medium-4 small-12 large-4">
-                                        <div class="col-inner text-center">
-                                            <div class="row large-columns-1 medium-columns- small-columns- row-small slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:158%;">
-                                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center is-large">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">Printed summer dress simple</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">150,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col medium-12 small-12 large-8">
-                                        <div class="col-inner">
-                                            <div class="row large-columns-3 medium-columns-3 small-columns-2 row-normal">
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/sleeve-odio-external/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/11.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/11.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/11-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/sleeve-odio-external/">Sleeve odio external</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">280,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/dolor-sit-amet/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/14-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/14-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/14-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/14-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/1.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/1-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/dolor-sit-amet/">Dolor sit amet</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">770,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/sem-qwase-eiusmod-default/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="450" height="585" src="{{ asset('assets/wp-content/uploads/2019/05/10-450x585-1.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/10-450x585-1.jpg')}} 450w, {{ asset('assets/wp-content/uploads/2019/05/10-450x585-1-231x300.jpg')}} 231w" sizes="(max-width: 450px) 100vw, 450px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/sem-qwase-eiusmod-default/">Sem qwase eiusmod default</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">250,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">Printed summer dress simple</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">150,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/printed-chiffon-default/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="450" height="585" src="{{ asset('assets/wp-content/uploads/2019/05/8-450x585.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/8-450x585.jpg')}} 450w, {{ asset('assets/wp-content/uploads/2019/05/8-450x585-231x300.jpg')}} 231w" sizes="(max-width: 450px) 100vw, 450px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/printed-chiffon-default/">Printed chiffon default</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">470,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/fermentum-magna/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="450" height="585" src="{{ asset('assets/wp-content/uploads/2019/05/3-1-450x585.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/3-1-450x585.jpg')}} 450w, {{ asset('assets/wp-content/uploads/2019/05/3-1-450x585-231x300.jpg')}} 231w" sizes="(max-width: 450px) 100vw, 450px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/fermentum-magna/">Fermentum magna</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">520,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel entry-content" id="tab_giÁ-tỐt">
-                                <div class="row" id="row-1288191705">
-                                    <div class="col hide-for-medium medium-4 small-12 large-4">
-                                        <div class="col-inner text-center">
-                                            <div class="row large-columns-1 medium-columns- small-columns- row-small slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:158%;">
-                                                                    <a href="san-pham/printed-chiffon-default/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="450" height="585" src="{{ asset('assets/wp-content/uploads/2019/05/8-450x585.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/8-450x585.jpg')}} 450w, {{ asset('assets/wp-content/uploads/2019/05/8-450x585-231x300.jpg')}} 231w" sizes="(max-width: 450px) 100vw, 450px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center is-large">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/printed-chiffon-default/">Printed chiffon default</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">470,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col medium-12 small-12 large-8">
-                                        <div class="col-inner">
-                                            <div class="row large-columns-3 medium-columns-3 small-columns-2 row-normal">
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/fermentum-magna/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="450" height="585" src="{{ asset('assets/wp-content/uploads/2019/05/3-1-450x585.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/3-1-450x585.jpg')}} 450w, {{ asset('assets/wp-content/uploads/2019/05/3-1-450x585-231x300.jpg')}} 231w" sizes="(max-width: 450px) 100vw, 450px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/fermentum-magna/">Fermentum magna</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">520,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/framed-sleeve-tops-group/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/28.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/28.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/28-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/framed-sleeve-tops-group/">Framed-Sleeve Tops Group</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">340,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">Printed summer dress simple</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">150,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/azrouel-dress-variable/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="450" height="585" src="{{ asset('assets/wp-content/uploads/2019/05/3-450x585.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/3-450x585.jpg')}} 450w, {{ asset('assets/wp-content/uploads/2019/05/3-450x585-231x300.jpg')}} 231w" sizes="(max-width: 450px) 100vw, 450px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/azrouel-dress-variable/">Azrouel dress variable</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">190,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/sem-qwase-eiusmod-default-2/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="450" height="585" src="{{ asset('assets/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585.jpg')}} 450w, {{ asset('assets/wp-content/uploads/2019/05/5-FILEminimizer-1-450x585-231x300.jpg')}} 231w" sizes="(max-width: 450px) 100vw, 450px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/sem-qwase-eiusmod-default-2/">Sem qwase eiusmod default</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">650,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/zrouel-dress-variable/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/42.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/42.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/42-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/zrouel-dress-variable/">Zrouel dress variable</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">250,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel entry-content" id="tab_nổi-bật">
-                                <div class="row" id="row-498406301">
-                                    <div class="col hide-for-medium medium-4 small-12 large-4">
-                                        <div class="col-inner text-center">
-                                            <div class="row large-columns-1 medium-columns- small-columns- row-small slider row-slider slider-nav-reveal slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : false}'>
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:158%;">
-                                                                    <a href="san-pham/azrouel-dress-variable/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="450" height="585" src="{{ asset('assets/wp-content/uploads/2019/05/3-450x585.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/3-450x585.jpg')}} 450w, {{ asset('assets/wp-content/uploads/2019/05/3-450x585-231x300.jpg')}} 231w" sizes="(max-width: 450px) 100vw, 450px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center is-large">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/azrouel-dress-variable/">Azrouel dress variable</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">190,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col medium-12 small-12 large-8">
-                                        <div class="col-inner">
-                                            <div class="row large-columns-3 medium-columns-3 small-columns-2 row-normal">
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/pilot-jacket-simple/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/14.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/14.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/14-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/pilot-jacket-simple/">Pilot jacket simple</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">550,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/dolor-sit-amet/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/14-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/14-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/14-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/14-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/1.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/1-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/dolor-sit-amet/">Dolor sit amet</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">770,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/armani-black-suit/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="450" height="585" src="{{ asset('assets/wp-content/uploads/2019/05/41-450x585-1.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/41-450x585-1.jpg')}} 450w, {{ asset('assets/wp-content/uploads/2019/05/41-450x585-1-231x300.jpg')}} 231w" sizes="(max-width: 450px) 100vw, 450px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/armani-black-suit/">Armani black suit</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">550,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/zrouel-dress-variable/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/42.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/42.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/42-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/zrouel-dress-variable/">Zrouel dress variable</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">250,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="san-pham/azrouel-dress-variable/">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="450" height="585" src="{{ asset('assets/wp-content/uploads/2019/05/3-450x585.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/3-450x585.jpg')}} 450w, {{ asset('assets/wp-content/uploads/2019/05/3-450x585-231x300.jpg')}} 231w" sizes="(max-width: 450px) 100vw, 450px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="san-pham/azrouel-dress-variable/">Azrouel dress variable</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">190,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                                <div class="col">
-                                                    <div class="col-inner">
-                                                        <div class="badge-container absolute left top z-1">
-                                                        </div>
-                                                        <div class="product-small box has-hover box-bounce box-text-bottom">
-                                                            <div class="box-image">
-                                                                <div class="image-zoom image-cover" style="padding-top:100%;">
-                                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
-                                                                        <img width="300" height="300" src="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}}" class="show-on-hover absolute fill hide-for-small back-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/1-300x300.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/1-150x150.jpg')}} 150w, {{ asset('assets/wp-content/uploads/2019/05/1-100x100.jpg')}} 100w" sizes="(max-width: 300px) 100vw, 300px" /><img width="600" height="778" src="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}}" class="attachment-original size-original" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5.jpg')}} 600w, {{ asset('assets/wp-content/uploads/2019/05/5-231x300.jpg')}} 231w" sizes="(max-width: 600px) 100vw, 600px" /> </a>
-                                                                </div>
-                                                                <div class="image-tools top right show-on-hover">
-                                                                </div>
-                                                                <div class="image-tools grid-tools text-center hide-for-small bottom hover-slide-in show-on-hover">
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-image -->
-                                                            <div class="box-text text-center">
-                                                                <div class="title-wrapper">
-                                                                    <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">Printed summer dress simple</a></p>
-                                                                </div>
-                                                                <div class="price-wrapper">
-                                                                    <span class="price"><span class="woocommerce-Price-amount amount">150,000&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                            <!-- box-text -->
-                                                        </div>
-                                                        <!-- box -->
-                                                    </div>
-                                                    <!-- .col-inner -->
-                                                </div>
-                                                <!-- col -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- .section-content -->
     <style scope="scope">
         #section_2028561803 {
@@ -1132,7 +493,7 @@
         <div class="row" id="row-717320005">
             <div class="col small-12 large-12" data-animate="fadeInUp">
                 <div class="col-inner text-center" style="padding:60px 0px 30px 0px;">
-                    <h4 class="thin-font">Beauty Mona</h4>
+                    <h4 class="thin-font">ScentSignature</h4>
                     <h1 class="a">KHÁCH HÀNG NÓI GÌ</h1>
                     <div class="gap-element clearfix" style="display:block; height:auto; padding-top:70px"></div>
                     <div class="row" id="row-33475575">
@@ -1311,7 +672,7 @@
         <div class="row" id="row-1113153278">
             <div class="col hide-for-small small-12 large-12" data-animate="fadeInUp">
                 <div class="col-inner text-center" style="padding:60px 0px 0px 0px;">
-                    <h4 class="thin-font">Beauty Mona</h4>
+                    <h4 class="thin-font">ScentSignaute</h4>
                     <h1 class="a">TIN TỨC</h1>
                     <div class="gap-element clearfix" style="display:block; height:auto; padding-top:50px"></div>
                     <div class="row large-columns-3 medium-columns-2 small-columns-1 slider row-slider slider-nav-simple slider-nav-outside slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : 5000}'>
@@ -1432,7 +793,7 @@
             </div>
             <div class="col show-for-small small-12 large-12" data-animate="fadeInUp">
                 <div class="col-inner text-center" style="padding:30px 0px 0px 0px;margin:0px 0px -30px 0px;">
-                    <h4 class="thin-font">Beauty Mona</h4>
+                    <h4 class="thin-font">ScentSiganture</h4>
                     <h1 class="a">TIN TỨC</h1>
                     <div class="gap-element clearfix" style="display:block; height:auto; padding-top:25px"></div>
                     <div class="row large-columns-3 medium-columns-2 small-columns-1 slider row-slider slider-nav-simple slider-nav-outside slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : 5000}'>

@@ -157,15 +157,15 @@ class TaiKhoanController extends Controller
             $user->DiaChi = $req->DiaChi;
             session()->flash('message','cập nhật thành công!');
 
-
+            $user->save();
         return redirect()->route('thongtinTK-view',['id'=>$user->id]);
     }
     public function doiMKAmin(Request $req,$id)
     {
         $user = User::find($id);
-        $user->password = $req->MatKhauMoi;
+        $user->password = Hash::make($req->MatKhauMoi);
             session()->flash('message','cập nhật thành công!');
-
+        $user->save();
         return redirect()->route('thongtinTK-view',['id'=>$user->id]);
     }
 }
