@@ -101,7 +101,7 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
     Route::post('admin/them-tai-khoan',[TaiKhoanController::class,'themTaiKhoan'])->name('themTK-add');
     Route::post('kiemtra-email', [TaiKhoanController::class,'kiemTraTrungEmail'])->name('kiemtra-email');
     Route::post('admin/thong-tin-tai-khoan/{id}',[TaiKhoanController::class,'thongTinTaiKhoan'])->name('thongtinTK');
-    Route::post('admin/doi-mat-khau/{id}',[TaiKhoanController::class,'doiMKAmin'])->name('doiMK-Amin');
+    Route::get('admin/doi-mat-khau/{id}',[TaiKhoanController::class,'doiMKAmin'])->name('doiMK-Amin');
     Route::post('admin/kiem-mat-khau',[TaiKhoanController::class,'kiemTraMatKhau'])->name('kiemtra-matkhau');
 
     //View Quản Lý Tài Khoản
@@ -247,7 +247,14 @@ Route::get('admin/bao-cao-doanh-thu',[ThongKeController::class,'loadDSDoanhThu']
 Route::get('admin/bao-cao-san-pham-ban-chay',[ThongKeController::class,'loadSPBanChay'])->name('baocao-sanpham-banchay-view');
 
 
-//User
+//Client
+Route::get('/thong-tin-tai-khoan/{id}',[NguoiDungController::class,'loadThongTinClient'])->name('thongtin-client-view');
+Route::post('/thong-tin-tai-khoan/{id}',[NguoiDungController::class,'ThongTinClient'])->name('thongtin-client');
+
+Route::get('/doi-mat-khau/{id}',[NguoiDungController::class,'loadMKClient'])->name('doimk-client-view');
+Route::post('doi-mat-khau/{id}',[NguoiDungController::class,'doiMKClient'])->name('doimk-client');
+
+
 Route::get('/danh-sach-yeu-thich',[NguoiDungController::class,'loadSDYeuThich'])->name('danhsach-yeuthich-view');
 Route::get('/gio-hang',[GioHangController::class,'loadGioHangView'])->name('giohang-view');
 Route::get('/gio-hang/chi-tiet-gio-hang',[GioHangController::class,'loadChiTietGioHang'])->name('chitiet-giohang-view');
