@@ -14,7 +14,7 @@
                 </div>
                 <div class="account-container lightbox-inner">
                     <div class="account-login-inner">
-                        <form id="upd-pass" class="woocommerce-form woocommerce-form-login login" action="{{ route('doimk-client',['id'->$user->id]) }}" method="POST">
+                        <form id="upd-pass" class="woocommerce-form woocommerce-form-login login" action="{{ route('doimk-client',['id'=>$user->id]) }}" method="POST">
                             @csrf
                             <div class="row col-md-12">
                                 <div class="col-md-6">
@@ -23,12 +23,12 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="password">Mật khẩu mới&nbsp;<span class="required">*</span></label>
-                                    <input type="password" class="form-control" id="inputPassword1" name = 'MatKhauMoi'>
+                                    <input type="password" class="form-control" id="MatKhauMoi" name = 'MatKhauMoi'>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label for="repassword">Nhập lại mật khẩu mới&nbsp;<span class="required">*</span></label>
-                                    <input type="password" class="form-control" id="inputPassword2" name = 'MatKhauMoi2'>
+                                    <input type="password" class="form-control" id="MatKhauMoi2" name = 'MatKhauMoi2'>
                                 </div>
                             </div>
 
