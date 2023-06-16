@@ -124,6 +124,7 @@ button.toast-close-button {
     pointer-events: auto;
     overflow: hidden;
     margin: 0 0 6px;
+    margin-top: 15%;
     padding: 15px 15px 15px 50px;
     width: 300px;
     -moz-border-radius: 3px;

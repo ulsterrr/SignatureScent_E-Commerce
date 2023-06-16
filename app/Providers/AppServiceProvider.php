@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\GioHang;
 use App\Models\ThongBao;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +34,23 @@ class AppServiceProvider extends ServiceProvider
             $emails = auth()->user()->email;
             $thongbao = ThongBao::where([['NguoiNhan',$emails],['TrangThai','NEW']])->get();
             $view->with(['thongbao' => $thongbao]);
+        });
+
+        view()->composer('layouts.webpage.header-webpage', function($view) {
+
+            if(Auth::check()) {
+                $emails = auth()->user()->email;
+                $gioHang = GioHang::where([['NguoiTao',$emails]])->get();
+                $view->with(['gioHang' => $gioHang]);
+            }
+        });
+
+        view()->composer('layouts.homepage.header-client', function($view) {
+            if(Auth::check()) {
+                $emails = auth()->user()->email;
+                $gioHang = GioHang::where([['NguoiTao',$emails]])->get();
+                $view->with(['gioHang' => $gioHang]);
+            }
         });
     }
 }

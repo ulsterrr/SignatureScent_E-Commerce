@@ -65,7 +65,7 @@ class ChiTietSanPham extends Model
         return ChiTietSanPham::with('chiTietCuaSanPham', 'chiTietCuaSanPham.loaiKichCo', 'chiTietCuaSanPham.loaiSanPham')
                             ->whereIn('MaSanPham', $listMSP)
                             ->whereNull('MaDonHang')
-                            ->orWhere('MaDonHang', '')
+                            // ->orWhere('MaDonHang', '')
                             ->get();
     }
 }

@@ -264,6 +264,10 @@ Route::get('/xem-tintuc',[NguoiDungController::class,'xemTinTucView'])->name('xe
 Route::get('/lien-he',[NguoiDungController::class,'lienHeView'])->name('lienhe-view');
 Route::get('/gio-hang',[NguoiDungController::class,'gioHangView'])->name('giohang-view');
 Route::get('/gioi-thieu',[NguoiDungController::class,'gioiThieuView'])->name('gioithieu-view');
+Route::post('/them-vao-gio-hang', [NguoiDungController::class, 'themVaoGioHang'])->name('giohang-add');
+Route::get('/lay-du-lieu-gio-hang', [NguoiDungController::class, 'layDuLieuGioHang'])->name('giohang-load');
+
+
 
 //verify email
 Route::get('/xac-thuc-email/{id}/{token}',[VerificationController::class,'verifyEmail'])->name('xacthuc-email');

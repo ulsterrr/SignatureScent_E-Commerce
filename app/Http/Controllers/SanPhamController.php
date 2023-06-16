@@ -72,19 +72,7 @@ class SanPhamController extends Controller
     }
 
     public function capNhatSPhamView($id){
-        if(Auth::user()->LoaiTaiKhoan == 'A')
-        {
-            $sanpham = SanPham::with('loaiSanPham', 'loaiKichCo')->find($id);
-            $loaisp = LoaiSanPham::all();
-            $loaikc = LoaiKichCo::all();
-            response()->json($sanpham);
-            return view('he-thong.kho-hang.san-pham.capnhat-sanpham')->with([
-                'SanPham'=> $sanpham,
-                'LoaiSP' => $loaisp,
-                'LoaiKC' => $loaikc
-            ]);;
-        }
-        $sanpham = SanPham::where('MaChiNhanh',Auth::user()->ChiNhanh)::with('loaiSanPham', 'loaiKichCo')->find($id);
+        $sanpham = SanPham::with('loaiSanPham', 'loaiKichCo')->find($id);
         $loaisp = LoaiSanPham::all();
         $loaikc = LoaiKichCo::all();
         response()->json($sanpham);
@@ -137,8 +125,16 @@ class SanPhamController extends Controller
     }
     public function layDsCTSanPhamAjax($masanpham)
     {
-        $ctsp = ChiTietSanPham::layChiTiettheoSanPham($masanpham);
-        // /dd(ChiTietSanPham::layChiTiettheoSanPham($masanpham));
+        // $ctsp = ChiTietSanPham::layChiTiettheoSanPham($masanpham);
+        if(Auth::user()->LoaiTaiKhoan == 'A'){
+            $ctsp = ChiTietSanPham::layChiTiettheoSanPham($masanpham)
+                        ->where('MaChiNhanh', Auth::user()->ChiNhanh)
+                        ->get();
+            return DataTables::of($ctsp)->make(true);
+        }
+        $ctsp = ChiTietSanPham::layChiTiettheoSanPham($masanpham)
+                    ->where('MaChiNhanh', Auth::user()->ChiNhanh)
+                    ->get();
         return DataTables::of($ctsp)->make(true);
     }
 

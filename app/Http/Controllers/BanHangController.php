@@ -53,7 +53,7 @@ class BanHangController extends Controller
         // Cập nhật lại các chi tiết sản phẩm cũ thành trống MaDonHang
         DB::table('chi_tiet_san_phams')
             ->where('chi_tiet_san_phams.MaDonHang', '=', $maDonHang)
-            ->update(['chi_tiet_san_phams.MaDonHang' => '']);
+            ->update(['chi_tiet_san_phams.MaDonHang' => null]);
 
         // Tạo chuỗi các Chi tiết sản phẩm để cập nhật mã đơn cho CTSP
         $col_mctsp = array_column($dataTableDataCTSP, 'MCTSP');
@@ -184,7 +184,7 @@ class BanHangController extends Controller
         // Cập nhật lại trống MaDonHang cho chi tiết sản phẩm
         DB::table('chi_tiet_san_phams')
             ->where('chi_tiet_san_phams.MaDonHang', '=', $mdh)
-            ->update(['chi_tiet_san_phams.MaDonHang' => '']);
+            ->update(['chi_tiet_san_phams.MaDonHang' => null]);
 
         $dh->save();
     }

@@ -1,4 +1,7 @@
 @extends('layouts.webpage.webpage')
+@section('page-css')
+<link rel="stylesheet" href="{{asset('assets/styles/vendor/toastr.css')}}">
+@endsection
 @section('title', 'Sản phẩm')
 @section('main-content')
 <div id="content" class="content-area page-wrapper" role="main">
@@ -39,66 +42,63 @@
                             <div class="product-short-description">
                                 <p><strong>Thương hiệu :</strong> {{$SanPham->ThuongHieu}}</p>
                             </div>
-                            <form class="cart" action="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/" method="post" enctype='multipart/form-data'>
+                            <form class="cart" action="{{ route('giohang-add') }}" method="post" enctype='multipart/form-data'>
+                                @csrf
                                 <div class="quantity buttons_added">
                                     <input type="button" value="-" class="minus button is-form"> <label class="screen-reader-text" for="quantity_64192138a6cd6">Số lượng</label>
-                                    <input type="number" id="quantity_64192138a6cd6" class="input-text qty text" step="1" min="1" max="9999" name="quantity" value="1" title="SL" size="4" pattern="[0-9]*" inputmode="numeric" aria-labelledby="Armani black suit số lượng" />
+                                    <input type="number" id="quantity_64192138a6cd6" class="input-text qty text" step="1" min="1" max="9999" name="SoLuong" value="1" title="SL" size="4" pattern="[0-9]*" inputmode="numeric" aria-labelledby="Armani black suit số lượng" />
                                     <input type="button" value="+" class="plus button is-form">
+                                    <input type="hidden" id="MaSanPham" value="{{$SanPham->MaSanPham}}" class="single_add_to_cart_button button alt">
                                 </div>
-                                <button type="submit" name="add-to-cart" value="794" class="single_add_to_cart_button button alt">Thêm vào giỏ</button>
+                                <button type="submit" id="add-to-cart-button" name="add-to-cart" value="794" class="single_add_to_cart_button button alt">Thêm vào giỏ</button>
                             </form>
-                            <div class="row row-small" id="row-1335089997">
-                                <div class="col medium-6 small-12 large-6">
-                                    <div class="col-inner">
-                                        <p><strong>Thanh toán</strong></p>
-                                        <div class="row large-columns-3 medium-columns- small-columns-2 row-xsmall">
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="{{ asset('assets/images/san_pham/momo.png') }}" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="{{ asset('assets/images/san_pham/momo.png') }}" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)"  sizes="(max-width: 200px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
+                            <div class="row col-md-12">
+                                <div class="col-md-12">
+                                    <p><strong>Thanh toán</strong></p></div>
+                                <div class="col-md-6">
+                                    <!-- .col -->
+                                    <div class="gallery-col col">
+                                        <div class="col-inner">
+                                            <a class="image-lightbox lightbox-gallery" href="{{ asset('assets/images/san_pham/momo.png') }}" title="">
+                                                <div class="box has-hover gallery-box box-overlay dark">
+                                                    <div class="box-image">
+                                                        <img width="400" height="200" src="{{ asset('assets/images/san_pham/momo.png') }}" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)"  sizes="(max-width: 200px) 100vw, 400px" />
+                                                        <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
                                                         </div>
-                                                        <!-- .box -->
-                                                    </a>
+                                                    </div>
+                                                    <!-- .image -->
+                                                    <div class="box-text text-left">
+                                                        <p></p>
+                                                    </div>
+                                                    <!-- .text -->
                                                 </div>
-                                                <!-- .col-inner -->
-                                            </div>
-
+                                                <!-- .box -->
+                                            </a>
                                         </div>
-                                        <div class="row large-columns-3 medium-columns- small-columns-2 row-xsmall">
-                                            <!-- .col -->
-                                            <div class="gallery-col col">
-                                                <div class="col-inner">
-                                                    <a class="image-lightbox lightbox-gallery" href="{{ asset('assets/images/san_pham/mbs.png') }}" title="">
-                                                        <div class="box has-hover gallery-box box-overlay dark">
-                                                            <div class="box-image">
-                                                                <img width="400" height="200" src="{{ asset('assets/images/san_pham/mbs.png') }}" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)"  sizes="(max-width: 200px) 100vw, 400px" />
-                                                                <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
-                                                                </div>
-                                                            </div>
-                                                            <!-- .image -->
-                                                            <div class="box-text text-left">
-                                                                <p></p>
-                                                            </div>
-                                                            <!-- .text -->
+                                        <!-- .col-inner -->
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- .col -->
+                                    <div class="gallery-col col">
+                                        <div class="col-inner">
+                                            <a class="image-lightbox lightbox-gallery" href="{{ asset('assets/images/san_pham/mbs.png') }}" title="">
+                                                <div class="box has-hover gallery-box box-overlay dark">
+                                                    <div class="box-image">
+                                                        <img width="400" height="200" src="{{ asset('assets/images/san_pham/mbs.png') }}" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)"  sizes="(max-width: 200px) 100vw, 400px" />
+                                                        <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
                                                         </div>
-                                                        <!-- .box -->
-                                                    </a>
+                                                    </div>
+                                                    <!-- .image -->
+                                                    <div class="box-text text-left">
+                                                        <p></p>
+                                                    </div>
+                                                    <!-- .text -->
                                                 </div>
-                                                <!-- .col-inner -->
-                                            </div>
-
+                                                <!-- .box -->
+                                            </a>
                                         </div>
+                                        <!-- .col-inner -->
                                     </div>
                                 </div>
                                 <style scope="scope">
@@ -142,18 +142,18 @@
                                 <li class="description_tab  active">
                                     <a href="#tab-description">Mô tả</a>
                                 </li>
-                                <li class="reviews_tab  ">
+                                {{-- <li class="reviews_tab  ">
                                     <a href="#tab-reviews">Đánh giá (0)</a>
-                                </li>
+                                </li> --}}
                             </ul>
                             <div class="tab-panels">
                                 <div class="panel entry-content active" id="tab-description">
                                     <div>
                                         <h2>{{$SanPham->TenSanPham}}</h2>
-                                        <p>{{$SanPham->MoTa}}</p>
+                                        <p>{!! nl2br($SanPham->MoTa)  !!}</p>
                                     </div>
                                 </div>
-                                <div class="panel entry-content " id="tab-reviews">
+                                {{-- <div class="panel entry-content " id="tab-reviews">
                                     <div class="row" id="reviews">
                                         <div class="col large-12" id="comments">
                                             <h3 class="normal">Đánh giá</h3>
@@ -186,7 +186,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                             <!-- .tab-panels -->
                         </div>
@@ -238,4 +238,52 @@
     </div>
     <!-- shop container -->
 </div>
+@endsection
+@section('page-js')
+<script>
+    $(document).on('click', '.single_add_to_cart_button', function(e) {
+        e.preventDefault();
+
+        var productId = $('#MaSanPham').val();
+        var quantity = $('#quantity_64192138a6cd6').val();
+
+        // Gửi yêu cầu Ajax để thêm sản phẩm vào giỏ hàng
+        $.ajax({
+            url: "{{ route('giohang-add') }}",
+            method: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                MaSanPham: productId,
+                SoLuong: quantity
+            },
+            success: function(response) {
+                if (response.success) {
+                    // Thực hiện cập nhật dropdown giỏ hàng (load lại danh sách sản phẩm trong giỏ hàng)
+                    updateCartDropdown();
+                }else {
+                    // Nếu response trả về false, thực hiện chuyển hướng đến trang route khsc
+                    window.location.href = "{{ route('dang-nhap') }}";
+                }
+            }
+        });
+    });
+function updateCartDropdown() {
+    $.ajax({
+        url: "{{ route('giohang-load') }}", // Định nghĩa route để lấy dữ liệu giỏ hàng
+        method: 'GET',
+        success: function(response) {
+            // Cập nhật HTML của dropdown giỏ hàng với dữ liệu trả về từ Ajax
+            $('#gio-hang').html(response.html);
+            // Thông báo fade
+            $(document).ready(function() {
+                toastr.success("Bạn vừa thêm mới sản phẩm vào giỏ hàng thành công", "Đã thêm vào giỏ hàng!", {
+                    showMethod: "fadeIn",
+                    hideMethod: "fadeOut",
+                    timeOut: 2000
+                });
+            });
+        }
+    });
+}
+</script>
 @endsection
