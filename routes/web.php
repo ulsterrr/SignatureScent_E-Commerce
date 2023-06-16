@@ -247,7 +247,14 @@ Route::get('admin/bao-cao-doanh-thu',[ThongKeController::class,'loadDSDoanhThu']
 Route::get('admin/bao-cao-san-pham-ban-chay',[ThongKeController::class,'loadSPBanChay'])->name('baocao-sanpham-banchay-view');
 
 
-//User
+//Client
+Route::get('/thong-tin-tai-khoan/{id}',[NguoiDungController::class,'loadThongTinClient'])->name('thongtin-client-view');
+Route::post('/thong-tin-tai-khoan/{id}',[NguoiDungController::class,'ThongTinClient'])->name('thongtin-client');
+
+Route::get('/doi-mat-khau/{id}',[NguoiDungController::class,'loadMKClient'])->name('doimk-client-view');
+Route::post('admin/doi-mat-khau/{id}',[NguoiDungController::class,'doiMKClient'])->name('doimk-client');
+
+
 Route::get('/danh-sach-yeu-thich',[NguoiDungController::class,'loadSDYeuThich'])->name('danhsach-yeuthich-view');
 Route::get('/gio-hang',[GioHangController::class,'loadGioHangView'])->name('giohang-view');
 Route::get('/gio-hang/chi-tiet-gio-hang',[GioHangController::class,'loadChiTietGioHang'])->name('chitiet-giohang-view');

@@ -43,15 +43,18 @@
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads">
                                     <a href="#downloads/">Tải xuống</a>
                                 </li>
+                                @if(Auth::check())
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
-                                    <a href="#edit-address/">Địa chỉ</a>
+                                    <a href="{{route('doimk-client-view',['id'=>auth()->user()->id])}}">Đổi mật khẩu</a>
                                 </li>
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-account">
-                                    <a href="#edit-account/">Thông tin tài khoản</a>
+                                    <a href="{{route('thongtin-client-view',['id' => auth()->user()->id])}}">Thông tin tài khoản</a>
                                 </li>
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
                                     <a href="{{ route('xuly-dangxuat') }}">Đăng xuất</a>
                                 </li>
+                                @else
+                                @endif
                             </ul>
                         </li>
                     </ul>
