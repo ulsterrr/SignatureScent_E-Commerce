@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
             $TaiKhoan->SDT = "0702267843";
             $TaiKhoan->QuanHuyen = "Bình Chánh";
             $TaiKhoan->TinhThanh = "Hồ Chí Minh";
-            $TaiKhoan->ChiNhanh = "ToanQuyen";
+            $TaiKhoan->ChiNhanh = "CN01";
             $TaiKhoan->NgaySinh = "2001/10/26";
             $TaiKhoan->TrangThai = "1";
             $TaiKhoan->NguoiTao = "";
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
             $TaiKhoan1->SDT = "0327772310";
             $TaiKhoan1->QuanHuyen = "Quận 6";
             $TaiKhoan1->TinhThanh = "Hồ Chí Minh";
-            $TaiKhoan1->ChiNhanh = "HCM";
+            $TaiKhoan1->ChiNhanh = "CN01";
             $TaiKhoan1->NgaySinh = "2001/10/23";
             $TaiKhoan1->TrangThai = "1";
             $TaiKhoan1->NguoiTao = "";
@@ -70,7 +70,7 @@ class UserSeeder extends Seeder
             $TaiKhoan2->SDT = "0327772310";
             $TaiKhoan2->QuanHuyen = "Quận 16";
             $TaiKhoan2->TinhThanh = "Hồ Chí Minh";
-            $TaiKhoan2->ChiNhanh = "HCM";
+            $TaiKhoan2->ChiNhanh = "CN01";
             $TaiKhoan2->NgaySinh = "2016/10/16";
             $TaiKhoan2->TrangThai = "1";
             $TaiKhoan2->NguoiTao = "";

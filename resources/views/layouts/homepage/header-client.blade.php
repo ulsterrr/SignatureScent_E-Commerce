@@ -42,12 +42,17 @@
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads">
                                     <a href="#downloads/">Tải xuống</a>
                                 </li>
+                                @if(Auth::check())
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
-                                    <a href="#edit-address/">Địa chỉ</a>
+                                    <a href="{{route('doimk-client-view',['id'=>auth()->user()->id])}}">Đổi mật khẩu</a>
                                 </li>
+
+
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-account">
-                                    <a href="#edit-account/">Thông tin tài khoản</a>
+                                    <a href="{{route('thongtin-client-view',['id' => auth()->user()->id])}}">Thông tin tài khoản</a>
                                 </li>
+                                @else
+                                @endif
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
                                     <a href="{{ route('xuly-dangxuat') }}">Đăng xuất</a>
                                 </li>
@@ -147,18 +152,16 @@
                 <div class="flex-col hide-for-medium flex-center">
                     <ul class="nav header-nav header-bottom-nav nav-center  nav-size-medium nav-uppercase">
                         <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item active  menu-item-24"><a href="" class="nav-top-link">Trang chủ</a></li>
-                        <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-22"><a href="gioi-thieu/" class="nav-top-link">Giới thiệu</a></li>
-                        <li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  menu-item-54 has-dropdown"><a href="cua-hang/" class="nav-top-link">Cửa hàng<i class="icon-angle-down"></i></a>
+                        <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-22"><a href="{{route('gioithieu-view')}}" class="nav-top-link">Giới thiệu</a></li>
+                        <li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children  menu-item-54 has-dropdown"><a href="{{route('cuahang-view')}}" class="nav-top-link">Cửa hàng<i class="icon-angle-down"></i></a>
                             <ul class='nav-dropdown nav-dropdown-simple'>
-                                <li id="menu-item-837" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-837"><a href="danh-muc/skincare/">Skincare</a></li>
-                                <li id="menu-item-838" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-838"><a href="danh-muc/lipstick/">Lipstick</a></li>
-                                <li id="menu-item-839" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-839"><a href="danh-muc/gloss/">Gloss</a></li>
-                                <li id="menu-item-840" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-840"><a href="danh-muc/nail/">Nail</a></li>
-                                <li id="menu-item-841" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-841"><a href="danh-muc/vani-beauty/">ScentSignature</a></li>
+                                @foreach ($loaiSP as $data )
+                                <li id="menu-item-837" class="menu-item menu-item-type-taxonomy menu-item-object-product_cat  menu-item-837"><a href='../cua-hang?maloai={{$data->MaLoai}}'>{{$data->TenLoai}}</a></li>
+                                @endforeach
                             </ul>
                         </li>
-                        <li id="menu-item-25" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-25"><a href="category/tin-tuc/" class="nav-top-link">Tin tức</a></li>
-                        <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-23"><a href="lien-he/" class="nav-top-link">Liên hệ</a></li>
+                        <li id="menu-item-25" class="menu-item menu-item-type-taxonomy menu-item-object-category  menu-item-25"><a href="{{route('tintuc-view')}}" class="nav-top-link">Tin tức</a></li>
+                        <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page  menu-item-23"><a href="{{route('lienhe-view')}}" class="nav-top-link">Liên hệ</a></li>
                     </ul>
                 </div>
                 <!-- flex-col -->

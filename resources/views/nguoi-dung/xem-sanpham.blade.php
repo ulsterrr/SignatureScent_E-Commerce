@@ -21,7 +21,7 @@
                                 <div class="image-tools absolute top show-on-hover right z-3">
                                 </div>
                                 <figure class="woocommerce-product-gallery__wrapper product-gallery-slider slider slider-nav-small mb-half" data-flickity-options='{ "cellAlign": "center", "wrapAround": true, "autoPlay": false, "prevNextButtons":true, "adaptiveHeight": true, "imagesLoaded": true, "lazyLoad": 1, "dragThreshold" : 15, "pageDots": false, "rightToLeft": false       }'>
-                                    <div  class="woocommerce-product-gallery__image slide first"><img style="width:500px !important; height:500px !important" src="{{ asset('assets/images/san_pham/'.$SanPham->HinhAnh) }}" class="wp-post-image skip-lazy" alt="" title="41-450x585" data-caption=""></div>
+                                    <div class="woocommerce-product-gallery__image slide first"><img style="width:500px !important; height:500px !important" src="{{ asset('assets/images/san_pham/'.$SanPham->HinhAnh) }}" class="wp-post-image skip-lazy" alt="" title="41-450x585" data-caption=""></div>
                                 </figure>
                                 <div class="image-tools absolute bottom left z-3">
                                     <a href="#product-zoom" class="zoom-button button is-outline circle icon tooltip hide-for-small" title="Zoom">
@@ -52,9 +52,24 @@
                                 </div>
                                 <button type="submit" id="add-to-cart-button" name="add-to-cart" value="794" class="single_add_to_cart_button button alt">Thêm vào giỏ</button>
                             </form>
+                            <div class="container">
+                                <form>
+                                    @foreach ($CTSP as $macn )
+                                    <label>
+                                        <input type="radio" name="radio" checked />
+                                        <span>{{$macn->getChiNhanh->TenChiNhanh}}</span>
+
+                                    </label>
+                                    <label>
+                                        <span>Số lượng : Còn {{$macn->TonKho}} sản phẩm</span>
+                                    </label>
+                                    @endforeach
+                                </form>
+                            </div>
                             <div class="row col-md-12">
                                 <div class="col-md-12">
-                                    <p><strong>Thanh toán</strong></p></div>
+                                    <p><strong>Thanh toán</strong></p>
+                                </div>
                                 <div class="col-md-6">
                                     <!-- .col -->
                                     <div class="gallery-col col">
@@ -62,7 +77,7 @@
                                             <a class="image-lightbox lightbox-gallery" href="{{ asset('assets/images/san_pham/momo.png') }}" title="">
                                                 <div class="box has-hover gallery-box box-overlay dark">
                                                     <div class="box-image">
-                                                        <img width="400" height="200" src="{{ asset('assets/images/san_pham/momo.png') }}" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)"  sizes="(max-width: 200px) 100vw, 400px" />
+                                                        <img width="400" height="200" src="{{ asset('assets/images/san_pham/momo.png') }}" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" sizes="(max-width: 200px) 100vw, 400px" />
                                                         <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
                                                         </div>
                                                     </div>
@@ -85,7 +100,7 @@
                                             <a class="image-lightbox lightbox-gallery" href="{{ asset('assets/images/san_pham/mbs.png') }}" title="">
                                                 <div class="box has-hover gallery-box box-overlay dark">
                                                     <div class="box-image">
-                                                        <img width="400" height="200" src="{{ asset('assets/images/san_pham/mbs.png') }}" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)"  sizes="(max-width: 200px) 100vw, 400px" />
+                                                        <img width="400" height="200" src="{{ asset('assets/images/san_pham/mbs.png') }}" class="attachment-original size-original" alt="" ids="348,345,347,346,344,349" col_spacing="xsmall" columns="3" image_size="original" image_overlay="rgba(255, 255, 255, 0)" sizes="(max-width: 200px) 100vw, 400px" />
                                                         <div class="overlay fill" style="background-color: rgba(255, 255, 255, 0)">
                                                         </div>
                                                     </div>
@@ -150,7 +165,7 @@
                                 <div class="panel entry-content active" id="tab-description">
                                     <div>
                                         <h2>{{$SanPham->TenSanPham}}</h2>
-                                        <p>{!! nl2br($SanPham->MoTa)  !!}</p>
+                                        <p>{!! nl2br($SanPham->MoTa) !!}</p>
                                     </div>
                                 </div>
                                 {{-- <div class="panel entry-content " id="tab-reviews">
@@ -205,85 +220,130 @@
                                             <div class="box-image">
                                                 <div class="image-fade_in_back">
                                                     <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
-                                                        <img width="300" height="300" src="{{ asset('assets/images/san_pham/'.$data->HinhAnh) }}"  alt=""  300w, sizes="(max-width: 300px, max-height: 300px) 100vw, 300px" /> </a>
-                                            </div>
-                                            <!-- box-image -->
-                                            <div class="box-text box-text-products text-center grid-style-2">
-                                                <div class="title-wrapper">
-                                                    <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">{{$data->TenSanPham}}</a></p>
+                                                        <img width="300" height="300" src="{{ asset('assets/images/san_pham/'.$data->HinhAnh) }}" alt="" 300w, sizes="(max-width: 300px, max-height: 300px) 100vw, 300px" /> </a>
                                                 </div>
-                                                <div class="price-wrapper">
-                                                    <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
-                                                    </span>
+                                                <!-- box-image -->
+                                                <div class="box-text box-text-products text-center grid-style-2">
+                                                    <div class="title-wrapper">
+                                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">{{$data->TenSanPham}}</a></p>
+                                                    </div>
+                                                    <div class="price-wrapper">
+                                                        <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>
+                                                        </span>
+                                                    </div>
                                                 </div>
+                                                <!-- box-text -->
                                             </div>
-                                            <!-- box-text -->
+                                            <!-- box -->
                                         </div>
-                                        <!-- box -->
+                                        <!-- .col-inner -->
                                     </div>
-                                    <!-- .col-inner -->
+                                    <!-- col -->
+                                    <!-- col -->
                                 </div>
-                                <!-- col -->
-                                <!-- col -->
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
+                        <!-- container -->
                     </div>
-                    <!-- container -->
+                    <!-- product-footer -->
                 </div>
-                <!-- product-footer -->
+                <!-- .product-container -->
             </div>
-            <!-- .product-container -->
         </div>
+        <!-- shop container -->
     </div>
-    <!-- shop container -->
 </div>
 @endsection
 @section('page-js')
 <script>
     $(document).on('click', '.single_add_to_cart_button', function(e) {
         e.preventDefault();
-
         var productId = $('#MaSanPham').val();
         var quantity = $('#quantity_64192138a6cd6').val();
-
         // Gửi yêu cầu Ajax để thêm sản phẩm vào giỏ hàng
         $.ajax({
-            url: "{{ route('giohang-add') }}",
-            method: 'POST',
-            data: {
-                _token: '{{ csrf_token() }}',
-                MaSanPham: productId,
-                SoLuong: quantity
-            },
-            success: function(response) {
+            url: "{{ route('giohang-add') }}"
+            , method: 'POST'
+            , data: {
+                _token: '{{ csrf_token() }}'
+                , MaSanPham: productId
+                , SoLuong: quantity
+            }
+            , success: function(response) {
                 if (response.success) {
                     // Thực hiện cập nhật dropdown giỏ hàng (load lại danh sách sản phẩm trong giỏ hàng)
                     updateCartDropdown();
-                }else {
+                } else {
                     // Nếu response trả về false, thực hiện chuyển hướng đến trang route khsc
                     window.location.href = "{{ route('dang-nhap') }}";
                 }
             }
         });
     });
-function updateCartDropdown() {
-    $.ajax({
-        url: "{{ route('giohang-load') }}", // Định nghĩa route để lấy dữ liệu giỏ hàng
-        method: 'GET',
-        success: function(response) {
-            // Cập nhật HTML của dropdown giỏ hàng với dữ liệu trả về từ Ajax
-            $('#gio-hang').html(response.html);
-            // Thông báo fade
-            $(document).ready(function() {
-                toastr.success("Bạn vừa thêm mới sản phẩm vào giỏ hàng thành công", "Đã thêm vào giỏ hàng!", {
-                    showMethod: "fadeIn",
-                    hideMethod: "fadeOut",
-                    timeOut: 2000
+    function updateCartDropdown() {
+        $.ajax({
+            url: "{{ route('giohang-load') }}", // Định nghĩa route để lấy dữ liệu giỏ hàng
+            method: 'GET'
+            , success: function(response) {
+                // Cập nhật HTML của dropdown giỏ hàng với dữ liệu trả về từ Ajax
+                $('#gio-hang').html(response.html);
+                // Thông báo fade
+                $(document).ready(function() {
+                    toastr.success("Bạn vừa thêm mới sản phẩm vào giỏ hàng thành công", "Đã thêm vào giỏ hàng!", {
+                        showMethod: "fadeIn"
+                        , hideMethod: "fadeOut"
+                        , timeOut: 2000
+                    });
                 });
-            });
-        }
+            }
+        });
+    }
+</script>
+@endsection
+@section('page-js')
+<script>
+    $(document).on('click', '.single_add_to_cart_button', function(e) {
+        e.preventDefault();
+        var productId = $('#MaSanPham').val();
+        var quantity = $('#quantity_64192138a6cd6').val();
+        // Gửi yêu cầu Ajax để thêm sản phẩm vào giỏ hàng
+        $.ajax({
+            url: "{{ route('giohang-add') }}"
+            , method: 'POST'
+            , data: {
+                _token: '{{ csrf_token() }}'
+                , MaSanPham: productId
+                , SoLuong: quantity
+            }
+            , success: function(response) {
+                if (response.success) {
+                    // Thực hiện cập nhật dropdown giỏ hàng (load lại danh sách sản phẩm trong giỏ hàng)
+                    updateCartDropdown();
+                } else {
+                    // Nếu response trả về false, thực hiện chuyển hướng đến trang route khsc
+                    window.location.href = "{{ route('dang-nhap') }}";
+                }
+            }
+        });
     });
-}
+    function updateCartDropdown() {
+        $.ajax({
+            url: "{{ route('giohang-load') }}", // Định nghĩa route để lấy dữ liệu giỏ hàng
+            method: 'GET'
+            , success: function(response) {
+                // Cập nhật HTML của dropdown giỏ hàng với dữ liệu trả về từ Ajax
+                $('#gio-hang').html(response.html);
+                // Thông báo fade
+                $(document).ready(function() {
+                    toastr.success("Bạn vừa thêm mới sản phẩm vào giỏ hàng thành công", "Đã thêm vào giỏ hàng!", {
+                        showMethod: "fadeIn"
+                        , hideMethod: "fadeOut"
+                        , timeOut: 2000
+                    });
+                });
+            }
+        });
+    }
 </script>
 @endsection

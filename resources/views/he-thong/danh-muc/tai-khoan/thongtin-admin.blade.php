@@ -183,7 +183,7 @@
                                 </button>
                             </div>
                             @endif
-                            <form id="upd-admin-pass" method="POST" action="{{route('doiMK-Amin',['id'=>$user->id])}}">
+                            <form id="upd-admin-pass" method="GET" action="{{route('doiMK-Amin',['id'=>$user->id])}}">
                                 @csrf
                                 {{ csrf_field() }}
                                 {{-- thông báo lỗi sai pass hiện tại --}}
@@ -195,19 +195,19 @@
                                 <div class="form-group row">
                                     <label for="inputEmail3" class="col-sm-2 col-form-label">Mật khẩu hiện tại</label>
                                     <div class="col-sm-10">
-                                        <input type="password" onfocusout="checkCurrentPassword()" class="form-control" id="inputPassword" name = 'MatKhauHienTai'>
+                                        <input type="password" onfocusout="checkCurrentPassword()" class="form-control" id="MatKhauHienTai" name = 'MatKhauHienTai'>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="inputPassword3" class="col-sm-2 col-form-label">Mật khẩu mới</label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword1" name = 'MatKhauMoi'>
+                                        <input type="password" class="form-control" id="MatKhauMoi" name = 'MatKhauMoi'>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="inputPassword3" class="col-sm-2 col-form-label"> Nhập lại Mật khẩu mới</label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control" id="inputPassword2" name = 'MatKhauMoi2'>
+                                        <input type="password" class="form-control" id="MatKhauMoi2" name = 'MatKhauMoi2'>
                                     </div>
                                 </div>
                                 <div class="form-group row">
