@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic-client.css')}}">
     <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic-client.date.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/styles/vendor/datatables.min.css') }}">
+    <link rel="stylesheet" href="{{asset('assets/styles/vendor/toastr.css')}}">
     {{-- page specific css --}}
     @yield('page-css')
     @include('layouts.homepage.headpage-client')
@@ -87,16 +88,17 @@
     </script>
     <link rel='stylesheet' id='flatsome-countdown-style-css' href='{{ asset('assets/wp-content/themes/flatsome/inc/shortcodes/ux_countdown/ux-countdown.css')}}' type='text/css' media='all' />
     <script type='text/javascript'>
-        /* <![CDATA[ */
         var wpcf7 = {
             "apiSettings": {
                 "root": "http:\/\/assets\/wp-json\/contact-form-7\/v1"
                 , "namespace": "contact-form-7\/v1"
             }
         };
-        /* ]]> */
-
     </script>
+    <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/frontend/address.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/frontend/cart.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/frontend/country-select.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/selectWoo/selectWoo.full.min.js')}}'></script>
     <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/contact-form-7/includes/js/scripts.js')}}'></script>
     <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/fb-messenger/js/index.js')}}'></script>
     <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/ot-flatsome-vertical-menu/assets/js/ot-vertical-menu.js')}}'></script>
@@ -159,6 +161,7 @@
     <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/jquery/ui/widget.min.js')}}'></script>
     <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/jquery/ui/mouse.min.js')}}'></script>
     <script type='text/javascript' src='{{ asset('assets/wp-content/plugins/woocommerce/assets/js/jquery/ui/slider.min.js')}}'></script>
+    <script src="{{asset('assets/js/vendor/toastr.min.js')}}"></script>
     <style type="text/css"></style>
 
     @yield('bottom-js')

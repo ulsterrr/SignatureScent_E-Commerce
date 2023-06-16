@@ -86,20 +86,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="cart-item has-icon has-dropdown">
-                            <a href="{{route('giohang-view')}}" title="Giỏ hàng" class="header-cart-link is-small">
-                                <i class="icon-shopping-basket" data-icon-label="0">
-                                </i>
-                            </a>
-                            <ul class="nav-dropdown nav-dropdown-simple">
-                                <li class="html widget_shopping_cart">
-                                    <div class="widget_shopping_cart_content">
-                                        <p class="woocommerce-mini-cart__empty-message">Chưa có sản phẩm trong giỏ hàng.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <!-- .nav-dropdown -->
-                        </li>
+                        @include('layouts.webpage.gio-hang-dropdown')
+                        <!-- .nav-dropdown -->
                     </ul>
                 </div>
                 <!-- Mobile Right Elements -->

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\GioHang;
 use App\Models\LoaiSanPham;
 use App\Models\ThongBao;
 use GuzzleHttp\Psr7\Request;
@@ -29,28 +30,45 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
 
-        view()->composer('layouts.admin.header-menu', function($view) {
+        view()->composer('layouts.admin.header-menu', function ($view) {
             $emails = auth()->user()->email;
-            $thongbao = ThongBao::where([['NguoiNhan',$emails],['TrangThai','NEW']])->get();
+            $thongbao = ThongBao::where([['NguoiNhan', $emails], ['TrangThai', 'NEW']])->get();
             $view->with(['thongbao' => $thongbao]);
         });
 
-        view()->composer('layouts/webpage/header-webpage', function($view) {
+        view()->composer('layouts.webpage.header-webpage', function ($view) {
+
+            if (Auth::check()) {
+                $emails = auth()->user()->email;
+                $gioHang = GioHang::where([['NguoiTao', $emails]])->get();
+                $view->with(['gioHang' => $gioHang]);
+            }
+        });
+
+        view()->composer('layouts.homepage.header-client', function ($view) {
+            if (Auth::check()) {
+                $emails = auth()->user()->email;
+                $gioHang = GioHang::where([['NguoiTao', $emails]])->get();
+                $view->with(['gioHang' => $gioHang]);
+            }
+        });
+
+        view()->composer('layouts/webpage/header-webpage', function ($view) {
             $loaisp = LoaiSanPham::all();
             $view->with(['loaiSP' => $loaisp]);
         });
 
-        view()->composer('layouts/homepage/header-client', function($view) {
+        view()->composer('layouts/homepage/header-client', function ($view) {
             $loaisp = LoaiSanPham::all();
             $view->with(['loaiSP' => $loaisp]);
         });
 
-        view()->composer('layouts/webpage/footer-main', function($view) {
+        view()->composer('layouts/webpage/footer-main', function ($view) {
             $loaisp = LoaiSanPham::all();
             $view->with(['loaiSP' => $loaisp]);
         });
 
-        view()->composer('layouts/homepage/footer-main', function($view) {
+        view()->composer('layouts/homepage/footer-main', function ($view) {
             $loaisp = LoaiSanPham::all();
             $view->with(['loaiSP' => $loaisp]);
         });
