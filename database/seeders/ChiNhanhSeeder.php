@@ -28,7 +28,7 @@ class ChiNhanhSeeder extends Seeder
         $CN->FAX = "";
         $CN->SoTaiKhoan = "0010141760802";
         $CN->MoMo = "0702267843";
-        $CN->NguoiQuanLy = "Hồ Thanh Phúc";
+        $CN->NguoiQuanLy = "hothanhphuc2468@gmail.com";
         $CN->save();
 
         $CN1 = new ChiNhanh();
@@ -43,7 +43,7 @@ class ChiNhanhSeeder extends Seeder
         $CN1->FAX = "";
         $CN1->SoTaiKhoan = "0010141760802";
         $CN1->MoMo = "0702267843";
-        $CN1->NguoiQuanLy = "Hồ Thanh Phúc";
+        $CN1->NguoiQuanLy = "hothanhphuc2468@gmail.com";
         $CN1->save();
 
         $CN2 = new ChiNhanh();
@@ -60,7 +60,7 @@ class ChiNhanhSeeder extends Seeder
         $CN2->MoMo = "0702267843";
         $CN2->NguoiQuanLy = "Cao Hoàng Gia Khiêm";
         $CN2->save();
-        
+
         $CN3 = new ChiNhanh();
         $CN3->MaChiNhanh = "CN04";
         $CN3->TenChiNhanh = "Chi Nhánh 4";
@@ -75,7 +75,7 @@ class ChiNhanhSeeder extends Seeder
         $CN3->MoMo = "0702267843";
         $CN3->NguoiQuanLy = "Cao Hoàng Gia Khiêm";
         $CN3->save();
-        
+
 
 
 

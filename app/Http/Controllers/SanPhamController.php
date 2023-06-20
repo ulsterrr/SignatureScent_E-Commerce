@@ -7,6 +7,7 @@ use App\Models\LoaiKichCo;
 use App\Models\LoaiSanPham;
 use App\Models\SanPham;
 use App\Models\NhapHangMoi;
+use App\Models\TinTuc;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -71,7 +72,6 @@ class SanPhamController extends Controller
             'LoaiSP' => $loaisp,
             'LoaiKC' => $loaikc
         ]);
-        ;
     }
     public function capNhatSPham(Request $req, $id)
     {
@@ -153,9 +153,10 @@ class SanPhamController extends Controller
     {
         $sp = SanPham::all();
         $spgiatot = SanPham::whereBetween('GiaTien', [500000, 2000000])->get();
+        $tintuc = TinTuc::all();
         return view('layouts.homepage.home')->with([
             'SPNam' => $sp,
-            'SPGiaTot' => $spgiatot
-        ]);
+            'SPGiaTot' => $spgiatot,
+            'TinTuc' => $tintuc  ]);
     }
 }

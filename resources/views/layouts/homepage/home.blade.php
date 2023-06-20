@@ -29,7 +29,7 @@
                                                         <h4 class="thin-font">Giảm giá 20% &#8211; 50%</h2>
                                                             <h2>Top sản phẩm đang được giảm giá tại cửa hàng</h2>
                                                             <p>Ưu đãi cho 100 khách hàng đặt sớm nhất</p>
-                                                            <a href="cua-hang/" target="_self" class="button primary lowercase" style="border-radius:10px;">
+                                                            <a href="{{route('cuahang-view')}}" target="_self" class="button primary lowercase" style="border-radius:10px;">
                                                                 <span>Khám phá ngay</span>
                                                             </a>
                                                     </div>
@@ -588,239 +588,34 @@
                     <h1 class="a">TIN TỨC</h1>
                     <div class="gap-element clearfix" style="display:block; height:auto; padding-top:50px"></div>
                     <div class="row large-columns-3 medium-columns-2 small-columns-1 slider row-slider slider-nav-simple slider-nav-outside slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : 5000}'>
-                        <div class="col post-item">
-                            <div class="col-inner">
-                                <a href="lorem-ipsum-la-van-ban-gia/" class="plain">
-                                    <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                        <div class="box-image">
-                                            <div class="image-cover" style="padding-top:70%;">
-                                                <img width="1135" height="768" src="{{ asset('assets/wp-content/uploads/2019/05/2-1.jpg')}}" class="attachment-original size-original wp-post-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/2-1.jpg')}} 1135w, {{ asset('assets/wp-content/uploads/2019/05/2-1-300x203.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/2-1-768x520.jpg')}} 768w, {{ asset('assets/wp-content/uploads/2019/05/2-1-1024x693.jpg')}} 1024w, {{ asset('assets/wp-content/uploads/2019/05/2-1-600x406.jpg')}} 600w" sizes="(max-width: 1135px) 100vw, 1135px" />
-                                            </div>
+                    @foreach ($TinTuc as $data )
+                    <div class="col post-item">
+                        <div class="col-inner">
+                            <a href='{{route('xemtintuc-view',['id'=>$data->id])}}' class="plain">
+                                <div class="box box-normal box-text-bottom box-blog-post has-hover">
+                                    <div class="box-image">
+                                        <div class="image-cover" style="padding-top:70%;">
+                                            <img width="1135" height="768" src="{{ asset('assets/images/tin_tuc/'. $data->Anh2) }}" alt="">
                                         </div>
-                                        <!-- .box-image -->
-                                        <div class="box-text text-left">
-                                            <div class="box-text-inner blog-post-inner">
-                                                <h5 class="post-title is-large uppercase">Lorem Ipsum là văn bản giả</h5>
-                                                <div class="post-meta is-small op-8">8 Tháng Ba, 2018</div>
-                                                <div class="is-divider"></div>
-                                                <p class="from_the_blog_excerpt ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus, massa non viverra consequat, tellus ligula scelerisque nisi, at viverra ... </p>
-                                            </div>
-                                            <!-- .box-text-inner -->
-                                        </div>
-                                        <!-- .box-text -->
                                     </div>
-                                    <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                            </div>
-                            <!-- .col-inner -->
-                        </div>
-                        <!-- .col -->
-                        <div class="col post-item">
-                            <div class="col-inner">
-                                <a href="lorem-ipsum-la-van-ban-gia-2/" class="plain">
-                                    <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                        <div class="box-image">
-                                            <div class="image-cover" style="padding-top:70%;">
-                                                <img width="1135" height="768" src="{{ asset('assets/wp-content/uploads/2019/05/6-1.jpg')}}" class="attachment-original size-original wp-post-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/6-1.jpg')}} 1135w, {{ asset('assets/wp-content/uploads/2019/05/6-1-300x203.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/6-1-768x520.jpg')}} 768w, {{ asset('assets/wp-content/uploads/2019/05/6-1-1024x693.jpg')}} 1024w, {{ asset('assets/wp-content/uploads/2019/05/6-1-600x406.jpg')}} 600w" sizes="(max-width: 1135px) 100vw, 1135px" />
-                                            </div>
+                                    <!-- .box-image -->
+                                    <div class="box-text text-left">
+                                        <div class="box-text-inner blog-post-inner">
+                                            <h5 class="post-title is-large uppercase">{{$data->TieuDe}}</h5>
+                                            <div class="is-divider"></div>
+                                            <p class="from_the_blog_excerpt ">{{$data->PhuDe}} </p>
                                         </div>
-                                        <!-- .box-image -->
-                                        <div class="box-text text-left">
-                                            <div class="box-text-inner blog-post-inner">
-                                                <h5 class="post-title is-large uppercase">Lorem Ipsum là văn bản giả</h5>
-                                                <div class="post-meta is-small op-8">8 Tháng Ba, 2018</div>
-                                                <div class="is-divider"></div>
-                                                <p class="from_the_blog_excerpt ">Donec tempus eu ligula sed blandit. Vivamus vel enim ac quam iaculis rutrum. Sed nisi massa, ultrices sed pretium et, ... </p>
-                                            </div>
-                                            <!-- .box-text-inner -->
-                                        </div>
-                                        <!-- .box-text -->
+                                        <!-- .box-text-inner -->
                                     </div>
-                                    <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                            </div>
-                            <!-- .col-inner -->
+                                    <!-- .box-text -->
+                                </div>
+                                <!-- .box -->
+                            </a>
+                            <!-- .link -->
                         </div>
-                        <!-- .col -->
-                        <div class="col post-item">
-                            <div class="col-inner">
-                                <a href="lorem-ipsum-la-van-ban-gia-3/" class="plain">
-                                    <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                        <div class="box-image">
-                                            <div class="image-cover" style="padding-top:70%;">
-                                                <img width="1135" height="768" src="{{ asset('assets/wp-content/uploads/2019/05/5-1.jpg')}}" class="attachment-original size-original wp-post-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5-1.jpg')}} 1135w, {{ asset('assets/wp-content/uploads/2019/05/5-1-300x203.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/5-1-768x520.jpg')}} 768w, {{ asset('assets/wp-content/uploads/2019/05/5-1-1024x693.jpg')}} 1024w, {{ asset('assets/wp-content/uploads/2019/05/5-1-600x406.jpg')}} 600w" sizes="(max-width: 1135px) 100vw, 1135px" />
-                                            </div>
-                                        </div>
-                                        <!-- .box-image -->
-                                        <div class="box-text text-left">
-                                            <div class="box-text-inner blog-post-inner">
-                                                <h5 class="post-title is-large uppercase">Lorem Ipsum là văn bản giả</h5>
-                                                <div class="post-meta is-small op-8">8 Tháng Ba, 2018</div>
-                                                <div class="is-divider"></div>
-                                                <p class="from_the_blog_excerpt ">n rutrum tempus purus, ut euismod dui facilisis ac. Fusce semper dignissim diam a egestas. Aenean euismod mauris quis velit ... </p>
-                                            </div>
-                                            <!-- .box-text-inner -->
-                                        </div>
-                                        <!-- .box-text -->
-                                    </div>
-                                    <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                            </div>
-                            <!-- .col-inner -->
-                        </div>
-                        <!-- .col -->
-                        <div class="col post-item">
-                            <div class="col-inner">
-                                <a href="lorem-ipsum-la-van-ban-gia-4/" class="plain">
-                                    <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                        <div class="box-image">
-                                            <div class="image-cover" style="padding-top:70%;">
-                                                <img width="1135" height="768" src="{{ asset('assets/wp-content/uploads/2019/05/4.jpg')}}" class="attachment-original size-original wp-post-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/4.jpg')}} 1135w, {{ asset('assets/wp-content/uploads/2019/05/4-300x203.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/4-768x520.jpg')}} 768w, {{ asset('assets/wp-content/uploads/2019/05/4-1024x693.jpg')}} 1024w, {{ asset('assets/wp-content/uploads/2019/05/4-600x406.jpg')}} 600w" sizes="(max-width: 1135px) 100vw, 1135px" />
-                                            </div>
-                                        </div>
-                                        <!-- .box-image -->
-                                        <div class="box-text text-left">
-                                            <div class="box-text-inner blog-post-inner">
-                                                <h5 class="post-title is-large uppercase">Lorem Ipsum là văn bản giả</h5>
-                                                <div class="post-meta is-small op-8">8 Tháng Ba, 2018</div>
-                                                <div class="is-divider"></div>
-                                                <p class="from_the_blog_excerpt ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus, massa non viverra consequat, tellus ligula scelerisque nisi, at viverra ... </p>
-                                            </div>
-                                            <!-- .box-text-inner -->
-                                        </div>
-                                        <!-- .box-text -->
-                                    </div>
-                                    <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                            </div>
-                            <!-- .col-inner -->
-                        </div>
-                        <!-- .col -->
+                        <!-- .col-inner -->
                     </div>
-                </div>
-            </div>
-            <div class="col show-for-small small-12 large-12" data-animate="fadeInUp">
-                <div class="col-inner text-center" style="padding:30px 0px 0px 0px;margin:0px 0px -30px 0px;">
-                    <h4 class="thin-font">ScentSiganture</h4>
-                    <h1 class="a">TIN TỨC</h1>
-                    <div class="gap-element clearfix" style="display:block; height:auto; padding-top:25px"></div>
-                    <div class="row large-columns-3 medium-columns-2 small-columns-1 slider row-slider slider-nav-simple slider-nav-outside slider-nav-push" data-flickity-options='{"imagesLoaded": true, "groupCells": "100%", "dragThreshold" : 5, "cellAlign": "left","wrapAround": true,"prevNextButtons": true,"percentPosition": true,"pageDots": false, "rightToLeft": false, "autoPlay" : 5000}'>
-                        <div class="col post-item">
-                            <div class="col-inner">
-                                <a href="lorem-ipsum-la-van-ban-gia/" class="plain">
-                                    <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                        <div class="box-image">
-                                            <div class="image-cover" style="padding-top:70%;">
-                                                <img width="1135" height="768" src="{{ asset('assets/wp-content/uploads/2019/05/2-1.jpg')}}" class="attachment-original size-original wp-post-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/2-1.jpg')}} 1135w, {{ asset('assets/wp-content/uploads/2019/05/2-1-300x203.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/2-1-768x520.jpg')}} 768w, {{ asset('assets/wp-content/uploads/2019/05/2-1-1024x693.jpg')}} 1024w, {{ asset('assets/wp-content/uploads/2019/05/2-1-600x406.jpg')}} 600w" sizes="(max-width: 1135px) 100vw, 1135px" />
-                                            </div>
-                                        </div>
-                                        <!-- .box-image -->
-                                        <div class="box-text text-left">
-                                            <div class="box-text-inner blog-post-inner">
-                                                <h5 class="post-title is-large uppercase">Lorem Ipsum là văn bản giả</h5>
-                                                <div class="post-meta is-small op-8">8 Tháng Ba, 2018</div>
-                                                <div class="is-divider"></div>
-                                                <p class="from_the_blog_excerpt ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus, massa non viverra consequat, tellus ligula scelerisque nisi, at viverra ... </p>
-                                            </div>
-                                            <!-- .box-text-inner -->
-                                        </div>
-                                        <!-- .box-text -->
-                                    </div>
-                                    <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                            </div>
-                            <!-- .col-inner -->
-                        </div>
-                        <!-- .col -->
-                        <div class="col post-item">
-                            <div class="col-inner">
-                                <a href="lorem-ipsum-la-van-ban-gia-2/" class="plain">
-                                    <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                        <div class="box-image">
-                                            <div class="image-cover" style="padding-top:70%;">
-                                                <img width="1135" height="768" src="{{ asset('assets/wp-content/uploads/2019/05/6-1.jpg')}}" class="attachment-original size-original wp-post-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/6-1.jpg')}} 1135w, {{ asset('assets/wp-content/uploads/2019/05/6-1-300x203.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/6-1-768x520.jpg')}} 768w, {{ asset('assets/wp-content/uploads/2019/05/6-1-1024x693.jpg')}} 1024w, {{ asset('assets/wp-content/uploads/2019/05/6-1-600x406.jpg')}} 600w" sizes="(max-width: 1135px) 100vw, 1135px" />
-                                            </div>
-                                        </div>
-                                        <!-- .box-image -->
-                                        <div class="box-text text-left">
-                                            <div class="box-text-inner blog-post-inner">
-                                                <h5 class="post-title is-large uppercase">Lorem Ipsum là văn bản giả</h5>
-                                                <div class="post-meta is-small op-8">8 Tháng Ba, 2018</div>
-                                                <div class="is-divider"></div>
-                                                <p class="from_the_blog_excerpt ">Donec tempus eu ligula sed blandit. Vivamus vel enim ac quam iaculis rutrum. Sed nisi massa, ultrices sed pretium et, ... </p>
-                                            </div>
-                                            <!-- .box-text-inner -->
-                                        </div>
-                                        <!-- .box-text -->
-                                    </div>
-                                    <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                            </div>
-                            <!-- .col-inner -->
-                        </div>
-                        <!-- .col -->
-                        <div class="col post-item">
-                            <div class="col-inner">
-                                <a href="lorem-ipsum-la-van-ban-gia-3/" class="plain">
-                                    <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                        <div class="box-image">
-                                            <div class="image-cover" style="padding-top:70%;">
-                                                <img width="1135" height="768" src="{{ asset('assets/wp-content/uploads/2019/05/5-1.jpg')}}" class="attachment-original size-original wp-post-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/5-1.jpg')}} 1135w, {{ asset('assets/wp-content/uploads/2019/05/5-1-300x203.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/5-1-768x520.jpg')}} 768w, {{ asset('assets/wp-content/uploads/2019/05/5-1-1024x693.jpg')}} 1024w, {{ asset('assets/wp-content/uploads/2019/05/5-1-600x406.jpg')}} 600w" sizes="(max-width: 1135px) 100vw, 1135px" />
-                                            </div>
-                                        </div>
-                                        <!-- .box-image -->
-                                        <div class="box-text text-left">
-                                            <div class="box-text-inner blog-post-inner">
-                                                <h5 class="post-title is-large uppercase">Lorem Ipsum là văn bản giả</h5>
-                                                <div class="post-meta is-small op-8">8 Tháng Ba, 2018</div>
-                                                <div class="is-divider"></div>
-                                                <p class="from_the_blog_excerpt ">n rutrum tempus purus, ut euismod dui facilisis ac. Fusce semper dignissim diam a egestas. Aenean euismod mauris quis velit ... </p>
-                                            </div>
-                                            <!-- .box-text-inner -->
-                                        </div>
-                                        <!-- .box-text -->
-                                    </div>
-                                    <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                            </div>
-                            <!-- .col-inner -->
-                        </div>
-                        <!-- .col -->
-                        <div class="col post-item">
-                            <div class="col-inner">
-                                <a href="lorem-ipsum-la-van-ban-gia-4/" class="plain">
-                                    <div class="box box-normal box-text-bottom box-blog-post has-hover">
-                                        <div class="box-image">
-                                            <div class="image-cover" style="padding-top:70%;">
-                                                <img width="1135" height="768" src="{{ asset('assets/wp-content/uploads/2019/05/4.jpg')}}" class="attachment-original size-original wp-post-image" alt="" srcset="{{ asset('assets/wp-content/uploads/2019/05/4.jpg')}} 1135w, {{ asset('assets/wp-content/uploads/2019/05/4-300x203.jpg')}} 300w, {{ asset('assets/wp-content/uploads/2019/05/4-768x520.jpg')}} 768w, {{ asset('assets/wp-content/uploads/2019/05/4-1024x693.jpg')}} 1024w, {{ asset('assets/wp-content/uploads/2019/05/4-600x406.jpg')}} 600w" sizes="(max-width: 1135px) 100vw, 1135px" />
-                                            </div>
-                                        </div>
-                                        <!-- .box-image -->
-                                        <div class="box-text text-left">
-                                            <div class="box-text-inner blog-post-inner">
-                                                <h5 class="post-title is-large uppercase">Lorem Ipsum là văn bản giả</h5>
-                                                <div class="post-meta is-small op-8">8 Tháng Ba, 2018</div>
-                                                <div class="is-divider"></div>
-                                                <p class="from_the_blog_excerpt ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dapibus, massa non viverra consequat, tellus ligula scelerisque nisi, at viverra ... </p>
-                                            </div>
-                                            <!-- .box-text-inner -->
-                                        </div>
-                                        <!-- .box-text -->
-                                    </div>
-                                    <!-- .box -->
-                                </a>
-                                <!-- .link -->
-                            </div>
-                            <!-- .col-inner -->
-                        </div>
-                        <!-- .col -->
+                    @endforeach
                     </div>
                 </div>
             </div>

@@ -219,7 +219,7 @@
                                         <div class="product-small box ">
                                             <div class="box-image">
                                                 <div class="image-fade_in_back">
-                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
+                                                    <a href="{{ route('chitiet-sanpham-view',['id' => $data->MaSanPham]) }}">
                                                         <img width="300" height="300" src="{{ asset('assets/images/san_pham/'.$data->HinhAnh) }}" alt="" 300w, sizes="(max-width: 300px, max-height: 300px) 100vw, 300px" /> </a>
                                                 </div>
                                                 <!-- box-image -->
