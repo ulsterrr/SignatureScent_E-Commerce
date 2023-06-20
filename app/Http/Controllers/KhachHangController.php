@@ -42,7 +42,7 @@ class KhachHangController extends Controller
         $quenMK->save();
         $job = (new ResetPasswordJob($quenMK->email,'Xin chào quý khách của Scent Signature chúng tôi đã nhận được yêu cầu quên mật khẩu của quý khác.
                                                     Mật khẩu mới được cung cấp là: ' . $newPass .
-                                                    'Quý khách vui lòng đổi lại mật khẩu nhằm để bảo mật tốt hơn. Không cung cấp mật khẩu
+                                                    ' Quý khách vui lòng đổi lại mật khẩu nhằm để bảo mật tốt hơn. Không cung cấp mật khẩu
                                                     cho bất kỳ ai. Chúng tôi xin cảm ơn quý khách','Cung cấp lại mật khẩu'));
         $this->dispatch($job);
         return redirect()->route('quenMatKhauView')->with('message', 'Khôi phục mật khẩu thành công');

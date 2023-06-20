@@ -7,6 +7,7 @@ use App\Models\LoaiSanPham;
 use App\Models\SanPham;
 use App\Models\User;
 use App\Models\GioHang;
+use App\Models\TinTuc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -88,11 +89,15 @@ class NguoiDungController extends Controller
     }
 
     public function tinTucView() {
-        return view('nguoi-dung.tin-tuc');
+        $tt = TinTuc::all();
+        return view('nguoi-dung.tin-tuc',compact('tt'));
     }
 
-    public function xemTinTucView() {
-        return view('nguoi-dung.xem-tintuc');
+    public function xemTinTucView($id) {
+        $tintuc = TinTuc::find($id);
+        $tt = TinTuc::all();
+        return view('nguoi-dung.xem-tintuc')->with(['tintuc' => $tintuc,
+                                                    'tt' => $tt]);
     }
 
     public function gioHangView() {
@@ -150,5 +155,12 @@ class NguoiDungController extends Controller
         }
         // Trả về kết quả cho Ajax
         return response()->json(['success' => true]);
+    }
+
+    public function locGia($min,$max)
+    {
+        $sp = SanPham::whereBetween('GiaTien', [$min, $max])->get();
+
+        return view('layouts.tai-khoan.doi-matkhau-client',compact('sp'));
     }
 }

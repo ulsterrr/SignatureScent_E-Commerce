@@ -213,7 +213,7 @@ class SanPhamSeeder extends Seeder
         Tôi cũng không muốn bóc tách từng hương hoa một, ngộ nhỡ làm mất đi vẻ đặc sắc vốn có của Cristal. Mà tôi chỉ biết nói rằng âm hưởng của các nét hương Hoa có trầm có bổng, có thanh có đậm. Những khi hương thơm có phần sắc lại, đanh và nồng nàn, bạn có thể nói rằng khi ấy có sự xuất hiện của Hoa nhài, hoa lan Nam Phi và Hoa cam. Và khi hương thơm mềm mại lại và miên man hơn, khi ấy hẳn Hoa hồng và Xạ hương đã tự mình kết hợp và ngát hương.
 
         Khu vườn mà Cristal tạo nên cũng không thiếu những khía cạnh khô hăng của Gỗ tuyết tùng, và cũng không thiếu nét hương man mát, the cay của Cam bergamot. Cứ như vậy, tất cả những nét vị ấy trộn lẫn vào nhau, ăn nhập và hoà quyện ăn ý.";
-        $SP9->HinhAnh = "";
+        $SP9->HinhAnh = "Cristal.jpg";
         $SP9->LoaiKichCo = "KC01";
         $SP9->LoaiSanPham = "LSP02";
         $SP9->GhiChu = "";
@@ -785,5 +785,205 @@ class SanPhamSeeder extends Seeder
         $SP43->GhiChu = "";
         $SP43->NguoiTao = "hothanhphuc2468@gmail.com";
         $SP43->save();
+
+        $SP44 = new SanPham();
+        $SP44->MaSanPham = "SP00000044";
+        $SP44->TenSanPham = "Memo Paris Winter Palace";
+        $SP44->ThuongHieu ="Memo Paris" ;
+        $SP44->TrangThai ="1" ;
+        $SP44->GiaTien ="5350000" ;
+        $SP44->MoTa = "Hương chính: Trà đỏ, Cam vàng, Nhựa cây, Vanilla, Chanh vàng, Trà mate, Hổ phách, Bưởi, Cam bergamot, Đậu tonka, Benzoin, Labdanum, Styrax, Xạ hương
+        Memo Paris Winter Palace là thứ hương dễ khiến bạn phải liên tưởng đến mùi hương của Trà bá tước, được hoà quyện với chút đăng đắng, thơm thơm của Vỏ cam. Tuyệt nhiên, ấy chỉ là những ấn tượng đầu tiên khiến bạn phải chú tâm đến. Memo Paris Winter Palace không ngần ngại thiên biến vạn hoá, khiến khứu giác bạn bị đánh đố bởi những nốt hương khác nhau ở những giai đoạn ngửi khác nhau.
+        Sẽ có lúc, bạn ngửi thấy mùi trà đậm đà, hơi ngai ngái, hệt như ngửi mùi hương của bã trà sau khi đã được hãm rất nhiều lần. Cũng có lúc, thứ duy nhất bạn nhận ra được là chút cay cay hăng hăng như lá bạc hà, thoảng hoặc trong không khí. Nhưng cũng có lúc, tổng thể mùi hương nhuốm lấy chút Nhựa cây ấm nóng, âm ỉ lan toả khắp không gian. Đừng vì cái tên 'Winter Palace' mà vội khẳng định rằng đây là một nét hương 'sắc lạnh' nhé.
+        Trước khi kết thúc hành trình mùi hương ngắn ngủi này, chắc ta cũng nên nói một chút về Winter Palace qua sự nhận định của Memo Paris, phải chứ? Được lấy cảm hứng từ những tách trà đỏ của Trung Hoa, sự tự do và đôi phần hơi ngạo nghễ từ chính linh vật nằm trên thiết kế chai ấy, Winter Palace vì thế cũng lấy nét hương của Trà làm chủ đạo, được điểm xuyết thêm bởi những nét hương dày dặn đôi khi phóng khoáng để thể hiện trọn vẹn tinh thần Á Châu của Winter Palace. Dù vậy, chỉ là câu chữ thôi thì vẫn chưa thể nào khiến bạn hiểu và yêu nét hương độc đáo này. Nếu có thể, mình mời bạn một tách trà đỏ đúng điệu, cùng ngồi xuống và cùng cảm thứ hương này nhé.";
+        $SP44->HinhAnh = "Memo Paris Winter Palace.jpeg";
+        $SP44->LoaiKichCo = "KC01";
+        $SP44->LoaiSanPham = "LSP03";
+        $SP44->GhiChu = "";
+        $SP44->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP44->save();
+
+        $SP45 = new SanPham();
+        $SP45->MaSanPham = "SP00000045";
+        $SP45->TenSanPham = "Memo Paris Tiger's Nest";
+        $SP45->ThuongHieu ="Memo Paris" ;
+        $SP45->TrangThai ="1" ;
+        $SP45->GiaTien ="5350000" ;
+        $SP45->MoTa = "Hương chính: Nhang, Hổ phách, Balsam, Absinthe, Vanilla, Aldehydes, Cây cói, Saffron, Hoa mộc tê, Hoa hồng, Hoa ngọc lan tây, Chanh xanh
+
+        Cá nhân tôi, nói một cách chân thành, vẫn đang trong hành trình tìm, hiểu, và thấu suốt mùi hương. Hành trình ấy không thiếu những thứ hương có thể khiến tôi bất ngờ, hạnh phúc, hay đơn giản là thoả mãn khi đã được khai sáng. Memo Paris Tiger's Nest là một bước ngoặt, một ấn phẩm khiến tôi phải đi từ cung bậc cảm xúc này đến cung bậc cảm xúc khác. Ngỡ ngàng, vỡ oà, chiêm nghiệm, yêu mến, tôi ước gì vốn từ ngữ của mình đủ phong phú để bạn cũng có thể hiểu thứ tôi đang cảm thấy bây giờ.
+
+        Memo Paris Tiger's Nest tái hiện lại khung cảnh của núi rừng Buhtan, linh thiêng và hùng vĩ. Càng đào sâu vào từng lớp hương, bạn như dần chìm vào chính cái 'hang hổ' mà nhà chế tác đang tạo nên, một cái hang ẩm ướt, bí hiểm, nép mình sâu trong những vách đá hiểm trở. Ở đây, ngay chính cái 'hang hổ' này, nơi mà khứu giác của bạn chạm lấy sự ẩm ương của đất, khói nhang của những ngôi chùa ngay trên núi, mùi hoa dại thơm thơm hăng hắc và cả của lá cây, từ tươi xanh đến khô ráp.
+
+        Lần đầu tiên khi bạn ngửi lấy mùi hương của Tiger's Nest, đừng sợ, cũng đừng bác bỏ thứ hương lạ lẫm này. Bản thân tôi cũng thế mà thôi, bước qua vùng an toàn của mình lần nào cũng ít nhiều đắn đo. Chỉ cần bạn cho thứ hương ấy một chút thời gian, thời gian để các tầng hương phát triển, thời gian để cho chính bạn nhìn nhận lấy sự chuyển mình của nó. 'Hang hổ' của Memo Paris, biết đâu cũng sẽ là nơi cư ngụ đặc biệt dành cho tâm thức của bạn như tôi đấy.";
+        $SP45->HinhAnh = "Memo Paris Tiger's Nest.jpeg";
+        $SP45->LoaiKichCo = "KC01";
+        $SP45->LoaiSanPham = "LSP03";
+        $SP45->GhiChu = "";
+        $SP45->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP45->save();
+
+        $SP46 = new SanPham();
+        $SP46->MaSanPham = "SP00000046";
+        $SP46->TenSanPham = "Memo Paris Argentina";
+        $SP46->ThuongHieu ="Memo Paris" ;
+        $SP46->TrangThai ="1" ;
+        $SP46->GiaTien ="5350000" ;
+        $SP46->MoTa = "Hương chính: Hoa hồng, Hoa hồng Thổ Nhĩ Kỳ, Ambrette, Gỗ trầm hương, Tiêu hồng, Hoa nhài sambac, Hoa nhài Ai Cập, Hoa mộc lan, Cypriol
+
+        Trước khi được thử mùi hương của Memo Paris Argentina, bạn hãy thử đoán xem liệu mùi hương sẽ như thế nào? Liệu chúng sẽ mang tông vị chuếnh choáng, sôi nổi như Rượu vang - đặc điểm nhận dạng khi đến với Argentina? Hương nước trong trẻo, sảng khoái từ thác Iguazu? Hay mùi hương của giấy cói từ những thư viện được xem là lớn nhất thế giới?
+
+        Thế nhưng, mùi hương của Memo Paris Argentina lại được phổ theo điệu múa Tango. Bạn có thể thắc mắc, đó là điều hiển nhiên thôi, một điệu nhảy có thể toả ra thứ mùi gì? Thực chất, Memo Paris Argentina có cho mình sự chuyển biến nhanh chóng giữa các tầng hương, tuy thế lại không kém phần nhịp nhàng và uyển chuyển. Giống hệt như tính chất của một điệu Tango mê đắm.
+
+        Với mùi hương cốt lõi là Hoa hồng, dày dặn và đầy thi vị, được điểm xuyết thêm bởi chút Gỗ trầm và Ambrette, khiến cho bông Hồng giờ đây có phần tối màu và da thịt hơn nữa. Xuyên suốt hành trình mùi hương của điệu nhảy Tango ấy, Hồng vẫn ngát hương đầy mê hoặc, càng về sau lại càng có thêm nhiều sự góp mặt của hoa, như Hoa nhài và Mộc lan. Tất cả làm nên một vũ khúc mùi hương Memo Paris Argentina không thể rời mắt";
+        $SP46->HinhAnh = "Memo Paris Argentina.jpeg";
+        $SP46->LoaiKichCo = "KC01";
+        $SP46->LoaiSanPham = "LSP03";
+        $SP46->GhiChu = "";
+        $SP46->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP46->save();
+
+
+        $SP47 = new SanPham();
+        $SP47->MaSanPham = "SP00000047";
+        $SP47->TenSanPham = "Memo Paris Irish Leather";
+        $SP47->ThuongHieu ="Memo Paris" ;
+        $SP47->TrangThai ="1" ;
+        $SP47->GiaTien ="5350000" ;
+        $SP47->MoTa = "Hương chính: Trà đỏ, Cam vàng, Nhựa cây, Vanilla, Chanh vàng, Trà mate, Hổ phách, Bưởi, Cam bergamot, Đậu tonka, Benzoin, Labdanum, Styrax, Xạ hương
+        Memo Paris Winter Palace là thứ hương dễ khiến bạn phải liên tưởng đến mùi hương của Trà bá tước, được hoà quyện với chút đăng đắng, thơm thơm của Vỏ cam. Tuyệt nhiên, ấy chỉ là những ấn tượng đầu tiên khiến bạn phải chú tâm đến. Memo Paris Winter Palace không ngần ngại thiên biến vạn hoá, khiến khứu giác bạn bị đánh đố bởi những nốt hương khác nhau ở những giai đoạn ngửi khác nhau.
+        Sẽ có lúc, bạn ngửi thấy mùi trà đậm đà, hơi ngai ngái, hệt như ngửi mùi hương của bã trà sau khi đã được hãm rất nhiều lần. Cũng có lúc, thứ duy nhất bạn nhận ra được là chút cay cay hăng hăng như lá bạc hà, thoảng hoặc trong không khí. Nhưng cũng có lúc, tổng thể mùi hương nhuốm lấy chút Nhựa cây ấm nóng, âm ỉ lan toả khắp không gian. Đừng vì cái tên 'Winter Palace' mà vội khẳng định rằng đây là một nét hương 'sắc lạnh' nhé.
+        Trước khi kết thúc hành trình mùi hương ngắn ngủi này, chắc ta cũng nên nói một chút về Winter Palace qua sự nhận định của Memo Paris, phải chứ? Được lấy cảm hứng từ những tách trà đỏ của Trung Hoa, sự tự do và đôi phần hơi ngạo nghễ từ chính linh vật nằm trên thiết kế chai ấy, Winter Palace vì thế cũng lấy nét hương của Trà làm chủ đạo, được điểm xuyết thêm bởi những nét hương dày dặn đôi khi phóng khoáng để thể hiện trọn vẹn tinh thần Á Châu của Winter Palace. Dù vậy, chỉ là câu chữ thôi thì vẫn chưa thể nào khiến bạn hiểu và yêu nét hương độc đáo này. Nếu có thể, mình mời bạn một tách trà đỏ đúng điệu, cùng ngồi xuống và cùng cảm thứ hương này nhé.";
+        $SP47->HinhAnh = "Memo Paris Irish Leather.jpeg";
+        $SP47->LoaiKichCo = "KC01";
+        $SP47->LoaiSanPham = "LSP03";
+        $SP47->GhiChu = "";
+        $SP47->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP47->save();
+
+        $SP48 = new SanPham();
+        $SP48->MaSanPham = "SP00000048";
+        $SP48->TenSanPham = "Memo Paris African Leather";
+        $SP48->ThuongHieu ="Memo Paris" ;
+        $SP48->TrangThai ="1" ;
+        $SP48->GiaTien ="5350000" ;
+        $SP48->MoTa = "Hương chính: Nhang, Hổ phách, Balsam, Absinthe, Vanilla, Aldehydes, Cây cói, Saffron, Hoa mộc tê, Hoa hồng, Hoa ngọc lan tây, Chanh xanh
+
+        Cá nhân tôi, nói một cách chân thành, vẫn đang trong hành trình tìm, hiểu, và thấu suốt mùi hương. Hành trình ấy không thiếu những thứ hương có thể khiến tôi bất ngờ, hạnh phúc, hay đơn giản là thoả mãn khi đã được khai sáng. Memo Paris Tiger's Nest là một bước ngoặt, một ấn phẩm khiến tôi phải đi từ cung bậc cảm xúc này đến cung bậc cảm xúc khác. Ngỡ ngàng, vỡ oà, chiêm nghiệm, yêu mến, tôi ước gì vốn từ ngữ của mình đủ phong phú để bạn cũng có thể hiểu thứ tôi đang cảm thấy bây giờ.
+
+        Memo Paris Tiger's Nest tái hiện lại khung cảnh của núi rừng Buhtan, linh thiêng và hùng vĩ. Càng đào sâu vào từng lớp hương, bạn như dần chìm vào chính cái 'hang hổ' mà nhà chế tác đang tạo nên, một cái hang ẩm ướt, bí hiểm, nép mình sâu trong những vách đá hiểm trở. Ở đây, ngay chính cái 'hang hổ' này, nơi mà khứu giác của bạn chạm lấy sự ẩm ương của đất, khói nhang của những ngôi chùa ngay trên núi, mùi hoa dại thơm thơm hăng hắc và cả của lá cây, từ tươi xanh đến khô ráp.
+
+        Lần đầu tiên khi bạn ngửi lấy mùi hương của Tiger's Nest, đừng sợ, cũng đừng bác bỏ thứ hương lạ lẫm này. Bản thân tôi cũng thế mà thôi, bước qua vùng an toàn của mình lần nào cũng ít nhiều đắn đo. Chỉ cần bạn cho thứ hương ấy một chút thời gian, thời gian để các tầng hương phát triển, thời gian để cho chính bạn nhìn nhận lấy sự chuyển mình của nó. 'Hang hổ' của Memo Paris, biết đâu cũng sẽ là nơi cư ngụ đặc biệt dành cho tâm thức của bạn như tôi đấy.";
+        $SP48->HinhAnh = "Memo Paris African Leather.jpeg";
+        $SP48->LoaiKichCo = "KC01";
+        $SP48->LoaiSanPham = "LSP03";
+        $SP48->GhiChu = "";
+        $SP48->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP48->save();
+
+        $SP49 = new SanPham();
+        $SP49->MaSanPham = "SP00000049";
+        $SP49->TenSanPham = "Memo Paris Ocean Leather";
+        $SP49->ThuongHieu ="Memo Paris" ;
+        $SP49->TrangThai ="1" ;
+        $SP49->GiaTien ="5350000" ;
+        $SP49->MoTa = "Hương chính: Hoa hồng, Hoa hồng Thổ Nhĩ Kỳ, Ambrette, Gỗ trầm hương, Tiêu hồng, Hoa nhài sambac, Hoa nhài Ai Cập, Hoa mộc lan, Cypriol
+
+        Trước khi được thử mùi hương của Memo Paris Argentina, bạn hãy thử đoán xem liệu mùi hương sẽ như thế nào? Liệu chúng sẽ mang tông vị chuếnh choáng, sôi nổi như Rượu vang - đặc điểm nhận dạng khi đến với Argentina? Hương nước trong trẻo, sảng khoái từ thác Iguazu? Hay mùi hương của giấy cói từ những thư viện được xem là lớn nhất thế giới?
+
+        Thế nhưng, mùi hương của Memo Paris Argentina lại được phổ theo điệu múa Tango. Bạn có thể thắc mắc, đó là điều hiển nhiên thôi, một điệu nhảy có thể toả ra thứ mùi gì? Thực chất, Memo Paris Argentina có cho mình sự chuyển biến nhanh chóng giữa các tầng hương, tuy thế lại không kém phần nhịp nhàng và uyển chuyển. Giống hệt như tính chất của một điệu Tango mê đắm.
+
+        Với mùi hương cốt lõi là Hoa hồng, dày dặn và đầy thi vị, được điểm xuyết thêm bởi chút Gỗ trầm và Ambrette, khiến cho bông Hồng giờ đây có phần tối màu và da thịt hơn nữa. Xuyên suốt hành trình mùi hương của điệu nhảy Tango ấy, Hồng vẫn ngát hương đầy mê hoặc, càng về sau lại càng có thêm nhiều sự góp mặt của hoa, như Hoa nhài và Mộc lan. Tất cả làm nên một vũ khúc mùi hương Memo Paris Argentina không thể rời mắt";
+        $SP49->HinhAnh = "Memo Paris Ocean Leather.jpeg";
+        $SP49->LoaiKichCo = "KC01";
+        $SP49->LoaiSanPham = "LSP03";
+        $SP49->GhiChu = "";
+        $SP49->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP49->save();
+
+
+        $SP50 = new SanPham();
+        $SP50->MaSanPham = "SP00000050";
+        $SP50->TenSanPham = "Dior Addict Lip Glow 001 Pink";
+        $SP50->ThuongHieu ="Christian Dior" ;
+        $SP50->TrangThai ="1" ;
+        $SP50->GiaTien ="780000" ;
+        $SP50->MoTa = "";
+        $SP50->HinhAnh = "Glow 001 Pink.jpeg";
+        $SP50->LoaiKichCo = "KC01";
+        $SP50->LoaiSanPham = "LSP04";
+        $SP50->GhiChu = "";
+        $SP50->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP50->save();
+
+        $SP51 = new SanPham();
+        $SP51->MaSanPham = "SP00000051";
+        $SP51->TenSanPham = "Dior Addict Lip Glow 004 Coral";
+        $SP51->ThuongHieu ="Christian Dior" ;
+        $SP51->TrangThai ="1" ;
+        $SP51->GiaTien ="780000" ;
+        $SP51->MoTa = "";
+        $SP51->HinhAnh = "Glow 004 Coral.jpeg";
+        $SP51->LoaiKichCo = "KC01";
+        $SP51->LoaiSanPham = "LSP04";
+        $SP51->GhiChu = "";
+        $SP51->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP51->save();
+
+        $SP52 = new SanPham();
+        $SP52->MaSanPham = "SP00000052";
+        $SP52->TenSanPham = "Hermes Matte 64 - Rouge Casaque";
+        $SP52->ThuongHieu ="Hermes" ;
+        $SP52->TrangThai ="1" ;
+        $SP52->GiaTien ="1760000" ;
+        $SP52->MoTa = "";
+        $SP52->HinhAnh = "Rouge Casaque.jpeg";
+        $SP52->LoaiKichCo = "KC01";
+        $SP52->LoaiSanPham = "LSP04";
+        $SP52->GhiChu = "";
+        $SP52->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP52->save();
+
+        $SP53 = new SanPham();
+        $SP53->MaSanPham = "SP00000053";
+        $SP53->TenSanPham = "Tom Ford Lip Blush Z09 Soilel Sheer Pink";
+        $SP53->ThuongHieu ="Tom Ford" ;
+        $SP53->TrangThai ="1" ;
+        $SP53->GiaTien ="1350000" ;
+        $SP53->MoTa = "";
+        $SP53->HinhAnh = "Blush Z09.jpeg";
+        $SP53->LoaiKichCo = "KC01";
+        $SP53->LoaiSanPham = "LSP04";
+        $SP53->GhiChu = "";
+        $SP53->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP53->save();
+
+        $SP54 = new SanPham();
+        $SP54->MaSanPham = "SP00000054";
+        $SP54->TenSanPham = "Tom Ford Ruby Rush 07";
+        $SP54->ThuongHieu ="Tom Ford" ;
+        $SP54->TrangThai ="1" ;
+        $SP54->GiaTien ="1250000" ;
+        $SP54->MoTa = "";
+        $SP54->HinhAnh = "Rush 07.jpeg";
+        $SP54->LoaiKichCo = "KC01";
+        $SP54->LoaiSanPham = "LSP04";
+        $SP54->GhiChu = "";
+        $SP54->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP54->save();
+
+        $SP55 = new SanPham();
+        $SP55->MaSanPham = "SP00000055";
+        $SP55->TenSanPham = "Tom Ford 16 Scarlet Rouge Scented";
+        $SP55->ThuongHieu ="Tom Ford" ;
+        $SP55->TrangThai ="1" ;
+        $SP55->GiaTien ="1350000" ;
+        $SP55->MoTa = "";
+        $SP55->HinhAnh = "Tom Ford 16.jpeg";
+        $SP55->LoaiKichCo = "KC01";
+        $SP55->LoaiSanPham = "LSP04";
+        $SP55->GhiChu = "";
+        $SP55->NguoiTao = "hothanhphuc2468@gmail.com";
+        $SP55->save();
     }
 }

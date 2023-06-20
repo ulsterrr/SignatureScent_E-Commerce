@@ -267,12 +267,14 @@ Route::get('/don-hang/chi-tiet-don-hang',[DonHangController::class,'loadChiTietD
 Route::get('/cua-hang',[NguoiDungController::class,'cuaHangView'])->name('cuahang-view');
 Route::get('/gioi-thieu',[NguoiDungController::class,'gioiThieuView'])->name('gioithieu-view');
 Route::get('/tin-tuc',[NguoiDungController::class,'tinTucView'])->name('tintuc-view');
-Route::get('/xem-tintuc',[NguoiDungController::class,'xemTinTucView'])->name('xemtintuc-view');
+Route::get('/xem-tintuc/{id}',[NguoiDungController::class,'xemTinTucView'])->name('xemtintuc-view');
 Route::get('/lien-he',[NguoiDungController::class,'lienHeView'])->name('lienhe-view');
 Route::get('/gio-hang',[NguoiDungController::class,'gioHangView'])->name('giohang-view');
 Route::get('/gioi-thieu',[NguoiDungController::class,'gioiThieuView'])->name('gioithieu-view');
 Route::post('/them-vao-gio-hang', [NguoiDungController::class, 'themVaoGioHang'])->name('giohang-add');
 Route::get('/lay-du-lieu-gio-hang', [NguoiDungController::class, 'layDuLieuGioHang'])->name('giohang-load');
+
+Route::get('/san-pham-{min}-den-{max}',[NguoiDungController::class,'locGia'])->name('LocGia');
 
 
 
