@@ -148,7 +148,7 @@
     </div>
     <div class="mt-3">
         @if (session('message'))
-        <div class="alert alert-card alert-warning" role="alert">
+        <div class="alert alert-card alert-success" role="alert">
             <strong class="text-capitalize">Success!</strong> {{ session('message') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>

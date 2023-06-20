@@ -40,6 +40,11 @@ class ChiTietSanPham extends Model
     {
         return $this->belongsTo(GioHang::class, 'id');
     }
+    // chi tiết sản phẩm thuộc phiếu nhập
+    public static function nhapHang($mph) {
+        return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh')->where('MaPhieuNhap',$mph)->get();
+    }
+
     // chi tiết sản phẩm thuộc đơn hàng
     public static function donHang($mdh) {
         return ChiTietSanPham::with('chiTietCuaSanPham','chiTietCuaSanPham.loaiKichCo','chiTietCuaSanPham.loaiSanPham', 'getChiNhanh')->where('MaDonHang',$mdh)->get();

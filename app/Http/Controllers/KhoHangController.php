@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\DieuChuyen as JobsDieuChuyen;
+use App\Jobs\DieuChuyenDone;
+use App\Jobs\DieuChuyenJob;
+use App\Jobs\NhapKhoJob;
+use App\Models\ChiNhanh;
 use App\Models\ChiTietDieuChuyen;
 use App\Models\ChiTietSanPham;
 use App\Models\ChiTietXuatKho;
@@ -68,7 +73,15 @@ class KhoHangController extends Controller
         }
 
         $dieuChuyen->save();
-        return view('he-thong.kho-hang.dieu-chuyen.ds-dieuchuyen');
+
+        // Gửi mail
+        $dc = DieuChuyen::layThongTinDieuChuyen($dieuChuyen->MaPhieuDieuChuyen)->first();
+        $chi_nhanhA = ChiNhanh::with('nguoiQuanLy')->where('MaChiNhanh',$dieuChuyen->ChiNhanhHienTai)->first();
+        $chi_nhanhB = ChiNhanh::with('nguoiQuanLy')->where('MaChiNhanh',$dieuChuyen->ChiNhanhDieuChuyen)->first();
+        $sendMail = (new DieuChuyenJob($request->EmailA, $request->EmailB, $chi_nhanhA, $chi_nhanhB, '','Điều chuyển sản phẩm',$dc));
+        $this->dispatch($sendMail);
+
+        return view('he-thong.kho-hang.dieu-chuyen.ds-dieuchuyen')->with('message', 'Thêm mới phiếu điều chuyển thành công!');
     }
 
     public function xuatKho(Request $request){
@@ -145,6 +158,10 @@ class KhoHangController extends Controller
             ->update(['chi_tiet_san_phams.MaChiNhanh' => DB::raw('dieu_chuyens.ChiNhanhDieuChuyen')]);
 
         $pdc->save();
+
+        // Gửi mail
+        $sendMail = (new DieuChuyenDone($pdc->getChiNhanhA, $pdc->getChiNhanhB, '', 'Điều chuyển sản phẩm', $pdc));
+        $this->dispatch($sendMail);
     }
     public function loadDSHangHoa(){
 
@@ -315,8 +332,12 @@ class KhoHangController extends Controller
         }
 
         $nhapkho->save();
-        if(auth()->user()->LoaiTaiKhoan == 'A' && empty($nhapkho->MaChiNhanh)) {
+        if(auth()->user()->LoaiTaiKhoan == 'A') {
             // Gửi email cho chi nhánh nếu người nhập là Admin
+            $list_ctsp = ChiTietSanPham::nhapHang($nhapkho->MaNhapKho);
+            $chi_nhanh = ChiNhanh::with('nguoiQuanLy')->where('MaChiNhanh', $nhapkho->MaChiNhanh)->first();
+            $sendMail = (new NhapKhoJob($req->MaSanPham, $chi_nhanh, '', 'Nhập kho sản phẩm', $list_ctsp));
+            $this->dispatch($sendMail);
 
         }
         return back()->with('message.success','Nhập sản phẩm thành công!');
