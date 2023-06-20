@@ -1,222 +1,102 @@
+
+
+
+
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Email Quên Mật Khẩu</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-        /**
-   * Google webfonts. Recommended to include the .woff version for cross-client compatibility.
-   */
-        @media screen {
-            @font-face {
-                font-family: 'Source Sans Pro';
-                font-style: normal;
-                font-weight: 400;
-                src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v10/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff) format('woff');
-            }
-
-            @font-face {
-                font-family: 'Source Sans Pro';
-                font-style: normal;
-                font-weight: 700;
-                src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url(https://fonts.gstatic.com/s/sourcesanspro/v10/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff) format('woff');
-            }
-        }
-
-        /**
-   * Avoid browser level font resizing.
-   * 1. Windows Mobile
-   * 2. iOS / OSX
-   */
-        body,
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="x-apple-disable-message-reformatting">
+    <title></title>
+    <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+    <style>
         table,
         td,
-        a {
-            -ms-text-size-adjust: 100%;
-            /* 1 */
-            -webkit-text-size-adjust: 100%;
-            /* 2 */
+        div,
+        h1,
+        p {
+            font-family: Arial, sans-serif;
         }
-
-        /**
-   * Remove extra space added to tables and cells in Outlook.
-   */
-        table,
-        td {
-            mso-table-rspace: 0pt;
-            mso-table-lspace: 0pt;
-        }
-
-        /**
-   * Better fluid images in Internet Explorer.
-   */
-        img {
-            -ms-interpolation-mode: bicubic;
-        }
-
-        /**
-   * Remove blue links for iOS devices.
-   */
-        a[x-apple-data-detectors] {
-            font-family: inherit !important;
-            font-size: inherit !important;
-            font-weight: inherit !important;
-            line-height: inherit !important;
-            color: inherit !important;
-            text-decoration: none !important;
-        }
-
-        /**
-   * Fix centering issues in Android 4.4.
-   */
-        div[style*="margin: 16px 0;"] {
-            margin: 0 !important;
-        }
-
-        body {
-            width: 100% !important;
-            height: 100% !important;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-
-        /**
-   * Collapse table borders to avoid space between cells.
-   */
-        table {
-            border-collapse: collapse !important;
-        }
-
-        a {
-            color: #1a82e2;
-        }
-
-        img {
-            height: auto;
-            line-height: 100%;
-            text-decoration: none;
-            border: 0;
-            outline: none;
+        td , th{
+            padding: 3px 10px 3px 10px;
         }
 
     </style>
-
 </head>
-<body style="background-color: #e9ecef;">
-
-
-
-    <!-- start logo -->
-    <tr>
-      <td align="center" bgcolor="#e9ecef">
-        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-          <tr>
-            <td align="center" valign="top" style="padding: 36px 24px;">
-              <a  target="_blank" style="display: inline-block;">
-                <img src="http://127.0.0.1:8000/assets/images/logo.png" alt="Logo" border="0" width="48" style="display: block; width: 48px; max-width: 48px; min-width: 48px;">
-              </a>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <!-- end logo -->
-
-    <!-- start hero -->
-    <tr>
-        <td align="center" bgcolor="#e9ecef">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-                <tr>
-                    <td align="left" bgcolor="#ffffff" style="padding: 36px 24px 0; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; border-top: 3px solid #d4dadf;">
-                        <h1 style="margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -1px; line-height: 48px;">{{$title}}</h1>
-                    </td>
-                </tr>
-            </table>
-
-        </td>
-        </tr>
-</table>
-        <![endif]-->
-        </td>
-    </tr>
-    <!-- end hero -->
-
-    <!-- start copy block -->
-    <tr>
-        <td align="center" bgcolor="#e9ecef">
-
-        <table align="center" border="0" cellpadding="0" cellspacing="0" width="600">
+<body style="margin:0;padding:0;">
+    <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">
         <tr>
-        <td align="center" valign="top" width="600">
-        <![endif]-->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-
-                <!-- start copy -->
-                <tr>
-                    <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                        <p style="margin: 0;">{{$content}}</p>
-                    </td>
-                </tr>
-                <!-- end copy -->
-
-
-                     {{-- <!-- start button -->
-                <tr>
-                    <td align="left" bgcolor="#ffffff">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                        <td align="center" bgcolor="#ffffff" style="padding: 12px;">
-                            <table border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                    <a target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;"
-
-                                </td>
-                            </tr>
+            <td align="center" style="padding:0;">
+                <table role="presentation" style="width:75%;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
+                    <tr>
+                        <td align="center" style="padding:40px 0 30px 0;background:#70bbd9;">
+                            <img src="https://i.imgur.com/BThUuEy.png" style="border-radius: 31px 3px 31px 3px;" width="200" height="70"style="height:auto;display:block;" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:36px 30px 42px 30px;">
+                            <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                                <tr>
+                                    <td style="padding:0;color:#153643;">
+                                        <h1 style="font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">{{$title}}</h1>
+                                        <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">{!! nl2br($content) !!}</p>
+                                    </td>
+                                </tr>
                             </table>
                         </td>
-                        </tr>
-                    </table>
-                    </td>
-                </tr>
-          <!-- end button --> --}}
-                <!-- start copy -->
-                <tr>
-                    <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
-                        <p style="margin: 0;">Scent Signature,<br> Cám ơn quý khách</p>
-                    </td>
-                </tr>
-                <!-- end copy -->
+                    </tr>
 
-            </table>
-        </td>
-    </tr>
-    <!-- end copy block -->
-
-    <!-- start footer -->
-    <tr>
-        <td align="center" bgcolor="#e9ecef" style="padding: 24px;">
-
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
-
-                <!-- start permission -->
-                <tr>
-                    <td align="center" bgcolor="#e9ecef" style="padding: 12px 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 14px; line-height: 20px; color: #666;">
-                        <p style="margin: 0;">@Scent Signature Since 2023</p>
-                    </td>
-                </tr>
-                <!-- end permission -->
-
-
-            </table>
-    </tr>
-    <!-- end footer -->
-
+                    <tr>
+                        <td align="left" bgcolor="#ffffff">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                            <td align="center" bgcolor="#ffffff" style="padding: 12px;">
+                                <table border="0" cellpadding="0" cellspacing="0">
+                                </table>
+                            </td>
+                            </tr>
+                        </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:30px;background:#ee4c50;">
+                            <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:9px;font-family:Arial,sans-serif;">
+                                <tr>
+                                    <td style="padding:0;width:50%;" align="left">
+                                        <p style="margin:0;font-size:14px;line-height:16px;font-family:Arial,sans-serif;color:#ffffff;">
+                                            @ScentSignature, Since 2023
+                                        </p>
+                                    </td>
+                                    <td style="padding:0;width:50%;" align="right">
+                                        <table role="presentation" style="border-collapse:collapse;border:0;border-spacing:0;">
+                                            <tr>
+                                                <td style="padding:0 0 0 10px;width:38px;">
+                                                    <a href="http://www.twitter.com/" style="color:#ffffff;"><img src="https://assets.codepen.io/210284/tw_1.png" alt="Twitter" width="38" style="height:auto;display:block;border:0;" /></a>
+                                                </td>
+                                                <td style="padding:0 0 0 10px;width:38px;">
+                                                    <a href="http://www.facebook.com/" style="color:#ffffff;"><img src="https://assets.codepen.io/210284/fb_1.png" alt="Facebook" width="38" style="height:auto;display:block;border:0;" /></a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
     </table>
-    <!-- end body -->
-
 </body>
 </html>

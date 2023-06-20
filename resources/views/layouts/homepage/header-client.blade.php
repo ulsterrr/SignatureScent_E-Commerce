@@ -5,7 +5,7 @@
                 <!-- Logo -->
                 <div id="logo" class="flex-col logo">
                     <!-- Header logo -->
-                    <a href="" title="ScentSignature" rel="home">
+                    <a href="{{route('homepage')}}" title="ScentSignature" rel="home">
                         <img width="260" height="70" src="{{ asset('assets/images/logo-horizon.png') }}" style="border-radius: 31px 3px 31px 3px;" class="header_logo header-logo" alt="Vani Beauty" />
                         <img width="200" height="70" src="{{ asset('assets/images/logo-horizon.png')}}" style="border-radius: 31px 3px 31px 3px;" class="header-logo-dark" alt="ScentSignature" />
                     </a>

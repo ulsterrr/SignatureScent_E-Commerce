@@ -53,7 +53,8 @@
                 </aside>
                 <aside id="woocommerce_price_filter-2" class="widget woocommerce widget_price_filter"><span class="widget-title shop-sidebar">Lọc theo giá</span>
                     <div class="is-divider small"></div>
-                    <form method="get" action="cua-hang/">
+                    {{-- <form method="get" action="{{route('LocGia',['min' => $min_price,'max' => $max_price])}}"> --}}
+                    <form >
                         <div class="price_slider_wrapper">
                             <div class="price_slider" style="display:none;"></div>
                             <div class="price_slider_amount">
@@ -83,7 +84,7 @@
                             <div class="product-small box ">
                                 <div class="box-image">
                                     <div class="image-fade_in_back">
-                                        <a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">
+                                        <a href="{{ route('chitiet-sanpham-view',['id' => $data->MaSanPham]) }}">
                                             <img width="300" height="300" src="{{ asset('assets/images/san_pham/'.$data->HinhAnh) }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt=""  sizes="(max-width: 300px) 100vw, 300px" /> </a>
                                     </div>
                                 </div>
