@@ -10,7 +10,7 @@
     <h1>Điều chuyển</h1>
     <ul>
         <li><a href="">Sản phẩm</a></li>
-        <li>Tạo điều chuyển</li>
+        <li><span style="color: #00c5ff !important" name="DieuChuyen">{{ $DieuChuyen->MaPhieuDieuChuyen }}</span></li>
     </ul>
 </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\DonHangJob;
 use App\Models\ChiTietDonHang;
 use App\Models\ChiTietSanPham;
 use App\Models\DonHang;
@@ -109,6 +110,7 @@ class BanHangController extends Controller
         $donHang->ChiNhanh = auth()->user()->ChiNhanh;
         $donHang->TrangThai = '0';
 
+        $tongTien = 0;
         // Tạo các chi tiết đơn hàng
         foreach ($dataTableDataSP as $item) {
             $chiTietDonHang = new ChiTietDonHang();
@@ -118,6 +120,7 @@ class BanHangController extends Controller
             $chiTietDonHang->Soluong = $item['SL'];
             $chiTietDonHang->GiaTien = $item['Gia'];
             $chiTietDonHang->TongTien = $item['TongTien'];
+            $tongTien += $item['TongTien'];
             // Lưu lại chi tiết đơn hàng
             $chiTietDonHang->save();
         }
@@ -135,8 +138,9 @@ class BanHangController extends Controller
         // Lưu đơn hàng
         $donHang->save();
         // Gửi mail cho admin và email người mua
-
-        return view('he-thong.ban-hang.don-hang.ds-donhang')->with('message', 'Thêm mới đơn hàng thành công');
+        $sendMail = (new DonHangJob($donHang, $dataTableDataSP, '', 'Đơn hàng', $tongTien));
+        $this->dispatch($sendMail);
+        return back()->with('message', 'Thêm mới đơn hàng thành công');
     }
 
     public function layChiTietTheoSanPhamDH($listmsp) {
