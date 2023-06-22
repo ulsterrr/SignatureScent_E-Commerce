@@ -137,21 +137,21 @@
                                                 @foreach($list as $row)
                                                 <tr style="border: 1px solid black" class="row100 body">
                                                   <td class="cell100 column1" style="text-align: center;border: 1px solid black">{{ $loop->iteration }}</td>
-                                                  <td class="cell100 column2" style="text-align: center;border: 1px solid black">{{ $row['MSP'] }}</td>
-                                                  <td class="cell100 column3" style="border: 1px solid black">{{ $row['TSP'] }}</td>
-                                                  <td class="cell100 column4" style="text-align: center;border: 1px solid black">{{ number_format($row['Gia'], 0, ',', '.') }}</td>
-                                                  <td class="cell100 column5" style="text-align: center;border: 1px solid black">{{ $row['SL'] }}</td>
+                                                  <td class="cell100 column2" style="text-align: center;border: 1px solid black">{{ $row['MaSanPham'] }}</td>
+                                                  <td class="cell100 column3" style="border: 1px solid black">{{ $row->thongTinSanPham->TenSanPham }}</td>
+                                                  <td class="cell100 column4" style="text-align: center;border: 1px solid black">{{ number_format($row['GiaTien'], 0, ',', '.') }}</td>
+                                                  <td class="cell100 column5" style="text-align: center;border: 1px solid black">{{ $row['SoLuong'] }}</td>
                                                   <td class="cell100 column6" style="text-align: center;border: 1px solid black">{{ number_format($row['TongTien'], 0, ',', '.') }}</td>
                                                 </tr>
                                                 @endforeach
                                                 <tr style="border: 1px solid black" class="row100 body">
                                                   <td class="cell100 column0" colspan="5" style="text-align: right;border: 1px solid black;font-weight:bold">Phí vận chuyển:</td>
-                                                  <td class="cell100 column0" style="text-align: center;border: 1px solid black;font-weight:bold">{{ number_format($dh->PhiVanChuyen == '0' ? 0 : 15000, 0, ',', '.') }}</td>
+                                                  <td class="cell100 column0" style="text-align: center;border: 1px solid black;font-weight:bold">{{ number_format($dh->VanChuyen == '0' ? 0 : 15000, 0, ',', '.') }}</td>
                                                 </tr>
                                                 <tr style="border: 1px solid black" class="row100 body">
                                                   <td class="cell100 column0" colspan="5" style="text-align: right;border: 1px solid black;font-weight:bold">Tổng cộng:</td>
                                                   <td class="cell100 column0" style="text-align: center;border: 1px solid black;font-weight:bold">
-                                                      {{ number_format($total + ($dh->PhiVanChuyen == '0' ? 0 : 15000), 0, ',', '.') }}
+                                                      {{ number_format($total + ($dh->VanChuyen == '0' ? 0 : 15000), 0, ',', '.') }}
                                                       <span style="padding-left: 3px">VNĐ</span></td>
                                                 </tr>
                                             </tbody>
