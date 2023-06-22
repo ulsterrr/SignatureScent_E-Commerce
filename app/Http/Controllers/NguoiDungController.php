@@ -7,6 +7,7 @@ use App\Models\LoaiSanPham;
 use App\Models\SanPham;
 use App\Models\User;
 use App\Models\GioHang;
+use App\Models\KhuyenMai;
 use App\Models\TinTuc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -33,18 +34,23 @@ class NguoiDungController extends Controller
     //     return view('nguoi-dung.xem-sanpham')->with('SanPham',$sanpham);
     // }
     public function cuaHangView(Request $req) {
+        $minPrice = $req->query('min_price');
+        $maxPrice = $req->query('max_price');
         $maloai = $req->input('maloai');
-        if($maloai==null)
-        {
+        if($maloai==null) {
             $sp = SanPham::all();
+            if($minPrice>=0 && $maxPrice > $minPrice){
+                $sp = SanPham::whereBetween('GiaTien', [$req->min_price, $req->max_price])->get();
+            }
         }
-        else
-        {
+        else {
             $sp = SanPham::where('LoaiSanPham',$maloai)->get();
+            if($minPrice>=0 && $maxPrice > $minPrice){
+                $sp = SanPham::whereBetween('GiaTien', [$req->min_price, $req->max_price])->where('LoaiSanPham',$maloai)->get();
+            }
         }
         $loaisp = LoaiSanPham::all();
-        return view('nguoi-dung.cua-hang')->with(['SP'=> $sp,
-        'LSP'=> $loaisp ]);
+        return view('nguoi-dung.cua-hang')->with(['SP'=> $sp, 'LSP'=> $loaisp, 'minPrice' => $minPrice, 'maxPrice' => $maxPrice ]);
     }
 
     public function loadThongTinClient($id){
@@ -104,11 +110,58 @@ class NguoiDungController extends Controller
         if(Auth::check()) {
             $emails = auth()->user()->email;
             $gioHang = GioHang::where([['NguoiTao',$emails]])->get();
-            return view('nguoi-dung.gio-hang')->with(['gioHang' => $gioHang]);
+            $tongTien = $gioHang->sum('TongTien');
+            $tongGioHang = 0;
+            $tongTien >= 2000000 ? $tongGioHang = 2000000 : $tongGioHang += 15000;
+            $tongTien == 15000 ? $tongGioHang = 0 : $tongGioHang = 0;
+            return view('nguoi-dung.gio-hang')->with(['gioHang' => $gioHang, 'tongTien' => $tongTien, 'tongGioHang' => $tongGioHang]);
         }
         else {
             return redirect()->route('dang-nhap');
         }
+    }
+
+    public function checkMaKhuyenMai(Request $request){
+        $km = KhuyenMai::where('MaKhuyenMai',$request->mkm)->first();
+        if($km && $km->SoLuong > 0)
+        return response()->json(['valid' => false]);
+        else return response()->json(['valid' => true]);
+    }
+
+    public function capNhatGioHangView(Request $req) {
+        $data = $req->all();
+        if($req->type_submit == 'UPD') {
+            // Lọc các giá trị mã sản phẩm và số lượng từ mảng dữ liệu
+            $sanPhamSoLuong = array_filter($data, function ($key) {
+                return substr($key, 0, 2) === 'SP'; // Lọc các khóa bắt đầu bằng 'SP'
+            }, ARRAY_FILTER_USE_KEY);
+
+            $sanPhamSoLuong = array_map(function ($soLuong, $maSanPham) {
+                return ['MaSanPham' => $maSanPham, 'SoLuong' => $soLuong];
+            }, $sanPhamSoLuong, array_keys($sanPhamSoLuong));
+
+            foreach ($sanPhamSoLuong as $item) {
+
+                $maSanPham = $item['MaSanPham'];
+                $soLuong = $item['SoLuong'];
+                $giaTien = DB::table('gio_hangs')->where([['NguoiTao', '=', auth()->user()->email], ['MaSanPham', '=', $maSanPham]])->first()->GiaTien;
+                DB::table('gio_hangs')
+                ->where('gio_hangs.NguoiTao', '=', auth()->user()->email)
+                ->where('gio_hangs.MaSanPham', '=', $maSanPham)
+                ->update(['gio_hangs.SoLuong' => $soLuong, 'gio_hangs.TongTien' => $soLuong * $giaTien]);
+            }
+        }
+        else {
+            $emails = auth()->user()->email;
+            DB::table('gio_hangs')->where('NguoiTao', $emails)->delete();
+        }
+        return redirect()->route('giohang-view');
+    }
+
+    public function xoaMotSPGioHangView($msp) {
+        $emails = auth()->user()->email;
+        DB::table('gio_hangs')->where('NguoiTao', $emails)->where('MaSanPham', $msp)->delete();
+        return redirect()->route('giohang-view');
     }
 
     public function layDuLieuGioHang() {
@@ -157,10 +210,11 @@ class NguoiDungController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function locGia($min,$max)
+    public function locGia(Request $req)
     {
-        $sp = SanPham::whereBetween('GiaTien', [$min, $max])->get();
-
-        return view('layouts.tai-khoan.doi-matkhau-client',compact('sp'));
+        dd($req);
+        $sp = SanPham::whereBetween('GiaTien', [$req->min_price, $req->max_price])->get();
+        $loaisp = LoaiSanPham::all();
+        return view('nguoi-dung.cua-hang')->with(['SP'=> $sp, 'LSP'=> $loaisp ]);
     }
 }

@@ -126,4 +126,7 @@ $(document).ready(function () {
       }
       closeSidebarSecondary();
   });
+  $hoverElement.addEventListener("click", () => {
+    window.location.href = "/dashboard";
+  });
 });

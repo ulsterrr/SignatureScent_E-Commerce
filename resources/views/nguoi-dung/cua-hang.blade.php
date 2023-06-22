@@ -58,8 +58,8 @@
                         <div class="price_slider_wrapper">
                             <div class="price_slider" style="display:none;"></div>
                             <div class="price_slider_amount">
-                                <input type="text" id="min_price" name="min_price" value="0" data-min="0" placeholder="Giá thấp nhất" />
-                                <input type="text" id="max_price" name="max_price" value="150000000" data-max="150000000" placeholder="Giá cao nhất" />
+                                <input type="text" id="min_price" name="min_price" value="{{ $minPrice ? $minPrice : 0 }}" data-min="0" placeholder="Giá thấp nhất" />
+                                <input type="text" id="max_price" name="max_price" value="{{ $maxPrice ? $maxPrice : 15000000 }}" data-max="15000000" placeholder="Giá cao nhất" />
                                 <button type="submit" class="button">Lọc</button>
                                 <div class="price_label" style="display:none;"> Giá <span class="from"></span> &mdash; <span class="to"></span>
                                 </div>
@@ -91,7 +91,7 @@
                                 <!-- box-image -->
                                 <div class="box-text box-text-products text-center grid-style-2">
                                     <div class="title-wrapper">
-                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">{{$data->TenSanPham}}</a></p>
+                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->MaSanPham]) }}">{{$data->TenSanPham}}</a></p>
                                     </div>
                                     <div class="price-wrapper">
                                         <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>

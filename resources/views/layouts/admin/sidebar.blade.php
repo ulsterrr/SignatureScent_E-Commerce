@@ -1,6 +1,19 @@
+<style>
+    ul.navigation-left-cus {
+        list-style: none;
+        width: 100px;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    li.last-item:last-child {
+        margin-top: auto;
+    }
+</style>
 <div id="main-dashboard" class="side-content-wrap">
     <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
-        <ul class="navigation-left">
+        <ul class="navigation-left navigation-left-cus">
             <div id="btn-dashboard" class="nav-item" data-item="dashboard">
                 <a class="nav-item-hold" href="{{route('dashboard')}}">
                     <i class="nav-icon i-Bar-Chart"></i>
@@ -13,7 +26,7 @@
                     <span class="nav-text">Quản lý danh mục</span>
                 </a>
             </li>
-            <li class="nav-item {{ request()->is('he-thong/*') ? 'active' : '' }}" data-item="store">
+            <li class="nav-item {{ request()->is('admin/*') ? 'active' : '' }}" data-item="store">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Post-Office"></i>
                     <span class="nav-text">Quản lý kho hàng</span>
@@ -26,7 +39,14 @@
                     <span class="nav-text">Quản lý bán hàng</span>
                 </a>
             </li>
+            <li class="nav-item last-item {{ request()->is('cai-dat/*') ? 'active' : '' }}" data-item="setting">
+                <a class="nav-item-hold" href="#">
+                    <i class="nav-icon i-Gear"></i>
+                    <span class="nav-text">Cài đặt</span>
+                </a>
+            </li>
         </ul>
+
     </div>
 
     <div id="sub-dashboard" class="sidebar-left-secondary rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
@@ -118,12 +138,12 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="{{ Route::currentRouteName()=='feedback' ? 'open' : '' }}" href="{{route('feedback')}}">
                     <i class="nav-icon i-Speach-Bubbles"></i>
                     <span class="item-name">Thông tin phản hồi</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
 
         <ul class="childNav" data-parent="store">
@@ -239,6 +259,50 @@
                 <a>
                     <i class="nav-icon i-Receipt-4"></i>
                     <span class="item-name">Đơn hàng</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ds-donhang-view' ? 'open' : '' }}" href="{{ route('ds-donhang-view') }}">
+                            <i class="nav-icon i-Receipt-3"></i>
+                            <span class="item-name">Danh sách đơn hàng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
+                            <i class="nav-icon i-Add"></i>
+                            <span class="item-name">Tạo đơn hàng</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown-sidemenu">
+                <a>
+                    <i class="nav-icon i-Receipt-4"></i>
+                    <span class="item-name">Khuyến mãi</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='ds-donhang-view' ? 'open' : '' }}" href="{{ route('ds-donhang-view') }}">
+                            <i class="nav-icon i-Receipt-3"></i>
+                            <span class="item-name">Danh sách ưu đãi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
+                            <i class="nav-icon i-Add"></i>
+                            <span class="item-name">Tạo ưu đãi</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="childNav" data-parent="setting">
+            <li class="nav-item dropdown-sidemenu">
+                <a>
+                    <i class="nav-icon i-Receipt-4"></i>
+                    <span class="item-name">Phân quyền</span>
                     <i class="dd-arrow i-Arrow-Down"></i>
                 </a>
                 <ul class="submenu">
