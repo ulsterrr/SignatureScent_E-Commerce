@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form  action="#" method="POST" class="mb-3 mt-0 p-3 pt-0">
+                    {{-- <form  action="#" method="POST" class="mb-3 mt-0 p-3 pt-0">
                         @csrf
                         <div class="form-row">
                             <div class="col-md-2">
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <div class="col-md-12"></div>
-                    </form>
+                    </form> --}}
 
                     <div class="table-responsive">
                         <table id="ul-contact-list" class="display table" style="width:100%; overflow-y: scroll">

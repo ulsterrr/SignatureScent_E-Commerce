@@ -58,10 +58,8 @@
                                     <label>
                                         <input type="radio" name="radio" checked />
                                         <span>{{$macn->getChiNhanh->TenChiNhanh}}</span>
+                                        <span class="pl-1 text-danger"> - Số lượng : Còn {{$macn->TonKho}} sản phẩm</span>
 
-                                    </label>
-                                    <label>
-                                        <span>Số lượng : Còn {{$macn->TonKho}} sản phẩm</span>
                                     </label>
                                     @endforeach
                                 </form>
@@ -225,7 +223,7 @@
                                                 <!-- box-image -->
                                                 <div class="box-text box-text-products text-center grid-style-2">
                                                     <div class="title-wrapper">
-                                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->id]) }}">{{$data->TenSanPham}}</a></p>
+                                                        <p class="name product-title"><a href="{{ route('chitiet-sanpham-view',['id' => $data->MaSanPham]) }}">{{$data->TenSanPham}}</a></p>
                                                     </div>
                                                     <div class="price-wrapper">
                                                         <span class="price"><span class="woocommerce-Price-amount amount">{{ number_format($data->GiaTien, 0, ',', '.') }}&nbsp;<span class="woocommerce-Price-currencySymbol">&#8363;</span></span>

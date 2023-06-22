@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\DonHangJob;
+use App\Jobs\DonHangHuyJob;
+use App\Jobs\DonHangVCJob;
 use App\Models\ChiTietDonHang;
 use App\Models\ChiTietSanPham;
 use App\Models\DonHang;
@@ -179,6 +181,12 @@ class BanHangController extends Controller
             ->update(['chi_tiet_san_phams.TinhTrang' => 4]);
 
         $dh->save();
+
+        // Gửi mail cho admin và email người mua
+        $donHang = DonHang::layDonHangTheoMa($mdh);
+        $tongTien = $donHang->chiTietDonHang->sum('TongTien');
+        $sendMail = (new DonHangVCJob($donHang, $donHang->chiTietDonHang, '', 'Đơn hàng', $tongTien));
+        $this->dispatch($sendMail);
     }
     public function huyDonHang($mdh){
         $dh = DonHang::where('MaDonHang', $mdh)->firstOrFail();
@@ -191,6 +199,12 @@ class BanHangController extends Controller
             ->update(['chi_tiet_san_phams.MaDonHang' => null]);
 
         $dh->save();
+
+        // Gửi mail cho admin và email người mua
+        $donHang = DonHang::layDonHangTheoMa($mdh);
+        $tongTien = $donHang->chiTietDonHang->sum('TongTien');
+        $sendMail = (new DonHangHuyJob($donHang, $donHang->chiTietDonHang, '', 'Đơn hàng', $tongTien));
+        $this->dispatch($sendMail);
     }
     public function vanChuyenDonHang($mdh){
         $dh = DonHang::where('MaDonHang', $mdh)->firstOrFail();
