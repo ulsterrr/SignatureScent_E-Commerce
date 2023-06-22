@@ -81,7 +81,7 @@ class KhoHangController extends Controller
         $sendMail = (new DieuChuyenJob($request->EmailA, $request->EmailB, $chi_nhanhA, $chi_nhanhB, '','Điều chuyển sản phẩm',$dc));
         $this->dispatch($sendMail);
 
-        return view('he-thong.kho-hang.dieu-chuyen.ds-dieuchuyen')->with('message', 'Thêm mới phiếu điều chuyển thành công!');
+        return redirect()->route('ds-dieuchuyen-view')->with('message', 'Thêm mới phiếu điều chuyển thành công!');
     }
 
     public function xuatKho(Request $request){
@@ -118,7 +118,7 @@ class KhoHangController extends Controller
         }
 
         $xuatKho->save();
-        return view('he-thong.kho-hang.xuat-kho.ds-xuatkho')->with('message', 'Thêm thành công xuất kho sản phẩm');
+        return redirect()->route('ds-xuatkho-view')->with('message', 'Thêm thành công xuất kho sản phẩm');
     }
     public function layDsXuatKhoAjax()
     {

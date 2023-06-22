@@ -42,12 +42,13 @@ class MailDonHangVanChuyen extends Mailable
      */
     public function build()
     {
+        // dd($this->chi_tiet_dh);
         $this->content = 'Bạn có đơn mua hàng đã được giao cho nhà vận chuyển. Vui lòng nhận hàng khi được giao hàng.';
         return $this->view('mail.mail-donhang-vc')
                     ->subject($this->title)
                     ->with([
                         'dh' => $this->dh,
-                        'list' => $this->chi_tiet_dh,
+                        'list' => $this->dh->chiTietDonHang,
                         'content' => $this->content,
                         'title'=>$this->title,
                         'total' => $this->total

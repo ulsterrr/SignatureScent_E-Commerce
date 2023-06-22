@@ -142,7 +142,7 @@ class BanHangController extends Controller
         // Gửi mail cho admin và email người mua
         $sendMail = (new DonHangJob($donHang, $dataTableDataSP, '', 'Đơn hàng', $tongTien));
         $this->dispatch($sendMail);
-        return back()->with('message', 'Thêm mới đơn hàng thành công');
+        return redirect()->route('ds-donhang-view')->with('message', 'Thêm mới đơn hàng thành công');
     }
 
     public function layChiTietTheoSanPhamDH($listmsp) {
@@ -217,5 +217,11 @@ class BanHangController extends Controller
             ->update(['chi_tiet_san_phams.TinhTrang' => '2']);
 
         $dh->save();
+
+        // Gửi mail cho admin và email người mua
+        $donHang = DonHang::layDonHangTheoMa($mdh);
+        $tongTien = $donHang->chiTietDonHang->sum('TongTien');
+        $sendMail = (new DonHangVCJob($donHang, $donHang->chiTietDonHang, '', 'Đơn hàng đang được vận chuyển', $tongTien));
+        $this->dispatch($sendMail);
     }
 }

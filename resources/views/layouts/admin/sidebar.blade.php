@@ -20,13 +20,13 @@
                     <span class="nav-text">Dashboard</span>
                 </a>
             </div>
-            <li class="nav-item {{ request()->is('admin/*') ? 'active' : '' }}" data-item="apps">
+            <li class="nav-item {{ request()->is('admin/danh-muc/*') ? 'active' : '' }}" data-item="apps">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Computer-Secure"></i>
                     <span class="nav-text">Quản lý danh mục</span>
                 </a>
             </li>
-            <li class="nav-item {{ request()->is('admin/*') ? 'active' : '' }}" data-item="store">
+            <li class="nav-item {{ request()->is('admin/kho-hang/*') ? 'active' : '' }}" data-item="store">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Post-Office"></i>
                     <span class="nav-text">Quản lý kho hàng</span>
@@ -37,6 +37,12 @@
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Shop-3"></i>
                     <span class="nav-text">Quản lý bán hàng</span>
+                </a>
+            </li>
+            <li class="nav-item {{ request()->is('ban-hang/*') ? 'active' : '' }}" data-item="analytics">
+                <a class="nav-item-hold" href="#">
+                    <i class="nav-icon i-Monitor-Analytics"></i>
+                    <span class="nav-text">Thống kê</span>
                 </a>
             </li>
             <li class="nav-item last-item {{ request()->is('cai-dat/*') ? 'active' : '' }}" data-item="setting">
@@ -278,20 +284,20 @@
             </li>
             <li class="nav-item dropdown-sidemenu">
                 <a>
-                    <i class="nav-icon i-Receipt-4"></i>
+                    <i class="nav-icon i-Ticket"></i>
                     <span class="item-name">Khuyến mãi</span>
                     <i class="dd-arrow i-Arrow-Down"></i>
                 </a>
                 <ul class="submenu">
                     <li>
                         <a class="{{ Route::currentRouteName()=='ds-donhang-view' ? 'open' : '' }}" href="{{ route('ds-donhang-view') }}">
-                            <i class="nav-icon i-Receipt-3"></i>
+                            <i class="nav-icon i-Tag-3"></i>
                             <span class="item-name">Danh sách ưu đãi</span>
                         </a>
                     </li>
                     <li>
                         <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
-                            <i class="nav-icon i-Add"></i>
+                            <i class="nav-icon i-Tag-2"></i>
                             <span class="item-name">Tạo ưu đãi</span>
                         </a>
                     </li>
@@ -301,21 +307,21 @@
         <ul class="childNav" data-parent="setting">
             <li class="nav-item dropdown-sidemenu">
                 <a>
-                    <i class="nav-icon i-Receipt-4"></i>
+                    <i class="nav-icon i-Doctor"></i>
                     <span class="item-name">Phân quyền</span>
                     <i class="dd-arrow i-Arrow-Down"></i>
                 </a>
                 <ul class="submenu">
                     <li>
                         <a class="{{ Route::currentRouteName()=='ds-donhang-view' ? 'open' : '' }}" href="{{ route('ds-donhang-view') }}">
-                            <i class="nav-icon i-Receipt-3"></i>
-                            <span class="item-name">Danh sách đơn hàng</span>
+                            <i class="nav-icon i-Professor"></i>
+                            <span class="item-name">Danh sách quyền</span>
                         </a>
                     </li>
                     <li>
                         <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
-                            <i class="nav-icon i-Add"></i>
-                            <span class="item-name">Tạo đơn hàng</span>
+                            <i class="nav-icon i-Network"></i>
+                            <span class="item-name">Phân quyền người dùng</span>
                         </a>
                     </li>
                 </ul>
