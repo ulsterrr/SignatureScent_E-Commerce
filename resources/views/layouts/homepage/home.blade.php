@@ -367,7 +367,7 @@
                         <div class="tab-panels">
                             <div class="panel entry-content" id="tab_bestsell">
                                 <div class="row large-columns-4 medium-columns-3 small-columns-2 row-normal row-full-width">
-                                    @foreach ($SPNam as $data)
+                                    @foreach ($SPbc as $data)
                                     <div class="col">
                                         <div class="col-inner">
                                             <div class="badge-container absolute left top z-1">

@@ -278,7 +278,9 @@ Route::post('/cua-hang',[NguoiDungController::class,'locGia'])->name('LocGia');
 Route::post('/gio-hang',[NguoiDungController::class,'capNhatGioHangView'])->name('capNhatGioHangView');
 Route::post('kiemtra-mauudai',[NguoiDungController::class,'checkMaKhuyenMai'])->name('kiemtra-mauudai');
 
-
+Route::post('/tao-don-hang-client',[DonHangController::class],'taoDonHang')->name('taodon-client');
 
 //verify email
 Route::get('/xac-thuc-email/{id}/{token}',[VerificationController::class,'verifyEmail'])->name('xacthuc-email');
+Route::post('/momo_payment',[NguoiDungController::class,'momoPayment'])->name('thanhtoanMOMO');
+Route::get('/return_momo',[NguoiDungController::class,'returnMoMo'])->name('return-momo');

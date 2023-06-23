@@ -32,16 +32,10 @@
                             </a>
                             <!-- .account-link -->
                             <ul class="nav-dropdown  nav-dropdown-simple">
-                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--dashboard is-active active">
-                                    <a href="{{ route('tai-khoan') }}">Bảng điều khiển</a>
-                                    <!-- empty -->
-                                </li>
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
                                     <a href="#orders/">Đơn hàng</a>
                                 </li>
-                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--downloads">
-                                    <a href="#downloads/">Tải xuống</a>
-                                </li>
+
                                 @if(Auth::check())
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
                                     <a href="{{route('doimk-client-view',['id'=>auth()->user()->id])}}">Đổi mật khẩu</a>
