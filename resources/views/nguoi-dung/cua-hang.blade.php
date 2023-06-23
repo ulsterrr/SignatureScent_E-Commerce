@@ -16,22 +16,6 @@
                 </div>
             </div>
         </div>
-        <!-- .flex-left -->
-        <div class="flex-col medium-text-center">
-            <p class="woocommerce-result-count hide-for-medium"> Hiển thị một kết quả duy nhất</p>
-            <form class="woocommerce-ordering" method="get">
-                <select name="orderby" class="orderby">
-                    <option value="menu_order" selected='selected'>Thứ tự mặc định</option>
-                    <option value="popularity">Thứ tự theo mức độ phổ biến</option>
-                    <option value="rating">Thứ tự theo điểm đánh giá</option>
-                    <option value="date">Mới nhất</option>
-                    <option value="price">Thứ tự theo giá: thấp đến cao</option>
-                    <option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
-                </select>
-                <input type="hidden" name="paged" value="1" />
-            </form>
-        </div>
-        <!-- .flex-right -->
     </div>
     <!-- flex-row -->
 </div>

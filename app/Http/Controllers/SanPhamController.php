@@ -154,8 +154,10 @@ class SanPhamController extends Controller
         $sp = SanPham::all();
         $spgiatot = SanPham::whereBetween('GiaTien', [500000, 2000000])->get();
         $tintuc = TinTuc::all();
+        $spbc = SanPham::whereBetween('GiaTien',[100000, 3000000])->get();
         return view('layouts.homepage.home')->with([
             'SPNam' => $sp,
+            'SPbc' => $spbc,
             'SPGiaTot' => $spgiatot,
             'TinTuc' => $tintuc  ]);
     }

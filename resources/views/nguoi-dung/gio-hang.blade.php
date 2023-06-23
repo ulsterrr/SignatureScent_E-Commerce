@@ -140,7 +140,13 @@
                                         <td data-title="Tổng"><strong><span class="woocommerce-Price-amount amount">{{ number_format($tongGioHang, 0, ',', '.') }}<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></strong> </td>
                                     </tr>
                                     </table>
+                                    <form action="{{route('thanhtoanMOMO')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="total_momo" value="{{$tongTien}}">
+                                        <button class="checkout-button button alt wc-forward" name="payUrl"> Thanh Toán MoMo</button>
+                                    </form>
                                     <div class="wc-proceed-to-checkout">
+
                                         <a href="" class="checkout-button button alt wc-forward">Đặt hàng và thanh toán</a>
                                     </div>
                                 </div>

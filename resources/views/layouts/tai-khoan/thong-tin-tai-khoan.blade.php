@@ -75,7 +75,7 @@
                             <div class="row col-md-12">
                                 <div class="col-md-6">
                                     <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="ce90bf198c" /><input type="hidden" name="_wp_http_referer" value="/scentsignature/" />
-                                    <button type="submit" class="woocommerce-Button button" id="login" name="login" value="Đăng nhập">Đăng ký</button>
+                                    <button type="submit" class="woocommerce-Button button" id="login" name="login" value="Đăng nhập">Thay đổi</button>
                                 </div>
                                 <div class="col-md-6">
                                 </div>
