@@ -32,11 +32,12 @@
                             </a>
                             <!-- .account-link -->
                             <ul class="nav-dropdown  nav-dropdown-simple">
+
+                                @if(Auth::check())
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
                                     <a href="#orders/">Đơn hàng</a>
                                 </li>
 
-                                @if(Auth::check())
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
                                     <a href="{{route('doimk-client-view',['id'=>auth()->user()->id])}}">Đổi mật khẩu</a>
                                 </li>
@@ -45,11 +46,12 @@
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-account">
                                     <a href="{{route('thongtin-client-view',['id' => auth()->user()->id])}}">Thông tin tài khoản</a>
                                 </li>
-                                @else
-                                @endif
+
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
                                     <a href="{{ route('xuly-dangxuat') }}">Đăng xuất</a>
                                 </li>
+                                @else
+                                @endif
                             </ul>
                         </li>
                     </ul>
@@ -78,8 +80,6 @@
                 <div class="flex-col hide-for-medium flex-right">
                     <ul class="header-nav header-nav-main nav nav-right  nav-size-medium nav-uppercase">
                         <li class="header-search header-search-lightbox has-icon">
-                            <a href="#search-lightbox" data-open="#search-lightbox" data-focus="input.search-field" class="is-small">
-                                <i class="icon-search" style="font-size:16px;"></i></a>
                             <div id="search-lightbox" class="mfp-hide dark text-center">
                                 <div class="searchform-wrapper ux-search-box relative form-flat is-large">
                                     <form role="search" method="get" class="searchform" action="">
@@ -87,11 +87,6 @@
                                             <div class="flex-col flex-grow">
                                                 <input type="search" class="search-field mb-0" name="s" value="" placeholder="Tìm kiếm&hellip;" />
                                                 <input type="hidden" name="post_type" value="product" />
-                                            </div>
-                                            <!-- .flex-col -->
-                                            <div class="flex-col">
-                                                <button type="submit" class="ux-search-submit submit-button secondary button icon mb-0">
-                                                    <i class="icon-search"></i> </button>
                                             </div>
                                             <!-- .flex-col -->
                                         </div>
@@ -108,8 +103,8 @@
                 <div class="flex-col show-for-medium flex-right">
                     <ul class="mobile-nav nav nav-right ">
                         <li class="header-search header-search-lightbox has-icon">
-                            <a href="#search-lightbox" data-open="#search-lightbox" data-focus="input.search-field" class="is-small">
-                                <i class="icon-search" style="font-size:16px;"></i></a>
+
+
                             <div id="search-lightbox" class="mfp-hide dark text-center">
                                 <div class="searchform-wrapper ux-search-box relative form-flat is-large">
                                     <form role="search" method="get" class="searchform" action="">
@@ -120,8 +115,7 @@
                                             </div>
                                             <!-- .flex-col -->
                                             <div class="flex-col">
-                                                <button type="submit" class="ux-search-submit submit-button secondary button icon mb-0">
-                                                    <i class="icon-search"></i> </button>
+                                  
                                             </div>
                                             <!-- .flex-col -->
                                         </div>

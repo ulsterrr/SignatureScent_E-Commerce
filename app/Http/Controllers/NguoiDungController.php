@@ -50,7 +50,7 @@ class NguoiDungController extends Controller
             }
         }
         $loaisp = LoaiSanPham::all();
-        return view('nguoi-dung.cua-hang')->with(['SP'=> $sp, 'LSP'=> $loaisp, 'minPrice' => $minPrice, 'maxPrice' => $maxPrice ]);
+        return view('nguoi-dung.cua-hang')->with(['SP'=> $sp, 'LSP'=> $loaisp, 'minPrice' => $minPrice, 'maxPrice' => $maxPrice, 'sanPham' => [] ]);
     }
 
     public function loadThongTinClient($id){

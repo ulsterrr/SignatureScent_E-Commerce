@@ -12,10 +12,6 @@
                                 <input type="search" class="search-field mb-0" name="s" value="" id="s" placeholder="Tìm kiếm&hellip;" />
                             </div>
                             <!-- .flex-col -->
-                            <div class="flex-col">
-                                <button type="submit" class="ux-search-submit submit-button secondary button icon mb-0">
-                                    <i class="icon-search"></i> </button>
-                            </div>
                             <!-- .flex-col -->
                         </div>
                         <!-- .flex-row -->

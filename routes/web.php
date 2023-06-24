@@ -17,6 +17,7 @@ use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\VerificationController;
 use App\Models\KhoHang;
 use App\Models\NhapHangMoi;
+use App\Models\SanPham;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -284,3 +285,5 @@ Route::post('/tao-don-hang-client',[DonHangController::class],'taoDonHang')->nam
 Route::get('/xac-thuc-email/{id}/{token}',[VerificationController::class,'verifyEmail'])->name('xacthuc-email');
 Route::post('/momo_payment',[NguoiDungController::class,'momoPayment'])->name('thanhtoanMOMO');
 Route::get('/return_momo',[NguoiDungController::class,'returnMoMo'])->name('return-momo');
+Route::post('/autocomplete-ajax',[SanPhamController::class,'autocomplete_ajax'])->name('autocomplete-ajax');
+Route::post('/tim-kiem',[SanPhamController::class,'search'])->name('search-sp');
