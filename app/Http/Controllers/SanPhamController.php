@@ -161,4 +161,15 @@ class SanPhamController extends Controller
             'SPGiaTot' => $spgiatot,
             'TinTuc' => $tintuc  ]);
     }
+    public function autocomplete_ajax(Request $request){
+        $data = $request->all();
+        if($data['query']){
+            $sanPham = SanPham::where('TenSanPham','LIKE','%' .$data['query']. '%')->get();
+            $output = "<ul class='dropdown-menu' style='display:block; position: relative;' > ";
+            $html = view('layouts.webpage.tim-kiem-dropdown')->with([
+                'sanPham' => $sanPham
+            ])->render();
+            return response()->json(['html' => $html]);
+        }
+    }
 }

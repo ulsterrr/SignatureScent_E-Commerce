@@ -23,8 +23,6 @@
                             </div>
                             <!-- .flex-col -->
                             <div class="flex-col">
-                                <button type="submit" class="ux-search-submit submit-button secondary button icon mb-0">
-                                    <i class="icon-search"></i> </button>
                             </div>
                             <!-- .flex-col -->
                         </div>

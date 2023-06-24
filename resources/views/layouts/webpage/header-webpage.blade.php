@@ -33,10 +33,10 @@
                             </a>
                             <!-- .account-link -->
                             <ul class="nav-dropdown  nav-dropdown-simple">
+                                @if(Auth::check())
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
                                     <a href="#orders/">Đơn hàng</a>
                                 </li>
-                                @if(Auth::check())
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
                                     <a href="{{route('doimk-client-view',['id'=>auth()->user()->id])}}">Đổi mật khẩu</a>
                                 </li>
@@ -56,8 +56,7 @@
                 <div class="flex-col hide-for-medium flex-right">
                     <ul class="header-nav header-nav-main nav nav-right  nav-size-medium nav-uppercase">
                         <li class="header-search header-search-lightbox has-icon">
-                            <a href="#search-lightbox" data-open="#search-lightbox" data-focus="input.search-field" class="is-small">
-                                <i class="icon-search" style="font-size:16px;"></i></a>
+
                             <div id="search-lightbox" class="mfp-hide dark text-center">
                                 <div class="searchform-wrapper ux-search-box relative form-flat is-large">
                                     <form role="search" method="get" class="searchform" action="#">
@@ -68,8 +67,7 @@
                                             </div>
                                             <!-- .flex-col -->
                                             <div class="flex-col">
-                                                <button type="submit" class="ux-search-submit submit-button secondary button icon mb-0">
-                                                    <i class="icon-search"></i> </button>
+
                                             </div>
                                             <!-- .flex-col -->
                                         </div>
@@ -87,8 +85,7 @@
                 <div class="flex-col show-for-medium flex-right">
                     <ul class="mobile-nav nav nav-right ">
                         <li class="header-search header-search-lightbox has-icon">
-                            <a href="#search-lightbox" data-open="#search-lightbox" data-focus="input.search-field" class="is-small">
-                                <i class="icon-search" style="font-size:16px;"></i></a>
+
                             <div id="search-lightbox" class="mfp-hide dark text-center">
                                 <div class="searchform-wrapper ux-search-box relative form-flat is-large">
                                     <form role="search" method="get" class="searchform" action="#">
@@ -99,8 +96,7 @@
                                             </div>
                                             <!-- .flex-col -->
                                             <div class="flex-col">
-                                                <button type="submit" class="ux-search-submit submit-button secondary button icon mb-0">
-                                                    <i class="icon-search"></i> </button>
+
                                             </div>
                                             <!-- .flex-col -->
                                         </div>
