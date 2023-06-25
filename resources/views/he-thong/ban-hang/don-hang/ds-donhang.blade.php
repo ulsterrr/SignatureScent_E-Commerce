@@ -139,11 +139,13 @@
                     data: 'TrangThai'
                     , render: function (data) {
                         switch (data) {
-                            case '0': return 'Mới tạo'; break;
-                            case '1': return 'Đang vận chuyển'; break;
-                            case '2': return 'Đã giao hàng'; break;
-                            case '3': return 'Hoàn thành'; break;
-                            case '4': return 'Huỷ đơn'; break;
+                            case 'NEW': return 'Mới tạo'; break;
+                            case 'SHIP': return 'Đang vận chuyển'; break;
+                            case 'SENDED': return 'Đã giao hàng'; break;
+                            case 'DONE': return 'Hoàn thành'; break;
+                            case 'CANCEL': return 'Huỷ đơn'; break;
+                            case 'MOMO_WAITS': return 'Chờ thanh toán momo'; break;
+                            case 'MOMO_PAY': return 'Đã thanh toán momo'; break;
                             default: return 'Nháp'; break;
                         }
                     }

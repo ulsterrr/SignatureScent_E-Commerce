@@ -256,6 +256,10 @@ Route::get('/doi-mat-khau/{id}',[NguoiDungController::class,'loadMKClient'])->na
 Route::post('doi-mat-khau/{id}',[NguoiDungController::class,'doiMKClient'])->name('doimk-client');
 
 
+Route::get('/xem-don-hang',[NguoiDungController::class,'xemDonHangView'])->name('xemdonhang-view');
+Route::get('/danh-sach-don-hang',[NguoiDungController::class,'dsDonHangView'])->name('dsdonhang-view');
+Route::get('/dat-hang-thanh-cong',[NguoiDungController::class,'datHangView'])->name('dathangtc-view');
+
 Route::get('/danh-sach-yeu-thich',[NguoiDungController::class,'loadSDYeuThich'])->name('danhsach-yeuthich-view');
 Route::get('/gio-hang',[GioHangController::class,'loadGioHangView'])->name('giohang-view');
 Route::get('/gio-hang/chi-tiet-gio-hang',[GioHangController::class,'loadChiTietGioHang'])->name('chitiet-giohang-view');
@@ -278,8 +282,7 @@ Route::post('/them-vao-gio-hang', [NguoiDungController::class, 'themVaoGioHang']
 Route::post('/cua-hang',[NguoiDungController::class,'locGia'])->name('LocGia');
 Route::post('/gio-hang',[NguoiDungController::class,'capNhatGioHangView'])->name('capNhatGioHangView');
 Route::post('kiemtra-mauudai',[NguoiDungController::class,'checkMaKhuyenMai'])->name('kiemtra-mauudai');
-
-Route::post('/tao-don-hang-client',[DonHangController::class],'taoDonHang')->name('taodon-client');
+Route::post('/dat-don-hang',[NguoiDungController::class,'datHang'])->name('datHang');
 
 //verify email
 Route::get('/xac-thuc-email/{id}/{token}',[VerificationController::class,'verifyEmail'])->name('xacthuc-email');

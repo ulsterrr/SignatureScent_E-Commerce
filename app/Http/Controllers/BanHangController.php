@@ -38,7 +38,7 @@ class BanHangController extends Controller
         $donHang->LoaiThanhToan = $request->ThanhToan;
         $donHang->NguoiTao = auth()->user()->email;
         $donHang->ChiNhanh = auth()->user()->ChiNhanh;
-        $donHang->TrangThai = '0';
+        $donHang->TrangThai = 'NEW';
 
         // Tạo các chi tiết đơn hàng
         DB::table('chi_tiet_don_hangs')->where('MaDonHang', '=', $maDonHang)->delete(); // Xoá các chi tiết cũ để insert chi tiết mới
@@ -110,7 +110,7 @@ class BanHangController extends Controller
         $donHang->LoaiThanhToan = $request->ThanhToan;
         $donHang->NguoiTao = auth()->user()->email;
         $donHang->ChiNhanh = auth()->user()->ChiNhanh;
-        $donHang->TrangThai = '0';
+        $donHang->TrangThai = 'NEW';
 
         $tongTien = 0;
         // Tạo các chi tiết đơn hàng
@@ -172,7 +172,7 @@ class BanHangController extends Controller
 
     public function xacNhanDonHang($mdh){
         $dh = DonHang::where('MaDonHang', $mdh)->firstOrFail();
-        $dh->TrangThai = 3;
+        $dh->TrangThai = 'SENDED';
         $dh->updated_at = Carbon::now();
 
         // Cập nhật lại tình trạng cho chi tiết sản phẩm
@@ -190,7 +190,7 @@ class BanHangController extends Controller
     }
     public function huyDonHang($mdh){
         $dh = DonHang::where('MaDonHang', $mdh)->firstOrFail();
-        $dh->TrangThai = 4;
+        $dh->TrangThai = 'CANCEL';
         $dh->updated_at = Carbon::now();
 
         // Cập nhật lại trống MaDonHang cho chi tiết sản phẩm
@@ -208,7 +208,7 @@ class BanHangController extends Controller
     }
     public function vanChuyenDonHang($mdh){
         $dh = DonHang::where('MaDonHang', $mdh)->firstOrFail();
-        $dh->TrangThai = 1;
+        $dh->TrangThai = 'SHIP';
         $dh->updated_at = Carbon::now();
 
         // Cập nhật lại trống MaDonHang cho chi tiết sản phẩm

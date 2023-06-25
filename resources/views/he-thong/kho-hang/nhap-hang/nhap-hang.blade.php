@@ -46,7 +46,7 @@
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustomUsername" class="required">Mã phiếu nhập *</label>
-                                <input type="text" class="form-control" id="validationCustomUsername" readonly name="MaPhieuNhap" placeholder="Hệ thống tự sinh" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername" readonly name="MaPhieuNhap" placeholder="Hệ thống tự sinh" aria-describedby="inputGroupPrepend">
                             </div>
                             <div class="col-md-8 mb-3">
                                 <label for="TenChiNhanh" class="required">Chi nhánh:</label>

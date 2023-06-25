@@ -97,13 +97,14 @@
                                                                     </li>
                                                                 </ul>
                                                                 <p class="woocommerce-shipping-destination"> Đơn hàng dưới 2.000.000đ sẽ tính phí vận chuyển 15.000đ </p>
-                                                                <form class="woocommerce-shipping-calculator" action="" method="post">
+                                                                <form id="thong-tin-mua" class="woocommerce-shipping-calculator" action="#" method="post">
+                                                                    @csrf
                                                                     <section class="shipping-calculator-form">
                                                                         <p class="form-row form-row-wide">
                                                                             <input type="text" name="HoTen" id="HoTen" placeholder="Họ Tên" value="{{ auth()->user()->HoTen }}"/>
                                                                         </p>
                                                                         <p class="form-row form-row-wide">
-                                                                            <input type="text" name="Email" id="Email" placeholder="Email" value="{{ auth()->user()->email }}"/>
+                                                                            <input type="text" name="Email" readonly style="background-color: #e6e6e6;" id="Email" placeholder="Email" value="{{ auth()->user()->email }}"/>
                                                                         </p>
                                                                         <p class="form-row form-row-wide">
                                                                             <input type="text" name="SDT" id="SDT" placeholder="Số điện thoại" value="{{ auth()->user()->SDT }}"/>
@@ -118,47 +119,70 @@
                                                                             <input type="text" class="input-text" placeholder="Tỉnh/Thành" name="TinhThanh" id="TinhThanh" value="{{ auth()->user()->TinhThanh }}"/>
                                                                         </p>
 
-                                                                        {{-- <p class="form-row form-row-wide">
-                                                                            <select name="calc_shipping_country" id="ChiNhanh">
-                                                                                <option value="">Chọn chi nhánh đang giữ hàng&hellip;</option>
-                                                                                <option value="VE">Venezuela</option>
-                                                                                <option value="VN" selected='selected'>Việt Nam</option>
-                                                                                <option value="WF">Wallis và Futuna</option>
-                                                                                <option value="EH">Western Sahara</option>
+                                                                        <p class="form-row form-row-wide">
+                                                                            <select name="ChiNhanh" id="ChiNhanh">
+                                                                                <option value="">Chọn chi nhánh mua hàng&hellip;</option>
+                                                                                @foreach ($ChiNhanh as $cn)
+                                                                                    <option {{ $cn->MaChiNhanh == 'CN01' ? 'selected' : '' }} value="{{ $cn->MaChiNhanh }}">{{ $cn->TenChiNhanh . ' - ' . $cn->DiaChi . ', ' . $cn->QuanHuyen . ', ' . $cn->TinhThanh }}</option>
+                                                                                @endforeach
                                                                             </select>
-                                                                        </p> --}}
+                                                                        </p>
+                                                                        <div class="form-row">
+                                                                            <span class="wpcf7-form-control-wrap">
+                                                                                <textarea name="GhiChu" style="min-height: 50px !important" cols="90" rows="5" class="wpcf7-form-control wpcf7-textarea" id="GhiChu" aria-required="true" aria-invalid="false" placeholder="Lời nhắn"></textarea>
+                                                                            </span>
+                                                                        </div>
+
+                                                                        <input type="hidden" name="discount" value="{{$giamGia}}">
+                                                                        <input type="hidden" id="payment-method" name="payment_method" value="">
+                                                                        <input type="hidden" name="total_momo" value="{{$tongGioHang}}">
+                                                                        <h3 class="widget-title"><i class="icon-tag"></i> Mã ưu đãi</h3><input type="text" name="MaKhuyenMai" class="input-text" id="MaKhuyenMai" value="{{ auth()->user()->KMSD }}" placeholder="Mã ưu đãi" />
+                                                                        <h6 id="coupon_error" class="mt-1 mb-1" style="color:red;"></h6>
+                                                                        <h6 id="coupon_apply" class="mt-1 mb-1" style="color:green;"></h6>
+                                                                        <input type="button" onclick="checkKhuyenMai()" style="background-color: #1774cf;color: white" class="is-form expand" name="apply_coupon" value="Áp dụng" />
                                                                     </section>
                                                                 </form>
                                                             </td>
                                                     </tbody>
                                         </tr>
+
+
                                     </table>
                                     </td>
                                     </tr>
                                     <tr class="order-total">
+                                        <th>Giảm giá</th>
+                                        <td data-title="Giảm giá" id="coupon_subtotal" name="coupon_subtotal"><strong>
+                                            <span id="-" class="woocommerce-Price-amount amount">-</span>
+                                            <span id="giamgia" class="woocommerce-Price-amount amount">{{ number_format($giamGia, 0, ',', '.') }}</span>
+                                            <span id="donvi-giam" style="color: #1774cf" class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                    <tr class="order-total">
+                                        <th>Phí vận chuyển</th>
+                                        <td data-title="Vận chuyển" id="transfer" name="transfer"><strong>
+                                            <span id="phivanchuyen" class="woocommerce-Price-amount amount">{{ number_format($tongTien > 2000000 ? 0 : 15000, 0, ',', '.') }}</span>
+                                            <span id="donvi-phivanchuyen" style="color: #1774cf" class="woocommerce-Price-currencySymbol">&#8363;</span>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                    <tr class="order-total">
                                         <th>Tổng</th>
-                                        <td data-title="Tổng"><strong><span class="woocommerce-Price-amount amount">{{ number_format($tongGioHang, 0, ',', '.') }}<span class="woocommerce-Price-currencySymbol">&#8363;</span></span></strong> </td>
+                                        <td data-title="Tổng"><strong><span id="tong-gh" class="woocommerce-Price-amount amount">{{ number_format($tongGioHang, 0, ',', '.') }}
+                                            </span>
+                                            <span class="woocommerce-Price-amount amount" style="color: #1774cf">&#8363;</span></strong> </td>
                                     </tr>
                                     </table>
-                                    <form action="{{route('thanhtoanMOMO')}}" method="post">
-                                        @csrf
-                                        <input type="hidden" name="total_momo" value="{{$tongTien}}">
-                                        <button class="checkout-button button alt wc-forward" name="payUrl"> Thanh Toán MoMo</button>
-                                    </form>
+                                    {{-- <form action="{{route('thanhtoanMOMO')}}" method="post">
+                                        @csrf --}}
+                                        <button id="MOMO" style="background-color: rgb(207, 13, 100)" class="button alt wc-forward" name="payUrl"> Thanh Toán MoMo</button>
+                                    {{-- </form> --}}
                                     <div class="wc-proceed-to-checkout">
-
-                                        <a href="" class="checkout-button button alt wc-forward">Đặt hàng và thanh toán</a>
+                                        <button id="ship-cod" type="submit" form="thong-tin-mua" class="checkout-button button alt wc-forward" name="payUrl"> Đặt hàng ship COD </button>
                                     </div>
                                 </div>
-                                <div class="checkout_coupon mb-0">
-                                    <div class="coupon">
-                                        <h3 class="widget-title"><i class="icon-tag"></i> Mã ưu đãi</h3><input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Mã ưu đãi" />
 
-                                            <h6 id="coupon_error" class="mt-1 mb-1" style="color:red;"></h6>
-
-                                        <input type="button" onclick="checkKhuyenMai()" class="is-form expand" name="apply_coupon" value="Áp dụng" />
-                                    </div>
-                                </div>
                                 <div class="cart-sidebar-content relative"></div>
                             </div>
                         </div>
@@ -175,11 +199,35 @@
 @endsection
 @section('bottom-js')
 <script>
+    var giamGia = 0;
+    $(document).ready(function () {
+
+        window.addEventListener( "pageshow", function ( event ) {
+            var historyTraversal = event.persisted ||
+                                    ( typeof window.performance != "undefined" &&
+                                        window.performance.navigation.type === 2 );
+            if ( historyTraversal ) {
+                // Handle page restore.
+                window.location.reload();
+            }
+        });
+
+        if({!! $giamGia !!} > 0){
+         giamGia = {!! $giamGia !!};
+        }
+        document.getElementById("giamgia").innerText = giamGia.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    });
     function checkKhuyenMai() {
-        var fieldValue = $('#coupon_code').val();
+        var fieldValue = $('#MaKhuyenMai').val();
         if(!fieldValue || fieldValue == ""){
             var coupon_error = document.getElementById("coupon_error");
             coupon_error.textContent = "Vui lòng nhập mã khuyến mãi!";
+            coupon_apply.textContent = "";
+                        var tong = 0;
+                        tong = ({!! $tongGioHang !!} + {!! $giamGia !!});
+                        document.getElementById("giamgia").innerText = 0;
+                        var money = tong.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                        document.getElementById("tong-gh").innerText = money;
         } else {
 
         var token = $('meta[name="csrf-token"]').attr('content');
@@ -192,16 +240,60 @@
                 }
                 , success: function(response) {
                     var coupon_error = document.getElementById("coupon_error");
+                    var coupon_apply = document.getElementById("coupon_apply");
                     if (response.valid) {
                         // Giá trị đã tồn tại, có lỗi
+                        coupon_apply.textContent = "";
                         coupon_error.textContent = "Mã khuyến mãi không khả dụng!";
+                        var tong = 0;
+                        tong = {!! $tongGioHang !!} + {!! $giamGia !!};
+                        document.getElementById("giamgia").innerText = 0;
+                        var money = tong.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                        document.getElementById("tong-gh").innerText = money;
                     } else {
                         // Giá trị là duy nhất, không có lỗi
                         coupon_error.textContent = "";
+                        coupon_apply.textContent = "Đã áp dụng mã khuyến mãi";
+                        var tong = 0;
+                        tong = ({!! $tongGioHang !!} + {!! $giamGia !!}) - response.giaTri;
+                        document.getElementById("giamgia").innerText = response.giaTri.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                        var money = tong.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                        document.getElementById("tong-gh").innerText = money;
                     }
                 }
             });
         }
     };
+</script>
+{{-- Loại thanh toán đặt hàng --}}
+<script>
+    document.getElementById('ship-cod').addEventListener('click', function() {
+      // Thay đổi action của form khi ấn button 1
+      document.getElementById('thong-tin-mua').action = "{{ route('datHang') }}";
+      var tongTien = 0;
+      var textTong = document.getElementById("tong-gh").innerText;
+      tongTien = parseInt(textTong.toString().replace(/\./g, ''));
+      document.getElementsByName('total_momo')[0].value = tongTien;
+      document.getElementById('payment-method').value = 'cod';
+      // Submit form
+      if({!! $gioHang->count() !!} > 0){
+        document.getElementById('thong-tin-mua').submit();
+      }
+    });
+
+    document.getElementById('MOMO').addEventListener('click', function() {
+      // Thay đổi action của form khi ấn button 2
+      document.getElementById('thong-tin-mua').action = "{{route('thanhtoanMOMO')}}";
+      var tongTien = 0;
+      var textTong = document.getElementById("tong-gh").innerText;
+      tongTien = parseInt(textTong.toString().replace(/\./g, ''));
+      document.getElementsByName('total_momo')[0].value = tongTien;
+      document.getElementById('payment-method').value = 'momo';
+
+      // Submit form
+      if({!! $gioHang->count() !!} > 0){
+        document.getElementById('thong-tin-mua').submit();
+      }
+    });
 </script>
 @endsection

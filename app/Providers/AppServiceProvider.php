@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
 
             if (Auth::check()) {
                 $emails = auth()->user()->email;
-                $gioHang = GioHang::where([['NguoiTao', $emails]])->get();
+                $gioHang = GioHang::where([['NguoiTao', $emails],['TrangThai', 0]])->get();
                 $view->with(['gioHang' => $gioHang]);
             }
         });
@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('layouts.homepage.header-client', function ($view) {
             if (Auth::check()) {
                 $emails = auth()->user()->email;
-                $gioHang = GioHang::where([['NguoiTao', $emails]])->get();
+                $gioHang = GioHang::where([['NguoiTao', $emails],['TrangThai', 0]])->get();
                 $view->with(['gioHang' => $gioHang]);
             }
         });

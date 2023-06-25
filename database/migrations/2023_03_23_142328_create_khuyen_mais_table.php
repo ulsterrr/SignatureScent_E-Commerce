@@ -18,10 +18,9 @@ return new class extends Migration
             $table->string("MaKhuyenMai")->unique();
             $table->text("NoiDung")->nullable();
             $table->integer("TrangThai")->nullable();
+            $table->integer("GiaTri")->default(0);
             $table->integer("SoLuong")->nullable();
             $table->string("NguoiTao");
-            // $table->timestamps("NgayTao");
-            // $table->timestamps("NgayCapNhat");
             $table->timestamps();
         });
     }

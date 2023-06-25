@@ -22,7 +22,7 @@ class User extends Authenticatable
         'name',
         'email', 'email_verification_token',
         'password','LoaiTaiKhoan','HoTen','GioiTinh','DiaChi','SDT','QuanHuyen','TinhThanh','ChiNhanh','NgaySinh','TrangThai','NguoiTao','MaGiaoDien',
-        'AnhDaiDien', 'AnhBia'
+        'AnhDaiDien', 'KMSD'
     ];
 
     /**

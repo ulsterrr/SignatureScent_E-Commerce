@@ -34,7 +34,7 @@ return new class extends Migration
             $table->softDeletes();
             $table->string("MaGiaoDien")->nullable();
             $table->string("AnhDaiDien")->nullable();
-            $table->string("AnhBia")->nullable();
+            $table->string("KMSD")->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

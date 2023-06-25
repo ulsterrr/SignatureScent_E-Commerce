@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\DonHangJob;
+use App\Jobs\DonHangMomo;
+use App\Models\ChiNhanh;
+use App\Models\ChiTietDonHang;
 use App\Models\ChiTietSanPham;
+use App\Models\DonHang;
 use App\Models\LoaiSanPham;
 use App\Models\SanPham;
 use App\Models\User;
@@ -109,12 +114,17 @@ class NguoiDungController extends Controller
     public function gioHangView() {
         if(Auth::check()) {
             $emails = auth()->user()->email;
-            $gioHang = GioHang::where([['NguoiTao',$emails]])->get();
+            $gioHang = GioHang::where([['NguoiTao',$emails], ['TrangThai',0]])->get();
             $tongTien = $gioHang->sum('TongTien');
+            $khuyenMai = KhuyenMai::where([['MaKhuyenMai',auth()->user()->KMSD]])->first();
+            $km = 0;
+            $khuyenMai ? $km = $khuyenMai->GiaTri : $km = 0;
             $tongGioHang = 0;
-            $tongTien >= 2000000 ? $tongGioHang = 2000000 : $tongGioHang += 15000;
-            $tongTien == 15000 ? $tongGioHang = 0 : $tongGioHang = 0;
-            return view('nguoi-dung.gio-hang')->with(['gioHang' => $gioHang, 'tongTien' => $tongTien, 'tongGioHang' => $tongGioHang]);
+            $tongTien >= 2000000 ? $tongGioHang = $tongTien : $tongGioHang = $tongTien + 15000;
+            $tongGioHang -= $km;
+            if($tongGioHang < 0) $tongGioHang = 0;
+            $cn = ChiNhanh::all();
+            return view('nguoi-dung.gio-hang')->with(['gioHang' => $gioHang, 'tongTien' => $tongTien, 'tongGioHang' => $tongGioHang, 'giamGia' => $km, 'ChiNhanh' => $cn]);
         }
         else {
             return redirect()->route('dang-nhap');
@@ -123,8 +133,12 @@ class NguoiDungController extends Controller
 
     public function checkMaKhuyenMai(Request $request){
         $km = KhuyenMai::where('MaKhuyenMai',$request->mkm)->first();
-        if($km && $km->SoLuong > 0)
-        return response()->json(['valid' => false]);
+        if($km && $km->SoLuong > 0){
+            $user = User::find(auth()->user()->id);
+            $user->KMSD = $km->MaKhuyenMai;
+            $user->save();
+            return response()->json(['valid' => false, 'giaTri' => $km->GiaTri]);
+        }
         else return response()->json(['valid' => true]);
     }
 
@@ -153,20 +167,20 @@ class NguoiDungController extends Controller
         }
         else {
             $emails = auth()->user()->email;
-            DB::table('gio_hangs')->where('NguoiTao', $emails)->delete();
+            DB::table('gio_hangs')->where('NguoiTao', $emails)->update(['TrangThai' => 2]);
         }
         return redirect()->route('giohang-view');
     }
 
     public function xoaMotSPGioHangView($msp) {
         $emails = auth()->user()->email;
-        DB::table('gio_hangs')->where('NguoiTao', $emails)->where('MaSanPham', $msp)->delete();
+        DB::table('gio_hangs')->where('NguoiTao', $emails)->where('MaSanPham', $msp)->update(['TrangThai' => 2]);
         return redirect()->route('giohang-view');
     }
 
     public function layDuLieuGioHang() {
         if(Auth::check()) {
-            $gioHang = GioHang::where('NguoiTao',Auth::user()->email)->get();
+            $gioHang = GioHang::where(['NguoiTao' => Auth::user()->email, 'TrangThai' => 0])->get();
             $html = view('layouts.webpage.gio-hang-reload')->with([
                 'gioHang' => $gioHang
             ])->render();
@@ -181,7 +195,8 @@ class NguoiDungController extends Controller
         $SL = $request->SoLuong;
         $gioHangHienTai = GioHang::where([
             'MaSanPham' => $maSP,
-            'NguoiTao' => Auth::user()->email
+            'NguoiTao' => Auth::user()->email,
+            'TrangThai' => 0
         ])->first();
 
         if($gioHangHienTai && $gioHangHienTai->count() > 0) {
@@ -210,15 +225,73 @@ class NguoiDungController extends Controller
         return response()->json(['success' => true]);
     }
 
+    public function datHang(Request $request){
+        $mdh = $this->taoDonHang($request);
+        if($mdh){
+            // Gửi mail cho admin và email người mua
+            $donHang = DonHang::layDonHangTheoMa($mdh);
+            $tongTien = $donHang->chiTietDonHang->sum('TongTien');
+            $sendMail = (new DonHangJob($donHang, $donHang->chiTietDonHang, '', 'Đơn hàng', $tongTien));
+            $this->dispatch($sendMail);
+        }
+
+        return redirect()->route('giohang-view');
+
+    }
+
+    public function taoDonHang(Request $request){
+        // Lấy thông tin 2 mảng từ request
+        $dataTableDataSP = GioHang::where([['NguoiTao', auth()->user()->email], ['TrangThai',0]])->get();
+
+        // Tạo đơn hàng
+        $donHang = new DonHang();
+        $donHang->MaDonHang = $this->taoMaKhoaChinh('MDH');
+        $donHang->TongTien = $request->TongTien;
+        $donHang->HoTen = $request->HoTen;
+        $donHang->SDT = $request->SDT;
+        $donHang->Email = $request->Email;
+        $donHang->DiaChi = $request->DiaChi;
+        $donHang->QuanHuyen = $request->QuanHuyen;
+        $donHang->TinhThanh = $request->TinhThanh;
+        $donHang->GhiChu = $request->GhiChu;
+        $donHang->VanChuyen = $request->total_momo > 2000000 ? 0 : 1;
+        $donHang->MaKhuyenMai = $request->MaKhuyenMai;
+        $donHang->LoaiThanhToan = $request->payment_method;
+        $donHang->NguoiTao = auth()->user()->email;
+        $donHang->ChiNhanh = $request->ChiNhanh;
+        $donHang->TrangThai = $request->payment_method == 'momo' ? 'MOMO' : 'NEW';
+
+        $tongTien = 0;
+        // Tạo các chi tiết đơn hàng
+        foreach ($dataTableDataSP as $item) {
+            $chiTietDonHang = new ChiTietDonHang();
+            $chiTietDonHang->MaCTDonHang = $this->taoMaKhoaChinh('CTDH');
+            $chiTietDonHang->MaDonHang = $donHang->MaDonHang;
+            $chiTietDonHang->MaSanPham = $item->MaSanPham;
+            $chiTietDonHang->Soluong = $item->SoLuong;
+            $chiTietDonHang->GiaTien = $item->GiaTien;
+            $chiTietDonHang->TongTien = $item->TongTien;
+            $tongTien += $item->TongTien;
+            // Lưu lại chi tiết đơn hàng
+            $chiTietDonHang->save();
+        }
+
+        $donHang->TongTien = $tongTien;
+        // Lưu đơn hàng
+        $donHang->save();
+        DB::table('gio_hangs')->where('NguoiTao', auth()->user()->email)->where('TrangThai', 0)->update(['TrangThai' => 1]);
+        $us = User::find(auth()->user()->id);
+        $us->KMSD = null;
+        $us->save();
+        return $donHang->MaDonHang;
+    }
+
     public function locGia(Request $req)
     {
-        dd($req);
         $sp = SanPham::whereBetween('GiaTien', [$req->min_price, $req->max_price])->get();
         $loaisp = LoaiSanPham::all();
         return view('nguoi-dung.cua-hang')->with(['SP'=> $sp, 'LSP'=> $loaisp ]);
     }
-
-
 
     function execPostRequest($url, $data)
     {
@@ -246,32 +319,23 @@ class NguoiDungController extends Controller
 
     public function momoPayment(Request $request)
     {
-
-
+        $mdh = $this->taoDonHang($request);
         $cartData = request()->session()->get("cartData");
         $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
         $partnerCode = 'MOMOBKUN20180529';
         $accessKey = 'klm05TvNBzhg7h7j';
-        $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
-        $orderInfo = "Thanh toán hóa đơn";
+        $maMomoAPI = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
+        $orderInfo = 'Thanh toán đơn hàng ScentSignature';
         $amount = $request->total_momo;
-        $orderId = time() ."";
-        // $currentStep = $cartData['currentStep'];
-        // $cartIdsSelected = $cartData['cartIdsSelected'][0];
-        // $totalPrice1 = $cartData['totalPrice'];
-        // $voucher = $cartData['voucher'];
-        // $shipping_address = $cartData['infoPayer']['shipping_address'];
-        // $shipping_phone = $cartData['infoPayer']['shipping_phone'];
-        // $reveicer = $cartData['infoPayer']['reveicer'];
-        // $payment = $cartData['payment'];
+        $orderId = $mdh;
         $redirectUrl = "http://localhost:8000/return_momo";
         $ipnUrl = "http://localhost:8000/return_momo";
         $extraData = "";
-        $requestId = time() . "";
+        $requestId = $mdh;
         $requestType = "captureWallet";
         //before sign HMAC SHA256 signature
         $rawHash = "accessKey=" . $accessKey . "&amount=" . $amount . "&extraData=" . $extraData . "&ipnUrl=" . $ipnUrl . "&orderId=" . $orderId . "&orderInfo=" . $orderInfo . "&partnerCode=" . $partnerCode . "&redirectUrl=" . $redirectUrl . "&requestId=" . $requestId . "&requestType=" . $requestType;
-        $signature = hash_hmac("sha256", $rawHash, $secretKey);
+        $signature = hash_hmac("sha256", $rawHash, $maMomoAPI);
         $data = array('partnerCode' => $partnerCode,
             'partnerName' => "Test",
             "storeId" => "MomoTestStore",
@@ -293,6 +357,27 @@ class NguoiDungController extends Controller
     public function returnMoMo(Request $req)
     {
         dd($req->all());
+        $donHang = DonHang::layDonHangTheoMa($req->orderId);
+        $donHang->TrangThai = 'MOMO_PAY';
+        $donHang->save();
+
+        // Gửi mail
+        $tongTien = $donHang->chiTietDonHang->sum('TongTien');
+        $sendMail = (new DonHangMomo($donHang, $donHang->chiTietDonHang, '', 'Đơn hàng', $tongTien));
+        $this->dispatch($sendMail);
+
+        return redirect()->route('cuahang-view');
     }
 
+    public function datHangView(){
+        return view('nguoi-dung.dat-donhang-client');
+    }
+
+    public function dsDonHangView(){
+        return view('nguoi-dung.ds-donhang-client');
+    }
+
+    public function xemDonHangView(){
+        return view('nguoi-dung.xem-donhang-client');
+    }
 }
