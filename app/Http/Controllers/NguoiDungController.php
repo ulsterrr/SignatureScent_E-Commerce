@@ -324,7 +324,7 @@ class NguoiDungController extends Controller
         $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
         $partnerCode = 'MOMOBKUN20180529';
         $accessKey = 'klm05TvNBzhg7h7j';
-        $secretKey = '';
+        $maMomoAPI = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
         $orderInfo = 'Thanh toán đơn hàng ScentSignature';
         $amount = $request->total_momo;
         $orderId = $mdh;
@@ -335,7 +335,7 @@ class NguoiDungController extends Controller
         $requestType = "captureWallet";
         //before sign HMAC SHA256 signature
         $rawHash = "accessKey=" . $accessKey . "&amount=" . $amount . "&extraData=" . $extraData . "&ipnUrl=" . $ipnUrl . "&orderId=" . $orderId . "&orderInfo=" . $orderInfo . "&partnerCode=" . $partnerCode . "&redirectUrl=" . $redirectUrl . "&requestId=" . $requestId . "&requestType=" . $requestType;
-        $signature = hash_hmac("sha256", $rawHash, $secretKey);
+        $signature = hash_hmac("sha256", $rawHash, $maMomoAPI);
         $data = array('partnerCode' => $partnerCode,
             'partnerName' => "Test",
             "storeId" => "MomoTestStore",
