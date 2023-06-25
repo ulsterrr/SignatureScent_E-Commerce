@@ -29,7 +29,7 @@ class DonHang extends Model
     }
 
     public static function layDonHangTheoMa($mhd){
-        return DonHang::with('chiTietDonHang', 'chiTietDonHang.thongTinSanPham','chiTietDonHang.thongTinSanPham.loaiKichCo',
+        return DonHang::with('getChiNhanh', 'chiTietDonHang', 'chiTietDonHang.thongTinSanPham','chiTietDonHang.thongTinSanPham.loaiKichCo',
                              'chiTietDonHang.thongTinSanPham.loaiSanPham')->where('MaDonHang',$mhd)->first();
     }
 

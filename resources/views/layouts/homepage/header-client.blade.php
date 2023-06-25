@@ -75,6 +75,7 @@
                 </div>
                 @endif
                 <!-- Right Elements -->
+
                 <div class="flex-col hide-for-medium flex-right">
                     <ul class="header-nav header-nav-main nav nav-right  nav-size-medium nav-uppercase">
                         <li class="header-search header-search-lightbox has-icon">
