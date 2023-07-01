@@ -151,12 +151,20 @@ class SanPhamController extends Controller
 
     public function loadSPClient()
     {
-        $sp = SanPham::all();
+        $sp = SanPham::paginate(8);
+        $spnam = SanPham::where('LoaiSanPham','LSP01')->paginate(8);
+        $spnu = SanPham::where('LoaiSanPham','LSP02')->paginate(8);
+        $spnichnam = SanPham::where('LoaiSanPham','LSP05')->paginate(8);
+        $spnichnu = SanPham::where('LoaiSanPham','LSP06')->paginate(8);
         $spgiatot = SanPham::whereBetween('GiaTien', [500000, 2000000])->get();
         $tintuc = TinTuc::all();
         $spbc = SanPham::whereBetween('GiaTien',[100000, 3000000])->get();
         return view('layouts.homepage.home')->with([
-            'SPNam' => $sp,
+            'SPall' => $sp,
+            'SPNam' => $spnam,
+            'SPNu' => $spnu,
+            'SPNNam' => $spnichnam,
+            'SPNNu' => $spnichnu,
             'SPbc' => $spbc,
             'SPGiaTot' => $spgiatot,
             'TinTuc' => $tintuc  ]);

@@ -85,7 +85,7 @@
                 </div>
                 @endforeach
             </div>
-
+            {{$tt->links()}}
         </div>
         <!-- .large-9 -->
     </div>

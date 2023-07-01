@@ -25,8 +25,7 @@
                     </div>
             </form>
         </div>
-        <div class="flex-col medium-text-center">
-            {{-- <p class="woocommerce-result-count hide-for-medium"> Hiển thị một kết quả duy nhất</p> --}}
+        {{-- <div class="flex-col medium-text-center">
             <form class="woocommerce-ordering" method="get">
                 <select name="orderby" class="orderby">
                     <option value="menu_order" selected='selected'>Thứ tự mặc định</option>
@@ -38,7 +37,7 @@
                 </select>
                 <input type="hidden" name="paged" value="1" />
             </form>
-        </div>
+        </div> --}}
     </div>
     <!-- flex-row -->
 </div>
@@ -114,6 +113,7 @@
                     @endforeach
 
                 </div>
+                {{$SP->links()}}
                 <!-- row -->
             </div>
             <!-- shop container -->

@@ -256,7 +256,7 @@ Route::get('/doi-mat-khau/{id}',[NguoiDungController::class,'loadMKClient'])->na
 Route::post('doi-mat-khau/{id}',[NguoiDungController::class,'doiMKClient'])->name('doimk-client');
 
 
-Route::get('/xem-don-hang',[NguoiDungController::class,'xemDonHangView'])->name('xemdonhang-view');
+Route::get('/xem-don-hang/{id}',[NguoiDungController::class,'xemDonHangView'])->name('xemdonhang-view');
 Route::get('/danh-sach-don-hang',[NguoiDungController::class,'dsDonHangView'])->name('dsdonhang-view');
 Route::get('/dat-hang-thanh-cong',[NguoiDungController::class,'datHangView'])->name('dathangtc-view');
 
