@@ -31,7 +31,7 @@ return [
     |
     */
 
-    'lifetime' => env('SESSION_LIFETIME', 120),
+    'lifetime' => 525600, // giới hạn thời gian đăng nhập sử dụng app
 
     'expire_on_close' => false,
 

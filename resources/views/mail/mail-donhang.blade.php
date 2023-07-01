@@ -190,9 +190,7 @@
                                         </ul>
                                         <span style="font-weight: bold">Lưu ý:</span>
                                         <ul>
-                                            <li>
-                                                Nếu sản phẩm có dấu hiệu hư hỏng/ bể vỡ hoặc không đúng với thông tin trên website, bạn vui lòng liên hệ với Lazada trong vòng 24 giờ kể từ thời điểm nhận hàng để được hỗ trợ.
-                                            </li>
+                                      
                                             <li>Vui lòng giữ nguyên vẹn biên nhận bán hàng được dán trên thùng hàng, hóa đơn (nếu có) và hộp sản phẩm để đổi trả hàng hoặc bảo hành khi cần.</li>
                                         </ul>
                                     </p>

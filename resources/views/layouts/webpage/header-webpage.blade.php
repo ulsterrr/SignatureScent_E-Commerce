@@ -35,7 +35,7 @@
                             <ul class="nav-dropdown  nav-dropdown-simple">
                                 @if(Auth::check())
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
-                                    <a href="#orders/">Đơn hàng</a>
+                                    <a href="{{route('dsdonhang-view')}}">Đơn hàng</a>
                                 </li>
                                 <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
                                     <a href="{{route('doimk-client-view',['id'=>auth()->user()->id])}}">Đổi mật khẩu</a>
