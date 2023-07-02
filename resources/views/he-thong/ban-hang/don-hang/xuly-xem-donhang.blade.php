@@ -20,6 +20,7 @@
             var code = data.MaSanPham;
             var name = data.thong_tin_san_pham.TenSanPham;
             var gia = data.GiaTien;
+            var sl = data.SoLuong;
             var tt = gia;
 
             // Lấy số thứ tự lớn nhất hiện tại
@@ -33,9 +34,9 @@
                 maxIndex + 1
                 , code
                 , name
-                , gia
-                , `<input type="number" min="0" class="form-control text-center soluongsp" style="width:90px;height: 23px;" id="soluongsp-${code}" value="${1}" />`
-                , tt
+                , formatMoneyNumber(gia)
+                , `<input type="number" min="0" class="form-control text-center soluongsp" style="width:90px;height: 23px;" id="soluongsp-${code}" value="${sl}" />`
+                , formatMoneyNumber(tt)
                 , `<a id="xoasp-${code}" onclick="xoaSanPhamDonHang(this)" href="javascript:;" class="delete-row"><i class="i-Close-Window text-19 text-danger font-weight-700"></i></a>`
                 , 1
             ];

@@ -132,19 +132,20 @@
                             </div>
                             <!-- END Large Modal -->
 
-                            <div class="col-md-2">
+                            {{-- <div class="col-md-2">
                                 <label class="checkbox checkbox-primary" style="margin-top: 2.1rem !important">
                                     <span>Nhập theo lô</span>
                                     <input type="checkbox" id="LoaiNhap" name="LoaiNhap" value="NhapLo" onchange="nhapTheoLo()">
                                     <input hidden type="checkbox" name="LoaiNhap" value="NhapLe">
                                     <span class="checkmark"></span>
                                 </label>
-                            </div>
+                            </div> --}}
 
-                            <div class="col-md-2 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label for="SoLuongNhap" class="required">Số lượng</label>
                                 <div class="form-group">
-                                    <input type="number" onfocusout="thayDoiSL()" readonly class="form-control" id="SoLuongNhap" name="SoLuongNhap" aria-describedby="inputGroupPrepend" required>
+                                    {{-- <input type="number" onfocusout="thayDoiSL()" readonly class="form-control" id="SoLuongNhap" name="SoLuongNhap" aria-describedby="inputGroupPrepend" required> --}}
+                                    <input type="number" onchange="thayDoiSL()" class="form-control" id="SoLuongNhap" name="SoLuongNhap" aria-describedby="inputGroupPrepend" required>
                                 </div>
                             </div>
 

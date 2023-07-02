@@ -30,7 +30,7 @@
             @endif
         </div>
         <div class="col-md-12">
-            <div id="alert-card" class="alert alert-card fade show" role="alert"  style="display: none;">
+            <div id="alert-card" class="alert alert-card fade show" role="alert" style="display: none;">
                 {{-- <strong class="text-capitalize">Success!</strong> --}}
                 <strong class="alert-heading text-capitalize"></strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -55,14 +55,13 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form id="new-LSP">
-                                <div class="card mb-4">
-                                    <div class="col-md-12 mt-3">
-                                        <div id="alert-card-sp-modal" class="alert alert-card fade show" role="alert"  style="display: none;">
-                                            <div class="alert-body-content"></div>
-                                        </div>
-                                    </div>
                             <div class="modal-body">
+                                <div class="col-md-12 mt-3">
+                                    <div id="alert-card-sp-modal" class="alert alert-card fade show" role="alert" style="display: none;">
+                                        <div class="alert-body-content"></div>
+                                    </div>
+                                </div>
+                                <form id="new-LSP">
                                     <div class="form-group">
                                         <label for="MaLoai" class="required">Mã loại *</label>
                                         <input onfocusout="checkMaLSPUnique()" id="MaLoai" name="MaLoai" type="text" class="form-control" placeholder="VD: LSP01, LSP02,...">
@@ -77,7 +76,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="NguoiTao">Người thực hiện</label>
-                                        <input id="NguoiTao"name="NguoiTao" type="text" disabled class="form-control" value="{{ auth()->user() ? auth()->user()->HoTen : 'NULL' }}" placeholder="VD: LSP0001, LSP0002,...">
+                                        <input id="NguoiTao" name="NguoiTao" type="text" disabled class="form-control" value="{{ auth()->user() ? auth()->user()->HoTen : 'NULL' }}" placeholder="VD: LSP0001, LSP0002,...">
                                     </div>
                                 </form>
                             </div>
@@ -118,7 +117,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="NguoiTao">Người thực hiện</label>
-                                        <input id="NguoiTao-e"name="NguoiTao-e" type="text" disabled class="form-control" value="{{ auth()->user() ? auth()->user()->HoTen : 'NULL' }}" placeholder="VD: LSP0001, LSP0002,...">
+                                        <input id="NguoiTao-e" name="NguoiTao-e" type="text" disabled class="form-control" value="{{ auth()->user() ? auth()->user()->HoTen : 'NULL' }}" placeholder="VD: LSP0001, LSP0002,...">
                                     </div>
                                 </form>
                             </div>
@@ -132,7 +131,6 @@
                 <!-- end::modal-edit -->
 
                 <div class="card-body">
-
                     <div class="table-responsive">
                         <table id="ul-contact-list" class="display table" style="width:100%; overflow-y: scroll">
                             <thead>
@@ -147,15 +145,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            {{-- Load bằng Ajax cho nhanh --}}
-                    </tbody>
+                                {{-- Load bằng Ajax cho nhanh --}}
+                            </tbody>
 
-                    </table>
+                        </table>
+                    </div>
                 </div>
-
             </div>
         </div>
-    </div>
     </div>
 </section>
 
@@ -182,35 +179,51 @@
         var localization_vi = `{{ asset('assets/js/datatables-vi.json') }}`;
         var table = $('#ul-contact-list').DataTable({
             language: {
-                url: localization_vi,
-            },
-            processing: true
+                url: localization_vi
+            , }
+            , processing: true
             , serverSide: true
             , destroy: true
-            // , scrollY: "1000px"
+                // , scrollY: "1000px"
             , scrollX: true
             , autoWidth: true
-            // , ajax: {
-            //     url: "{{ route('dsUserAjax') }}"
-            //     , type: 'GET',
-            // },
-            ,ajax: {
-                url: "{{ route('layLoaiSPAjax') }}",
-                type: "GET",
-            },
-            columnDefs: [
-                { width: '80px', targets: 0 },
-                { width: '20%', targets: 1 },
-                { width: '40%', targets: 2 },
-                { width: '30%', targets: 3 },
-                { width: '30%', targets: 4 },
-                { width: '30%', targets: 5 },
-            ]
+                // , ajax: {
+                //     url: "{{ route('dsUserAjax') }}"
+                //     , type: 'GET',
+                // },
+            , ajax: {
+                url: "{{ route('layLoaiSPAjax') }}"
+                , type: "GET"
+            , }
+            , columnDefs: [{
+                    width: '80px'
+                    , targets: 0
+                }
+                , {
+                    width: '20%'
+                    , targets: 1
+                }
+                , {
+                    width: '40%'
+                    , targets: 2
+                }
+                , {
+                    width: '30%'
+                    , targets: 3
+                }
+                , {
+                    width: '30%'
+                    , targets: 4
+                }
+                , {
+                    width: '30%'
+                    , targets: 5
+                }
+            , ]
             , createdRow: function(row, data, dataIndex) {
                 $(row).find('td').css('vertical-align', 'middle');
             }
-            , columns: [
-                {
+            , columns: [{
                     data: 'id'
                 }
                 , {
@@ -247,12 +260,13 @@
 
                 }
 
-            ], "drawCallback": function(settings) {
-                    $(settings.nTable).find('.paginate_button').click(function() {
-                        settings._iDisplayStart = settings._iDisplayLength * parseInt($(this).attr('data-page'));
-                        $(settings.nTable).dataTable(settings);
-                    });
-                }
+            ]
+            , "drawCallback": function(settings) {
+                $(settings.nTable).find('.paginate_button').click(function() {
+                    settings._iDisplayStart = settings._iDisplayLength * parseInt($(this).attr('data-page'));
+                    $(settings.nTable).dataTable(settings);
+                });
+            }
         });
     });
 
@@ -265,39 +279,41 @@
         var ml = data['MaLoai'];
         // Hiển thị popup confirm
         swal({
-            title: 'Bạn có chắc muốn xoá?',
-            text: "Sau khi xác nhận " + ml + " sẽ bị xoá khỏi hệ thống!",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Xác nhận xoá!',
-            cancelButtonText: 'Huỷ thao tác!',
-            confirmButtonClass: 'btn btn-success mr-5',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true
+            title: 'Bạn có chắc muốn xoá?'
+            , text: "Sau khi xác nhận " + ml + " sẽ bị xoá khỏi hệ thống!"
+            , type: 'warning'
+            , showCancelButton: true
+            , confirmButtonText: 'Xác nhận xoá!'
+            , cancelButtonText: 'Huỷ thao tác!'
+            , confirmButtonClass: 'btn btn-success mr-5'
+            , cancelButtonClass: 'btn btn-danger'
+            , buttonsStyling: true
         }).then(function() {
             $.ajax({
-                url: "{{ route('xoaLoaiSPham-del', ['id' => ':id']) }}".replace(':id', id),
-                type: 'GET',
-                data: {_token: '{{ csrf_token() }}'}, // Đảm bảo token csrf đúng
+                url: "{{ route('xoaLoaiSPham-del', ['id' => ':id']) }}".replace(':id', id)
+                , type: 'GET'
+                , data: {
+                    _token: '{{ csrf_token() }}'
+                }, // Đảm bảo token csrf đúng
                 success: function(data) {
-                swal('Đã xoá!', 'Dữ liệu đã được xoá thành công.', 'success').then(function() {
-                    // Load lại datatable sau khi xoá thành công
-                    $('#ul-contact-list').DataTable().ajax.reload(null, false);
-                });
-                },
-                error: function(xhr, status, error) {
-                swal('Xoá thất bại', 'Đã có lỗi xảy ra khi xoá dữ liệu', 'error');
+                    swal('Đã xoá!', 'Dữ liệu đã được xoá thành công.', 'success').then(function() {
+                        // Load lại datatable sau khi xoá thành công
+                        $('#ul-contact-list').DataTable().ajax.reload(null, false);
+                    });
+                }
+                , error: function(xhr, status, error) {
+                    swal('Xoá thất bại', 'Đã có lỗi xảy ra khi xoá dữ liệu', 'error');
                 }
             });
         }, function(dismiss) {
-                if (dismiss === 'cancel') {
-                    swal(
-                        'Huỷ thao tác'
-                        , 'Bạn vẫn có thể thực hiện lại thao tác này :)'
-                        , 'error'
-                    )
-                }
-            });
+            if (dismiss === 'cancel') {
+                swal(
+                    'Huỷ thao tác'
+                    , 'Bạn vẫn có thể thực hiện lại thao tác này :)'
+                    , 'error'
+                )
+            }
+        });
     });
 
     //gọi modal cập nhật
@@ -317,27 +333,28 @@
         $('#lspmodal-edit').modal('show'); // Ẩn modal
 
     });
+
 </script>
 <script>
     //button thêm mới
     $(document).ready(function() {
         $('#saveLSPModal').click(function() {
             $('#new-LSP').valid();
-            if($('#new-LSP').valid()){
+            if ($('#new-LSP').valid()) {
                 var ml = $('#MaLoai').val();
                 var tl = $('#TenLoai').val();
                 var gc = $('#GhiChu').val();
                 var token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                    url: "{{ route('themLoaiSPham-add') }}",
-                    type: 'POST',
-                    data: {
-                        MaLoai: ml,
-                        TenLoai: tl,
-                        GhiChu: gc,
-                        _token: token
-                    },
-                    success: function(response) {
+                    url: "{{ route('themLoaiSPham-add') }}"
+                    , type: 'POST'
+                    , data: {
+                        MaLoai: ml
+                        , TenLoai: tl
+                        , GhiChu: gc
+                        , _token: token
+                    }
+                    , success: function(response) {
                         // Xử lý kết quả trả về từ server
                         $('#MaLoai').val('');
                         $('#TenLoai').val('');
@@ -348,11 +365,11 @@
                         $('#alert-card .alert-heading').html('Thành công');
                         $('#alert-card .alert-body-content').html('Dữ liệu đã được cập nhật thành công.');
                         $('#alert-card').fadeIn(500);
-                        setTimeout(function(){
+                        setTimeout(function() {
                             $("#alert-card").fadeOut();
                         }, 5000);
-                    },
-                    error: function(response) {
+                    }
+                    , error: function(response) {
                         // Xử lý lỗi
                     }
                 });
@@ -364,23 +381,23 @@
     $(document).ready(function() {
         $('#updateLSPModal').click(function() {
             $('#upd-LSP').valid();
-            if($('#upd-LSP').valid()){
+            if ($('#upd-LSP').valid()) {
                 var id = $('#IDLSP-e').val();
                 var ml = $('#MaLoai-e').val();
                 var tl = $('#TenLoai-e').val();
                 var gc = $('#GhiChu-e').val();
                 var token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                    url: "{{ route('capnhatLoaiSPham-upd', ['id' => ':id']) }}".replace(':id', id),
-                    type: 'POST',
-                    data: {
-                        Id: id,
-                        MaLoai: ml,
-                        TenLoai: tl,
-                        GhiChu: gc,
-                        _token: token
-                    },
-                    success: function(response) {
+                    url: "{{ route('capnhatLoaiSPham-upd', ['id' => ':id']) }}".replace(':id', id)
+                    , type: 'POST'
+                    , data: {
+                        Id: id
+                        , MaLoai: ml
+                        , TenLoai: tl
+                        , GhiChu: gc
+                        , _token: token
+                    }
+                    , success: function(response) {
                         // Xử lý kết quả trả về từ server
                         $('#MaLoai').val('');
                         $('#TenLoai').val('');
@@ -391,17 +408,17 @@
                         $('#alert-card .alert-heading').html('Thành công');
                         $('#alert-card .alert-body-content').html('Dữ liệu đã được cập nhật thành công.');
                         $('#alert-card').fadeIn(500);
-                        setTimeout(function(){
+                        setTimeout(function() {
                             $("#alert-card").fadeOut();
                         }, 5000);
-                    },
-                    error: function(response) {
+                    }
+                    , error: function(response) {
                         $('#lspmodal-edit').modal('hide'); // Ẩn modal
                         $('#alert-card').removeClass('alert-success').addClass('alert-danger');
                         $('#alert-card .alert-heading').html('Lỗi');
                         $('#alert-card .alert-body-content').html('Dữ liệu không được xử lý thành công.');
                         $('#alert-card').fadeIn(500);
-                        setTimeout(function(){
+                        setTimeout(function() {
                             $("#alert-card").fadeOut();
                         }, 5000);
                     }
@@ -409,50 +426,49 @@
             }
         });
     });
+
 </script>
 
 {{-- validation --}}
 <script>
     $(document).ready(function() {
-      $("#new-LSP").validate({
-        errorPlacement: function(error, element) {
-            if(element.parent().hasClass("input-group")){
-                error.insertAfter(element.parent());
+        $("#new-LSP").validate({
+            errorPlacement: function(error, element) {
+                if (element.parent().hasClass("input-group")) {
+                    error.insertAfter(element.parent());
+                } else {
+                    error.insertAfter(element);
+                }
             }
-            else {
-                error.insertAfter(element);
-            }
-        },
-        rules: {
-            MaLoai: "required",
-            TenLoai: "required",
+            , rules: {
+                MaLoai: "required"
+                , TenLoai: "required",
 
-        },
-        messages: {
-            MaLoai: "Vui lòng nhập mã loại sản phẩm",
-            TenLoai: "Vui lòng nhập tên loại",
-        },
-      });
-
-      $("#upd-LSP").validate({
-        errorPlacement: function(error, element) {
-            if(element.parent().hasClass("input-group")){
-                error.insertAfter(element.parent());
             }
-            else {
-                error.insertAfter(element);
-            }
-        },
-        rules: {
-            'MaLoai-e': "required",
-            'TenLoai-e': "required",
+            , messages: {
+                MaLoai: "Vui lòng nhập mã loại sản phẩm"
+                , TenLoai: "Vui lòng nhập tên loại"
+            , }
+        , });
 
-        },
-        messages: {
-            'MaLoai-e': "Vui lòng nhập mã loại sản phẩm",
-            'TenLoai-e': "Vui lòng nhập tên loại",
-        }
-      });
+        $("#upd-LSP").validate({
+            errorPlacement: function(error, element) {
+                if (element.parent().hasClass("input-group")) {
+                    error.insertAfter(element.parent());
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+            , rules: {
+                'MaLoai-e': "required"
+                , 'TenLoai-e': "required",
+
+            }
+            , messages: {
+                'MaLoai-e': "Vui lòng nhập mã loại sản phẩm"
+                , 'TenLoai-e': "Vui lòng nhập tên loại"
+            , }
+        });
     });
 
     //Check trùng mã loại sp
@@ -460,13 +476,13 @@
         var fieldValue = $('#MaLoai').val();
         var token = $('meta[name="csrf-token"]').attr('content');
         $.ajax({
-            url: "{{ route('kiemtra-malsp') }}",
-            method: 'POST',
-            data: {
+            url: "{{ route('kiemtra-malsp') }}"
+            , method: 'POST'
+            , data: {
                 MaLoai: fieldValue, // Đặt giá trị của $recordId tương ứng với bản ghi hiện tại
                 _token: token
-            },
-            success: function(response) {
+            }
+            , success: function(response) {
                 if (response.valid) {
                     // Giá trị đã tồn tại, có lỗi
                     $('#alert-card-sp-modal').css('display', '');
@@ -480,5 +496,7 @@
             }
         });
     };
-  </script>
+
+</script>
 @endsection
+

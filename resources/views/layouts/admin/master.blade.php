@@ -272,16 +272,19 @@
         });
 
         // Lắng nghe sự kiện submit của form để lấy giá trị đúng của input[type="money"] là số chứ không phải chuỗi
-        document.querySelector('form').addEventListener('submit', function() {
-            // Lấy tất cả các thẻ input có type="money"
-            let moneyInputs = document.querySelectorAll('input[type="money"]');
+        var formSubmit = document.querySelector('form');
+        if(formSubmit){
+            document.querySelector('form').addEventListener('submit', function() {
+                // Lấy tất cả các thẻ input có type="money"
+                let moneyInputs = document.querySelectorAll('input[type="money"]');
 
-            // Với mỗi input, thay thế giá trị hiện tại bằng rawValue
-            moneyInputs.forEach(function(input) {
-                // input.value = input.cleave.getRawValue();
-                input.value = parseInt(input.value.replace(/,/g, ''), 10);
+                // Với mỗi input, thay thế giá trị hiện tại bằng rawValue
+                moneyInputs.forEach(function(input) {
+                    // input.value = input.cleave.getRawValue();
+                    input.value = parseInt(input.value.replace(/,/g, ''), 10);
+                });
             });
-        });
+        }
 
     </script>
     {{-- laravel js --}}

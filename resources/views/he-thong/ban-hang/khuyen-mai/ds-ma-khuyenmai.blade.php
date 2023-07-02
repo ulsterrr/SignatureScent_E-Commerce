@@ -30,7 +30,7 @@
             @endif
         </div>
         <div class="col-md-12">
-            <div id="alert-card" class="alert alert-card fade show" role="alert"  style="display: none;">
+            <div id="alert-card" class="alert alert-card fade show" role="alert" style="display: none;">
                 {{-- <strong class="text-capitalize">Success!</strong> --}}
                 <strong class="alert-heading text-capitalize"></strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -43,9 +43,10 @@
             <div class="card text-left">
                 <!-- begin::modal-add -->
                 <div class="card-header text-right bg-transparent">
-                    <a type="button" href="#" data-toggle="modal" data-target="#lspmodal-add" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm loại mới</a>
+                    <a type="button" href="#" data-toggle="modal" data-target="#kmmodal-add" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm khuyến mãi mới</a>
                 </div>
-                <div id="lspmodal-add" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                <div id="kmmodal-add" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" style="max-width: 900px !important;">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -55,35 +56,38 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form id="new-LSP">
-                                <div class="card mb-4">
-                                    <div class="col-md-12 mt-3">
-                                        <div id="alert-card-sp-modal" class="alert alert-card fade show" role="alert"  style="display: none;">
-                                            <div class="alert-body-content"></div>
-                                        </div>
-                                    </div>
                             <div class="modal-body">
-                                    <div class="form-group">
-                                        <label for="MaLoai" class="required">Mã loại *</label>
-                                        <input onfocusout="checkMaLSPUnique()" id="MaLoai" name="MaLoai" type="text" class="form-control" placeholder="VD: LSP01, LSP02,...">
+                                <div class="col-md-12 mt-3">
+                                    <div id="alert-card-sp-modal" class="alert alert-card fade show" role="alert" style="display: none;">
+                                        <div class="alert-body-content"></div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="TenLoai" class="required">Tên loại *</label>
-                                        <input type="text" class="form-control" name="TenLoai" id="TenLoai" aria-describedby="emailHelp" placeholder="Loại A, B, C,...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="GhiChu">Ghi chú</label>
-                                        <textarea class="form-control" name="GhiChu" id="GhiChu" rows="5" placeholder="..."></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="NguoiTao">Người thực hiện</label>
-                                        <input id="NguoiTao"name="NguoiTao" type="text" disabled class="form-control" value="{{ auth()->user() ? auth()->user()->HoTen : 'NULL' }}" placeholder="VD: LSP0001, LSP0002,...">
-                                    </div>
+                                </div>
+                                <form id="new-KM">
+                                        <div class="form-group">
+                                            <label for="MaKhuyenMai" class="required">Mã khuyến mãi *</label>
+                                            <input onfocusout="checkMaKMUnique()" id="MaKhuyenMai" name="MaKhuyenMai" type="text" class="form-control" placeholder="VD: KM01, KM02,...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="NoiDung" class="required">Nội dung khuyến mãi *</label>
+                                            <input type="text" class="form-control" name="NoiDung" id="NoiDung" aria-describedby="emailHelp" placeholder="Loại A, B, C,...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="NoiDung" class="required">Số lượng *</label>
+                                            <input type="text" class="form-control" name="SoLuong" id="SoLuong" value="1">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="NoiDung" class="required">Giá trị khuyến mãi *</label>
+                                            <input type="text" class="form-control" name="GiaTri" id="GiaTri" value="0">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="NguoiTao">Người thực hiện</label>
+                                            <input id="NguoiTao" name="NguoiTao" type="text" disabled class="form-control" value="{{ auth()->user() ? auth()->user()->HoTen : 'NULL' }}" placeholder="VD: KM0001, KM0002,...">
+                                        </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                <button type="button" id="saveLSPModal" class="btn btn-primary">Thêm mới</button>
+                                <button type="button" id="saveKMModal" class="btn btn-primary">Thêm mới</button>
                             </div>
                         </div>
                     </div>
@@ -91,7 +95,7 @@
                 <!-- end::modal-add -->
 
                 <!-- begin::modal-edit -->
-                <div id="lspmodal-edit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div id="kmmodal-edit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" style="max-width: 900px !important;">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -102,35 +106,38 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form id="upd-LSP">
-                                    <input hidden id="IDLSP-e" name="IDLSP-e" type="text" class="form-control">
+                                <form id="upd-KM">
+                                    <input hidden id="IDKM-e" name="IDKM-e" type="text" class="form-control">
                                     <div class="form-group">
-                                        <label for="MaLoai" class="required">Mã loại *</label>
-                                        <input id="MaLoai-e" name="MaLoai-e" type="text" class="form-control" placeholder="VD: LSP0001, LSP0002,...">
+                                        <label for="MaKhuyenMai" class="required">Mã khuyến mãi *</label>
+                                        <input id="MaKhuyenMai-e" name="MaKhuyenMai-e" type="text" class="form-control" placeholder="VD: KM0001, ABCEDF, SCENTSIGNATUREVIP">
                                     </div>
                                     <div class="form-group">
-                                        <label for="TenLoai" class="required">Tên loại *</label>
-                                        <input type="text" class="form-control" name="TenLoai-e" id="TenLoai-e" aria-describedby="emailHelp" placeholder="Loại A, B, C,...">
+                                        <label for="NoiDung" class="required">Tên khuyến mãi *</label>
+                                        <input type="text" class="form-control" name="NoiDung-e" id="NoiDung-e" aria-describedby="emailHelp" placeholder="Loại A, B, C,...">
                                     </div>
                                     <div class="form-group">
-                                        <label for="GhiChu">Ghi chú</label>
-                                        <textarea class="form-control" name="GhiChu-e" id="GhiChu-e" rows="5" placeholder="..."></textarea>
+                                        <label for="NoiDung" class="required">Số lượng *</label>
+                                        <input type="text" class="form-control" name="SoLuong-e" id="SoLuong-e" value="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="NoiDung" class="required">Giá trị khuyến mãi *</label>
+                                        <input type="text" class="form-control" name="GiaTri-e" id="GiaTri-e" value="0">
                                     </div>
                                     <div class="form-group">
                                         <label for="NguoiTao">Người thực hiện</label>
-                                        <input id="NguoiTao-e"name="NguoiTao-e" type="text" disabled class="form-control" value="{{ auth()->user() ? auth()->user()->HoTen : 'NULL' }}" placeholder="VD: LSP0001, LSP0002,...">
+                                        <input id="NguoiTao-e" name="NguoiTao-e" type="text" disabled class="form-control" value="{{ auth()->user() ? auth()->user()->HoTen : 'NULL' }}" placeholder="VD: KM0001, KM0002,...">
                                     </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                <button type="button" id="updateLSPModal" class="btn btn-primary">Lưu thay đổi</button>
+                                <button type="button" id="updateKMModal" class="btn btn-primary">Lưu thay đổi</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- end::modal-edit -->
-
                 <div class="card-body">
 
                     <div class="table-responsive">
@@ -138,24 +145,25 @@
                             <thead>
                                 <tr>
                                     <th style="width: 80px">Id</th>
-                                    <th style="width: 20%">Mã loại</th>
-                                    <th style="width: 30%">Tên loại</th>
-                                    <th style="width: 50%">Ghi chú</th>
-                                    <th style="width: 50%">Người tạo</th>
-                                    <th style="width: 50%">Thời gian tạo</th>
-                                    <th style="width: 50%">Thao tác</th>
+                                    <th style="width: 10%">Mã khuyến mãi</th>
+                                    <th style="width: 30%">Nội dung</th>
+                                    <th style="width: 20%">Số lượng</th>
+                                    <th style="width: 20%">Giá trị KM</th>
+                                    <th style="width: 20%">Người tạo</th>
+                                    <th style="width: 30%">Thời gian tạo</th>
+                                    <th style="width: 20%">Thao tác</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            {{-- Load bằng Ajax cho nhanh --}}
-                    </tbody>
+                                {{-- Load bằng Ajax cho nhanh --}}
+                            </tbody>
 
-                    </table>
+                        </table>
+                    </div>
+
                 </div>
-
             </div>
         </div>
-    </div>
     </div>
 </section>
 
@@ -182,45 +190,59 @@
         var localization_vi = `{{ asset('assets/js/datatables-vi.json') }}`;
         var table = $('#ul-contact-list').DataTable({
             language: {
-                url: localization_vi,
-            },
-            processing: true
+                url: localization_vi
+            , }
+            , processing: true
             , serverSide: true
             , destroy: true
-            // , scrollY: "1000px"
             , scrollX: true
             , autoWidth: true
-            // , ajax: {
-            //     url: "{{ route('dsUserAjax') }}"
-            //     , type: 'GET',
-            // },
-            ,ajax: {
-                url: "{{ route('layLoaiSPAjax') }}",
-                type: "GET",
-            },
-            columnDefs: [
-                { width: '80px', targets: 0 },
-                { width: '20%', targets: 1 },
-                { width: '40%', targets: 2 },
-                { width: '30%', targets: 3 },
-                { width: '30%', targets: 4 },
-                { width: '30%', targets: 5 },
-            ]
+            , ajax: {
+                url: "{{ route('layDsMKMAjax') }}"
+                , type: "GET"
+            , }
+            , columnDefs: [{
+                    width: '80px'
+                    , targets: 0
+                }
+                , {
+                    width: '20%'
+                    , targets: 1
+                }
+                , {
+                    width: '40%'
+                    , targets: 2
+                }
+                , {
+                    width: '30%'
+                    , targets: 3
+                }
+                , {
+                    width: '30%'
+                    , targets: 4
+                }
+                , {
+                    width: '30%'
+                    , targets: 5
+                }
+            , ]
             , createdRow: function(row, data, dataIndex) {
                 $(row).find('td').css('vertical-align', 'middle');
             }
-            , columns: [
-                {
+            , columns: [{
                     data: 'id'
                 }
                 , {
-                    data: 'MaLoai'
+                    data: 'MaKhuyenMai'
                 }
                 , {
-                    data: 'TenLoai'
+                    data: 'NoiDung'
                 }
                 , {
-                    data: 'GhiChu'
+                    data: 'SoLuong'
+                }
+                , {
+                    data: 'GiaTri'
                 }
                 , {
                     data: 'NguoiTao'
@@ -234,12 +256,12 @@
                 , {
                     data: null
                     , render: function(data, type, row) {
-                        var editUrl = "{{ route('capnhatLoaiSPham-upd', ['id' => ':id']) }}";
+                        var editUrl = "{{ route('capnhatMKM-upd', ['id' => ':id']) }}";
                         return `<td class="text-center">
-                                    <a id="updateLSP" class="ul-link-action text-success update-lsp" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
+                                    <a id="updateKM" class="ul-link-action text-success update-km" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
                                         <i class="i-Edit"></i>
                                     </a>
-                                    <a id="deleteCurUser" class="ul-link-action text-danger mr-1 delete-user" data-toggle="tooltip" data-placement="top" title="Xoá loại này!!!">
+                                    <a id="deleteCurUser" class="ul-link-action text-danger mr-1 delete-user" data-toggle="tooltip" data-placement="top" title="Xoá khuyến mãi này!!!">
                                         <i class="i-Eraser-2"></i>
                                     </a>
                                 </td>`;
@@ -247,12 +269,13 @@
 
                 }
 
-            ], "drawCallback": function(settings) {
-                    $(settings.nTable).find('.paginate_button').click(function() {
-                        settings._iDisplayStart = settings._iDisplayLength * parseInt($(this).attr('data-page'));
-                        $(settings.nTable).dataTable(settings);
-                    });
-                }
+            ]
+            , "drawCallback": function(settings) {
+                $(settings.nTable).find('.paginate_button').click(function() {
+                    settings._iDisplayStart = settings._iDisplayLength * parseInt($(this).attr('data-page'));
+                    $(settings.nTable).dataTable(settings);
+                });
+            }
         });
     });
 
@@ -262,97 +285,105 @@
         var table = $('#ul-contact-list').DataTable();
         var data = table.row($(this).closest('tr')).data();
         var id = data['id'];
-        var ml = data['MaLoai'];
+        var ml = data['MaKhuyenMai'];
         // Hiển thị popup confirm
         swal({
-            title: 'Bạn có chắc muốn xoá?',
-            text: "Sau khi xác nhận " + ml + " sẽ bị xoá khỏi hệ thống!",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Xác nhận xoá!',
-            cancelButtonText: 'Huỷ thao tác!',
-            confirmButtonClass: 'btn btn-success mr-5',
-            cancelButtonClass: 'btn btn-danger',
-            buttonsStyling: true
+            title: 'Bạn có chắc muốn xoá?'
+            , text: "Sau khi xác nhận " + ml + " sẽ bị xoá khỏi hệ thống!"
+            , type: 'warning'
+            , showCancelButton: true
+            , confirmButtonText: 'Xác nhận xoá!'
+            , cancelButtonText: 'Huỷ thao tác!'
+            , confirmButtonClass: 'btn btn-success mr-5'
+            , cancelButtonClass: 'btn btn-danger'
+            , buttonsStyling: true
         }).then(function() {
             $.ajax({
-                url: "{{ route('xoaLoaiSPham-del', ['id' => ':id']) }}".replace(':id', id),
-                type: 'GET',
-                data: {_token: '{{ csrf_token() }}'}, // Đảm bảo token csrf đúng
+                url: "{{ route('xoaMKM-del', ['id' => ':id']) }}".replace(':id', id)
+                , type: 'GET'
+                , data: {
+                    _token: '{{ csrf_token() }}'
+                }, // Đảm bảo token csrf đúng
                 success: function(data) {
-                swal('Đã xoá!', 'Dữ liệu đã được xoá thành công.', 'success').then(function() {
-                    // Load lại datatable sau khi xoá thành công
-                    $('#ul-contact-list').DataTable().ajax.reload(null, false);
-                });
-                },
-                error: function(xhr, status, error) {
-                swal('Xoá thất bại', 'Đã có lỗi xảy ra khi xoá dữ liệu', 'error');
+                    swal('Đã xoá!', 'Dữ liệu đã được xoá thành công.', 'success').then(function() {
+                        // Load lại datatable sau khi xoá thành công
+                        $('#ul-contact-list').DataTable().ajax.reload(null, false);
+                    });
+                }
+                , error: function(xhr, status, error) {
+                    swal('Xoá thất bại', 'Đã có lỗi xảy ra khi xoá dữ liệu', 'error');
                 }
             });
         }, function(dismiss) {
-                if (dismiss === 'cancel') {
-                    swal(
-                        'Huỷ thao tác'
-                        , 'Bạn vẫn có thể thực hiện lại thao tác này :)'
-                        , 'error'
-                    )
-                }
-            });
+            if (dismiss === 'cancel') {
+                swal(
+                    'Huỷ thao tác'
+                    , 'Bạn vẫn có thể thực hiện lại thao tác này :)'
+                    , 'error'
+                )
+            }
+        });
     });
 
     //gọi modal cập nhật
-    $('#ul-contact-list').on('click', 'a.update-lsp', function(e) {
+    $('#ul-contact-list').on('click', 'a.update-km', function(e) {
         e.preventDefault(); // ngăn chặn mặc định của thẻ <a> khi click
 
         var table = $('#ul-contact-list').DataTable();
         var data = table.row($(this).closest('tr')).data();
         var id = data['id'];
-        var ml = data['MaLoai'];
-        var tl = data['TenLoai'];
-        var gc = data['GhiChu'];
-        $('#IDLSP-e').val(id);
-        $('#MaLoai-e').val(ml);
-        $('#TenLoai-e').val(tl);
-        $('#GhiChu-e').val(gc);
-        $('#lspmodal-edit').modal('show'); // Ẩn modal
+        var ml = data['MaKhuyenMai'];
+        var tl = data['NoiDung'];
+        var gc = data['SoLuong'];
+        var gt = data['GiaTri'];
+        $('#IDKM-e').val(id);
+        $('#MaKhuyenMai-e').val(ml);
+        $('#NoiDung-e').val(tl);
+        $('#SoLuong-e').val(gc);
+        $('#GiaTri-e').val(gt);
+        $('#kmmodal-edit').modal('show'); // Ẩn modal
 
     });
+
 </script>
 <script>
     //button thêm mới
     $(document).ready(function() {
-        $('#saveLSPModal').click(function() {
-            $('#new-LSP').valid();
-            if($('#new-LSP').valid()){
-                var ml = $('#MaLoai').val();
-                var tl = $('#TenLoai').val();
-                var gc = $('#GhiChu').val();
+        $('#saveKMModal').click(function() {
+            $('#new-KM').valid();
+            if ($('#new-KM').valid()) {
+                var ml = $('#MaKhuyenMai').val();
+                var tl = $('#NoiDung').val();
+                var gc = $('#SoLuong').val();
+                var gt = $('#GiaTri').val();
                 var token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                    url: "{{ route('themLoaiSPham-add') }}",
-                    type: 'POST',
-                    data: {
-                        MaLoai: ml,
-                        TenLoai: tl,
-                        GhiChu: gc,
-                        _token: token
-                    },
-                    success: function(response) {
+                    url: "{{ route('themMKM-add') }}"
+                    , type: 'POST'
+                    , data: {
+                        MaKhuyenMai: ml
+                        , NoiDung: tl
+                        , SoLuong: gc
+                        , GiaTri: gt
+                        , _token: token
+                    }
+                    , success: function(response) {
                         // Xử lý kết quả trả về từ server
-                        $('#MaLoai').val('');
-                        $('#TenLoai').val('');
-                        $('#GhiChu').val('');
+                        $('#MaKhuyenMai').val('');
+                        $('#NoiDung').val('');
+                        $('#SoLuong').val('');
+                        $('#GiaTri').val();
                         $('#ul-contact-list').DataTable().ajax.reload(null, false);
-                        $('#lspmodal-add').modal('hide'); // Ẩn modal
+                        $('#kmmodal-add').modal('hide'); // Ẩn modal
                         $('#alert-card').removeClass('alert-danger').addClass('alert-success');
                         $('#alert-card .alert-heading').html('Thành công');
                         $('#alert-card .alert-body-content').html('Dữ liệu đã được cập nhật thành công.');
                         $('#alert-card').fadeIn(500);
-                        setTimeout(function(){
+                        setTimeout(function() {
                             $("#alert-card").fadeOut();
                         }, 5000);
-                    },
-                    error: function(response) {
+                    }
+                    , error: function(response) {
                         // Xử lý lỗi
                     }
                 });
@@ -362,46 +393,49 @@
 
     //button cập nhật
     $(document).ready(function() {
-        $('#updateLSPModal').click(function() {
-            $('#upd-LSP').valid();
-            if($('#upd-LSP').valid()){
-                var id = $('#IDLSP-e').val();
-                var ml = $('#MaLoai-e').val();
-                var tl = $('#TenLoai-e').val();
-                var gc = $('#GhiChu-e').val();
+        $('#updateKMModal').click(function() {
+            $('#upd-KM').valid();
+            if ($('#upd-KM').valid()) {
+                var id = $('#IDKM-e').val();
+                var ml = $('#MaKhuyenMai-e').val();
+                var tl = $('#NoiDung-e').val();
+                var gc = $('#SoLuong-e').val();
+                var gt = $('#GiaTri-e').val();
                 var token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                    url: "{{ route('capnhatLoaiSPham-upd', ['id' => ':id']) }}".replace(':id', id),
-                    type: 'POST',
-                    data: {
-                        Id: id,
-                        MaLoai: ml,
-                        TenLoai: tl,
-                        GhiChu: gc,
-                        _token: token
-                    },
-                    success: function(response) {
+                    url: "{{ route('capnhatMKM-upd', ['id' => ':id']) }}".replace(':id', id)
+                    , type: 'POST'
+                    , data: {
+                        Id: id
+                        , MaKhuyenMai: ml
+                        , NoiDung: tl
+                        , SoLuong: gc
+                        , GiaTri: gt
+                        , _token: token
+                    }
+                    , success: function(response) {
                         // Xử lý kết quả trả về từ server
-                        $('#MaLoai').val('');
-                        $('#TenLoai').val('');
-                        $('#GhiChu').val('');
+                        $('#MaKhuyenMai').val('');
+                        $('#NoiDung').val('');
+                        $('#SoLuong').val('');
+                        $('#GiaTri-e').val('');
                         $('#ul-contact-list').DataTable().ajax.reload(null, false);
-                        $('#lspmodal-edit').modal('hide'); // Ẩn modal
+                        $('#kmmodal-edit').modal('hide'); // Ẩn modal
                         $('#alert-card').removeClass('alert-danger').addClass('alert-success');
                         $('#alert-card .alert-heading').html('Thành công');
                         $('#alert-card .alert-body-content').html('Dữ liệu đã được cập nhật thành công.');
                         $('#alert-card').fadeIn(500);
-                        setTimeout(function(){
+                        setTimeout(function() {
                             $("#alert-card").fadeOut();
                         }, 5000);
-                    },
-                    error: function(response) {
-                        $('#lspmodal-edit').modal('hide'); // Ẩn modal
+                    }
+                    , error: function(response) {
+                        $('#kmmodal-edit').modal('hide'); // Ẩn modal
                         $('#alert-card').removeClass('alert-success').addClass('alert-danger');
                         $('#alert-card .alert-heading').html('Lỗi');
                         $('#alert-card .alert-body-content').html('Dữ liệu không được xử lý thành công.');
                         $('#alert-card').fadeIn(500);
-                        setTimeout(function(){
+                        setTimeout(function() {
                             $("#alert-card").fadeOut();
                         }, 5000);
                     }
@@ -409,69 +443,76 @@
             }
         });
     });
+
 </script>
 
 {{-- validation --}}
 <script>
     $(document).ready(function() {
-      $("#new-LSP").validate({
-        errorPlacement: function(error, element) {
-            if(element.parent().hasClass("input-group")){
-                error.insertAfter(element.parent());
+        $("#new-KM").validate({
+            errorPlacement: function(error, element) {
+                if (element.parent().hasClass("input-group")) {
+                    error.insertAfter(element.parent());
+                } else {
+                    error.insertAfter(element);
+                }
             }
-            else {
-                error.insertAfter(element);
-            }
-        },
-        rules: {
-            MaLoai: "required",
-            TenLoai: "required",
+            , rules: {
+                MaKhuyenMai: "required"
+                , NoiDung: "required"
+                , SoLuong: "required"
+                , GiaTri: "required",
 
-        },
-        messages: {
-            MaLoai: "Vui lòng nhập mã Mã khuyến mãi",
-            TenLoai: "Vui lòng nhập tên loại",
-        },
-      });
-
-      $("#upd-LSP").validate({
-        errorPlacement: function(error, element) {
-            if(element.parent().hasClass("input-group")){
-                error.insertAfter(element.parent());
             }
-            else {
-                error.insertAfter(element);
-            }
-        },
-        rules: {
-            'MaLoai-e': "required",
-            'TenLoai-e': "required",
+            , messages: {
+                MaKhuyenMai: "Vui lòng nhập mã Mã khuyến mãi"
+                , NoiDung: "Vui lòng nhập nội dung khuyến mãi"
+                , SoLuong: "Vui lòng nhập số lượng"
+                , GiaTri: "Vui lòng nhập giá trị khuyến mãi"
+            , }
+        , });
 
-        },
-        messages: {
-            'MaLoai-e': "Vui lòng nhập mã Mã khuyến mãi",
-            'TenLoai-e': "Vui lòng nhập tên loại",
-        }
-      });
+        $("#upd-KM").validate({
+            errorPlacement: function(error, element) {
+                if (element.parent().hasClass("input-group")) {
+                    error.insertAfter(element.parent());
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+            , rules: {
+                'MaKhuyenMai-e': "required"
+                , 'NoiDung-e': "required"
+                , 'SoLuong-e': "required"
+                , 'GiaTri-e': "required",
+
+            }
+            , messages: {
+                'MaKhuyenMai-e': "Vui lòng nhập mã Mã khuyến mãi"
+                , 'NoiDung-e': "Vui lòng nhập nội dung khuyến mãi"
+                , 'SoLuong-e': "Vui lòng nhập số lượng"
+                , 'GiaTri-e': "Vui lòng nhập giá trị khuyến mãi"
+            , }
+        });
     });
 
-    //Check trùng mã loại sp
-    function checkMaLSPUnique() {
-        var fieldValue = $('#MaLoai').val();
+    //Check trùng mã khuyến mãi sp
+    function checkMaKMUnique() {
+        var fieldValue = $('#MaKhuyenMai').val();
         var token = $('meta[name="csrf-token"]').attr('content');
         $.ajax({
-            url: "{{ route('kiemtra-malsp') }}",
-            method: 'POST',
-            data: {
-                MaLoai: fieldValue, // Đặt giá trị của $recordId tương ứng với bản ghi hiện tại
+            url: "{{ route('kiemtra-makm') }}"
+            , method: 'POST'
+            , data: {
+                MaKhuyenMai: fieldValue, // Đặt giá trị của $recordId tương ứng với bản ghi hiện tại
                 _token: token
-            },
-            success: function(response) {
+            }
+            , success: function(response) {
                 if (response.valid) {
                     // Giá trị đã tồn tại, có lỗi
                     $('#alert-card-sp-modal').css('display', '');
                     $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-danger');
-                    $('#alert-card-sp-modal .alert-body-content').html(`MaLoai: ${fieldValue} đã có thông tin tài khoản trong hệ thống.`);
+                    $('#alert-card-sp-modal .alert-body-content').html(`MaKhuyenMai: ${fieldValue} đã có thông tin trong hệ thống.`);
                     $('#alert-card-sp-modal').fadeIn(100);
                 } else {
                     // Giá trị là duy nhất, không có lỗi
@@ -480,5 +521,7 @@
             }
         });
     };
-  </script>
+
+</script>
 @endsection
+

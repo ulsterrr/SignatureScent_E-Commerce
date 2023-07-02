@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\SanPhamImport;
 use App\Jobs\DieuChuyen as JobsDieuChuyen;
 use App\Jobs\DieuChuyenDone;
 use App\Jobs\DieuChuyenJob;
@@ -21,6 +22,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 use Yajra\DataTables\DataTables;
 
 class KhoHangController extends Controller
@@ -355,5 +358,127 @@ class KhoHangController extends Controller
     public function dsSanPhamModal($mcn) {
         $allsp = ChiTietSanPham::layChiTietVaSanPhamTheoCN($mcn);
         return DataTables::of($allsp)->make(true);
+    }
+
+    public function downloadTemplateSanPhamMoi()
+    {
+        $filePath = storage_path('app\TemplateImport\NhapMoiSanPham.xlsx');
+
+        return response()->download($filePath, 'NhapMoiSanPham.xlsx');
+    }
+
+    public function importNhapMoi(Request $request)
+    {
+        $file = $request->file('file');
+        // Excel::import(new SanPhamImport, $file);
+        $data = Excel::toArray(new SanPhamImport, $file);
+        $data = array_slice($data[0], 11); // Bỏ qua 14 dòng đầu tiên
+        return response()->json($data);
+
+    }
+
+    public function saveImportNhapMoi(Request $request)
+    {
+        $data = $request->input('data');
+        foreach ($data as $req) {
+            $sp = new SanPham();
+            $sp->MaSanPham = $this->taoMaKhoaChinh('SP');
+            $sp->TenSanPham = $req[1];
+            $sp->ThuongHieu = $req[2];
+            $sp->VAT = $req[3];
+            $sp->GiaVAT = $req[4];
+            $sp->GiaTien = $req[5] + $req[4];
+            $sp->MoTa = $req[7];
+            $sp->LoaiKichCo = $req[8];
+            $sp->LoaiSanPham = $req[10];
+            $sp->GhiChu = $req[11];
+            $sp->TrangThai = 1;
+            $sp->NguoiTao = auth()->user()->email;
+
+            // Mảng số serial để nhập lô hàng
+            $dsSerial = explode(",", $req[12]);
+
+                for ($i = 0; $i < $req[6]; $i++) {
+                    $chitietsp = new ChiTietSanPham();
+                    $chitietsp->MaCTSanPham = $this->taoMaKhoaChinh('CTSP');
+                    $chitietsp->SoSerial = $dsSerial[$i] ? $dsSerial[$i] : null;
+                    $chitietsp->MaSanPham = $sp->MaSanPham;
+                    $chitietsp->KichCo = $req[9];
+                    $chitietsp->MaChiNhanh = $req[13];
+                    $chitietsp->MaPhieuNhap = "ImportExcel";
+                    $chitietsp->TinhTrang = 1;
+                    $chitietsp->GhiChu = $req[11];
+                    $chitietsp->NguoiTao = auth()->user()->email;
+                    $chitietsp->save();
+                }
+
+            $sp->save();
+        }
+
+        // Gửi mail thông tin nhập file excel
+
+
+        return response(true);
+    }
+
+
+    public function importNhapMoiView()
+    {
+        return view('he-thong.kho-hang.nhap-hang.import-nhapmoi');
+
+    }
+
+    public function importNhapKhoView()
+    {
+        return view('he-thong.kho-hang.nhap-ton-kho.import-nhapkho');
+
+    }
+
+    public function downloadTemplateSanPhamKho()
+    {
+        $filePath = storage_path('app\TemplateImport\NhapKhoSanPham.xlsx');
+
+        return response()->download($filePath, 'NhapKhoSanPham.xlsx');
+    }
+
+    public function importNhapKho(Request $request)
+    {
+        $file = $request->file('file');
+        // Excel::import(new SanPhamImport, $file);
+        $data = Excel::toArray(new SanPhamImport, $file);
+        $data = array_slice($data[0], 10); // Bỏ qua 11 dòng đầu tiên
+        return response()->json($data);
+
+    }
+
+    public function saveImportNhapKho(Request $request)
+    {
+        $data = $request->input('data');
+        foreach ($data as $req) {
+            $sp = SanPham::where('MaSanPham', $req[1])->first();
+            // Mảng số serial để nhập lô hàng
+            $dsSerial = explode(",", $req[6]);
+
+                for ($i = 0; $i < $req[3]; $i++) {
+                    $chitietsp = new ChiTietSanPham();
+                    $chitietsp->MaCTSanPham = $this->taoMaKhoaChinh('CTSP');
+                    $chitietsp->SoSerial = $dsSerial[$i] ? $dsSerial[$i] : null;
+                    $chitietsp->MaSanPham = $sp->MaSanPham;
+                    $chitietsp->KichCo = $req[4];
+                    $chitietsp->MaChiNhanh = $req[7];
+                    $chitietsp->MaPhieuNhap = "ImportExcel";
+                    $chitietsp->TinhTrang = 1;
+                    $chitietsp->GhiChu = $req[4];
+                    $chitietsp->NguoiTao = auth()->user()->email;
+                    $chitietsp->save();
+                }
+
+            $sp->save();
+        }
+
+        // Gửi mail thông tin nhập file excel
+
+
+        return response(true);
     }
 }

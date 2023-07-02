@@ -198,7 +198,10 @@ return [
         // Thêm package DataTables để xử lý ajax response
         Yajra\DataTables\DataTablesServiceProvider::class,
         Yajra\DataTables\ButtonsServiceProvider::class,
-        Yajra\DataTables\FractalServiceProvider::class
+        Yajra\DataTables\FractalServiceProvider::class,
+
+        // Thêm package xử lý file excel
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -215,6 +218,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        // Thêm package xử lý file excel
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ])->toArray(),
 
 ];

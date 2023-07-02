@@ -14,6 +14,7 @@ use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\ThongKeController;
 use App\Http\Controllers\TaiKhoanController;
+use App\Http\Controllers\MaKhuyenMaiController;
 use App\Http\Controllers\VerificationController;
 use App\Models\KhoHang;
 use App\Models\NhapHangMoi;
@@ -176,6 +177,9 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
     Route::post('admin/them-moi-san-pham',[SanPhamController::class,'themSPham'])->name('themSPham-add');
     Route::post('admin/cap-nhat-san-pham/{id}',[SanPhamController::class,'capNhatSPham'])->name('capnhatSPham-upd');
     Route::post('admin/cap-nhat-ct-san-pham/{id}',[SanPhamController::class,'capNhatCTSPham'])->name('capNhatCTSPham-upd');
+    Route::get('admin/ds-ct-san-pham',[SanPhamController::class,'dsChiTietSanPham'])->name('dsChiTietSP-view');
+    Route::post('layDsCTSanPhamFilter',[SanPhamController::class,'layDsCTSanPhamFilter'])->name('layDsCTSanPhamFilter');
+    Route::get('dsChiTietSanPhamAjax',[SanPhamController::class,'dsChiTietSanPhamAjax'])->name('dsChiTietSanPhamAjax');
 
 //Quản lý kho hàng
     //Quản Lý Loại Sản Phẩm View
@@ -189,6 +193,19 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
     Route::post('admin/them-moi-loai-san-pham',[LoaiSanPhamController::class,'themLoaiSPham'])->name('themLoaiSPham-add');
     Route::post('admin/cap-nhat-loai-san-pham/{id}',[LoaiSanPhamController::class,'capNhatLoaiSPham'])->name('capnhatLoaiSPham-upd');
     Route::post('kiemtra-loaiSP', [LoaiSanPhamController::class,'kiemTraTrungMaLSP'])->name('kiemtra-malsp');
+
+    //Quản Lý Mã khuyến mãi
+    Route::get('admin/quan-ly-mkm',[MaKhuyenMaiController::class,'loadMKMView'])->name('qly-mkm-view');
+    Route::get('admin/them-moi-mkm',[MaKhuyenMaiController::class,'themMKMhamView'])->name('themmkm-view');
+    Route::get('admin/cap-nhat-mkm/{id}',[MaKhuyenMaiController::class,'capNhatMKMhamView'])->name('capnhatmkm-view');
+    Route::get('admin/chi-tiet-mkm/{id}',[MaKhuyenMaiController::class,'chiTietMKMhamView'])->name('chitietmkm-view');
+
+    //CRUD Mã khuyến mãi Admin
+    Route::get('admin/xoa-mkm/{id}',[MaKhuyenMaiController::class,'xoaMKM'])->name('xoaMKM-del');
+    Route::post('admin/them-moi-mkm',[MaKhuyenMaiController::class,'themMKM'])->name('themMKM-add');
+    Route::post('admin/cap-nhat-mkm/{id}',[MaKhuyenMaiController::class,'capNhatMKM'])->name('capnhatMKM-upd');
+    Route::post('kiemtra-loaiKM', [MaKhuyenMaiController::class,'kiemTraTrungMKM'])->name('kiemtra-makm');
+    Route::get('layDsMKMAjax',[MaKhuyenMaiController::class,'layDsMKMAjax'])->name('layDsMKMAjax');
 
     // Nhập hàng
     Route::get('admin/danh-sach-nhap-hang',[KhoHangController::class,'nhapHangView'])->name('ds-nhaphang-view');
@@ -287,3 +304,18 @@ Route::post('/dat-don-hang',[NguoiDungController::class,'datHang'])->name('datHa
 Route::get('/xac-thuc-email/{id}/{token}',[VerificationController::class,'verifyEmail'])->name('xacthuc-email');
 Route::post('/momo_payment',[NguoiDungController::class,'momoPayment'])->name('thanhtoanMOMO');
 Route::get('/return_momo',[NguoiDungController::class,'returnMoMo'])->name('return-momo');
+
+
+//GetTemplate Import
+
+//Nhập import mới
+Route::get('admin/import-nhap-hang',[KhoHangController::class,'importNhapMoiView'])->name('importnhaphang-view');
+Route::get('/download-template-nhapmoi', [KhoHangController::class,'downloadTemplateSanPhamMoi'])->name('download.NhapMoi');
+Route::post('/importNM', [KhoHangController::class,'importNhapMoi'])->name('importNhapMoi');
+Route::post('/saveImportNhapMoi', [KhoHangController::class,'saveImportNhapMoi'])->name('saveImportNhapMoi');
+
+//Nhập import sp đã có
+Route::get('admin/import-nhap-kho',[KhoHangController::class,'importNhapKhoView'])->name('importnhapkho-view');
+Route::get('/download-template-nhapkho', [KhoHangController::class,'downloadTemplateSanPhamKho'])->name('download.NhapKho');
+Route::post('/importNK', [KhoHangController::class,'importNhapKho'])->name('importNhapKho');
+Route::post('/saveImportNhapKho', [KhoHangController::class,'saveImportNhapKho'])->name('saveImportNhapKho');
