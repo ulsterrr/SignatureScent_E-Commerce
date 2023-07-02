@@ -72,5 +72,9 @@ class AppServiceProvider extends ServiceProvider
             $loaisp = LoaiSanPham::all();
             $view->with(['loaiSP' => $loaisp]);
         });
+
+        view()->composer('nguoidung.cua-hang', function ($view) {
+            $view->with(['sanPham' => []]);
+        });
     }
 }

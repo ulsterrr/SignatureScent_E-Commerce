@@ -48,7 +48,7 @@ class MailDonHangCL extends Mailable
                     ->subject($this->title)
                     ->with([
                         'dh' => $this->dh,
-                        'list' => $this->dh->chiTietDonHang,
+                        'list' => $this->chi_tiet_dh,
                         'content' => $this->content,
                         'title'=>$this->title,
                         'total' => $this->total

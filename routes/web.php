@@ -18,6 +18,7 @@ use App\Http\Controllers\MaKhuyenMaiController;
 use App\Http\Controllers\VerificationController;
 use App\Models\KhoHang;
 use App\Models\NhapHangMoi;
+use App\Models\SanPham;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -272,7 +273,7 @@ Route::get('/doi-mat-khau/{id}',[NguoiDungController::class,'loadMKClient'])->na
 Route::post('doi-mat-khau/{id}',[NguoiDungController::class,'doiMKClient'])->name('doimk-client');
 
 
-Route::get('/xem-don-hang',[NguoiDungController::class,'xemDonHangView'])->name('xemdonhang-view');
+Route::get('/xem-don-hang/{id}',[NguoiDungController::class,'xemDonHangView'])->name('xemdonhang-view');
 Route::get('/danh-sach-don-hang',[NguoiDungController::class,'dsDonHangView'])->name('dsdonhang-view');
 Route::get('/dat-hang-thanh-cong',[NguoiDungController::class,'datHangView'])->name('dathangtc-view');
 
@@ -304,6 +305,8 @@ Route::post('/dat-don-hang',[NguoiDungController::class,'datHang'])->name('datHa
 Route::get('/xac-thuc-email/{id}/{token}',[VerificationController::class,'verifyEmail'])->name('xacthuc-email');
 Route::post('/momo_payment',[NguoiDungController::class,'momoPayment'])->name('thanhtoanMOMO');
 Route::get('/return_momo',[NguoiDungController::class,'returnMoMo'])->name('return-momo');
+Route::post('/autocomplete-ajax',[SanPhamController::class,'autocomplete_ajax'])->name('autocomplete-ajax');
+Route::post('/tim-kiem',[SanPhamController::class,'search'])->name('search-sp');
 
 
 //GetTemplate Import

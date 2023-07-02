@@ -139,7 +139,7 @@
                     data: 'TrangThai'
                     , render: function (data) {
                         switch (data) {
-                            case 'NEW': return 'Mới tạo'; break;
+                            case 'NEW': return 'Đang xử lý'; break;
                             case 'SHIP': return 'Đang vận chuyển'; break;
                             case 'SENDED': return 'Đã giao hàng'; break;
                             case 'DONE': return 'Hoàn thành'; break;
@@ -179,7 +179,7 @@
                         var detailUrl = "{{ route('chiTietDonhangView', ['mdh' => ':id']) }}";
                         var updUrl = "{{ route('capNhatDonhangView', ['mdh' => ':id']) }}";
 
-                        if(data.TrangThai=='0' || !data.TrangThai) {
+                        if(data.TrangThai=='NEW' || !data.TrangThai) {
                             return `<td class="text-center">
                                     <a href="#" class="ul-link-action text-danger huy-dh" data-toggle="tooltip" data-placement="top" title="Huỷ đơn hàng">
                                         <i class="i-Close"></i>
@@ -195,15 +195,18 @@
                                     </a>
                                 </td>`;
                         } else
-                        if(data.TrangThai=='3') {
+                        if(data.TrangThai=='DONE') {
                             return  `<td class="text-center">
                                         <a href="${detailUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
                                             <i class="i-Eye-Visible"></i>
                                         </a>
                                     </td>`;
                         }
-                        if(data.TrangThai=='4') {
+                        if(data.TrangThai=='SHIP') {
                             return  `<td class="text-center">
+                                <a href="#" class="ul-link-action text-danger huy-dh" data-toggle="tooltip" data-placement="top" title="Huỷ đơn hàng">
+                                        <i class="i-Close"></i>
+                                    </a>
                                     <a href="${updUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-primary" data-toggle="tooltip" data-placement="top" title="Cập nhật đơn">
                                         <i class="i-Pen-2"></i>
                                     </a>

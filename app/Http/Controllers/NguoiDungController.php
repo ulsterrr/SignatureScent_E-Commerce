@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\DonHangJob;
+use App\Jobs\DonHangJobClient;
 use App\Jobs\DonHangMomo;
 use App\Models\ChiNhanh;
 use App\Models\ChiTietDonHang;
@@ -43,19 +44,19 @@ class NguoiDungController extends Controller
         $maxPrice = $req->query('max_price');
         $maloai = $req->input('maloai');
         if($maloai==null) {
-            $sp = SanPham::all();
+            $sp = SanPham::paginate(8)->withQueryString();
             if($minPrice>=0 && $maxPrice > $minPrice){
-                $sp = SanPham::whereBetween('GiaTien', [$req->min_price, $req->max_price])->get();
+                $sp = SanPham::whereBetween('GiaTien', [$req->min_price, $req->max_price])->paginate(8)->withQueryString();
             }
         }
         else {
-            $sp = SanPham::where('LoaiSanPham',$maloai)->get();
+            $sp = SanPham::where('LoaiSanPham',$maloai)->paginate(8)->withQueryString();
             if($minPrice>=0 && $maxPrice > $minPrice){
-                $sp = SanPham::whereBetween('GiaTien', [$req->min_price, $req->max_price])->where('LoaiSanPham',$maloai)->get();
+                $sp = SanPham::whereBetween('GiaTien', [$req->min_price, $req->max_price])->where('LoaiSanPham',$maloai)->paginate(8)->withQueryString();
             }
         }
         $loaisp = LoaiSanPham::all();
-        return view('nguoi-dung.cua-hang')->with(['SP'=> $sp, 'LSP'=> $loaisp, 'minPrice' => $minPrice, 'maxPrice' => $maxPrice ]);
+        return view('nguoi-dung.cua-hang')->with(['SP'=> $sp, 'LSP'=> $loaisp, 'minPrice' => $minPrice, 'maxPrice' => $maxPrice, 'sanPham' => [] ]);
     }
 
     public function loadThongTinClient($id){
@@ -100,7 +101,7 @@ class NguoiDungController extends Controller
     }
 
     public function tinTucView() {
-        $tt = TinTuc::all();
+        $tt = TinTuc::paginate(3);
         return view('nguoi-dung.tin-tuc',compact('tt'));
     }
 
@@ -231,11 +232,15 @@ class NguoiDungController extends Controller
             // Gửi mail cho admin và email người mua
             $donHang = DonHang::layDonHangTheoMa($mdh);
             $tongTien = $donHang->chiTietDonHang->sum('TongTien');
-            $sendMail = (new DonHangJob($donHang, $donHang->chiTietDonHang, '', 'Đơn hàng', $tongTien));
+            $sendMail = (new DonHangJobClient($donHang, $donHang->chiTietDonHang, '', 'Đơn hàng', $tongTien));
             $this->dispatch($sendMail);
         }
-
-        return redirect()->route('giohang-view');
+        $email =  User::where([['LoaiTaiKhoan','A'],['TrangThai','1']])->get();
+        foreach($email as $Email)
+        {
+            $this->dayThongBaoChoUser('Đơn hàng mới','Một khách hàng vừa đặt một đơn hàng của SignatureScent','Đơn hàng COD', 'admin/quan-ly-khach-hang',$Email->email);
+        }
+        return view('nguoi-dung.ds-donhang-client');
 
     }
 
@@ -356,7 +361,7 @@ class NguoiDungController extends Controller
 
     public function returnMoMo(Request $req)
     {
-        dd($req->all());
+        // dd($req->all());
         $donHang = DonHang::layDonHangTheoMa($req->orderId);
         $donHang->TrangThai = 'MOMO_PAY';
         $donHang->save();
@@ -365,8 +370,13 @@ class NguoiDungController extends Controller
         $tongTien = $donHang->chiTietDonHang->sum('TongTien');
         $sendMail = (new DonHangMomo($donHang, $donHang->chiTietDonHang, '', 'Đơn hàng', $tongTien));
         $this->dispatch($sendMail);
+        $email =  User::where([['LoaiTaiKhoan','A'],['TrangThai','1']])->get();
+        foreach($email as $Email)
+        {
+            $this->dayThongBaoChoUser('Đơn hàng mới','Một khách hàng vừa đặt một đơn hàng của SignatureScent','Đơn hàng MoMo', 'admin/quan-ly-khach-hang',$Email->email);
+        }
 
-        return redirect()->route('cuahang-view');
+        return view('nguoi-dung.ds-donhang-client');
     }
 
     public function datHangView(){
@@ -374,10 +384,20 @@ class NguoiDungController extends Controller
     }
 
     public function dsDonHangView(){
-        return view('nguoi-dung.ds-donhang-client');
+        if(Auth::check()) {
+            $donHang = DonHang::where(['NguoiTao' => Auth::user()->email])->paginate(8)->withQueryString();
+             return view('nguoi-dung.ds-donhang-client')->with([
+                'donHang' => $donHang
+            ]);
+
+        }
     }
 
-    public function xemDonHangView(){
-        return view('nguoi-dung.xem-donhang-client');
+    public function xemDonHangView($id){
+        if(Auth::check()) {
+            $DH = DonHang::layDonHangTheoMa($id);
+            $allsp = ChiTietSanPham::donHang($id);
+            return view('nguoi-dung.xem-donhang-client')->with(['donHang' => $DH]);
+        }
     }
 }

@@ -35,7 +35,6 @@ class UserSeeder extends Seeder
             $TaiKhoan->NguoiTao = "";
             $TaiKhoan->MaGiaoDien = "GD01";
             $TaiKhoan->AnhDaiDien = "";
-            $TaiKhoan->AnhBia = "";
             $TaiKhoan->save();
         // }
 
@@ -56,7 +55,6 @@ class UserSeeder extends Seeder
             $TaiKhoan1->NguoiTao = "";
             $TaiKhoan1->MaGiaoDien = "GD01";
             $TaiKhoan1->AnhDaiDien = "";
-            $TaiKhoan1->AnhBia = "";
             $TaiKhoan1->save();
 
             $TaiKhoan2 =  new User();
@@ -76,7 +74,6 @@ class UserSeeder extends Seeder
             $TaiKhoan2->NguoiTao = "";
             $TaiKhoan2->MaGiaoDien = "GD04";
             $TaiKhoan2->AnhDaiDien = "";
-            $TaiKhoan2->AnhBia = "";
             $TaiKhoan2->save();
 
             $TaiKhoan3 =  new User();
@@ -96,7 +93,6 @@ class UserSeeder extends Seeder
             $TaiKhoan3->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan3->MaGiaoDien = "GD03";
             $TaiKhoan3->AnhDaiDien = "";
-            $TaiKhoan3->AnhBia = "";
             $TaiKhoan3->save();
 
 
@@ -117,7 +113,6 @@ class UserSeeder extends Seeder
             $TaiKhoan4->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan4->MaGiaoDien = "GD03";
             $TaiKhoan4->AnhDaiDien = "";
-            $TaiKhoan4->AnhBia = "";
             $TaiKhoan4->save();
 
             $TaiKhoan5 =  new User();
@@ -137,7 +132,6 @@ class UserSeeder extends Seeder
             $TaiKhoan5->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan5->MaGiaoDien = "GD02";
             $TaiKhoan5->AnhDaiDien = "";
-            $TaiKhoan5->AnhBia = "";
             $TaiKhoan5->save();
 
             $TaiKhoan6 =  new User();
@@ -157,7 +151,6 @@ class UserSeeder extends Seeder
             $TaiKhoan6->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan6->MaGiaoDien = "GD03";
             $TaiKhoan6->AnhDaiDien = "";
-            $TaiKhoan6->AnhBia = "";
             $TaiKhoan6->save();
 
             $TaiKhoan7 =  new User();
@@ -177,7 +170,6 @@ class UserSeeder extends Seeder
             $TaiKhoan7->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan7->MaGiaoDien = "GD02";
             $TaiKhoan7->AnhDaiDien = "";
-            $TaiKhoan7->AnhBia = "";
             $TaiKhoan7->save();
 
             $TaiKhoan8 =  new User();
@@ -197,7 +189,6 @@ class UserSeeder extends Seeder
             $TaiKhoan8->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan8->MaGiaoDien = "GD02";
             $TaiKhoan8->AnhDaiDien = "";
-            $TaiKhoan8->AnhBia = "";
             $TaiKhoan8->save();
 
             $TaiKhoan9 =  new User();
@@ -217,7 +208,6 @@ class UserSeeder extends Seeder
             $TaiKhoan9->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan9->MaGiaoDien = "GD03";
             $TaiKhoan9->AnhDaiDien = "";
-            $TaiKhoan9->AnhBia = "";
             $TaiKhoan9->save();
 
             $TaiKhoan10 =  new User();
@@ -237,7 +227,6 @@ class UserSeeder extends Seeder
             $TaiKhoan10->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan10->MaGiaoDien = "GD03";
             $TaiKhoan10->AnhDaiDien = "";
-            $TaiKhoan10->AnhBia = "";
             $TaiKhoan10->save();
 
             $TaiKhoan11 =  new User();
@@ -257,7 +246,6 @@ class UserSeeder extends Seeder
             $TaiKhoan11->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan11->MaGiaoDien = "GD04";
             $TaiKhoan11->AnhDaiDien = "";
-            $TaiKhoan11->AnhBia = "";
             $TaiKhoan11->save();
 
             $TaiKhoan12 =  new User();
@@ -277,7 +265,6 @@ class UserSeeder extends Seeder
             $TaiKhoan12->NguoiTao = "hothanhphuc2468@gmail.com";
             $TaiKhoan12->MaGiaoDien = "GD04";
             $TaiKhoan12->AnhDaiDien = "";
-            $TaiKhoan12->AnhBia = "";
             $TaiKhoan12->save();
 
             $TaiKhoan13 =  new User();
@@ -297,7 +284,6 @@ class UserSeeder extends Seeder
             $TaiKhoan13->NguoiTao = "hothanhphuc2468";
             $TaiKhoan13->MaGiaoDien = "GD04";
             $TaiKhoan13->AnhDaiDien = "";
-            $TaiKhoan13->AnhBia = "";
             $TaiKhoan13->save();
 
             $TaiKhoan14 =  new User();
@@ -317,7 +303,6 @@ class UserSeeder extends Seeder
             $TaiKhoan14->NguoiTao = "hothanhphuc2468";
             $TaiKhoan14->MaGiaoDien = "GD04";
             $TaiKhoan14->AnhDaiDien = "";
-            $TaiKhoan14->AnhBia = "";
             $TaiKhoan14->save();
 
             $TaiKhoan15 =  new User();
@@ -337,7 +322,6 @@ class UserSeeder extends Seeder
             $TaiKhoan15->NguoiTao = "hothanhphuc2468";
             $TaiKhoan15->MaGiaoDien = "GD04";
             $TaiKhoan15->AnhDaiDien = "";
-            $TaiKhoan15->AnhBia = "";
             $TaiKhoan15->save();
 
             $TaiKhoan16 =  new User();
@@ -357,7 +341,6 @@ class UserSeeder extends Seeder
             $TaiKhoan16->NguoiTao = "hothanhphuc2468";
             $TaiKhoan16->MaGiaoDien = "GD04";
             $TaiKhoan16->AnhDaiDien = "";
-            $TaiKhoan16->AnhBia = "";
             $TaiKhoan16->save();
 
 

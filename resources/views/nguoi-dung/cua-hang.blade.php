@@ -16,6 +16,28 @@
                 </div>
             </div>
         </div>
+        <div class="flex-col medium-text-center w-50">
+            <form class="woocommerce-ordering w-70" method="post">
+                @csrf
+                    <div class="search_box">
+                        <input type="text" class="w-100" name="keywords_submit" id="keywords" placeholder="Tìm kiếm sản phẩm">
+                        <div id="search_ajax"></div>
+                    </div>
+            </form>
+        </div>
+        {{-- <div class="flex-col medium-text-center">
+            <form class="woocommerce-ordering" method="get">
+                <select name="orderby" class="orderby">
+                    <option value="menu_order" selected='selected'>Thứ tự mặc định</option>
+                    <option value="popularity">Thứ tự theo mức độ phổ biến</option>
+                    <option value="rating">Thứ tự theo điểm đánh giá</option>
+                    <option value="date">Mới nhất</option>
+                    <option value="price">Thứ tự theo giá: thấp đến cao</option>
+                    <option value="price-desc">Thứ tự theo giá: cao xuống thấp</option>
+                </select>
+                <input type="hidden" name="paged" value="1" />
+            </form>
+        </div> --}}
     </div>
     <!-- flex-row -->
 </div>
@@ -91,6 +113,7 @@
                     @endforeach
 
                 </div>
+                {{$SP->links()}}
                 <!-- row -->
             </div>
             <!-- shop container -->
@@ -107,5 +130,51 @@
         "currency_format_thousand_sep": ",",
         "currency_format": "%v\u00a0%s"
     };
+</script>
+<script type="text/javascript">
+$(document).on("click", function(event) {
+  var dropdown = $("#search_ajax");
+  var keywords = $("#keywords");
+  if (!dropdown.is(event.target) && dropdown.has(event.target).length === 0 && dropdown.hasClass("current-dropdown")
+        && keywords.has(event.target).length === 0 && !keywords.is(event.target)
+    ) {
+    dropdown.removeClass("current-dropdown");
+  }
+});
+$(document).ready(function() {
+    $("#keywords").focus(function() {
+            $('#search_ajax').addClass('current-dropdown');
+    });
+    $("#keywords").focusout(function() {
+            $('#search_ajax').removeClass('current-dropdown');
+            // $('#search_ajax').css('display', 'none');
+    });
+  });
+    $('#keywords').keyup(function(){
+        var query = $(this).val();
+        if(query != '')
+        {
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                url: "{{route('autocomplete-ajax')}}",
+                method : "POST",
+                data:{query:query,_token:_token},
+                success:function(response){
+                    $('#search_ajax').fadeIn();
+                    $('#search_ajax').replaceWith(response.html);
+                    $('#search_ajax').css('display', 'none');
+                    $('#search_ajax').css('display', 'block');
+                }
+            });
+        }else{
+            $('#search_ajax').fadeOut();
+            $('#search_ajax').removeClass('current-dropdown');
+            $('#search_ajax').css('display', 'none');
+        }
+    });
+    $(document).on('click','li_search',function(){
+        $('keywords').val($(this).text());
+        $('#search_ajax').fadeOut();
+    });
 </script>
 @endsection

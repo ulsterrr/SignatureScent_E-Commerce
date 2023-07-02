@@ -137,11 +137,11 @@
                                                 @foreach($list as $row)
                                                 <tr style="border: 1px solid black" class="row100 body">
                                                   <td class="cell100 column1" style="text-align: center;border: 1px solid black">{{ $loop->iteration }}</td>
-                                                  <td class="cell100 column2" style="text-align: center;border: 1px solid black">{{ $row['MaSanPham'] }}</td>
+                                                  <td class="cell100 column2" style="text-align: center;border: 1px solid black">{{ $row->MaSanPham }}</td>
                                                   <td class="cell100 column3" style="border: 1px solid black">{{ $row->thongTinSanPham->TenSanPham }}</td>
-                                                  <td class="cell100 column4" style="text-align: center;border: 1px solid black">{{ number_format($row['GiaTien'], 0, ',', '.') }}</td>
-                                                  <td class="cell100 column5" style="text-align: center;border: 1px solid black">{{ $row['SoLuong'] }}</td>
-                                                  <td class="cell100 column6" style="text-align: center;border: 1px solid black">{{ number_format($row['TongTien'], 0, ',', '.') }}</td>
+                                                  <td class="cell100 column4" style="text-align: center;border: 1px solid black">{{ number_format($row->GiaTien, 0, ',', '.') }}</td>
+                                                  <td class="cell100 column5" style="text-align: center;border: 1px solid black">{{ $row->SoLuong }}</td>
+                                                  <td class="cell100 column6" style="text-align: center;border: 1px solid black">{{ number_format($row->TongTien, 0, ',', '.') }}</td>
                                                 </tr>
                                                 @endforeach
                                                 <tr style="border: 1px solid black" class="row100 body">
@@ -170,7 +170,7 @@
                                 <tr>
                                     <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
                                         <a target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;"
-                                         href="#">Bấm vào đây để xác nhận nếu bạn đã nhận được hàng!</a>
+                                         href="{{route('xemdonhang-view', ['id' => $dh->MaDonHang])}}">Bấm vào đây để xác nhận nếu bạn đã nhận được hàng!</a>
                                     </td>
                                 </tr>
                                 </table>
@@ -190,9 +190,7 @@
                                         </ul>
                                         <span style="font-weight: bold">Lưu ý:</span>
                                         <ul>
-                                            <li>
-                                                Nếu sản phẩm có dấu hiệu hư hỏng/ bể vỡ hoặc không đúng với thông tin trên website, bạn vui lòng liên hệ với Lazada trong vòng 24 giờ kể từ thời điểm nhận hàng để được hỗ trợ.
-                                            </li>
+
                                             <li>Vui lòng giữ nguyên vẹn biên nhận bán hàng được dán trên thùng hàng, hóa đơn (nếu có) và hộp sản phẩm để đổi trả hàng hoặc bảo hành khi cần.</li>
                                         </ul>
                                     </p>
