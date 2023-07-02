@@ -21,82 +21,85 @@
                     </ul>
                 </div>
                 <!-- Left Elements -->
-                @if (Auth::check())
-                {{-- <p>Người dùng đã đăng nhập.</p> --}}
-                <!-- Left Elements -->
                 <div class="flex-col hide-for-medium flex-left">
                     <ul class="header-nav header-nav-main nav nav-left  nav-size-medium nav-uppercase">
-                        <li class="account-item has-icon active  has-dropdown">
-                            <a href="#" class="account-link account-login" title="Tài khoản">
-                                <span class="header-account-title"> {{ auth()->user()->HoTen }}</span>
-                            </a>
-                            <!-- .account-link -->
-                            <ul class="nav-dropdown  nav-dropdown-simple">
-
-                                @if(Auth::check())
-                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
-                                    <a href="{{route('dsdonhang-view')}}">Đơn hàng</a>
-                                </li>
-
-                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
-                                    <a href="{{route('doimk-client-view',['id'=>auth()->user()->id])}}">Đổi mật khẩu</a>
-                                </li>
-
-
-                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-account">
-                                    <a href="{{route('thongtin-client-view',['id' => auth()->user()->id])}}">Thông tin tài khoản</a>
-                                </li>
-
-                                <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
-                                    <a href="{{ route('xuly-dangxuat') }}">Đăng xuất</a>
-                                </li>
-                                @else
-                                @endif
-                            </ul>
-                        </li>
+                    <li class="header-search header-search-lightbox has-icon">
+                        <a href="#search-lightbox" data-open="#search-lightbox" data-focus="input.search-field" class="is-small">
+                            <i class="icon-search" style="font-size:16px;"></i>
+                            <span class="header-account-title">Tìm kiếm</span></a>
+                        <div id="search-lightbox" class="mfp-hide dark text-center">
+                            <div class="searchform-wrapper ux-search-box relative form-flat is-large">
+                                <form role="search" method="get" class="searchform" action="">
+                                    <div class="flex-row relative">
+                                        <div class="flex-col flex-grow">
+                                            <input type="search" class="search-field mb-0" name="s" value="" placeholder="Tìm kiếm&hellip;" />
+                                            <input type="hidden" name="post_type" value="product" />
+                                        </div>
+                                        <!-- .flex-col -->
+                                        <div class="flex-col">
+                                            <button type="submit" class="ux-search-submit submit-button secondary button icon mb-0">
+                                                <i class="icon-search">
+                                                </i>
+                                            </button>
+                                        </div>
+                                        <!-- .flex-col -->
+                                    </div>
+                                    <!-- .flex-row -->
+                                    <div class="live-search-results text-left z-top"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
                     </ul>
                 </div>
-                @else
-                {{-- <p>Người dùng chưa đăng nhập.</p> --}}
-                <div class="flex-col hide-for-medium flex-left">
-                    <ul class="header-nav header-nav-main nav nav-left  nav-size-medium nav-uppercase">
-                        <li class="account-item has-icon">
-                            <a href="#" class="nav-top-link nav-top-not-logged-in " data-open="#login-form-popup">
-                                <span>Đăng nhập</span>
-                            </a>
-                            <!-- .account-login-link -->
-                        </li>
-                        <span>&nbsp;/&nbsp;</span>
-                        <li class="account-item has-icon">
-                            <a href="{{ route('dangKyView') }}" class="nav-top-link nav-top-not-logged-in">
-                                <span>Đăng ký</span>
-                            </a>
-                            <!-- .account-sign-link -->
-                        </li>
-                    </ul>
-                </div>
-                @endif
                 <!-- Right Elements -->
 
                 <div class="flex-col hide-for-medium flex-right">
                     <ul class="header-nav header-nav-main nav nav-right  nav-size-medium nav-uppercase">
-                        <li class="header-search header-search-lightbox has-icon">
-                            <div id="search-lightbox" class="mfp-hide dark text-center">
-                                <div class="searchform-wrapper ux-search-box relative form-flat is-large">
-                                    <form role="search" method="get" class="searchform" action="">
-                                        <div class="flex-row relative">
-                                            <div class="flex-col flex-grow">
-                                                <input type="search" class="search-field mb-0" name="s" value="" placeholder="Tìm kiếm&hellip;" />
-                                                <input type="hidden" name="post_type" value="product" />
-                                            </div>
-                                            <!-- .flex-col -->
-                                        </div>
-                                        <!-- .flex-row -->
-                                        <div class="live-search-results text-left z-top"></div>
-                                    </form>
-                                </div>
-                            </div>
-                        </li>
+                        @if (Auth::check())
+                            <li class="account-item has-icon active  has-dropdown">
+                                <a href="#" class="account-link account-login" title="Tài khoản">
+                                    <i class="icon-user" style="font-size:16px;"></i>
+                                    <span class="header-account-title"> <strong style="font-weight: bold;">{{ auth()->user()->HoTen }}</strong></span>
+                                </a>
+                                <!-- .account-link -->
+                                <ul class="nav-dropdown  nav-dropdown-simple">
+                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
+                                        <a href="#orders/">Đơn hàng</a>
+                                    </li>
+
+                                    @if(Auth::check())
+                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-address">
+                                        <a href="{{route('doimk-client-view',['id'=>auth()->user()->id])}}">Đổi mật khẩu</a>
+                                    </li>
+
+
+                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--edit-account">
+                                        <a href="{{route('thongtin-client-view',['id' => auth()->user()->id])}}">Thông tin tài khoản</a>
+                                    </li>
+                                    @else
+                                    @endif
+                                    <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--customer-logout">
+                                        <a href="{{ route('xuly-dangxuat') }}">Đăng xuất</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @else
+                        {{-- <p>Người dùng chưa đăng nhập.</p> --}}
+                                <li class="account-item has-icon">
+                                    <a href="#" class="nav-top-link nav-top-not-logged-in " data-open="#login-form-popup">
+                                        <span>Đăng nhập</span>
+                                    </a>
+                                    <!-- .account-login-link -->
+                                </li>
+                                <span>&nbsp;/&nbsp;</span>
+                                <li class="account-item has-icon">
+                                    <a href="{{ route('dangKyView') }}" class="nav-top-link nav-top-not-logged-in">
+                                        <span>Đăng ký</span>
+                                    </a>
+                                    <!-- .account-sign-link -->
+                                </li>
+                        @endif
                         @include('layouts.webpage.gio-hang-dropdown')
                     </ul>
                 </div>

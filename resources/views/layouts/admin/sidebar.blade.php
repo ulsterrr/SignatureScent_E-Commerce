@@ -150,6 +150,13 @@
                     <span class="item-name">Thông tin phản hồi</span>
                 </a>
             </li> --}}
+
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='qly-mkm-view' ? 'open' : '' }}" href="{{ route('qly-mkm-view') }}">
+                    <i class="nav-icon i-Ticket"></i>
+                    <span class="item-name">Danh mục Khuyến mãi</span>
+                </a>
+            </li>
         </ul>
 
         <ul class="childNav" data-parent="store">
@@ -172,12 +179,18 @@
                             <span class="item-name">Danh sách sản phẩm</span>
                         </a>
                     </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='dsChiTietSP-view' ? 'open' : '' }}" href="{{ route('dsChiTietSP-view') }}">
+                            <i class="nav-icon i-Dropbox"></i>
+                            <span class="item-name">Danh sách chi tiết sản phẩm</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-item dropdown-sidemenu">
                 <a>
                     <i class="nav-icon i-Download"></i>
-                    <span class="item-name">Nhập hàng</span>
+                    <span class="item-name">Nhập hàng mới</span>
                     <i class="dd-arrow i-Arrow-Down"></i>
                 </a>
                 <ul class="submenu">
@@ -191,6 +204,12 @@
                         <a class="{{ Route::currentRouteName()=='themSPham-view' ? 'open' : '' }}" href="{{ route('themSPham-view') }}">
                             <i class="nav-icon i-Add"></i>
                             <span class="item-name">Nhập mới sản phẩm</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='importnhaphang-view' ? 'open' : '' }}" href="{{ route('importnhaphang-view') }}">
+                            <i class="nav-icon i-Add"></i>
+                            <span class="item-name">Nhập hàng Excel</span>
                         </a>
                     </li>
                 </ul>
@@ -212,6 +231,12 @@
                         <a class="{{ Route::currentRouteName()=='nhapKhoView' ? 'open' : '' }}" href="{{ route('nhapKhoView') }}">
                             <i class="nav-icon i-Add"></i>
                             <span class="item-name">Nhập tồn kho</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='importnhapkho-view' ? 'open' : '' }}" href="{{ route('importnhapkho-view') }}">
+                            <i class="nav-icon i-Add"></i>
+                            <span class="item-name">Nhập kho Excel</span>
                         </a>
                     </li>
                 </ul>
@@ -282,26 +307,11 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item dropdown-sidemenu">
-                <a>
-                    <i class="nav-icon i-Ticket"></i>
-                    <span class="item-name">Khuyến mãi</span>
-                    <i class="dd-arrow i-Arrow-Down"></i>
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='qly-mkm-view' ? 'open' : '' }}" href="{{ route('qly-mkm-view') }}">
+                    <i class="nav-icon i-Reset"></i>
+                    <span class="item-name">Đổi trả sản phẩm</span>
                 </a>
-                <ul class="submenu">
-                    <li>
-                        <a class="{{ Route::currentRouteName()=='ds-donhang-view' ? 'open' : '' }}" href="{{ route('ds-donhang-view') }}">
-                            <i class="nav-icon i-Tag-3"></i>
-                            <span class="item-name">Danh sách ưu đãi</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
-                            <i class="nav-icon i-Tag-2"></i>
-                            <span class="item-name">Tạo ưu đãi</span>
-                        </a>
-                    </li>
-                </ul>
             </li>
         </ul>
         <ul class="childNav" data-parent="setting">
