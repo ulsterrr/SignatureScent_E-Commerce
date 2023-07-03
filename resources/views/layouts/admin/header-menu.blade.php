@@ -84,7 +84,6 @@
                 <!-- Notification dropdown -->
                 <div class="dropdown-menu dropdown-menu-right notification-dropdown rtl-ps-none" aria-labelledby="dropdownNotification" data-perfect-scrollbar data-suppress-scroll-x="true">
                         @foreach ($thongbao as $tb)
-                        <a href="{{asset($tb->DuongDan)}}">
                             <div class="dropdown-item d-flex">
                                 <div class="notification-icon">
                                     <i class="i-Speach-Bubble-6 text-primary mr-1"></i>
@@ -99,7 +98,6 @@
                                 <p class="text-small text-muted m-0">{{$tb->NoiDung}}</p>
                             </div>
                             </div>
-                        </a>
                         @endforeach
                 </div>
             </div>
