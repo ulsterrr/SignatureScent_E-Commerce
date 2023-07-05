@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Danh sách đơn hàng')
 @section('page-css')
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/datatables.min.css') }}">
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/sweetalert2.min.css')}}">
@@ -33,11 +34,117 @@
         </div>
         <div class="col-md-12 mb-4">
             <div class="card text-left">
-                <div class="card-header text-right bg-transparent">
-                    <a type="button" href="{{ route('taoDonhangView') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm đơn hàng</a>
-                </div>
-
                 <div class="card-body">
+                    <form id="searchForm" method="POST" class="mb-3 mt-0 p-3 pt-0">
+                        @csrf
+                        <div class="form-row">
+                            <div class="col-md-3">
+                                <label for="picker3"></label>
+                                <div class="input-group">
+                                    <button class="btn btn-primary" type="submit">Tìm kiếm theo bộ lọc</button>
+                                </div>
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3 mt-3 text-right">
+                                <a type="button" href="{{ route('taoDonhangView') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm đơn hàng</a>
+                            </div>
+                            <div class="col-md-12 mt-2"></div>
+                            <div class="col-md-3">
+                                <label for="MaSanPham">Mã đơn hàng</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="MaSanPham" name="MaSanPham" aria-describedby="inputGroupPrepend">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="TenSanPham">Email người nhận</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="TenSanPham" name="TenSanPham" placeholder="" aria-describedby="inputGroupPrepend">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="HoTen">Họ tên</label>
+                                <input type="text" class="form-control" name="HoTen" id="HoTen">
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="NguoiTao">Người tạo (email)</label>
+                                <input type="text" class="form-control" name="NguoiTao" id="NguoiTao">
+                            </div>
+
+                            <div class="col-md-12 mt-2"></div>
+
+                            <div class="col-md-3">
+                                <label for="DiaChi">Địa chỉ</label>
+                                <input type="text" class="form-control" name="DiaChi" id="DiaChi">
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="QuanHuyen">Quận/Huyện</label>
+                                <input type="text" class="form-control" name="QuanHuyen" id="QuanHuyen">
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="TinhThanh">Tỉnh/Thành</label>
+                                <input type="text" class="form-control" name="TinhThanh" id="TinhThanh">
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="TrangThai">Trạng thái đơn</label>
+                                <select class="form-control" name="TrangThai" id="TrangThai">
+                                    <option value="">Tất cả</option>
+                                    <option value="NEW">Đang xử lý</option>
+                                    <option value="SHIP">Đang vận chuyển</option>
+                                    <option value="SENDED">Đã giao hàng</option>
+                                    <option value="DONE">Hoàn thành</option>
+                                    <option value="CANCEL">Huỷ đơn</option>
+                                    <option value="MOMO_WAITS">Chờ thanh toán momo</option>
+                                    <option value="MOMO_PAY">Đã thanh toán momo</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 mt-2"></div>
+                            <div class="col-md-3">
+                                <label for="ChiNhanh">Chi nhánh</label>
+                                <select class="form-control" name="ChiNhanh" id="ChiNhanh">
+                                    <option value="">Tất cả</option>
+                                    @foreach($chiNhanh as $cn)
+                                        <option value="{{ $cn->MaChiNhanh }}">{{ $cn->TenChiNhanh }}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="ChiNhanh">Loại thanh toán</label>
+                                <select class="form-control" name="ChiNhanh" id="ChiNhanh">
+                                    <option value="">Tất cả</option>
+                                        <option value="cod">Thanh toán ví Momo</option>
+                                        <option value="momo">Thanh toán ship COD</option>
+
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="created_at_from">Ngày tạo (Từ ngày)</label>
+                                <div class="input-group">
+                                    <input id="created_at_from" class="form-control" placeholder="Ngày/Tháng/Năm" name="created_at_from">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend"><i class="icon-regular i-Calendar-4"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="created_at_to">Ngày tạo (Đến ngày)</label>
+                                <div class="input-group">
+                                    <input id="created_at_to" class="form-control" placeholder="Ngày/Tháng/Năm" name="created_at_to">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend1"><i class="icon-regular i-Calendar-4"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                     <div class="table-responsive">
                         <table id="ul-contact-list" class="display table" style="width:100%; overflow-y: scroll">
                             <thead>
@@ -92,7 +199,7 @@
     $(document).ready(function() {
         var table = $('#ul-contact-list').DataTable({
             processing: true
-            , serverSide: true
+            // , serverSide: true
             , destroy: true
             , scrollCollapse: true
             , scrollX: true
@@ -236,6 +343,20 @@
                         $(settings.nTable).dataTable(settings);
                     });
                 }
+
+                , dom: 'Bfrtip'
+                , buttons: [
+                    {
+                        "extend": 'excel',
+                        "text": 'In danh sách Excel',
+                        'className': 'btn btn-primary text-white'
+                    },
+                    // 'excel', 'print'
+                ]
+                , initComplete: function() {
+                    var btn = $('.buttons-excel');
+                    btn.removeClass('btn-secondary');
+                },
         });
     });
 </script>
@@ -378,5 +499,38 @@
                 });
         });
     });
+
+
+
+    $(document).ready(function() {
+    var dataTable = $('#ul-contact-list').DataTable();
+
+    $('#searchForm').on('submit', function(e) {
+        e.preventDefault();
+
+        var formData = $(this).serialize();
+
+        $.ajax({
+            url: "{{ route('loadDonHangFilter') }}",
+            type: 'POST',
+            data: {
+                filter: formData,
+                _token: '{{ csrf_token() }}'
+            },
+            dataType: 'json',
+            success: function(response) {
+                // Xóa các dữ liệu hiện tại của DataTables
+                dataTable.clear().draw();
+
+                // Thêm dữ liệu mới từ response vào DataTables
+                dataTable.rows.add(response.data).draw();
+            },
+            error: function(xhr, status, error) {
+                console.log(error);
+            }
+        });
+    });
+});
+
 </script>
 @endsection

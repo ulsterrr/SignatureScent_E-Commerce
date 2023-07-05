@@ -333,8 +333,8 @@ class NguoiDungController extends Controller
         $orderInfo = 'Thanh toán đơn hàng ScentSignature';
         $amount = $request->total_momo;
         $orderId = $mdh;
-        $redirectUrl = "http://localhost:8000/return_momo";
-        $ipnUrl = "http://localhost:8000/return_momo";
+        $redirectUrl = "http://127.0.0.1:8000/return_momo";
+        $ipnUrl = "http://127.0.0.1:8000/return_momo";
         $extraData = "";
         $requestId = $mdh;
         $requestType = "captureWallet";
@@ -376,7 +376,8 @@ class NguoiDungController extends Controller
             $this->dayThongBaoChoUser('Đơn hàng mới','Một khách hàng vừa đặt một đơn hàng của SignatureScent','Đơn hàng MoMo', 'admin/quan-ly-khach-hang',$Email->email);
         }
 
-        return view('nguoi-dung.ds-donhang-client');
+        // return view('nguoi-dung.ds-donhang-client');
+        return redirect()->route('xemdonhang-view', $req->orderId);
     }
 
     public function datHangView(){
@@ -394,9 +395,9 @@ class NguoiDungController extends Controller
     }
 
     public function xemDonHangView($id){
+
         if(Auth::check()) {
             $DH = DonHang::layDonHangTheoMa($id);
-            $allsp = ChiTietSanPham::donHang($id);
             return view('nguoi-dung.xem-donhang-client')->with(['donHang' => $DH]);
         }
     }

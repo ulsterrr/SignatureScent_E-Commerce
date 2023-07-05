@@ -120,6 +120,7 @@ $(document).ready(function () {
   });
 
   var $hoverElement = document.getElementById("btn-dashboard");
+  var $hoverElement2 = document.getElementById("btn-phanquyen");
   $hoverElement.addEventListener("mouseover", () => {
     if (gullUtils.isMobile()) {
         closeSidebar();
@@ -128,5 +129,14 @@ $(document).ready(function () {
   });
   $hoverElement.addEventListener("click", () => {
     window.location.href = "/dashboard";
+  });
+  $hoverElement2.addEventListener("mouseover", () => {
+    if (gullUtils.isMobile()) {
+        closeSidebar();
+      }
+      closeSidebarSecondary();
+  });
+  $hoverElement2.addEventListener("click", () => {
+    window.location.href = "/admin/phan-quyen";
   });
 });

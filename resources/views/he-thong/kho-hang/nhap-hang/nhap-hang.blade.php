@@ -52,7 +52,7 @@
                                 <label for="TenChiNhanh" class="required">Chi nhánh:</label>
                                 <div class="input-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="TenChiNhanh" name="TenChiNhanh" readonly required
+                                        <input type="text" class="form-control" id="TenChiNhanh" name="TenChiNhanh" readonly
                                                 aria-describedby="inputGroupCN">
                                         <div class="input-group-append">
                                             <button id="inputGroupCN" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">...</button>
@@ -76,7 +76,7 @@
                                 <label for="MaChiNhanh" class="required">Mã chi nhánh:</label>
                                 <div class="input-group">
                                     <div class="input-group">
-                                        <input type="text" readonly class="form-control" id="MaChiNhanh" name="MaChiNhanh" required >
+                                        <input type="text" readonly class="form-control" id="MaChiNhanh" name="MaChiNhanh" >
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                                 <label for="NQL" class="required">Người quản lý:</label>
                                 <div class="input-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="NQL" name="NQL" disabled required aria-describedby="inputGroupQL">
+                                        <input type="text" class="form-control" id="NQL" name="NQL" disabled aria-describedby="inputGroupQL">
                                     </div>
                                 </div>
                             </div>
@@ -468,8 +468,8 @@ $(document).ready(function () {
             }
         },
         rules: {
-            TenChiNhanh: "required",
-            MaChiNhanh: "required",
+            // TenChiNhanh: "required",
+            // MaChiNhanh: "required",
             GiaTien: "required",
             SoLuong:"required ",
             TenSanPham: "required",
@@ -481,8 +481,8 @@ $(document).ready(function () {
 
         },
         messages: {
-            TenChiNhanh: "Vui lòng chọn chi nhánh nhập hàng",
-            MaChiNhanh: "Vui lòng nhập mã chi nhánh",
+            // TenChiNhanh: "Vui lòng chọn chi nhánh nhập hàng",
+            // MaChiNhanh: "Vui lòng nhập mã chi nhánh",
             SoLuong: "Vui lòng nhập số lượng",
             GiaTien: "Vui lòng nhập giá tiền",
             TenSanPham: "Vui lòng nhập tên sản phẩm",

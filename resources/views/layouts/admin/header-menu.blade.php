@@ -9,7 +9,7 @@
             <div></div>
         </div>
 
-        <div class="d-flex align-items-center">
+        {{-- <div class="d-flex align-items-center">
             <!-- Mega menu -->
             <div class="dropdown mega-menu d-none d-md-block">
                 <a href="#" class="btn text-muted dropdown-toggle mr-3" id="dropdownMegaMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mega Menu</a>
@@ -54,7 +54,7 @@
                 <input type="text" placeholder="Search">
                 <i class="search-icon text-muted i-Magnifi-Glass1"></i>
             </div>
-        </div>
+        </div> --}}
 
         <div style="margin: auto"></div>
 
