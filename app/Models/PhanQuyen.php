@@ -9,7 +9,7 @@ class PhanQuyen extends Model
 {
     use HasFactory;
     protected $table = 'phan_quyens';
-    protected $fillable=['MaQuyen','TenQuyen','LoaiTaiKhoan','URL','NguoiTao'];
+    protected $fillable=['MaQuyen','TenQuyen','LoaiTaiKhoan','URL','TrangThai','NguoiTao'];
 
     public function loaiTaiKhoan()
     {

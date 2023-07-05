@@ -29,9 +29,9 @@
     </div>
 </a>
 <!-- FB Messenger -->
-<div id="fbMsg">
+{{-- <div id="fbMsg">
     <img data-remodal-target="fb-messenger" src="{{asset('assets/wp-content/plugins/fb-messenger/images/fb-messenger.png')}}">
-</div>
+</div> --}}
 <div class="remodal" data-remodal-id="fb-messenger">
     <div class="fb-page" data-tabs="messages" data-href="" data-width="310" data-height="330" data-href="" data-small-header="true" data-hide-cover="false" data-show-facepile="true" data-adapt-container-width="true">
         <div class="fb-xfbml-parse-ignore">

@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Tìm chi tiết sản phẩm')
 @section('page-css')
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/datatables.min.css') }}">
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/sweetalert2.min.css')}}">
@@ -66,9 +67,19 @@
                                     <input type="text" class="form-control" id="TenSanPham" name="TenSanPham" aria-describedby="inputGroupPrepend">
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            {{-- <div class="col-md-3">
                                 <label for="ThuongHieu">Thương hiệu</label>
                                 <input type="text" class="form-control" name="ThuongHieu" id="ThuongHieu">
+                            </div> --}}
+
+                            <div class="col-md-3">
+                                <label for="LoaiSanPham">Loại sản phẩm:</label>
+                                <select class="form-control" name="LoaiSanPham" id="LoaiSanPham">
+                                    <option value="">Tất cả</option>
+                                    @foreach($LoaiSP as $lsp)
+                                        <option value="{{ $lsp->MaLoai }}">{{ $lsp->TenLoai }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-md-12 mt-3"></div>
                             <div class="col-md-3">
@@ -107,15 +118,6 @@
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label for="LoaiSanPham">Loại sản phẩm:</label>
-                                <select class="form-control" name="LoaiSanPham" id="LoaiSanPham">
-                                    <option value="">Tất cả</option>
-                                    @foreach($LoaiSP as $lsp)
-                                        <option value="{{ $lsp->MaLoai }}">{{ $lsp->TenLoai }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-md-3">
                                 <label for="LoaiKichCo">Loại kích cỡ:</label>
                                 <select class="form-control" name="LoaiKichCo" id="LoaiKichCo">
                                     <option value="">Tất cả</option>
@@ -124,9 +126,18 @@
                                     @endforeach
                                 </select>
                             </div>
-                            {{-- <div class="col-md-4 mt-2"></div> --}}
+                            <div class="col-md-3">
+                                <label for="TinhTrang">Tình trạng:</label>
+                                <select class="form-control" name="TinhTrang" id="TinhTrang">
+                                    <option value="">Tất cả</option>
+                                    <option value="0">Tồn kho</option>
+                                    <option value="1">Bình thường</option>
+                                    <option value="2">Đang bán</option>
+                                    <option value="3">Đã bán</option>
+                                    <option value="4">Hoàn trả</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-md-12"></div>
                     </form>
 
                     <div class="table-responsive">
@@ -296,16 +307,17 @@
                     }
                 }
                 , {
-                    data: 'TrangThai'
-                    , render: function(data) {
-                        if (data == '1') {
-                            return 'Bình thường';
-                        } else if (data == '0') {
-                            return 'Ngưng nhập hàng';
-                        } else {
-                            return 'Tồn kho';
+                    data: 'TinhTrang'
+                        , render: function(data) {
+                            switch (data) {
+                                case '0': return 'Tồn kho'; break;
+                                case '1': return 'Bình thường'; break;
+                                case '2': return 'Đang bán'; break;
+                                case '3': return 'Đã bán'; break;
+                                case '4': return 'Hoàn trả'; break;
+                                default: return 'Không xác định'; break;
+                            }
                         }
-                    }
                 }
                 , {
                     data: 'GhiChu'
@@ -317,7 +329,22 @@
                         $(settings.nTable).dataTable(settings);
                     });
                 }
+                , dom: 'Bfrtip'
+
+                , buttons: [
+                    {
+                        "extend": 'excel',
+                        "text": 'In danh sách Excel',
+                        'className': 'btn btn-primary text-white'
+                    },
+                    // 'excel', 'print'
+                ]
+                , initComplete: function() {
+                    var btn = $('.buttons-excel');
+                    btn.removeClass('btn-secondary');
+                },
         });
+
     });
 
     $('#ul-contact-list').on('click', 'a.delete-user', function(e) {

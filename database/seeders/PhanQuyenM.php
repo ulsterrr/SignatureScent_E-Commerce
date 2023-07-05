@@ -6,7 +6,7 @@ use App\Models\PhanQuyen;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PhanQuyenSeeder extends Seeder
+class PhanQuyenM extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +18,7 @@ class PhanQuyenSeeder extends Seeder
         $PQ2 = new PhanQuyen();
         $PQ2->MaQuyen = "dashboard";
         $PQ2->TenQuyen = "Truy cập bảng điều khiển";
-        $PQ2->LoaiTaiKhoan = "A";
+        $PQ2->LoaiTaiKhoan = "M";
         $PQ2->URI="";
         $PQ2->TrangThai=1; // 0 là huỷ, 1 là kích hoạt
         $PQ2->NguoiTao="admin";
@@ -27,7 +27,7 @@ class PhanQuyenSeeder extends Seeder
         $PQ3 = new PhanQuyen();
         $PQ3->MaQuyen = "danhmuc";
         $PQ3->TenQuyen = "Quản lý danh mục";
-        $PQ3->LoaiTaiKhoan = "A";
+        $PQ3->LoaiTaiKhoan = "M";
         $PQ3->URI="";
         $PQ3->TrangThai=1; // 0 là huỷ, 1 là kích hoạt
         $PQ3->NguoiTao="admin";
@@ -36,7 +36,7 @@ class PhanQuyenSeeder extends Seeder
         $PQ4 = new PhanQuyen();
         $PQ4->MaQuyen = "khohang";
         $PQ4->TenQuyen = "Quản lý kho hàng";
-        $PQ4->LoaiTaiKhoan = "A";
+        $PQ4->LoaiTaiKhoan = "M";
         $PQ4->URI="";
         $PQ4->TrangThai=1; // 0 là huỷ, 1 là kích hoạt
         $PQ4->NguoiTao="admin";
@@ -45,7 +45,7 @@ class PhanQuyenSeeder extends Seeder
         $PQ5 = new PhanQuyen();
         $PQ5->MaQuyen = "banhang";
         $PQ5->TenQuyen = "Quản lý bán hàng";
-        $PQ5->LoaiTaiKhoan = "A";
+        $PQ5->LoaiTaiKhoan = "M";
         $PQ5->URI="";
         $PQ5->TrangThai=1; // 0 là huỷ, 1 là kích hoạt
         $PQ5->NguoiTao="admin";
@@ -54,7 +54,7 @@ class PhanQuyenSeeder extends Seeder
         $PQ6 = new PhanQuyen();
         $PQ6->MaQuyen = "thongke";
         $PQ6->TenQuyen = "Trang thống kê";
-        $PQ6->LoaiTaiKhoan = "A";
+        $PQ6->LoaiTaiKhoan = "M";
         $PQ6->URI="";
         $PQ6->TrangThai=1; // 0 là huỷ, 1 là kích hoạt
         $PQ6->NguoiTao="admin";

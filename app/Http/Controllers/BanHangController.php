@@ -8,6 +8,7 @@ use App\Jobs\DonHangVCJob;
 use App\Models\ChiTietDonHang;
 use App\Models\ChiTietSanPham;
 use App\Models\DonHang;
+use App\Models\ChiNhanh;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -80,7 +81,8 @@ class BanHangController extends Controller
 
     }
     public function dSDonHangView(){
-        return view('he-thong.ban-hang.don-hang.ds-donhang');
+        $cn = ChiNhanh::all();
+        return view('he-thong.ban-hang.don-hang.ds-donhang')->with('chiNhanh', $cn);
     }
     public function loadDSDonHang(){
 

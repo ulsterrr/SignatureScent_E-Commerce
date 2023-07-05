@@ -22,7 +22,7 @@
                 </div>
                 <!-- Left Elements -->
                 <div class="flex-col hide-for-medium flex-left">
-                    <ul class="header-nav header-nav-main nav nav-left  nav-size-medium nav-uppercase">
+                    {{-- <ul class="header-nav header-nav-main nav nav-left  nav-size-medium nav-uppercase">
                     <li class="header-search header-search-lightbox has-icon">
                         <a href="#search-lightbox" data-open="#search-lightbox" data-focus="input.search-field" class="is-small">
                             <i class="icon-search" style="font-size:16px;"></i>
@@ -50,6 +50,14 @@
                             </div>
                         </div>
                     </li>
+                    </ul> --}}
+
+                    <ul class="header-nav header-nav-main nav nav-left  nav-size-medium nav-uppercase">
+                        <li class="header-search header-search-lightbox has-icon">
+                            <a href="https://www.facebook.com/" class="is-small">
+                                <i class="icon-facebook" style="font-size:16px;"></i>
+                                <span class="header-account-title">Truy cập Fanpage</span></a>
+                        </li>
                     </ul>
                 </div>
                 <!-- Right Elements -->

@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LoaiTaiKhoan;
+use App\Models\PhanQuyen;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Yajra\DataTables\Facades\DataTables;
 
 class HeThongController extends Controller
 {
@@ -46,33 +49,6 @@ class HeThongController extends Controller
             //return redirect()->route('homepage')->with('message', $errorMessage);
             return redirect()->route('dang-nhap')->with('message', $errorMessage);
         }
-
-        // if(Auth::attempt($credentials)){
-        //     Session::put('user',$credentials['email']);
-        //     session()->flash('success','Successfully login');
-        //     return redirect()->route('home');
-        // }
-        // else{
-        //     session()->flash('error','Invalid email and password pleas try again!');
-        //     return redirect()->back();
-        // }
-
-
-    }
-
-    public function quenMK()
-    {
-
-    }
-    public function doiMK()
-    {
-
-    }
-    public function dangKy(){
-
-    }
-    public function capNhatTK(){
-
     }
 
     public function dangXuat()
@@ -80,4 +56,41 @@ class HeThongController extends Controller
         Auth::logout();
         return redirect()->route('homepage');
     }
+
+
+    public function phanQuyenView(){
+        $phanQuyen = PhanQuyen::all();
+        return view('dashboard.phan-quyen')->with('phanQuyens',$phanQuyen);
+    }
+
+    public function loaiTaiKhoanAjax(){
+        $ltk = LoaiTaiKhoan::all();
+        return DataTables::of($ltk)->make(true);
+    }
+
+    public function layPhanQuyen(Request $request)
+    {
+        $maLoaiTaiKhoan = $request->input('maLoaiTaiKhoan');
+
+        // Lấy danh sách phân quyền tương ứng với maLoaiTaiKhoan từ cơ sở dữ liệu
+        $phanQuyens = PhanQuyen::where('LoaiTaiKhoan', $maLoaiTaiKhoan)->get();
+
+        return response()->json(['phanQuyens' => $phanQuyens]);
+    }
+
+    public function updateTrangThai(Request $request)
+{
+    $phanQuyen = $request->input('id');
+    $trangThai = $request->input('trangThai');
+
+    // Tìm và cập nhật trạng thái của PhanQuyen
+    $phanQuyen = PhanQuyen::find($phanQuyen);
+    if ($phanQuyen) {
+        $phanQuyen->TrangThai = $trangThai;
+        $phanQuyen->save();
+    }
+
+    // Trả về kết quả thành công hoặc thất bại
+    return response()->json(['success' => true]);
+}
 }

@@ -319,12 +319,13 @@
                     , {
                         data: 'TinhTrang'
                         , render: function(data) {
-                            if (data == '1') {
-                                return 'Bình thường';
-                            } else if (data == '0') {
-                                return 'Ngưng nhập hàng';
-                            } else {
-                                return 'Tồn kho';
+                            switch (data) {
+                                case '0': return 'Tồn kho'; break;
+                                case '1': return 'Bình thường'; break;
+                                case '2': return 'Đang bán'; break;
+                                case '3': return 'Đã bán'; break;
+                                case '4': return 'Hoàn trả'; break;
+                                default: return 'Không xác định'; break;
                             }
                         }
                     }

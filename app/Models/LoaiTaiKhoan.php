@@ -17,6 +17,11 @@ class LoaiTaiKhoan extends Model
 
     public function phanQuyen()
     {
+        return $this->hasMany(PhanQuyen::class,'LoaiTaiKhoan','MaLoai')->where('TrangThai', 1);
+    }
+
+    public function phanQuyenTheoLoai($ml)
+    {
         return $this->hasMany(PhanQuyen::class,'LoaiTaiKhoan','MaLoai');
     }
 }

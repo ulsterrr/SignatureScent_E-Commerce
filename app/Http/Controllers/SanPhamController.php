@@ -198,98 +198,173 @@ class SanPhamController extends Controller
     }
 
     public function layDsCTSanPhamFilter(Request $request)
-{
-    $formData = $request->input('filter');
-    parse_str($formData, $filters);
+    {
+        $formData = $request->input('filter');
+        parse_str($formData, $filters);
 
-    $MaSanPham = $filters['MaSanPham'] ?? null;
-    $TenSanPham = $filters['TenSanPham'] ?? null;
-    $ThuongHieu = $filters['ThuongHieu'] ?? null;
-    $MaDonHang = $filters['MaDonHang'] ?? null;
-    $MaPhieuNhap = $filters['MaPhieuNhap'] ?? null;
-    $MaCTSanPham = $filters['MaCTSanPham'] ?? null;
-    $LoaiKichCo = $filters['LoaiKichCo'] ?? null;
-    $LoaiSanPham = $filters['LoaiSanPham'] ?? null;
-    $KichCo = $filters['KichCo'] ?? null;
-    $SoSerial = $filters['SoSerial'] ?? null;
-    $created_at_from = $filters['created_at_from'] ?? null;
-    $created_at_to = $filters['created_at_to'] ?? null;
-    $query = ChiTietSanPham::layChiTietVaSanPham();
+        $MaSanPham = $filters['MaSanPham'] ?? null;
+        $TenSanPham = $filters['TenSanPham'] ?? null;
+        $ThuongHieu = $filters['ThuongHieu'] ?? null;
+        $MaDonHang = $filters['MaDonHang'] ?? null;
+        $MaPhieuNhap = $filters['MaPhieuNhap'] ?? null;
+        $MaCTSanPham = $filters['MaCTSanPham'] ?? null;
+        $LoaiKichCo = $filters['LoaiKichCo'] ?? null;
+        $LoaiSanPham = $filters['LoaiSanPham'] ?? null;
+        $TinhTrang = $filters['TinhTrang'] ?? null;
+        $KichCo = $filters['KichCo'] ?? null;
+        $SoSerial = $filters['SoSerial'] ?? null;
+        $created_at_from = $filters['created_at_from'] ?? null;
+        $created_at_to = $filters['created_at_to'] ?? null;
+        $query = ChiTietSanPham::layChiTietVaSanPham();
 
-    if (!empty($MaCTSanPham)) {
-        $query->where(function ($query) use ($MaCTSanPham) {
-            $query->where('MaCTSanPham', 'LIKE', '%' . $MaCTSanPham . '%');
-        });
-    }
-    if (!empty($MaSanPham)) {
-        $query->where(function ($query) use ($MaSanPham) {
-            $query->where('MaSanPham', 'LIKE', '%' . $MaSanPham . '%');
-        });
-    }
-    if (!empty($TenSanPham)) {
-        $query->whereHas('chiTietCuaSanPham', function ($query) use ($TenSanPham) {
-            $query->where('TenSanPham', 'LIKE', '%' . $TenSanPham . '%');
-        });
-    }
-    if (!empty($ThuongHieu)) {
-        $query->whereHas('chiTietCuaSanPham', function ($query) use ($ThuongHieu) {
-            $query->where('ThuongHieu', 'LIKE', '%' . $ThuongHieu . '%');
-        });
-    }
-    if (!empty($LoaiKichCo)) {
-        $query->whereHas('chiTietCuaSanPham', function ($query) use ($LoaiKichCo) {
-            $query->where('LoaiKichCo', 'LIKE', '%' . $LoaiKichCo . '%');
-        });
-    }
-    if (!empty($LoaiSanPham)) {
-        $query->whereHas('chiTietCuaSanPham', function ($query) use ($LoaiSanPham) {
-            $query->where('LoaiSanPham', 'LIKE', '%' . $LoaiSanPham . '%');
-        });
-    }
+        if (!empty($MaCTSanPham)) {
+            $query->where(function ($query) use ($MaCTSanPham) {
+                $query->where('MaCTSanPham', 'LIKE', '%' . $MaCTSanPham . '%');
+            });
+        }
+        if (!empty($MaSanPham)) {
+            $query->where(function ($query) use ($MaSanPham) {
+                $query->where('MaSanPham', 'LIKE', '%' . $MaSanPham . '%');
+            });
+        }
+        if (!empty($TenSanPham)) {
+            $query->whereHas('chiTietCuaSanPham', function ($query) use ($TenSanPham) {
+                $query->where('TenSanPham', 'LIKE', '%' . $TenSanPham . '%');
+            });
+        }
+        if (!empty($ThuongHieu)) {
+            $query->whereHas('chiTietCuaSanPham', function ($query) use ($ThuongHieu) {
+                $query->where('ThuongHieu', 'LIKE', '%' . $ThuongHieu . '%');
+            });
+        }
+        if (!empty($LoaiKichCo)) {
+            $query->whereHas('chiTietCuaSanPham', function ($query) use ($LoaiKichCo) {
+                $query->where('LoaiKichCo', 'LIKE', '%' . $LoaiKichCo . '%');
+            });
+        }
+        if (!empty($LoaiSanPham)) {
+            $query->whereHas('chiTietCuaSanPham', function ($query) use ($LoaiSanPham) {
+                $query->where('LoaiSanPham', 'LIKE', '%' . $LoaiSanPham . '%');
+            });
+        }
 
-    if (!empty($MaDonHang)) {
-        $query->where(function ($query) use ($MaDonHang) {
-            $query->where('MaDonHang', 'LIKE', '%' . $MaDonHang . '%');
-        });
-    }
-    if (!empty($MaPhieuNhap)) {
-        $query->where(function ($query) use ($MaPhieuNhap) {
-            $query->where('MaPhieuNhap', 'LIKE', '%' . $MaPhieuNhap . '%');
-        });
-    }
-    if (!empty($KichCo)) {
-        $query->where(function ($query) use ($KichCo) {
-            $query->where('KichCo', 'LIKE', '%' . $KichCo . '%');
-        });
-    }
-    if (!empty($SoSerial)) {
-        $query->where(function ($query) use ($SoSerial) {
-            $query->where('SoSerial', 'LIKE', '%' . $SoSerial . '%');
-        });
-    }
-    if (!empty($created_at_from) && !empty($created_at_to)) {
-        $created_at_from = Carbon::createFromFormat('d/m/Y', $created_at_from)->startOfDay();
-        $created_at_to = Carbon::createFromFormat('d/m/Y', $created_at_to)->endOfDay();
+        if (!empty($MaDonHang)) {
+            $query->where(function ($query) use ($MaDonHang) {
+                $query->where('MaDonHang', 'LIKE', '%' . $MaDonHang . '%');
+            });
+        }
+        if (!empty($MaPhieuNhap)) {
+            $query->where(function ($query) use ($MaPhieuNhap) {
+                $query->where('MaPhieuNhap', 'LIKE', '%' . $MaPhieuNhap . '%');
+            });
+        }
+        if (!empty($KichCo)) {
+            $query->where(function ($query) use ($KichCo) {
+                $query->where('KichCo', 'LIKE', '%' . $KichCo . '%');
+            });
+        }
+        if (!empty($SoSerial)) {
+            $query->where(function ($query) use ($SoSerial) {
+                $query->where('SoSerial', 'LIKE', '%' . $SoSerial . '%');
+            });
+        }
+        if (!empty($TinhTrang)) {
+            $query->where(function ($query) use ($TinhTrang) {
+                $query->where('TinhTrang', '=', $TinhTrang);
+            });
+        }
+        if (!empty($created_at_from) && !empty($created_at_to)) {
+            $created_at_from = Carbon::createFromFormat('d/m/Y', $created_at_from)->startOfDay();
+            $created_at_to = Carbon::createFromFormat('d/m/Y', $created_at_to)->endOfDay();
 
-        $query->where('created_at', '>=', $created_at_from)
-            ->where('created_at', '<=', $created_at_to);
+            $query->where('created_at', '>=', $created_at_from)
+                ->where('created_at', '<=', $created_at_to);
 
-    } elseif (!empty($created_at_from)) {
-        $created_at_from = Carbon::createFromFormat('d/m/Y', $created_at_from)->startOfDay();
-        $query->where('created_at', '>=', $created_at_from);
-    } elseif (!empty($created_at_to)) {
-        $created_at_to = Carbon::createFromFormat('d/m/Y', $created_at_to)->endOfDay();
-        $query->where('created_at', '<=', $created_at_to);
+        } elseif (!empty($created_at_from)) {
+            $created_at_from = Carbon::createFromFormat('d/m/Y', $created_at_from)->startOfDay();
+            $query->where('created_at', '>=', $created_at_from);
+        } elseif (!empty($created_at_to)) {
+            $created_at_to = Carbon::createFromFormat('d/m/Y', $created_at_to)->endOfDay();
+            $query->where('created_at', '<=', $created_at_to);
+        }
+
+        // Thực hiện tìm kiếm
+        $results = $query->get();
+
+        // Trả về kết quả tìm kiếm dưới dạng JSON
+        return response()->json([
+            'data' => $results,
+        ]);
     }
+    public function layDsSanPhamFilter(Request $request)
+    {
+        $formData = $request->input('filter');
+        parse_str($formData, $filters);
 
-    // Thực hiện tìm kiếm
-    $results = $query->get();
+        $MaSanPham = $filters['MaSanPham'] ?? null;
+        $TenSanPham = $filters['TenSanPham'] ?? null;
+        $ThuongHieu = $filters['ThuongHieu'] ?? null;
+        $LoaiKichCo = $filters['LoaiKichCo'] ?? null;
+        $LoaiSanPham = $filters['LoaiSanPham'] ?? null;
+        $GiaTien = $filters['GiaTien'] ?? null;
+        $created_at_from = $filters['created_at_from'] ?? null;
+        $created_at_to = $filters['created_at_to'] ?? null;
+        $query = SanPham::with('loaiSanPham', 'loaiKichCo')->orderBy('MaSanPham','desc');
 
-    // Trả về kết quả tìm kiếm dưới dạng JSON
-    return response()->json([
-        'data' => $results,
-    ]);
-}
+        if (!empty($ThuongHieu)) {
+            $query->where(function ($query) use ($ThuongHieu) {
+                $query->where('ThuongHieu', 'LIKE', '%' . $ThuongHieu . '%');
+            });
+        }
+        if (!empty($MaSanPham)) {
+            $query->where(function ($query) use ($MaSanPham) {
+                $query->where('MaSanPham', 'LIKE', '%' . $MaSanPham . '%');
+            });
+        }
+        if (!empty($TenSanPham)) {
+            $query->where(function ($query) use ($TenSanPham) {
+                $query->where('TenSanPham', 'LIKE', '%' . $TenSanPham . '%');
+            });
+        }
+        if (!empty($LoaiKichCo)) {
+            $query->where(function ($query) use ($LoaiKichCo) {
+                $query->where('LoaiKichCo', 'LIKE', '%' . $LoaiKichCo . '%');
+            });
+        }
+        if (!empty($LoaiSanPham)) {
+            $query->where(function ($query) use ($LoaiSanPham) {
+                $query->where('LoaiSanPham', 'LIKE', '%' . $LoaiSanPham . '%');
+            });
+        }
+
+        if (!empty($GiaTien)) {
+            $query->where(function ($query) use ($GiaTien) {
+                $query->where('GiaTien', '=', $GiaTien );
+            });
+        }
+        if (!empty($created_at_from) && !empty($created_at_to)) {
+            $created_at_from = Carbon::createFromFormat('d/m/Y', $created_at_from)->startOfDay();
+            $created_at_to = Carbon::createFromFormat('d/m/Y', $created_at_to)->endOfDay();
+
+            $query->where('created_at', '>=', $created_at_from)
+                ->where('created_at', '<=', $created_at_to);
+
+        } elseif (!empty($created_at_from)) {
+            $created_at_from = Carbon::createFromFormat('d/m/Y', $created_at_from)->startOfDay();
+            $query->where('created_at', '>=', $created_at_from);
+        } elseif (!empty($created_at_to)) {
+            $created_at_to = Carbon::createFromFormat('d/m/Y', $created_at_to)->endOfDay();
+            $query->where('created_at', '<=', $created_at_to);
+        }
+
+        // Thực hiện tìm kiếm
+        $results = $query->get();
+
+        // Trả về kết quả tìm kiếm dưới dạng JSON
+        return response()->json([
+            'data' => $results,
+        ]);
+    }
 
 
 }

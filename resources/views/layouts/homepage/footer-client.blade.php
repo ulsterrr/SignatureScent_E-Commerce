@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset">
-                                <p>Đố biết ở đâu Tp.HCM</p>
+                                <p>65 Huỳnh Thúc Kháng, phường Bến Nghé, quận 1, Tp.HCM</p>
                             </div>
                         </div>
                         <!-- .icon-box -->
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset">
-                                <p><a href="tel:0769220162">0909909990</a></p>
+                                <p><a href="tel:0769220162">0327772310</a></p>
                             </div>
                         </div>
                         <!-- .icon-box -->
@@ -97,7 +97,7 @@
                                 </div>
                             </div>
                             <div class="icon-box-text last-reset">
-                                <p><a href="mailto:tempmail@gmail.com">tempmail@gmail.com</a></p>
+                                <p><a href="mailto:notthinginmyhand@gmail.com">notthinginmyhand@gmail.com</a></p>
                             </div>
                         </div>
                         <!-- .icon-box -->
@@ -133,107 +133,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col medium-3 small-6 large-2">
-                    <div class="col-inner" style="padding:0px 10px 0px 10px;">
-                        <h3>MENU</h3>
-                        <ul class="sidebar-wrapper ul-reset">
-                            <div class="mona_sidebar_footer">
-                                <div class="menu-menu-footer-company-container">
-                                    <ul id="menu-menu-footer-company" class="menu">
-                                        <li id="menu-item-361" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-361"><a href="">Trang chủ</a></li>
-                                        <li id="menu-item-363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="{{route('gioithieu-view')}}">Giới thiệu</a></li>
-                                        <li id="menu-item-362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="{{route('cuahang-view')}}">Cửa hàng</a></li>
-                                        <li id="menu-item-365" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="{{route('tintuc-view')}}">Tin tức</a></li>
-                                        <li id="menu-item-364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="{{route('lienhe-view')}}">Liên hệ</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col medium-3 small-6 large-2">
-                    <div class="col-inner" style="padding:0px 10px 0px 10px;">
-                        <h3>HỖ TRỢ</h3>
-                        <ul class="sidebar-wrapper ul-reset">
-                            <div class="mona_sidebar_footer">
-                                <div class="menu-menu-footer-company-container">
-                                    <ul id="menu-menu-footer-company-1" class="menu">
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-361"><a href="">Trang chủ</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="{{route('gioithieu-view')}}">Giới thiệu</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="{{route('cuahang-view')}}">Cửa hàng</a></li>
-                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="{{route('tintuc-view')}}">Tin tức</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="{{route('lienhe-view')}}">Liên hệ</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col medium-3 small-6 large-2">
-                    <div class="col-inner" style="padding:0px 10px 0px 10px;">
-                        <h3>DỊCH VỤ</h3>
-                        <ul class="sidebar-wrapper ul-reset">
-                            <div class="mona_sidebar_footer">
-                                <div class="menu-menu-footer-company-container">
-                                    <ul id="menu-menu-footer-company-2" class="menu">
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-361"><a href="">Trang chủ</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="{{route('gioithieu-view')}}">Giới thiệu</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="{{route('cuahang-view')}}">Cửa hàng</a></li>
-                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="{{route('tintuc-view')}}">Tin tức</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="{{route('lienhe-view')}}">Liên hệ</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col medium-3 small-6 large-2">
-                    <div class="col-inner" style="padding:0px 10px 0px 10px;">
-                        <h3>KHÁCH HÀNG</h3>
-                        <ul class="sidebar-wrapper ul-reset">
-                            <div class="mona_sidebar_footer">
-                                <div class="menu-menu-footer-company-container">
-                                    <ul id="menu-menu-footer-company-3" class="menu">
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-16 current_page_item menu-item-361"><a href="">Trang chủ</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-363"><a href="{{route('gioithieu-view')}}">Giới thiệu</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362"><a href="{{route('cuahang-view')}}">Cửa hàng</a></li>
-                                        <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-365"><a href="{{route('tintuc-view')}}">Tin tức</a></li>
-                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-364"><a href="{{route('lienhe-view')}}">Liên hệ</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col show-for-medium medium-6 small-12 large-4">
-                    <div class="col-inner" style="padding:0px 10px 0px 10px;">
-                        <h3>ĐĂNG KÝ</h3>
-                        <p>Đăng ký để nhận được được thông tin ưu đãi mới nhất từ chúng tôi.</p>
-                        <div role="form" class="wpcf7" id="wpcf7-f256-o2" lang="vi" dir="ltr">
-                            <div class="screen-reader-response"></div>
-                            <form action="/assets/#wpcf7-f256-o2" method="post" class="wpcf7-form" novalidate="novalidate">
-                                <div style="display: none;">
-                                    <input type="hidden" name="_wpcf7" value="256" />
-                                    <input type="hidden" name="_wpcf7_version" value="5.1.1" />
-                                    <input type="hidden" name="_wpcf7_locale" value="vi" />
-                                    <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f256-o2" />
-                                    <input type="hidden" name="_wpcf7_container_post" value="0" />
-                                    <input type="hidden" name="g-recaptcha-response" value="" />
-                                </div>
-                                {{-- <p><span class="wpcf7-form-control-wrap email-dang-ky"><input type="email" name="email-dang-ky" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email form_dang_ky" id="email-dang-ky" aria-required="true" aria-invalid="false" placeholder="Email ..." /></span><br />
-                                    <label id="btn-gui-icon"><i class="fa fa-paper-plane"></i><input type="submit" value="Gửi" class="wpcf7-form-control wpcf7-submit form_dang_ky mona-hiden" /></label>
-                                </p> --}}
-                                <div class="wpcf7-response-output wpcf7-display-none"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col medium-6 small-12 large-4">
-                    <div class="col-inner" style="padding:0px 10px 0px 10px;">
-                        <h3>INSTAGRAM</h3>
-                        <div class="gap-element clearfix" style="display:block; height:auto; padding-top:10px"></div> Instagram has returned invalid data.
-                    </div>
-                </div>
                 <style scope="scope">
                 </style>
             </div>
@@ -247,15 +146,6 @@
             }
         </style>
     </section>
-    <div class="absolute-footer dark medium-text-center text-center">
-        <div class="container clearfix">
-            <div class="footer-primary pull-left">
-                <div class="copyright-footer"> TEMPLATE </div>
-            </div>
-            <!-- .left -->
-        </div>
-        <!-- .container -->
-    </div>
     <!-- .absolute-footer -->
     <a href="#top" class="back-to-top button icon invert plain fixed bottom z-1 is-outline hide-for-medium circle" id="top-link"><i class="icon-angle-up"></i></a>
 </footer>

@@ -156,7 +156,7 @@
                                     <label for="TenChiNhanh" class="required">Chi nhánh:</label>
                                     <div class="input-group">
                                         <input type="text" value="{{ auth()->user()->LoaiTaiKhoan != 'A' ? auth()->user()->chiNhanh->MaChiNhanh : '' }}" class="form-control" id="MaChiNhanh" name="MaChiNhanh" hidden>
-                                        <input type="text" value="{{ auth()->user()->LoaiTaiKhoan != 'A' ? auth()->user()->chiNhanh->MaChiNhanh . ' - ' . auth()->user()->chiNhanh->TenChiNhanh : '' }}" class="form-control" id="TenChiNhanh" name="TenChiNhanh" readonly required aria-describedby="inputGroupCN">
+                                        <input type="text" value="{{ auth()->user()->LoaiTaiKhoan != 'A' ? auth()->user()->chiNhanh->MaChiNhanh . ' - ' . auth()->user()->chiNhanh->TenChiNhanh : '' }}" class="form-control" id="TenChiNhanh" name="TenChiNhanh" readonly aria-describedby="inputGroupCN">
                                         <div class="input-group-append">
                                             <button id="inputGroupCN" @disabled(auth()->user()->LoaiTaiKhoan != 'A') type="button" class="btn btn-primary" data-toggle="modal" data-target="#cn-modal">...</button>
                                         </div>

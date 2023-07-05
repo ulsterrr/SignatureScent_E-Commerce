@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Danh sách sản phẩm')
 @section('page-css')
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/datatables.min.css') }}">
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/sweetalert2.min.css')}}">
@@ -33,81 +34,84 @@
         </div>
         <div class="col-md-12 mb-4">
             <div class="card text-left">
-                <div class="card-header text-right bg-transparent">
+                {{-- <div class="card-header text-right bg-transparent">
                     <a type="button" href="{{ route('themSPham-view') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Nhập mới sản phẩm</a>
-                </div>
+                </div> --}}
 
                 <div class="card-body">
-                    {{-- <form  action="#" method="POST" class="mb-3 mt-0 p-3 pt-0">
+                    <form id="searchForm" method="POST" class="mb-3 mt-0 p-3 pt-0">
                         @csrf
                         <div class="form-row">
-                            <div class="col-md-2">
-                                <label for="CustomUsername2">Mã sản phẩm</label>
+                            <div class="col-md-3">
+                                <label for="picker3"></label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="CustomUsername2" name="MaSanPham" aria-describedby="inputGroupPrepend" required>
+                                    <button class="btn btn-primary" type="submit">Tìm kiếm theo bộ lọc</button>
                                 </div>
                             </div>
-                            <div class="col-md-2">
-                                <label for="validationCustomUsername3">Tên sản phẩm</label>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3 mt-3 text-right">
+                                <a type="button" href="{{ route('themSPham-view') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Nhập mới sản phẩm</a>
+                            </div>
+                            <div class="col-md-12 mt-2"></div>
+                            <div class="col-md-3">
+                                <label for="MaSanPham">Mã sản phẩm</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="validationCustomUsername3" name="TenSanPham" placeholder="" aria-describedby="inputGroupPrepend" required>
+                                    <input type="text" class="form-control" id="MaSanPham" name="MaSanPham" aria-describedby="inputGroupPrepend">
                                 </div>
                             </div>
-                            <div class="col-md-2">
-                                <label for="validationCustom02">Ghi chú</label>
-                                <input type="text" class="form-control" name="DiaChi" id="validationCustom02" placeholder="" required>
+                            <div class="col-md-3">
+                                <label for="TenSanPham">Tên sản phẩm</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="TenSanPham" name="TenSanPham" placeholder="" aria-describedby="inputGroupPrepend">
+                                </div>
                             </div>
-                            <div class="col-md-2">
-                                <label for="sel">Loại sản phẩm:</label>
-                                <select class="form-control" name="LoaiSanPham" id="sel">
+                            <div class="col-md-3">
+                                <label for="ThuongHieu">Thương hiệu</label>
+                                <input type="text" class="form-control" name="ThuongHieu" id="ThuongHieu" placeholder="ABC">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="GiaTien">Giá tiền</label>
+                                <input type="number" class="form-control" name="GiaTien" id="GiaTien">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="LoaiSanPham">Loại sản phẩm:</label>
+                                <select class="form-control" name="LoaiSanPham" id="LoaiSanPham">
                                     <option value="">Tất cả</option>
                                     @foreach($LoaiSP as $lsp)
                                         <option value="{{ $lsp->MaLoai }}">{{ $lsp->TenLoai }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-2">
-                                <label for="sel">Loại kích cỡ:</label>
-                                <select class="form-control" name="LoaiKichCo" id="sel1">
+                            <div class="col-md-3">
+                                <label for="LoaiKichCo">Loại kích cỡ:</label>
+                                <select class="form-control" name="LoaiKichCo" id="LoaiKichCo">
                                     <option value="">Tất cả</option>
                                     @foreach($LoaiKC as $lkc)
                                         <option value="{{ $lkc->MaKichCo }}">{{ $lkc->TenKichCo }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-2">
-                                <label for="validationCustom05">Thương hiệu</label>
-                                <input type="text" class="form-control" name="ThuongHieu" id="validationCustom05" placeholder="ABC" required>
-                            </div>
-                            <div class="col-md-12 mt-2"></div>
                             <div class="col-md-3">
-                                <label for="picker2">Ngày tạo (Từ ngày)</label>
+                                <label for="created_at_from">Ngày tạo (Từ ngày)</label>
                                 <div class="input-group">
-                                    <input id="picker2" class="form-control" placeholder="Ngày/Tháng/Năm" name="created_at_from">
+                                    <input id="created_at_from" class="form-control" placeholder="Ngày/Tháng/Năm" name="created_at_from">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroupPrepend"><i class="icon-regular i-Calendar-4"></i></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <label for="picker3">Ngày tạo (Đến ngày)</label>
+                                <label for="created_at_to">Ngày tạo (Đến ngày)</label>
                                 <div class="input-group">
-                                    <input id="picker3" class="form-control" placeholder="Ngày/Tháng/Năm" name="created_at_to">
+                                    <input id="created_at_to" class="form-control" placeholder="Ngày/Tháng/Năm" name="created_at_to">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroupPrepend1"><i class="icon-regular i-Calendar-4"></i></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mt-2"></div>
-                            <div class="col-md-2 mt-2">
-                                <label for="picker3"></label>
-                                <div class="input-group">
-                                    <button class="btn btn-primary" type="submit">Tìm kiếm theo bộ lọc</button>
-                                </div>
-                            </div>
                         </div>
-                        <div class="col-md-12"></div>
-                    </form> --}}
+                    </form>
 
                     <div class="table-responsive">
                         <table id="ul-contact-list" class="display table" style="width:100%; overflow-y: scroll">
@@ -168,7 +172,7 @@
                 url: localization_vi,
             },
             processing: true
-            , serverSide: true
+            // , serverSide: true
             , destroy: true
             , scrollCollapse: true
             , scrollX: true
@@ -300,6 +304,19 @@
                         $(settings.nTable).dataTable(settings);
                     });
                 }
+                , dom: 'Bfrtip'
+                , buttons: [
+                    {
+                        "extend": 'excel',
+                        "text": 'In danh sách Excel',
+                        'className': 'btn btn-primary text-white'
+                    },
+                    // 'excel', 'print'
+                ]
+                , initComplete: function() {
+                    var btn = $('.buttons-excel');
+                    btn.removeClass('btn-secondary');
+                },
         });
     });
 
@@ -349,10 +366,41 @@
 </script>
 <script>
     $(document).ready(function(){
-        $('#picker2, #picker3').pickadate({
+        $('#created_at_to, #created_at_from').pickadate({
             selectMonths: true,
             selectYears:true,
         });
     });
+
+    $(document).ready(function() {
+    var dataTable = $('#ul-contact-list').DataTable();
+
+    $('#searchForm').on('submit', function(e) {
+        e.preventDefault();
+
+        var formData = $(this).serialize();
+
+        $.ajax({
+            url: "{{ route('layDsSanPhamFilter') }}",
+            type: 'POST',
+            data: {
+                filter: formData,
+                _token: '{{ csrf_token() }}'
+            },
+            dataType: 'json',
+            success: function(response) {
+                // Xóa các dữ liệu hiện tại của DataTables
+                dataTable.clear().draw();
+
+                // Thêm dữ liệu mới từ response vào DataTables
+                dataTable.rows.add(response.data).draw();
+            },
+            error: function(xhr, status, error) {
+                console.log(error);
+            }
+        });
+    });
+});
+
 </script>
 @endsection
