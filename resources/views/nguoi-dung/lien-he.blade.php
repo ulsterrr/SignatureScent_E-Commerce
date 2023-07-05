@@ -52,6 +52,8 @@
                 </div>
                 <div class="col medium-6 small-12 large-6" data-animate="fadeInRight">
                     <div class="col-inner">
+
+                        <h3 style="text-align: center;">LIÊN HỆ VỚI CHÚNG TÔI</h3>
                         <div class="row row-small align-middle" id="row-1902054402">
                             <div class="col medium-4 small-12 large-3">
                                 <div class="col-inner text-center">
@@ -126,8 +128,8 @@
                             <style scope="scope">
                             </style>
                         </div>
-                        <h3 style="text-align: center;">LIÊN HỆ VỚI CHÚNG TÔI</h3>
-                        <div role="form" class="wpcf7" id="wpcf7-f43-p20-o1" lang="vi" dir="ltr">
+                        {{-- <h3 style="text-align: center;">LIÊN HỆ VỚI CHÚNG TÔI</h3> --}}
+                        {{-- <div role="form" class="wpcf7" id="wpcf7-f43-p20-o1" lang="vi" dir="ltr">
                             <div class="screen-reader-response"></div>
                             <form action="/vanibeauty/lien-he/#wpcf7-f43-p20-o1" method="post" class="wpcf7-form" novalidate="novalidate">
                                 <div style="display: none;">
@@ -160,7 +162,7 @@
                                 </div>
                                 <div class="wpcf7-response-output wpcf7-display-none"></div>
                             </form>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

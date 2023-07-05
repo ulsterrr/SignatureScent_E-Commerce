@@ -14,43 +14,54 @@
 <div id="main-dashboard" class="side-content-wrap">
     <div class="sidebar-left open rtl-ps-none" data-perfect-scrollbar data-suppress-scroll-x="true">
         <ul class="navigation-left navigation-left-cus">
+            @if (in_array('dashboard', auth()->user()->loaiTaiKhoan->phanQuyen->pluck('MaQuyen')->toArray()))
             <div id="btn-dashboard" class="nav-item" data-item="dashboard">
                 <a class="nav-item-hold" href="{{route('dashboard')}}">
                     <i class="nav-icon i-Bar-Chart"></i>
-                    <span class="nav-text">Dashboard</span>
+                    <span class="nav-text">Bảng điều khiển</span>
                 </a>
             </div>
+            @endif
+            @if (in_array('danhmuc', auth()->user()->loaiTaiKhoan->phanQuyen->pluck('MaQuyen')->toArray()))
             <li class="nav-item {{ request()->is('admin/danh-muc/*') ? 'active' : '' }}" data-item="apps">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Computer-Secure"></i>
                     <span class="nav-text">Quản lý danh mục</span>
                 </a>
             </li>
+            @endif
+            @if (in_array('khohang', auth()->user()->loaiTaiKhoan->phanQuyen->pluck('MaQuyen')->toArray()))
             <li class="nav-item {{ request()->is('admin/kho-hang/*') ? 'active' : '' }}" data-item="store">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Post-Office"></i>
                     <span class="nav-text">Quản lý kho hàng</span>
                 </a>
             </li>
-            </li>
+            @endif
+            @if (in_array('banhang', auth()->user()->loaiTaiKhoan->phanQuyen->pluck('MaQuyen')->toArray()))
             <li class="nav-item {{ request()->is('ban-hang/*') ? 'active' : '' }}" data-item="shop">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Shop-3"></i>
                     <span class="nav-text">Quản lý bán hàng</span>
                 </a>
             </li>
+            @endif
+            @if (in_array('thongke', auth()->user()->loaiTaiKhoan->phanQuyen->pluck('MaQuyen')->toArray()))
             <li class="nav-item {{ request()->is('ban-hang/*') ? 'active' : '' }}" data-item="analytics">
                 <a class="nav-item-hold" href="#">
                     <i class="nav-icon i-Monitor-Analytics"></i>
                     <span class="nav-text">Thống kê</span>
                 </a>
             </li>
-            <li class="nav-item last-item {{ request()->is('cai-dat/*') ? 'active' : '' }}" data-item="setting">
-                <a class="nav-item-hold" href="#">
+            @endif
+            @if (auth()->user()->LoaiTaiKhoan=='A')
+            <li id="btn-phanquyen" class="nav-item last-item {{ request()->is('admin/*') ? 'active' : '' }}" data-item="setting">
+                <a class="nav-item-hold" href="{{route('phan-quyen')}}">
                     <i class="nav-icon i-Gear"></i>
-                    <span class="nav-text">Cài đặt</span>
+                    <span class="nav-text">Phân quyền</span>
                 </a>
             </li>
+            @endif
         </ul>
 
     </div>
@@ -314,7 +325,7 @@
                 </a>
             </li>
         </ul>
-        <ul class="childNav" data-parent="setting">
+        {{-- <ul class="childNav" data-parent="setting">
             <li class="nav-item dropdown-sidemenu">
                 <a>
                     <i class="nav-icon i-Doctor"></i>
@@ -323,20 +334,20 @@
                 </a>
                 <ul class="submenu">
                     <li>
-                        <a class="{{ Route::currentRouteName()=='ds-donhang-view' ? 'open' : '' }}" href="{{ route('ds-donhang-view') }}">
-                            <i class="nav-icon i-Professor"></i>
-                            <span class="item-name">Danh sách quyền</span>
+                        <a class="{{ Route::currentRouteName()=='phan-quyen' ? 'open' : '' }}" href="{{ route('phan-quyen') }}">
+                            <i class="nav-icon i-Network"></i>
+                            <span class="item-name">Phân quyền loại tài khoản</span>
                         </a>
                     </li>
                     <li>
-                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
-                            <i class="nav-icon i-Network"></i>
-                            <span class="item-name">Phân quyền người dùng</span>
+                        <a class="{{ Route::currentRouteName()=='ds-donhang-view' ? 'open' : '' }}" href="{{ route('ds-donhang-view') }}">
+                            <i class="nav-icon i-Professor"></i>
+                            <span class="item-name">Chủ đề giao diện</span>
                         </a>
                     </li>
                 </ul>
             </li>
-        </ul>
+        </ul> --}}
     </div>
     <div class="sidebar-overlay"></div>
 </div>

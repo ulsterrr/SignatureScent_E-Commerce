@@ -16,6 +16,7 @@ use App\Http\Controllers\ThongKeController;
 use App\Http\Controllers\TaiKhoanController;
 use App\Http\Controllers\MaKhuyenMaiController;
 use App\Http\Controllers\VerificationController;
+use App\Models\DonHang;
 use App\Models\KhoHang;
 use App\Models\NhapHangMoi;
 use App\Models\SanPham;
@@ -81,15 +82,44 @@ Route::view('/tai-khoan', 'layouts.tai-khoan.tai-khoan')->name('tai-khoan');
 
 Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
 
-Route::get('/test', function () {
+// Route::get('/test', function () {
 
-    Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
+//     Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
 
-})->middleware('auth', 'kiemTraQuyen:test');
+// })->middleware('auth', 'kiemTraQuyen:test');
+// Route::get('/test2', function () {
+
+//     Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
+
+// })->middleware('auth', 'kiemTraQuyen:danhmuc');
 
 Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
-//Route::view('/user', 'he-thong.danh-muc.tai-khoan.ds-user')->name('user');
 
+Route::get('/admin/phan-quyen', [HeThongController::class, 'phanQuyenView'])->name('phan-quyen');
+Route::post('/phan-quyen-ajax', [HeThongController::class, 'layPhanQuyen'])->name('phanquyen-ajax');
+Route::post('/cap-nhat-phan-quyen-ajax', [HeThongController::class, 'updateTrangThai'])->name('capnhat.phanquyen-ajax');
+
+Route::middleware(['auth', 'kiemTraQuyen:danhmuc'])->group(function () {
+    // Các route trong này sẽ áp dụng middleware 'auth' và 'kiemTraQuyen' với tham số mã quyền là 'danhmuc':
+
+});
+Route::middleware(['auth', 'kiemTraQuyen:khohang'])->group(function () {
+    // Các route trong này sẽ áp dụng middleware 'auth' và 'kiemTraQuyen' với tham số mã quyền là 'danhmuc':
+
+});
+Route::middleware(['auth', 'kiemTraQuyen:banhang'])->group(function () {
+    // Các route trong này sẽ áp dụng middleware 'auth' và 'kiemTraQuyen' với tham số mã quyền là 'danhmuc':
+
+});
+Route::middleware(['auth', 'kiemTraQuyen:dashboard'])->group(function () {
+    // Các route trong này sẽ áp dụng middleware 'auth' và 'kiemTraQuyen' với tham số mã quyền là 'danhmuc':
+
+});
+
+Route::middleware(['auth', 'kiemTraQuyen:thongke'])->group(function () {
+    // Các route trong này sẽ áp dụng middleware 'auth' và 'kiemTraQuyen' với tham số mã quyền là 'danhmuc':
+
+});
 /*
 |--------------------------------------------------------------------------
 | ASSETS Routes END
@@ -112,7 +142,7 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
     Route::get('admin/chi-tiet-tai-khoan/{id}',[TaiKhoanController::class,'chiTietTaiKhoanView'])->name('chitietTK');
     Route::get('admin/cap-nhat-tai-khoan/{id}',[TaiKhoanController::class,'capNhatTaiKhoanView'])->name('capnhatTK-view');
     Route::get('admin/thong-tin-tai-khoan/{id}',[TaiKhoanController::class,'thongTinTaiKhoanView'])->name('thongtinTK-view');
-
+    Route::get('loaiTaiKhoanAjax',[HeThongController::class,'loaiTaiKhoanAjax'])->name('loaiTaiKhoanAjax');
 
     Route::post('admin/cap-nhat-tai-khoan/doi-anh-dai-dien/{id}', [TaiKhoanController::class, 'doiAnhDaiDien'])->name('capnhat-AnhDaiDien');
     //lấy ds user cho modal
@@ -179,8 +209,11 @@ Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
     Route::post('admin/cap-nhat-san-pham/{id}',[SanPhamController::class,'capNhatSPham'])->name('capnhatSPham-upd');
     Route::post('admin/cap-nhat-ct-san-pham/{id}',[SanPhamController::class,'capNhatCTSPham'])->name('capNhatCTSPham-upd');
     Route::get('admin/ds-ct-san-pham',[SanPhamController::class,'dsChiTietSanPham'])->name('dsChiTietSP-view');
-    Route::post('layDsCTSanPhamFilter',[SanPhamController::class,'layDsCTSanPhamFilter'])->name('layDsCTSanPhamFilter');
     Route::get('dsChiTietSanPhamAjax',[SanPhamController::class,'dsChiTietSanPhamAjax'])->name('dsChiTietSanPhamAjax');
+    // Filter
+    Route::post('layDsCTSanPhamFilter',[SanPhamController::class,'layDsCTSanPhamFilter'])->name('layDsCTSanPhamFilter');
+    Route::post('layDsSanPhamFilter',[SanPhamController::class,'layDsSanPhamFilter'])->name('layDsSanPhamFilter');
+    Route::post('loadDonHangFilter',[DonHangController::class,'loadDonHangFilter'])->name('loadDonHangFilter');
 
 //Quản lý kho hàng
     //Quản Lý Loại Sản Phẩm View

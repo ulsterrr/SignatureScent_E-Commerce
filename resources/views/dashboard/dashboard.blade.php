@@ -1,8 +1,9 @@
 @extends('layouts.admin.master')
+@section('title', 'Bảng điều khiển')
 @section('main-content')
            <div class="breadcrumb">
                 <ul>
-                    <li><a href="">Dashboard</a></li>
+                    <li><a href="">Bảng điều khiển</a></li>
                 </ul>
             </div>
 

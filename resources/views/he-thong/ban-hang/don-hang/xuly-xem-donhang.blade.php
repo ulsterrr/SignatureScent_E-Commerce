@@ -1,5 +1,6 @@
 <script>
     $(document).ready(function() {
+
         var dataChiTietDonHang = {!! json_encode($DonHang->chiTietDonHang) !!};
         $('#table-sanpham').DataTable({
             processing: true,
