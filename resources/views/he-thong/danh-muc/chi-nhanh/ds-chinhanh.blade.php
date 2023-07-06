@@ -10,8 +10,8 @@
 <div class="breadcrumb">
     <h1>Danh sách</h1>
     <ul>
-        <li><a href="">Ứng Dụng</a></li>
-        <li>Liên hệ</li>
+        <li><a href="">Quản lý</a></li>
+        <li>Chi Nhánh</li>
     </ul>
 </div>
 <div class="separator-breadcrumb border-top"></div>
