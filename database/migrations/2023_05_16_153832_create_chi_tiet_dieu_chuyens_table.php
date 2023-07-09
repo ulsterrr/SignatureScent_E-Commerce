@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('chi_tiet_dieu_chuyens', function (Blueprint $table) {
             $table->id();
             $table->string("MaCTDieuChuyen")->unique();
-            $table->string("MaPhieuDieuChuyen");
-            $table->string("MaSanPham");
-            $table->string("MaCTSanPham");
-            $table->string("TrangThaiHienTai");
-            $table->text("GhiChu");
+            $table->string("MaPhieuDieuChuyen")->nullable();
+            $table->string("MaSanPham")->nullable();
+            $table->string("MaCTSanPham")->nullable();
+            $table->string("TrangThaiHienTai")->nullable();
+            $table->text("GhiChu")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

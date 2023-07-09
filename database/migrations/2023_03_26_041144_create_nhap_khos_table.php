@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string("KichCo")->nullable();
             $table->decimal("TongTien", 18, 0)->nullable();
             $table->text("GhiChu")->nullable();
-            $table->string("NguoiTao");
+            $table->string("NguoiTao")->nullable();
             $table->string("MaKhoHang")->nullable();
             $table->timestamps();
             $table->softDeletes();

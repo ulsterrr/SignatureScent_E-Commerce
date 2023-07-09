@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string("MaXuatKho")->unique();
             $table->string("LyDoXuat")->nullable();
-            $table->string("ChiNhanhNhan");
+            $table->string("ChiNhanhNhan")->nullable();
             $table->date("NgayXuat")->nullable();
             $table->string("NguoiXuatKho");
-            $table->string("TrangThai");
+            $table->string("TrangThai")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -29,14 +29,14 @@ return new class extends Migration
             $table->decimal("TongTien", 18, 0)->nullable();
             $table->text("MoTa")->nullable();
             $table->string("HinhAnh")->nullable();
-            $table->string("LoaiSanPham");
-            $table->string("LoaiKichCo");
+            $table->string("LoaiSanPham")->nullable();
+            $table->string("LoaiKichCo")->nullable();
             $table->string("MaKhoHang")->nullable();
             $table->string("MaChiNhanh")->nullable();
             $table->text("GhiChu")->nullable();
             $table->text("SoSerial")->nullable();
             $table->integer("SoLuongSerial")->nullable();
-            $table->string("NguoiTao");
+            $table->string("NguoiTao")->nullable();
             $table->timestamps();
         });
     }

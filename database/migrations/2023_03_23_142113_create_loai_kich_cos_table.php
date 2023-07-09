@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("MaKichCo")->unique();
             $table->string("TenKichCo")->nullable();
-            $table->string("NguoiTao");
+            $table->string("NguoiTao")->nullable();
             $table->text("GhiChu")->nullable();
             // $table->timestamps("NgayTao");
             // $table->timestamps("NgayCapNhat");

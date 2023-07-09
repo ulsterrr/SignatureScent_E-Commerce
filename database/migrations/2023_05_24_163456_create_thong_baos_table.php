@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('thong_baos', function (Blueprint $table) {
             $table->id();
-            $table->string('TieuDe');
-            $table->string('NoiDung');
-            $table->string('LoaiThongBao');
-            $table->string('DuongDan');
-            $table->string('TrangThai');
-            $table->dateTime('ThoiGianXem');
-            $table->string('NguoiNhan');
+            $table->string('TieuDe')->nullable();
+            $table->string('NoiDung')->nullable();
+            $table->string('LoaiThongBao')->nullable();
+            $table->string('DuongDan')->nullable();
+            $table->string('TrangThai')->nullable();
+            $table->dateTime('ThoiGianXem')->nullable();
+            $table->string('NguoiNhan')->nullable();
             $table->timestamps();
         });
     }

@@ -24,8 +24,8 @@ return new class extends Migration
             $table->decimal("GiaTien", 18, 0)->nullable();
             $table->text("MoTa")->nullable();
             $table->string("HinhAnh")->nullable();
-            $table->string("LoaiKichCo");
-            $table->string("LoaiSanPham");
+            $table->string("LoaiKichCo")->nullable();
+            $table->string("LoaiSanPham")->nullable();
             $table->text("GhiChu")->nullable();
             $table->string("NguoiTao")->nullable();
             $table->softDeletes();

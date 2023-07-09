@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer("TrangThai")->nullable();
             $table->integer("GiaTri")->default(0);
             $table->integer("SoLuong")->nullable();
-            $table->string("NguoiTao");
+            $table->string("NguoiTao")->nullable();
             $table->timestamps();
         });
     }

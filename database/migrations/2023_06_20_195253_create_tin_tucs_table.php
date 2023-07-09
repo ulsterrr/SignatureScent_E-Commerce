@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('tin_tucs', function (Blueprint $table) {
             $table->id();
-            $table->string('TieuDe');
-            $table->text('NoiDung');
-            $table->text('PhuDe');
-            $table->string('Anh1');
-            $table->string('Anh2');
-            $table->string('Anh3');
+            $table->string('TieuDe')->nullable();
+            $table->text('NoiDung')->nullable();
+            $table->text('PhuDe')->nullable();
+            $table->string('Anh1')->nullable();
+            $table->string('Anh2')->nullable();
+            $table->string('Anh3')->nullable();
             $table->timestamps();
         });
     }

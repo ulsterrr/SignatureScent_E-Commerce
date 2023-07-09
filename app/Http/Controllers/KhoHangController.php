@@ -309,6 +309,7 @@ class KhoHangController extends Controller
             for ($i=0; $i < $req->SoLuongNhap; $i++) {
                 $chitietsp = new ChiTietSanPham();
                 $chitietsp->MaCTSanPham = $this->taoMaKhoaChinh('CTSP');
+                if(!isset($dsSerial[$i])) $dsSerial[$i] = '';
                 $chitietsp->SoSerial = $dsSerial[$i] ? $dsSerial[$i] : null;
                 $chitietsp->MaSanPham = $nhapkho->MaSanPham;
                 $chitietsp->KichCo = $nhapkho->KichCo;
@@ -335,7 +336,7 @@ class KhoHangController extends Controller
         }
 
         $nhapkho->save();
-        if(auth()->user()->LoaiTaiKhoan == 'A') {
+        if(auth()->user()->LoaiTaiKhoan == 'A' && $nhapkho->MaChiNhanh) {
             // Gửi email cho chi nhánh nếu người nhập là Admin
             $list_ctsp = ChiTietSanPham::nhapHang($nhapkho->MaNhapKho);
             $chi_nhanh = ChiNhanh::with('nguoiQuanLy')->where('MaChiNhanh', $nhapkho->MaChiNhanh)->first();

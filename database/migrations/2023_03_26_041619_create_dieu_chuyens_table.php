@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string("MaPhieuDieuChuyen")->unique();
             $table->string("LyDoDieuChuyen")->nullable();
-            $table->string("ChiNhanhHienTai");
-            $table->string("ChiNhanhDieuChuyen");
+            $table->string("ChiNhanhHienTai")->nullable();
+            $table->string("ChiNhanhDieuChuyen")->nullable();
             $table->date("NgayDieuChuyen")->nullable();
-            $table->string("NguoiDieuChuyen");
-            $table->string("TrangThai");
+            $table->string("NguoiDieuChuyen")->nullable();
+            $table->string("TrangThai")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
