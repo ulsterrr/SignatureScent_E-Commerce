@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LoaiTaiKhoan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +16,8 @@ class NhanVienController extends Controller
         return view('he-thong.danh-muc.nhan-vien.ds-nhanvien')->with("NhanVien",$nhanvien);
     }
     public function themNhanVienView(){
-        return view('he-thong.danh-muc.nhan-vien.them-nhanvien');
+        $LoaiTaiKhoan = LoaiTaiKhoan::all();
+        return view('he-thong.danh-muc.nhan-vien.them-nhanvien')->with("LoaiTaiKhoan",$LoaiTaiKhoan);
     }
 
     public function chiTietNhanVienView(){
@@ -23,7 +25,8 @@ class NhanVienController extends Controller
     }
     public function capNhatThongTinNVienView($id){
         $user = User::find($id);
-        return view('he-thong.danh-muc.nhan-vien.capnhat-nhanvien',compact('user'));
+        $ltk = LoaiTaiKhoan::all();
+        return view('he-thong.danh-muc.nhan-vien.capnhat-nhanvien',compact('user','ltk'));
     }
 
     public function capNhatThongTinNVien(Request $request,$id){

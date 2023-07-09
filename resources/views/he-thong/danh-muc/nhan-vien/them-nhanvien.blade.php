@@ -112,7 +112,13 @@
                         <div class="form-group col-md-2">
                             <label for="sel1">Loại tài khoản*:</label>
                             <select class="form-control" id="sel1" name="LoaiTaiKhoan">
-                              <option value="E">Nhân viên</option>
+                              @if(auth()->user()->LoaiTaiKhoan == 'A')
+                                @foreach ($LoaiTaiKhoan as $loaiTaiKhoan)
+                                    <option value="{{ $loaiTaiKhoan->MaLoai }}">{{ $loaiTaiKhoan->TenLoai }}</option>
+                                @endforeach
+                                @else
+                                <option value="E">Nhân viên</option>
+                              @endif
                             </select>
                         </div>
                         <div class="col-md-12"></div>

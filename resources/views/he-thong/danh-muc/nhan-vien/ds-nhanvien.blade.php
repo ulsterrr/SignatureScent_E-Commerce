@@ -278,7 +278,7 @@
                 , {
                     data: null
                     , render: function(data, type, row) {
-                        var editUrl = "{{ route('capnhat-thongtin-nv-upd', ['id' => ':id']) }}";
+                        var editUrl = "{{ route('capnhat-thongtin-nv-view', ['id' => ':id']) }}";
                         var detailUrl = "{{ route('chi-tiet-nv-view', ['id' => ':id']) }}";
                         var deleteUrl = "{{ route('xoaNV-del', ['id' => ':id']) }}";
 

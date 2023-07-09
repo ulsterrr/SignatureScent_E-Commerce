@@ -125,10 +125,9 @@
                         <div class="form-group col-md-2">
                             <label for="sel1">Loại tài khoản *:</label>
                             <select class="form-control" name="LoaiTaiKhoan" id="sel1">
-                              <option value="A">Admin</option>
-                              <option value="M">Quản lý</option>
-                              <option value="E">Nhân viên</option>
-                              <option value="C">Khách hàng</option>
+                                @foreach ($LoaiTaiKhoan as $loaiTaiKhoan)
+                                    <option value="{{ $loaiTaiKhoan->MaLoai }}">{{ $loaiTaiKhoan->TenLoai }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-md-12"></div>

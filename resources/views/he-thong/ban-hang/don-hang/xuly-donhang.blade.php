@@ -74,6 +74,14 @@
             var qc = data[0].chi_tiet_cua_san_pham.loai_kich_co.TenKichCo;
             var kc = data[0]['KichCo'];
             var tt = data[0]['TinhTrang'];
+                            switch (tt) {
+                                case '0': tt = 'Tồn kho'; break;
+                                case '1': tt = 'Bình thường'; break;
+                                case '2': tt = 'Đang bán'; break;
+                                case '3': tt = 'Đã bán'; break;
+                                case '4': tt = 'Hoàn trả'; break;
+                                default: return 'Không xác định'; break;
+                            }
             var table = $('#table-ctsanpham').DataTable();
 
             // Lấy số thứ tự lớn nhất hiện tại
@@ -536,6 +544,85 @@
 
         // Thêm dữ liệu vào các input ẩn trong form
         var $form = $('#form-donhang');
+        // Tạo 2 biến input cho request để chứa mảng dữ liệu của sản phẩm
+        $tableDataInput = $('<input>').attr('type', 'hidden').attr('name', 'dataTableDataSP').val(JSON.stringify(namedTableData));
+        $tableDataInput2 = $('<input>').attr('type', 'hidden').attr('name', 'dataTableDataCTSP').val(JSON.stringify(namedTableData2));
+        $form.append($tableDataInput, $tableDataInput2, $ThanhToan, $TongTien);
+
+        // Submit form
+        $form.submit();
+    }
+
+    function getDataAndSubmitMomo() {
+        // Lấy dữ liệu từ DataTable
+        var tableDataSP = $('#table-sanpham').DataTable().data().toArray();
+        var tableDataCTSP = $('#table-ctsanpham').DataTable().data().toArray();
+
+        // Lấy tên của cột gán cho biến trong mảng trả về
+        var namedTableData = tableDataSP.map(function(row) {
+            var namedRow = {};
+            $('#table-sanpham th').each(function(index) {
+                var columnName = $(this).attr('name');
+                var columnValue = row[index];
+                if (index == 3 || index == 5) {
+                    columnValue = formatToMoneyNumber(columnValue);
+                }
+                if (index == 4) {
+                    columnValue = parseInt(columnValue.match(/value=\"(\d+)\"/)[1]);
+                }
+                if (index == 6) {
+                    columnValue = '';
+                    columnValue = ''; // Trên 6 là nút xoá sẽ gán lại rỗng
+                    namedRow['SL'] = row[index + 1]; // Gán lấy số lượng cột số 7 bị ẩn ko chạy index cho tên biến mảng SL
+                }
+                namedRow[columnName] = columnValue;
+            });
+            return namedRow;
+        });
+        var namedTableData2 = tableDataCTSP.map(function(row) {
+            var namedRow = {};
+            $('#table-ctsanpham th').each(function(index) {
+                var columnName = $(this).attr('name');
+                var columnValue = row[index];
+                if (index >= 8) { // là 8 thì bỏ nút xoá
+                    columnValue = '';
+                } else namedRow[columnName] = row[index];
+
+            });
+            return namedRow;
+        });
+
+        if (checkMSPMatching(namedTableData, namedTableData2).length > 1) {
+            $('#alert-card-check-modal').css('display', '');
+            $('#alert-card-check-modal').removeClass('alert-success').addClass('alert-danger');
+            $('#alert-card-check-modal .alert-body-content').html(checkMSPMatching(namedTableData, namedTableData2));
+            $('#alert-card-check-modal').fadeIn(200);
+            setTimeout(function() {
+                $("#alert-card-check-modal").fadeOut();
+            }, 10000);
+            // Sử dụng phương thức scrollTo() của window để cuộn lên đầu trang
+            window.scrollTo({
+                top: 0
+                , behavior: "smooth" // Sử dụng hiệu ứng cuộn mượt (smooth)
+            });
+            return;
+        } else {
+            $('#alert-card-check-modal').css('display', 'none');
+        }
+
+        // Lấy thẻ div đang được hiển thị (có class active)
+        var activeTab = document.querySelector('.tab-pane.fade.show.active');
+        // Lấy tên id của tab gán cho loại thanh toán
+        var tabId = activeTab.getAttribute('id');
+        var tongTien = formatToMoneyNumber($('#TongTien').text());
+
+        $ThanhToan = $('<input>').attr('type', 'hidden').attr('name', 'ThanhToan').val(tabId);
+        $TongTien = $('<input>').attr('type', 'hidden').attr('name', 'TongTien').val(tongTien);
+
+
+        // Thêm dữ liệu vào các input ẩn trong form
+        var $form = $('#form-donhang');
+        document.getElementById('form-donhang').action = "{{route('taodonhang-momo')}}";
         // Tạo 2 biến input cho request để chứa mảng dữ liệu của sản phẩm
         $tableDataInput = $('<input>').attr('type', 'hidden').attr('name', 'dataTableDataSP').val(JSON.stringify(namedTableData));
         $tableDataInput2 = $('<input>').attr('type', 'hidden').attr('name', 'dataTableDataCTSP').val(JSON.stringify(namedTableData2));

@@ -18,7 +18,7 @@ class PhanQuyenNguoiDung
     {
         // kiểm tra nếu đúng quyền thì tiếp tục, không có mặc định về home
         if ($request->user() && $request->user()->loaiTaiKhoan->phanQuyen->contains('MaQuyen', $maQuyen)) {
-            dd($request->user()->loaiTaiKhoan->phanQuyen, $maQuyen);
+            // dd($request->user()->loaiTaiKhoan->phanQuyen, $maQuyen);
             return $next($request);
         }
 
