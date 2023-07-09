@@ -580,7 +580,7 @@ $(document).ready(function () {
             // SoLuongSerial: "required",
             LoaiKichCo: "required",
             KichCo: "required",
-            SoSerial: "required",
+            // SoSerial: "required",
 
         },
         messages: {
@@ -593,7 +593,7 @@ $(document).ready(function () {
             // SoLuongSerial: "Vui lòng nhập Tỉnh Thành",
             LoaiKichCo: "Vui lòng chọn loại kích cỡ",
             KichCo: "Vui lòng nhập kích cỡ",
-            SoSerial: "Vui lòng nhập số serial",
+            // SoSerial: "Vui lòng nhập số serial",
 
         }
     });

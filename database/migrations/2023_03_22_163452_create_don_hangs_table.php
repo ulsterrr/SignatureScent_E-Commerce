@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string("LoaiThanhToan");
             $table->string("VanChuyen")->nullable();
             $table->string("ChiNhanh")->nullable();
-            $table->string("NguoiTao");
+            $table->string("NguoiTao")->nullable();
             $table->string("TrangThai")->nullable();
             $table->integer("MaGioHang")->nullable();
             $table->timestamps();

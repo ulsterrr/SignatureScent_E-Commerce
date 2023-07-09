@@ -6,10 +6,10 @@
 
 @section('main-content')
 <div class="breadcrumb">
-    <h1>Thêm mới</h1>
+    <h1>Cập nhật</h1>
     <ul>
         <li><a href="">Tài khoản</a></li>
-        <li>Tạo tài khoản</li>
+        <li>cập nhật tài khoản</li>
     </ul>
 </div>
 

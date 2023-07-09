@@ -623,7 +623,7 @@ function getDataModalCN() {
                 , LoaiSanPham: "required",
                 LoaiKichCo: "required"
                 , KichCo: "required"
-                , SoSerial: "required",
+                // , SoSerial: "required",
 
             }
             , messages: {
@@ -633,7 +633,7 @@ function getDataModalCN() {
                 , LoaiSanPham: "Vui lòng chọn loại sản phẩm",
                 LoaiKichCo: "Vui lòng chọn loại kích cỡ"
                 , KichCo: "Vui lòng nhập kích cỡ"
-                , SoSerial: "Vui lòng nhập số serial",
+                // , SoSerial: "Vui lòng nhập số serial",
 
             }
         });

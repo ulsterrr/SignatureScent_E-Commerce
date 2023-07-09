@@ -63,14 +63,14 @@
                     <ul class="header-nav header-nav-main nav nav-right  nav-size-medium nav-uppercase">
                         @if (Auth::check())
                             <li class="account-item has-icon active  has-dropdown">
-                                <a href="#" class="account-link account-login" title="Tài khoản">
+                                <a href="{{route('homepage')}}" class="account-link account-login" title="Tài khoản">
                                     <i class="icon-user" style="font-size:16px;"></i>
                                     <span class="header-account-title"> <strong style="font-weight: bold;">{{ auth()->user()->HoTen }}</strong></span>
                                 </a>
                                 <!-- .account-link -->
                                 <ul class="nav-dropdown  nav-dropdown-simple">
                                     <li class="woocommerce-MyAccount-navigation-link woocommerce-MyAccount-navigation-link--orders">
-                                        <a href="#orders/">Đơn hàng</a>
+                                        <a href="{{route('dsdonhang-view')}}">Đơn hàng</a>
                                     </li>
 
                                     @if(Auth::check())

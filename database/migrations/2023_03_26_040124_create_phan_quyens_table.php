@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("LoaiTaiKhoan");
             $table->string("URI")->nullable();
             $table->integer("TrangThai")->nullable();
-            $table->string("NguoiTao");
+            $table->string("NguoiTao")->nullable();
             $table->timestamps();
         });
     }

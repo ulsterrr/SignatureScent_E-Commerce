@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string("MaXuatKho");
             $table->string("MaSanPham");
             $table->string("MaCTSanPham");
-            $table->string("TrangThaiHienTai");
-            $table->text("GhiChu");
+            $table->string("TrangThaiHienTai")->nullable();
+            $table->text("GhiChu")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

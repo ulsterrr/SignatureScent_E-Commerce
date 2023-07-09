@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string("SoTaiKhoan")->nullable();
             $table->string("MoMo")->nullable();
             $table->string("HinhAnh")->nullable();
-            $table->string("NguoiQuanLy");
+            $table->string("NguoiQuanLy")->nullable();
             $table->timestamps();
         });
     }

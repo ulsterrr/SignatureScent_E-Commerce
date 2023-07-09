@@ -34,7 +34,7 @@
         <div class="col-md-12 mb-4">
             <div class="card text-left">
                 <div class="card-header text-right bg-transparent">
-                    <a type="button" href="{{ route('themSPham-view') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Nhập mới sản phẩm</a>
+                    <a type="button" href="{{ route('xuatKhoView') }}" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Xuất kho sản phẩm</a>
                 </div>
 
                 <div class="card-body">

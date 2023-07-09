@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string("MaLoaiThanhToan")->unique();
             $table->string("TenLoaiThanhToan")->nullable();
             // $table->timestamps("NgayCapNhat");
-            $table->string("NguoiTao");
-            $table->text("GhiChu");
+            $table->string("NguoiTao")->nullable();
+            $table->text("GhiChu")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
