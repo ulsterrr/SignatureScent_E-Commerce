@@ -246,6 +246,7 @@ Route::middleware(['auth', 'kiemTraQuyen:dashboard'])->group(function () {
     // Các route trong này sẽ áp dụng middleware 'auth' và 'kiemTraQuyen' với tham số mã quyền là 'dashboard':
 
     Route::view('/dashboard', 'dashboard.dashboard')->name('dashboard');
+    Route::get('/charts-thangnam', [ThongKeController::class,'layDuLieu12Thang'])->name('charts-thangnam');
 });
 
 Route::middleware(['auth', 'kiemTraQuyen:thongke'])->group(function () {

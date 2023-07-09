@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\LoaiTaiKhoan;
+use App\Models\ChiNhanh;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -23,7 +24,8 @@ class TaiKhoanController extends Controller
     }
     public function themTaiKhoanView(){
         $ltk = LoaiTaiKhoan::all();
-        return view('he-thong.danh-muc.tai-khoan.them-user')->with('LoaiTaiKhoan',$ltk);
+        $cn = ChiNhanh::all();
+        return view('he-thong.danh-muc.tai-khoan.them-user')->with(['LoaiTaiKhoan'=>$ltk, 'ChiNhanh'=>$cn]);
     }
     public function themTaiKhoan(Request $request){
         $newuser =  new User();
@@ -38,7 +40,7 @@ class TaiKhoanController extends Controller
         $newuser->QuanHuyen = $request->QuanHuyen;
         $newuser->TinhThanh = $request->TinhThanh;
         $newuser->MaGiaoDien = "1";
-        $newuser->ChiNhanh = "";
+        $newuser->ChiNhanh =  $request->ChiNhanh;
 
 
         //convert chuỗi ngày sang kiểu dữ liệu ngày lưu vào db
@@ -73,7 +75,7 @@ class TaiKhoanController extends Controller
         $user->QuanHuyen = $request->QuanHuyen;
         $user->TinhThanh = $request->TinhThanh;
         $user->MaGiaoDien = "1";
-        $user->ChiNhanh = "";
+        $user->ChiNhanh =  $request->ChiNhanh;
         //Lấy time hiện tại
         $dt = Carbon::now('Asia/Ho_Chi_Minh');
         $user->updated_at = $dt;
@@ -90,8 +92,9 @@ class TaiKhoanController extends Controller
     }
     public function capNhatTaiKhoanView($id){
         $user = User::find($id);
+        $cn = ChiNhanh::all();
         $LoaiTaiKhoan = LoaiTaiKhoan::all();
-        return view('he-thong.danh-muc.tai-khoan.capnhat-user',compact('user', 'LoaiTaiKhoan'));
+        return view('he-thong.danh-muc.tai-khoan.capnhat-user',compact('user', 'LoaiTaiKhoan', 'cn'));
     }
     public function xoaTaiKhoan($id){
         $user = User::find($id);
@@ -158,6 +161,8 @@ class TaiKhoanController extends Controller
             $user->SDT = $req->SDT;
             $user->email = $req->Email;
             $user->DiaChi = $req->DiaChi;
+            $user->QuanHuyen = $req->QuanHuyen;
+            $user->TinhThanh = $req->TinhThanh;
             session()->flash('message','cập nhật thành công!');
 
             $user->save();

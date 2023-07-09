@@ -68,7 +68,7 @@
     @include('layouts.admin.search')
     <!-- ============ Search UI End ============= -->
 
-    @include('layouts.compact-customizer')
+    {{-- @include('layouts.compact-customizer') --}}
 
 
 
@@ -115,7 +115,7 @@
     @include('layouts.admin.search')
     <!-- ============ Search UI End ============= -->
 
-    @include('layouts.horizontal-customizer')
+    {{-- @include('layouts.horizontal-customizer') --}}
 
 
     <!-- ============ Horizontal Layout End ============= -->
@@ -163,7 +163,7 @@
     @include('layouts.admin.search')
     <!-- ============ Search UI End ============= -->
 
-    @include('layouts.admin.large-sidebar-customizer')
+    {{-- @include('layouts.admin.large-sidebar-customizer') --}}
 
 
     <!-- ============ Large Sidebar Layout End ============= -->
@@ -201,7 +201,7 @@
     @include('layouts.admin.search')
     <!-- ============ Search UI End ============= -->
 
-    @include('layouts.admin.large-sidebar-customizer')
+    {{-- @include('layouts.admin.large-sidebar-customizer') --}}
 
 
     <!-- ============ Large Sidebar Layout End ============= -->

@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Cập nhật tài khoản')
 @section('before-css')
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.css')}}">
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.date.css')}}">
@@ -61,7 +62,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12"></div>
                         <div class="col-md-6 form-group mb-3">
                             <label for="picker3">Ngày sinh</label>
                             <div class="input-group">
@@ -103,7 +103,7 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-12"></div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label for="sel">Giới tính*:</label>
                             <select class="form-control" id="sel" name="GioiTinh">
                                 <option value="M">Nam</option>
@@ -111,8 +111,7 @@
                                 <option value="U">Khác</option>
                             </select>
                         </div>
-                        <div class="col-md-12"></div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label for="sel1">Loại tài khoản*:</label>
                             <select class="form-control" id="sel1" name="LoaiTaiKhoan">
                                 @if(auth()->user()->LoaiTaiKhoan == 'A')
@@ -124,13 +123,21 @@
                                 @endif
                             </select>
                         </div>
-                        <div class="col-md-12"></div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label for="sel2">Trạng thái*:</label>
                             <select class="form-control" id="sel2" name="TrangThai">
                                 <option value="1">Hoạt động</option>
                                 <option value="0">Bị khoá</option>
                                 <option value="">NULL</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="ChiNhanh">Chi nhánh</label>
+                            <select class="form-control" name="ChiNhanh" id="ChiNhanh">
+                                <option value="">Tất cả</option>
+                                @foreach($cn as $cn)
+                                    <option {{ $user->ChiNhanh == $cn->MaChiNhanh ? 'selected' : '' }} value="{{ $cn->MaChiNhanh }}">{{ $cn->TenChiNhanh }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col-md-12 mt-3"></div>

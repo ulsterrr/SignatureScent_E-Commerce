@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Cập nhật đơn hàng')
 @section('before-css')
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/pickadate/classic.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/pickadate/classic.date.css') }}">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ChiNhanh;
 use App\Models\DonHang;
 use App\Models\SanPham;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -225,5 +226,93 @@ class ThongKeController extends Controller
         return response()->json([
             'data' => $results,
         ]);
+    }
+
+    public function layDuLieu12Thang()
+    {
+        $namHienTai = date('Y');
+        $dataOnline = [];
+        $dataOffline = [];
+
+        // Biểu đồ doanh thu
+        for ($thang = 1; $thang <= 12; $thang++) {
+            $startOfMonth = date('Y-m-01', strtotime($namHienTai . '-' . $thang . '-01'));
+            $endOfMonth = date('Y-m-t', strtotime($namHienTai . '-' . $thang . '-01'));
+
+            $result = DB::table('don_hangs')
+            ->select(DB::raw('SUM(TongTien) as total'))
+            ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
+            ->whereExists(function ($query) {
+                $query->select(DB::raw(1))
+                    ->from('users')
+                    ->whereColumn('users.email', '=', 'don_hangs.NguoiTao')
+                    ->where('users.LoaiTaiKhoan', '<>', 'C');
+            })
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->pluck('total')
+            ->first();
+
+            $result2 = DB::table('don_hangs')
+            ->select(DB::raw('SUM(TongTien) as total'))
+            ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
+            ->whereExists(function ($query) {
+                $query->select(DB::raw(1))
+                    ->from('users')
+                    ->whereColumn('users.email', '=', 'don_hangs.NguoiTao')
+                    ->where('users.LoaiTaiKhoan', '=', 'C');
+            })
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->pluck('total')
+            ->first();
+
+            $dataOnline[] = intval($result2) ?? 0;
+
+            $dataOffline[] = intval($result) ?? 0;
+        }
+
+        // Biểu đồ tròn
+        $query = DB::table('chi_nhanhs AS cn')
+        ->leftJoin('don_hangs AS dh', 'cn.MaChiNhanh', '=', 'dh.ChiNhanh')
+        ->select('cn.TenChiNhanh', DB::raw('COALESCE(SUM(dh.TongTien), 0) AS TongTien'))
+        ->whereNotNull('dh.MaDonHang')
+        ->groupBy('cn.TenChiNhanh');
+
+        $results = $query->get();
+
+        $dataPie = $results->map(function ($item) {
+            return [
+                'value' => $item->TongTien,
+                'name' => $item->TenChiNhanh,
+            ];
+        });
+
+
+        // Top 5 người dùng mới
+        $users = DB::table('users')
+        ->orderBy('created_at', 'desc')
+        ->limit(5)
+        ->get();
+
+        // Top 5 sản phẩm bán chạy
+        $topSanPham = DB::table('chi_tiet_don_hangs')
+                ->leftJoin('san_phams AS sp', 'sp.MaSanPham', '=', 'chi_tiet_don_hangs.MaSanPham')
+                ->select('sp.TenSanPham', 'sp.GiaTien', 'sp.MaSanPham', 'sp.MoTa', 'sp.HinhAnh', DB::raw('SUM(SoLuong) as SoLuongXuatHien'))
+                ->groupBy('MaSanPham', 'sp.TenSanPham', 'sp.GiaTien', 'sp.MaSanPham', 'sp.MoTa', 'sp.HinhAnh')
+                ->orderByDesc('SoLuongXuatHien')
+                ->limit(5)
+                ->get();
+
+        $tongKhachHang = User::where('LoaiTaiKhoan', '=', 'C')->count();
+        $tongBan = DB::table('chi_tiet_don_hangs')
+                ->select(DB::raw('SUM(SoLuong) as SoLuong'))
+                ->first()->SoLuong;
+        $tongDH = DB::table('don_hangs')
+                        ->select(DB::raw('COUNT(MaDonHang) as Tong'))
+                        ->first()->Tong;
+        $tongDT = DB::table('don_hangs')
+                        ->select(DB::raw('SUM(TongTien) as Tong'))
+                        ->first()->Tong;
+
+        return [$dataOffline, $dataOnline, $dataPie, $users, $topSanPham, $tongKhachHang, $tongBan, $tongDH, $tongDT];
     }
 }

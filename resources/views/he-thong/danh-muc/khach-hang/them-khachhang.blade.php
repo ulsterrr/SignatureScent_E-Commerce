@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Thêm mới khách hàng')
 @section('before-css')
  <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.css')}}">
  <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.date.css')}}">
@@ -68,7 +69,6 @@
                                 <input type="text" class="form-control" id="validationCustomUsername3" name="SDT" placeholder="0909909990" aria-describedby="inputGroupPrepend" required>
                             </div>
                         </div>
-                        <div class="col-md-12"></div>
                         <div class="col-md-6 form-group mb-3">
                             <label for="picker3">Ngày sinh</label>
                             <div class="input-group">
@@ -102,7 +102,7 @@
                     </div>
                     <div class="form-row">
                         <div class="col-md-12"></div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label for="sel">Giới tính*:</label>
                             <select class="form-control" id="sel" name="GioiTinh">
                               <option value="Nam">Nam</option>
@@ -110,15 +110,13 @@
                               <option value="Khác">Khác</option>
                             </select>
                         </div>
-                        <div class="col-md-12"></div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label for="sel1">Loại tài khoản*:</label>
                             <select class="form-control" id="sel1" name="LoaiTaiKhoan">
                               <option value="C">Khách hàng</option>
                             </select>
                         </div>
-                        <div class="col-md-12"></div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label for="sel2">Trạng thái*:</label>
                             <select class="form-control" id="sel2" name="TrangThai">
                                 <option  value="1">Hoạt động</option>

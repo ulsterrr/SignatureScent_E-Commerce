@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Thông tin nhân viên')
 @section('page-css')
 
 
@@ -63,8 +64,14 @@
                                 </div>
                                 <div class="col-12 text-center">
                                     <div class="ul-contact-detail__info-1">
+                                        <h5>Chi Nhánh</h5>
+                                        <span>{{ $nhanvien->chiNhanh->TenChiNhanh}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <div class="ul-contact-detail__info-1">
                                         <h5>Địa chỉ</h5>
-                                        <span>{{ $nhanvien->DiaChi }}</span>
+                                        <span>{{ $nhanvien->DiaChi . ', ' . $nhanvien->QuanHuyen . ', '. $nhanvien->TinhThanh }}</span>
                                     </div>
                                 </div>
                                 <div class="col-12 text-center">
@@ -103,7 +110,7 @@
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <a class="nav-item nav-link active show" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Trang chủ</a>
-                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Tiểu sử</a>
+                            {{-- <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Tiểu sử</a> --}}
                             <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Chỉnh sửa liên hệ</a>
                         </div>
                     </nav>

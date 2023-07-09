@@ -29,7 +29,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                if (Auth::user()->loaiTaiKhoan->MaLoai == 'A' || Auth::user()->loaiTaiKhoan->MaLoai == 'M'){
+                if (Auth::user()->loaiTaiKhoan->MaLoai == 'A' || Auth::user()->loaiTaiKhoan->MaLoai == 'M' || Auth::user()->loaiTaiKhoan->MaLoai == 'E'){
                     return redirect()->route('dashboard');
                 }
                 else if (Auth::user()->loaiTaiKhoan->MaLoai == 'C' || Auth::user()->loaiTaiKhoan->MaLoai == 'V'){
