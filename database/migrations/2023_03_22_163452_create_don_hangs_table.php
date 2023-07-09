@@ -31,6 +31,10 @@ return new class extends Migration
             $table->string("NguoiTao")->nullable();
             $table->string("TrangThai")->nullable();
             $table->integer("MaGioHang")->nullable();
+            $table->string("DoiTra")->nullable();
+            $table->string("LyDoDoiTra")->nullable();
+            $table->string("NguoiThucHien")->nullable();
+            $table->dateTime("NgayThucHien")->nullable();
             $table->timestamps();
         });
     }

@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Tạo đơn hàng')
 @section('before-css')
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/pickadate/classic.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/pickadate/classic.date.css') }}">
@@ -339,7 +340,7 @@
                         <div class="card-title">Phương thức thanh toán</div>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="home-basic-tab" data-toggle="tab" href="#momo" role="tab" aria-controls="momotab" aria-selected="true">
+                                <a class="nav-link active" id="momo-basic-tab" data-toggle="tab" role="tab" aria-controls="momotab" aria-selected="true">
                                     <i class="icon-momo text-16 align-middle mr-1"></i>
                                     <span>Ví Momo</span>
                                 </a>
@@ -361,7 +362,7 @@
                             <div class="tab-pane fade show active" id="momo" role="tabpanel" aria-labelledby="momotab">
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
-                                        <button id="btn-xacnhan" type="button" class="btn btn-danger m-1">
+                                        <button id="btn-momo" onclick="getDataAndSubmitMomo()" name="payUrl" type="button" class="btn btn-danger m-1">
                                             Bấm vào đây để nhận mã QR thanh toán!
                                         </button>
                                     </div>

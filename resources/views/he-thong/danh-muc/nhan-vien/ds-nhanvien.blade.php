@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Danh sách nhân viên')
 @section('page-css')
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/datatables.min.css') }}">
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/sweetalert2.min.css')}}">
@@ -278,16 +279,24 @@
                 , {
                     data: null
                     , render: function(data, type, row) {
-                        var editUrl = "{{ route('capnhat-thongtin-nv-upd', ['id' => ':id']) }}";
+                        var editUrl = "{{ route('capnhat-thongtin-nv-view', ['id' => ':id']) }}";
                         var detailUrl = "{{ route('chi-tiet-nv-view', ['id' => ':id']) }}";
                         var deleteUrl = "{{ route('xoaNV-del', ['id' => ':id']) }}";
 
+                        // return `<td class="text-center">
+                        //             <a href="${editUrl.replace(':id', data.id)}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
+                        //                 <i class="i-Edit"></i>
+                        //             </a>
+                        //             <a href="${detailUrl.replace(':id', data.id)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                        //                 <i class="i-Eye-Visible"></i>
+                        //             </a>
+                        //             <a id="deleteCurUser" class="ul-link-action text-danger mr-1 delete-user" data-toggle="tooltip" data-placement="top" title="Xoá tài khoản này!!!">
+                        //                 <i class="i-Eraser-2"></i>
+                        //             </a>
+                        //         </td>`;
                         return `<td class="text-center">
                                     <a href="${editUrl.replace(':id', data.id)}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
                                         <i class="i-Edit"></i>
-                                    </a>
-                                    <a href="${detailUrl.replace(':id', data.id)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
-                                        <i class="i-Eye-Visible"></i>
                                     </a>
                                     <a id="deleteCurUser" class="ul-link-action text-danger mr-1 delete-user" data-toggle="tooltip" data-placement="top" title="Xoá tài khoản này!!!">
                                         <i class="i-Eraser-2"></i>

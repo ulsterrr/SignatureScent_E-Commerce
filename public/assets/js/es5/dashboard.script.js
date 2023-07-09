@@ -13,7 +13,7 @@ $(document).ready(function () {
                 borderRadius: 0,
                 orient: 'horizontal',
                 x: 'right',
-                data: ['Mua trực tiếp', 'Mua tại cửa hàng'],
+                data: ['Mua trực tiếp', 'Mua Online'],
                 inactiveColor: "silver",
                 textStyle: {
                     color: ['#ff0000', '#008000'],
@@ -87,7 +87,7 @@ $(document).ready(function () {
                     }
                 }
             }, {
-                name: 'Mua tại cửa hàng',
+                name: 'Mua Online',
                 data: [45000, 82000, 35000, 93000, 71000, 89000, 49000, 91000, 80200, 86000, 35000, 40050],
                 label: { show: false, color: '#639' },
                 type: 'bar',
@@ -202,31 +202,6 @@ $(document).ready(function () {
         $(window).on('resize', function () {
             setTimeout(function () {
                 echart2.resize();
-            }, 500);
-        });
-    }
-    // Chart in Dashboard version 1
-    var echartElem3 = document.getElementById('echart3');
-    if (echartElem3) {
-        var echart3 = echarts.init(echartElem3);
-        echart3.setOption(_extends({}, echartOptions.lineNoAxis, {
-            series: [{
-                data: [40, 80, 20, 90, 30, 80, 40, 90, 20, 80, 30, 45, 50, 110, 90, 145, 120, 135, 120, 140],
-                lineStyle: _extends({
-                    color: 'rgba(102, 51, 153, 0.8)',
-                    width: 3
-                }, echartOptions.lineShadow),
-                label: { show: true, color: '#212121' },
-                type: 'line',
-                smooth: true,
-                itemStyle: {
-                    borderColor: 'rgba(102, 51, 153, 1)'
-                }
-            }]
-        }));
-        $(window).on('resize', function () {
-            setTimeout(function () {
-                echart3.resize();
             }, 500);
         });
     }

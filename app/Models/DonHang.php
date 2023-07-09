@@ -9,7 +9,7 @@ class DonHang extends Model
 {
     use HasFactory;
     protected $table = 'don_hangs';
-    protected $fillable=['MaDonHang','Email','HoTen','DiaChi','SDT','TinhThanh','QuanHuyen','GhiChu','MaKhuyenMai','LoaiThanhToan','VanChuyen','PhiVanChuyen','TongTien','ChiNhanh','NguoiTao','MaGioHang','TrangThai'];
+    protected $fillable=['MaDonHang','Email','HoTen','DiaChi','SDT','TinhThanh','QuanHuyen','GhiChu','MaKhuyenMai','LoaiThanhToan','VanChuyen','PhiVanChuyen','TongTien','ChiNhanh','NguoiTao','MaGioHang','TrangThai','DoiTra','LyDoDoiTra','NguoiThucHien','NgayThucHien'];
 
     // Lấy thông tin chi nhánh
     public function getChiNhanh(){

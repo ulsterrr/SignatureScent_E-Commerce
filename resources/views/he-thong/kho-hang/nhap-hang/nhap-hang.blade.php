@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Nhập mới sản phẩm')
 @section('before-css')
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.css')}}">
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.date.css')}}">
@@ -146,6 +147,7 @@
                                 <div class="form-group">
                                     {{-- <input type="number" onfocusout="thayDoiSL()" readonly class="form-control" id="SoLuongNhap" name="SoLuongNhap" aria-describedby="inputGroupPrepend" required> --}}
                                     <input type="number" onchange="thayDoiSL()" class="form-control" id="SoLuongNhap" name="SoLuongNhap" aria-describedby="inputGroupPrepend" required>
+                                    <input id="LoaiNhap" hidden type="checkbox" checked name="LoaiNhap" value="NhapLo">
                                 </div>
                             </div>
 

@@ -229,7 +229,13 @@
                     data: 'MaDonHang'
                 }
                 , {
-                    data: 'TongTien'
+                    data: null
+                    , render: function(data) {
+                        let amount = data.TongTien;
+                        if(!amount) return 0;
+                        let formattedAmount = numeral(amount).format('0,0'); // "1.000.000 ₫"
+                        return formattedAmount;
+                    }
                 }
                 , {
                     data: 'LoaiThanhToan', render: function (data) {
@@ -285,6 +291,7 @@
                     , render: function(data, type, row) {
                         var detailUrl = "{{ route('chiTietDonhangView', ['mdh' => ':id']) }}";
                         var updUrl = "{{ route('capNhatDonhangView', ['mdh' => ':id']) }}";
+                        var doiTraUrl = "{{ route('doiTraView', ['mdh' => ':id']) }}";
 
                         if(data.TrangThai=='NEW' || !data.TrangThai) {
                             return `<td class="text-center">
@@ -307,6 +314,9 @@
                                         <a href="${detailUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
                                             <i class="i-Eye-Visible"></i>
                                         </a>
+                                        <a href="${doiTraUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Đổi trả đơn">
+                                            <i class="i-Sync"></i>
+                                         </a>
                                     </td>`;
                         }
                         if(data.TrangThai=='SHIP') {
@@ -320,6 +330,9 @@
                                     <a href="${detailUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
                                         <i class="i-Eye-Visible"></i>
                                     </a>
+                                        <a href="${doiTraUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Đổi trả đơn">
+                                            <i class="i-Sync"></i>
+                                         </a>
                                 </td>`;
                         }
                         return  `<td class="text-center">

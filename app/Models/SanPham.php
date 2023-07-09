@@ -10,7 +10,7 @@ class SanPham extends Model
 {
     use HasFactory;
     protected $table = 'san_phams';
-    protected $fillable=['MaSanPham','TenSanPham','ThuongHieu','TrangThai','VAT','GiaVAT','GiaTien','MoTa','HinhAnh','LoaiKichCo','LoaiSanPham','GhiChu','NguoiTao'];
+    protected $fillable=['MaSanPham','TenSanPham','ThuongHieu','TrangThai','VAT','GiaVAT','GiaTien','MoTa','HinhAnh','LoaiKichCo','LoaiSanPham','GhiChu','NguoiTao','SoLuong'];
 
     // Khoá ngoại loại sản phẩm
     public function loaiSanPham()
@@ -32,6 +32,11 @@ class SanPham extends Model
     // Khoá ngoại liên kết lấy tất cả sản phẩm và các bảng liên quan
     public static function getTatCaSanPham(){
         return SanPham::with('loaiSanPham', 'loaiKichCo')->orderBy('MaSanPham','desc')->get();
+    }
+
+    public function laySoLuongChiTiet()
+    {
+        return ChiTietSanPham::where('MaSanPham', $this->MaSanPham)->count();
     }
 
 }

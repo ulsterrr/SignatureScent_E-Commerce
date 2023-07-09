@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Cập nhật đơn hàng')
 @section('before-css')
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/pickadate/classic.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/pickadate/classic.date.css') }}">
@@ -339,10 +340,10 @@
                         <div class="card-title">Phương thức thanh toán</div>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link {{ $DonHang->LoaiThanhToan == 'momo' ? 'active' : '' }}" id="home-basic-tab" data-toggle="tab" href="#momo" role="tab" aria-controls="momotab" aria-selected="true">
+                                {{-- <a class="nav-link {{ $DonHang->LoaiThanhToan == 'momo' ? 'active' : '' }}" id="home-basic-tab" data-toggle="tab" href="#momo" role="tab" aria-controls="momotab" aria-selected="true">
                                     <i class="icon-momo text-16 align-middle mr-1"></i>
                                     <span>Ví Momo</span>
-                                </a>
+                                </a> --}}
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {{ $DonHang->LoaiThanhToan == 'atm' ? 'active' : '' }}" id="home-basic-tab" data-toggle="tab" href="#atm" role="tab" aria-controls="homeBasic" aria-selected="false">

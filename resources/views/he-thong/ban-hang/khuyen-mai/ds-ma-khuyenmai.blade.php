@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Danh sách khuyến mãi')
 @section('page-css')
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/datatables.min.css') }}">
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/sweetalert2.min.css')}}">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChiNhanh;
+use App\Models\LoaiTaiKhoan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,15 +17,20 @@ class NhanVienController extends Controller
         return view('he-thong.danh-muc.nhan-vien.ds-nhanvien')->with("NhanVien",$nhanvien);
     }
     public function themNhanVienView(){
-        return view('he-thong.danh-muc.nhan-vien.them-nhanvien');
+        $LoaiTaiKhoan = LoaiTaiKhoan::all();
+        $cn = ChiNhanh::all();
+        return view('he-thong.danh-muc.nhan-vien.them-nhanvien')->with(['LoaiTaiKhoan'=>$LoaiTaiKhoan, 'ChiNhanh'=>$cn]);
     }
 
-    public function chiTietNhanVienView(){
-        return view('he-thong.danh-muc.nhan-vien.nhanvien-details');
+    public function chiTietNhanVienView($id){
+        $nhanvien = User::find($id);
+        return view('he-thong.danh-muc.nhan-vien.nhanvien-details')->with('nhanvien', $nhanvien);
     }
     public function capNhatThongTinNVienView($id){
         $user = User::find($id);
-        return view('he-thong.danh-muc.nhan-vien.capnhat-nhanvien',compact('user'));
+        $ltk = LoaiTaiKhoan::all();
+        $cn = ChiNhanh::all();
+        return view('he-thong.danh-muc.nhan-vien.capnhat-nhanvien',compact('user','ltk','cn'));
     }
 
     public function capNhatThongTinNVien(Request $request,$id){
@@ -38,7 +45,7 @@ class NhanVienController extends Controller
         $nhanvien->QuanHuyen = $request->QuanHuyen;
         $nhanvien->TinhThanh = $request->TinhThanh;
         $nhanvien->MaGiaoDien = "1";
-        $nhanvien->ChiNhanh = "";
+        $nhanvien->ChiNhanh = $request->ChiNhanh;
         $date_time = Carbon::createFromFormat('d/m/Y', $request->NgaySinh)->toDateTimeString();
         $nhanvien->NgaySinh = $date_time;
         $nhanvien->TrangThai = $request->TrangThai;
@@ -79,7 +86,7 @@ class NhanVienController extends Controller
         $newuser->QuanHuyen = $request->QuanHuyen;
         $newuser->TinhThanh = $request->TinhThanh;
         $newuser->MaGiaoDien = "1";
-        $newuser->ChiNhanh = "";
+        $newuser->ChiNhanh = $request->ChiNhanh;
 
 
         //convert chuỗi ngày sang kiểu dữ liệu ngày lưu vào db

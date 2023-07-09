@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Thông tin tài khoản')
 @section('page-css')
 
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/dropzone.min.css')}}">
@@ -72,8 +73,14 @@
                             </div>
                             <div class="col-12 text-center">
                                 <div class="ul-contact-detail__info-1">
+                                    <h5>Chi Nhánh</h5>
+                                    <span>{{ $user->chiNhanh->TenChiNhanh}}</span>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <div class="ul-contact-detail__info-1">
                                     <h5>Địa chỉ</h5>
-                                    <span>{{ $user->DiaChi }}</span>
+                                    <span>{{ $user->DiaChi . ', ' . $user->QuanHuyen . ', '. $user->TinhThanh }}</span>
                                 </div>
                             </div>
                             <div class="col-12 text-center">
@@ -152,6 +159,18 @@
                                     <label for="inputPassword3" class="col-sm-2 col-form-label">Địa chỉ</label>
                                     <div class="col-sm-10">
                                         <input class="form-control" id="DiaChi" name = 'DiaChi' value="{{$user->DiaChi}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="QuanHuyen" class="col-sm-2 col-form-label">Quận/Huyện</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" id="QuanHuyen" name = 'QuanHuyen' value="{{$user->DiaChi}}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="TinhThanh" class="col-sm-2 col-form-label">Tỉnh/Thành</label>
+                                    <div class="col-sm-10">
+                                        <input class="form-control" id="TinhThanh" name = 'TinhThanh' value="{{$user->DiaChi}}">
                                     </div>
                                 </div>
                                 <fieldset class="form-group">

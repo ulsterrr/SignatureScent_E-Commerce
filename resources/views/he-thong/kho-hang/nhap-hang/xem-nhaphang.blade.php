@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Xem phiếu nhập mới')
 @section('before-css')
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.css')}}">
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/pickadate/classic.date.css')}}">

@@ -31,10 +31,65 @@
             </div>
             @endif
         </div>
+        <div class="col-md-12">
+            <div id="alert-card" class="alert alert-card fade show" role="alert" style="display: none;">
+                <strong class="alert-heading text-capitalize"></strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="alert-body-content"></div>
+            </div>
+        </div>
         <div class="col-md-12 mb-4">
             <div class="card text-left">
                 <div class="card-body">
 
+                    <div class="card-header text-right bg-transparent">
+                        <a type="button" href="#" data-toggle="modal" data-target="#ltkmodal-add" class="btn btn-primary btn-md m-1"><i class="i-Add text-white mr-2"></i> Thêm loại tài khoản mới</a>
+                    </div>
+                    <div id="ltkmodal-add" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" style="max-width: 900px !important;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        Thêm mới Loại tài khoản</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="col-md-12 mt-3">
+                                        <div id="alert-card-sp-modal" class="alert alert-card fade show" role="alert" style="display: none;">
+                                            <div class="alert-body-content"></div>
+                                        </div>
+                                    </div>
+                                    <form id="new-LTK">
+                                        <div class="form-group">
+                                            <label for="MaLoai" class="required">Mã loại *</label>
+                                            <input onfocusout="checkMaLTKUnique()" id="MaLoai" name="MaLoai" type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="TenLoai" class="required">Tên loại *</label>
+                                            <input type="text" class="form-control" name="TenLoai" id="TenLoai" aria-describedby="emailHelp">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="GhiChu">Ghi chú</label>
+                                            <textarea class="form-control" name="GhiChu" id="GhiChu" rows="5" placeholder="..."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="NguoiTao">Người thực hiện</label>
+                                            <input id="NguoiTao" name="NguoiTao" type="text" disabled class="form-control" value="{{ auth()->user() ? auth()->user()->HoTen : 'NULL' }}" placeholder="VD: LTK0001, LTK0002,...">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                                    <button type="button" id="saveLTKModal" class="btn btn-primary">Thêm mới</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end::modal-add -->
                     <!-- begin::modal-edit -->
                     <div id="capnhat_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" style="max-width: 900px !important;">
@@ -203,7 +258,7 @@
                     data: null
                     , render: function(data, type, row) {
                         return `<td class="text-center">
-                                    <a id="updateLSP" href="#" class="ul-link-action text-success update-lsp" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
+                                    <a id="updateLTK" href="#" class="ul-link-action text-success update-lsp" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa">
                                         <i class="i-Edit"></i>
                                     </a>
                                 </td>`;
@@ -224,22 +279,20 @@
 
 </script>
 <script>
-    //button cập nhật
+    //button thêm mới
     $(document).ready(function() {
-        $('#updateLSPModal').click(function() {
-            $('#upd-LSP').valid();
-            if ($('#upd-LSP').valid()) {
-                var id = $('#IDLSP-e').val();
-                var ml = $('#MaLoai-e').val();
-                var tl = $('#TenLoai-e').val();
-                var gc = $('#GhiChu-e').val();
+        $('#saveLTKModal').click(function() {
+            $('#new-LTK').valid();
+            if ($('#new-LTK').valid()) {
+                var ml = $('#MaLoai').val();
+                var tl = $('#TenLoai').val();
+                var gc = $('#GhiChu').val();
                 var token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({
-                    url: "{{ route('capnhatLoaiSPham-upd', ['id' => ':id']) }}".replace(':id', id)
+                    url: "{{ route('themLoaiTK-add') }}"
                     , type: 'POST'
                     , data: {
-                        Id: id
-                        , MaLoai: ml
+                        MaLoai: ml
                         , TenLoai: tl
                         , GhiChu: gc
                         , _token: token
@@ -250,24 +303,17 @@
                         $('#TenLoai').val('');
                         $('#GhiChu').val('');
                         $('#loaitaikhoan_table').DataTable().ajax.reload(null, false);
-                        $('#lspmodal-edit').modal('hide'); // Ẩn modal
+                        $('#ltkmodal-add').modal('hide'); // Ẩn modal
                         $('#alert-card').removeClass('alert-danger').addClass('alert-success');
                         $('#alert-card .alert-heading').html('Thành công');
-                        $('#alert-card .alert-body-content').html('Dữ liệu đã được cập nhật thành công.');
+                        $('#alert-card .alert-body-content').html('Dữ liệu đã được thêm mới thành công.');
                         $('#alert-card').fadeIn(500);
                         setTimeout(function() {
                             $("#alert-card").fadeOut();
                         }, 5000);
                     }
                     , error: function(response) {
-                        $('#lspmodal-edit').modal('hide'); // Ẩn modal
-                        $('#alert-card').removeClass('alert-success').addClass('alert-danger');
-                        $('#alert-card .alert-heading').html('Lỗi');
-                        $('#alert-card .alert-body-content').html('Dữ liệu không được xử lý thành công.');
-                        $('#alert-card').fadeIn(500);
-                        setTimeout(function() {
-                            $("#alert-card").fadeOut();
-                        }, 5000);
+                        // Xử lý lỗi
                     }
                 });
             }
@@ -372,6 +418,31 @@
         });
     });
 
+    //Check trùng mã loại sp
+    function checkMaLTKUnique() {
+        var fieldValue = $('#MaLoai').val();
+        var token = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url: "{{ route('kiemtra-maltk') }}"
+            , method: 'POST'
+            , data: {
+                MaLoai: fieldValue, // Đặt giá trị của $recordId tương ứng với bản ghi hiện tại
+                _token: token
+            }
+            , success: function(response) {
+                if (response.valid) {
+                    // Giá trị đã tồn tại, có lỗi
+                    $('#alert-card-sp-modal').css('display', '');
+                    $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-danger');
+                    $('#alert-card-sp-modal .alert-body-content').html(`Mã loại: ${fieldValue} đã có thông tin trong hệ thống.`);
+                    $('#alert-card-sp-modal').fadeIn(100);
+                } else {
+                    // Giá trị là duy nhất, không có lỗi
+                    $('#alert-card-sp-modal').css('display', 'none');
+                }
+            }
+        });
+    };
 
 </script>
 @endsection

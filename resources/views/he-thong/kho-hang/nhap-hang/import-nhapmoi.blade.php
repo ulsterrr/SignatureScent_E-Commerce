@@ -1,4 +1,5 @@
 @extends('layouts.admin.master')
+@section('title', 'Import sản phẩm')
 @section('page-css')
 <link rel="stylesheet" href="{{ asset('assets/styles/vendor/datatables.min.css') }}">
 <link rel="stylesheet" href="{{asset('assets/styles/vendor/sweetalert2.min.css')}}">

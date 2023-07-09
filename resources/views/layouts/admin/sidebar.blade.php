@@ -48,7 +48,7 @@
             @endif
             @if (in_array('thongke', auth()->user()->loaiTaiKhoan->phanQuyen->pluck('MaQuyen')->toArray()))
             <li class="nav-item {{ request()->is('ban-hang/*') ? 'active' : '' }}" data-item="analytics">
-                <a class="nav-item-hold" href="#">
+                <a class="nav-item-hold" href="javascript:;">
                     <i class="nav-icon i-Monitor-Analytics"></i>
                     <span class="nav-text">Thống kê</span>
                 </a>
@@ -319,11 +319,89 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="{{ Route::currentRouteName()=='qly-mkm-view' ? 'open' : '' }}" href="{{ route('qly-mkm-view') }}">
+                <a class="{{ Route::currentRouteName()=='dsDoiTraView' ? 'open' : '' }}" href="{{ route('dsDoiTraView') }}">
                     <i class="nav-icon i-Reset"></i>
                     <span class="item-name">Đổi trả sản phẩm</span>
                 </a>
             </li>
+        </ul>
+        <ul class="childNav" data-parent="analytics">
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='sanPhamThangView' ? 'open' : '' }}" href="{{ route('sanPhamThangView') }}">
+                    <i class="nav-icon i-Suitcase"></i>
+                    <span class="item-name">Sản phẩm trên hệ thống</span>
+                </a>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='thongKeDonHangView' ? 'open' : '' }}" href="{{ route('thongKeDonHangView') }}">
+                    <i class="nav-icon i-Receipt-4"></i>
+                    <span class="item-name">Đơn hàng</span>
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a class="{{ Route::currentRouteName()=='thongKeDoanhThuView' ? 'open' : '' }}" href="{{ route('thongKeDoanhThuView') }}">
+                    <i class="nav-icon i-Money-2"></i>
+                    <span class="item-name">Doanh thu</span>
+                </a>
+
+            </li>
+            {{-- <li class="nav-item dropdown-sidemenu">
+                <a>
+                    <i class="nav-icon i-Receipt-4"></i>
+                    <span class="item-name">Thống kê đơn hàng</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
+                            <i class="nav-icon i-Calendar"></i>
+                            <span class="item-name">Theo tháng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
+                            <i class="nav-icon i-Calendar-2"></i>
+                            <span class="item-name">Theo năm</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
+                            <i class="nav-icon i-Calendar-3"></i>
+                            <span class="item-name">Theo khoảng thời gian</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> --}}
+            {{-- <li class="nav-item dropdown-sidemenu">
+                <a>
+                    <i class="nav-icon i-Money-2"></i>
+                    <span class="item-name">Thống kê doanh thu</span>
+                    <i class="dd-arrow i-Arrow-Down"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
+                            <i class="nav-icon i-Calendar"></i>
+                            <span class="item-name">Theo tháng</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
+                            <i class="nav-icon i-Calendar-2"></i>
+                            <span class="item-name">Theo năm</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="{{ Route::currentRouteName()=='taoDonhangView' ? 'open' : '' }}" href="{{ route('taoDonhangView') }}">
+                            <i class="nav-icon i-Calendar-3"></i>
+                            <span class="item-name">Theo khoảng thời gian</span>
+                        </a>
+                    </li>
+                </ul>
+            </li> --}}
         </ul>
         {{-- <ul class="childNav" data-parent="setting">
             <li class="nav-item dropdown-sidemenu">
