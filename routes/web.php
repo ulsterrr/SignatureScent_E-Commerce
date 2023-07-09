@@ -57,7 +57,6 @@ Route::middleware(['auth', 'kiemTraQuyen:danhmuc'])->group(function () {
 //CRUD Quản Lý Tài Khoản
     Route::post('admin/cap-nhat-tai-khoan/{id}',[TaiKhoanController::class,'capNhatTaiKhoan'])->name('capnhatTK-upd');
     Route::post('admin/them-tai-khoan',[TaiKhoanController::class,'themTaiKhoan'])->name('themTK-add');
-    Route::post('kiemtra-email', [TaiKhoanController::class,'kiemTraTrungEmail'])->name('kiemtra-email');
     Route::post('admin/kiem-mat-khau',[TaiKhoanController::class,'kiemTraMatKhau'])->name('kiemtra-matkhau');
 
     Route::get('admin/doi-mat-khau/{id}',[TaiKhoanController::class,'doiMKAmin'])->name('doiMK-Amin');
@@ -319,3 +318,4 @@ Route::post('/he-thong/quen-mat-khau', [HeThongController::class, 'quenMK'])->na
 Route::post('/he-thong/cap-nhat-tai-khoan', [HeThongController::class, 'capNhatTK'])->name('capnhatTK');
 Route::view('/tai-khoan', 'layouts.tai-khoan.tai-khoan')->name('tai-khoan');
 Route::view('/dang-nhap', 'layouts.tai-khoan.dang-nhap')->name('dang-nhap');
+Route::post('kiemtra-email', [TaiKhoanController::class,'kiemTraTrungEmail'])->name('kiemtra-email');
