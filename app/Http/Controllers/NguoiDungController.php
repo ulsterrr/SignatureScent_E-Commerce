@@ -240,7 +240,7 @@ class NguoiDungController extends Controller
         {
             $this->dayThongBaoChoUser('Đơn hàng mới','Một khách hàng vừa đặt một đơn hàng của SignatureScent','Đơn hàng COD', 'admin/quan-ly-khach-hang',$Email->email);
         }
-        return view('nguoi-dung.ds-donhang-client');
+        return view('nguoi-dung.xem-donhang-client')->with(['donHang' => $donHang]);
 
     }
 
