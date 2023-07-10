@@ -19,7 +19,7 @@ class LoaiTaiKhoanSeeder extends Seeder
         $LTK->MaLoai = "A";
         $LTK->TenLoai = "Administrator";
         $LTK->GhiChu = "Được toàn quyền sử dụng hệ thống";
-        $LTK->NguoiTao = "null";
+        $LTK->NguoiTao = "admin";
         $LTK->save();
 
         $LTK1 = new LoaiTaiKhoan();

@@ -208,7 +208,8 @@
                         var columnData = api.column(columnIndex, { search: 'applied' }).data();
                         var total = columnData.reduce(function(sum, value) {
                             if(columnIndex == 2) {
-                                var numericValue = parseInt(value.GiaTien.toString().replace(/,/g, '')); // Chuyển đổi giá trị thành số
+                                var a = value.GiaTien * value.SoLuong;
+                                var numericValue = parseInt(a.toString().replace(/,/g, '')); // Chuyển đổi giá trị thành số
                             } else {
                                 var numericValue = parseInt(value.toString().replace(/,/g, '')); // Chuyển đổi giá trị thành số
                             }
