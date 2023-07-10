@@ -68,7 +68,7 @@ class UserSeeder extends Seeder
             $TaiKhoan2->SDT = "0327772310";
             $TaiKhoan2->QuanHuyen = "Quận 16";
             $TaiKhoan2->TinhThanh = "Hồ Chí Minh";
-            $TaiKhoan2->ChiNhanh = "CN01";
+            $TaiKhoan2->ChiNhanh = "";
             $TaiKhoan2->NgaySinh = "2016/10/16";
             $TaiKhoan2->TrangThai = "1";
             $TaiKhoan2->NguoiTao = "";
