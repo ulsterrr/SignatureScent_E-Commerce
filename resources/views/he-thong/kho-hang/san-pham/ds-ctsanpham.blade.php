@@ -155,7 +155,7 @@
                                     <th style="width: 20%">Mã phiếu nhập</th>
                                     <th style="width: 20%">Giá</th>
                                     <th style="width: 10%">Loại sản phẩm</th>
-                                    <th style="width: 20%">Thương hiệu</th>
+                                    <th style="width: 20%">Thuộc chi nhánh</th>
                                     <th style="width: 20%">Ngày tạo</th>
                                     <th style="width: 20%">Trạng thái</th>
                                     <th style="width: 20%">Ghi chú</th>
@@ -192,6 +192,8 @@
 <script src="{{asset('assets/js/vendor/pickadate/picker.js')}}"></script>
 
 <script src="{{asset('assets/js/vendor/pickadate/picker.date.js')}}"></script>
+
+<script src="{{asset('assets/js/script.js')}}"></script>
 
 {{-- Ajax load data cho ds user --}}
 <script>
@@ -298,7 +300,12 @@
                     data: 'chi_tiet_cua_san_pham.loai_san_pham.TenLoai'
                 }
                 , {
-                    data: 'chi_tiet_cua_san_pham.ThuongHieu'
+                    data: null
+                    , render: function(data) {
+                        let cn = data.get_chi_nhanh;
+                        if(!cn) return '';
+                        return cn.TenChiNhanh;
+                    }
                 }
                 , {
                     data: 'created_at'
@@ -406,7 +413,6 @@
         e.preventDefault();
 
         var formData = $(this).serialize();
-
         $.ajax({
             url: "{{ route('layDsCTSanPhamFilter') }}",
             type: 'POST',

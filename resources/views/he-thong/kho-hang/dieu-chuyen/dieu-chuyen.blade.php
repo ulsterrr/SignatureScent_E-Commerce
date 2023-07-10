@@ -463,15 +463,16 @@ function getDataModal() {
             }
             , {
                 data: 'TinhTrang'
-                , render: function (data) {
-                    if (data == '1') {
-                        return 'Bình thường';
-                    } else if (data == '0') {
-                        return 'Ngưng nhập hàng';
-                    } else {
-                        return 'Tồn kho';
-                    }
-                }
+                , render: function(data) {
+                            switch (data) {
+                                case '0': return 'Tồn kho'; break;
+                                case '1': return 'Bình thường'; break;
+                                case '2': return 'Đang bán'; break;
+                                case '3': return 'Đã bán'; break;
+                                case '4': return 'Hoàn trả'; break;
+                                default: return 'Không xác định'; break;
+                            }
+                        }
             }
             , {
                 data: 'GhiChu'
@@ -495,7 +496,14 @@ function getDataModal() {
         var sr = data[0]['SoSerial'];
         var tt = data[0]['TinhTrang'];
         var gc = data[0]['GhiChu'];
-
+        switch (tt) {
+                            case '0': tt = 'Tồn kho'; break;
+                            case '1': tt = 'Bình thường'; break;
+                            case '2': tt = 'Đang bán'; break;
+                            case '3': tt = 'Đã bán'; break;
+                            case '4': tt = 'Hoàn trả'; break;
+                            default: tt = 'Không xác định'; break;
+                        }
         var newData = [
             false,
             codectsp,

@@ -51,7 +51,19 @@
                 },
                 { data: 'KichCo' },
                 { data: null , render: function(data) { if (!data.get_chi_nhanh) return ''; else return data.get_chi_nhanh.TenChiNhanh; } },
-                { data: 'TinhTrang' , render: function(data) { if (data == '1') { return 'Bình thường'; } else if (data == '0') { return 'Ngưng nhập hàng'; } else { return 'Tồn kho'; } } },
+                {
+                    data: 'TinhTrang'
+                    , render: function(data) {
+                            switch (data) {
+                                case '0': return 'Tồn kho'; break;
+                                case '1': return 'Bình thường'; break;
+                                case '2': return 'Đang bán'; break;
+                                case '3': return 'Đã bán'; break;
+                                case '4': return 'Hoàn trả'; break;
+                                default: return 'Không xác định'; break;
+                            }
+                        }
+                },
                 { data: 'GhiChu' }
             ]
             , "drawCallback": function(settings) {
@@ -75,7 +87,14 @@
             var kc = data[0]['KichCo'];
             var tt = data[0]['TinhTrang'];
             var table = $('#table-ctsanpham').DataTable();
-
+            switch (tt) {
+                            case '0': tt = 'Tồn kho'; break;
+                            case '1': tt = 'Bình thường'; break;
+                            case '2': tt = 'Đang bán'; break;
+                            case '3': tt = 'Đã bán'; break;
+                            case '4': tt = 'Hoàn trả'; break;
+                            default: tt = 'Không xác định'; break;
+                        }
             // Lấy số thứ tự lớn nhất hiện tại
             var maxIndex = 0;
             table.column(0).data().each(function(value) {
