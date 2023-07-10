@@ -17,7 +17,7 @@
                             <i class="i-Add-User"></i>
                             <div class="content" style="max-width: 200px !important">
                                 <p class="text-muted mt-2 mb-0">Khách hàng mới</p>
-                                <p id="tong_user" class="text-primary text-24 line-height-1 mb-2">205</p>
+                                <p id="tong_user" class="text-primary text-24 line-height-1 mb-2"></p>
                             </div>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                             <i class="i-Financial"></i>
                             <div class="content" style="max-width: 200px !important">
                                 <p class="text-muted mt-2 mb-0">Đã bán được</p>
-                                <p id="tong_ban" class="text-primary text-24 line-height-1 mb-2">$4021</p>
+                                <p id="tong_ban" class="text-primary text-24 line-height-1 mb-2"></p>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                             <i class="i-Money-2"></i>
                             <div class="content" style="max-width: 200px !important">
                                 <p class="text-muted mt-2 mb-0">Tổng doanh thu</p>
-                                <p id="tong_dt" class="text-primary text-24 line-height-1 mb-2">$1200</p>
+                                <p id="tong_dt" class="text-primary text-24 line-height-1 mb-2"></p>
                             </div>
                         </div>
                     </div>
@@ -170,10 +170,10 @@ function getDataForChart() {
       topUser(data[3]);
       topSanPham(data[4]);
 
-      $("#tong_user").text(data[5]);
-      $("#tong_ban").text(data[6]);
-      $("#tong_dh").text(data[7]);
-      $("#tong_dt").text(data[8].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' VNĐ');
+      data[5] ? $("#tong_user").text(data[5]) : $("#tong_user").text(0);
+      data[6] ? $("#tong_ban").text(data[6]) : $("#tong_ban").text(0);
+      data[7] ? $("#tong_dh").text(data[7]) : $("#tong_dh").text(0);
+      data[8] ? $("#tong_dt").text(data[8].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' VNĐ') : $("#tong_dt").text(0);
     },
     error: function(error) {
       console.log(error);

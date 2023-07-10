@@ -335,6 +335,32 @@
                                          </a>
                                 </td>`;
                         }
+                        if(data.TrangThai=='MOMO_PAY') {
+                            return  `<td class="text-center">
+                                <a href="#" class="ul-link-action text-danger huy-dh" data-toggle="tooltip" data-placement="top" title="Huỷ đơn hàng">
+                                        <i class="i-Close"></i>
+                                    </a>
+                                    <a href="${updUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-primary" data-toggle="tooltip" data-placement="top" title="Cập nhật đơn">
+                                        <i class="i-Pen-2"></i>
+                                    </a>
+                                    <a href="${detailUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                                        <i class="i-Eye-Visible"></i>
+                                    </a>
+                                    <a class="ul-link-action text-success ship-dh" data-toggle="tooltip" data-placement="top" title="Gửi vận chuyển">
+                                        <i class="i-Ship-2"></i>
+                                    </a>
+                                </td>`;
+                        }
+                        if(data.TrangThai=='MOMO_WAITS') {
+                            return  `<td class="text-center">
+                                <a href="#" class="ul-link-action text-danger huy-dh" data-toggle="tooltip" data-placement="top" title="Huỷ đơn hàng">
+                                        <i class="i-Close"></i>
+                                    </a>
+                                    <a href="${detailUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                                        <i class="i-Eye-Visible"></i>
+                                    </a>
+                                </td>`;
+                        }
                         return  `<td class="text-center">
                                     <a href="#" class="ul-link-action text-danger huy-dh" data-toggle="tooltip" data-placement="top" title="Huỷ đơn hàng">
                                         <i class="i-Close"></i>
