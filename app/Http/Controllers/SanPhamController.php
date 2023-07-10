@@ -268,9 +268,9 @@ class SanPhamController extends Controller
                 $query->where('SoSerial', 'LIKE', '%' . $SoSerial . '%');
             });
         }
-        if (!empty($TinhTrang)) {
+        if (!empty($TinhTrang) || $TinhTrang=='0') {
             $query->where(function ($query) use ($TinhTrang) {
-                $query->where('TinhTrang', '=', $TinhTrang);
+                $query->where('TinhTrang', 'LIKE', $TinhTrang);
             });
         }
         if (!empty($created_at_from) && !empty($created_at_to)) {
