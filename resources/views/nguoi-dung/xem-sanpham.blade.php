@@ -56,9 +56,9 @@
                                 <form>
                                     @foreach ($CTSP as $macn )
                                     <label>
-                                        <input type="radio" name="radio" checked />
+                                        <input type="radio" value="{{$macn->TonKho}}" class="ChiNhanh" name="radio"  />
                                         <span>{{$macn->getChiNhanh->TenChiNhanh}}</span>
-                                        <span class="pl-1 text-danger"> - Số lượng : Còn {{$macn->TonKho}} sản phẩm</span>
+                                        <span class="pl-1 text-danger" > - Số lượng : Còn {{$macn->TonKho}} sản phẩm</span>
 
                                     </label>
                                     @endforeach
@@ -297,5 +297,15 @@
             }
         });
     }
+    $('.ChiNhanh').click(function()
+    {
+        console.log($(this).val())
+        $('#quantity_64192138a6cd6').attr({
+            "max": $(this).val(),
+            "min": 1,
+        })
+    })
+
 </script>
+
 @endsection
