@@ -134,6 +134,12 @@
                                 <label for="GhiChu" class="required">Ghi chú</label>
                                 <textarea class="form-control" style="width: 100% !important;" rows="2" name="GhiChu" id="GhiChu">{{ $SanPham->GhiChu }}</textarea>
                             </div>
+                            {{-- <div class="col-md-4 mb-3">
+                                <label for="" class="required"> Khuyến mãi %</label>
+                                <div class="input-group">
+                                    <input type="money"  class="form-control" id="" name="KhuyenMai" value="{{ $SanPham->khuyenmai }}" min="0" >
+                                </div>
+                            </div> --}}
 
                             <div class="col-md-12"></div>
                         </div>

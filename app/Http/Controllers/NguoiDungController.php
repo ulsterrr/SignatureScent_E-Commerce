@@ -27,7 +27,9 @@ class NguoiDungController extends Controller
         $LoaiSanPham = $sanpham->LoaiSanPham;
         $sanphamtuongtu = SanPham::where('LoaiSanPham',$LoaiSanPham)->get();
 
-        $ctsp = ChiTietSanPham::select('MaChiNhanh',DB::raw('count("MaCTSanPham") as TonKho'))->where(['MaSanPham' => $sanpham->MaSanPham],['TinhTrang' => 1])->groupBy('MaChiNhanh')->get();
+        $ctsp = ChiTietSanPham::select('MaChiNhanh',DB::raw('count("MaCTSanPham") as TonKho'))->where(['MaSanPham' => $sanpham->MaSanPham],['TinhTrang' => 1])
+                                ->whereNotNull('MaChiNhanh')
+                                ->groupBy('MaChiNhanh')->get();
         // dd($ctsp);
         return view('nguoi-dung.xem-sanpham')->with([
             'SanPham' => $sanpham,

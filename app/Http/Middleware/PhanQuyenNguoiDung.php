@@ -22,7 +22,7 @@ class PhanQuyenNguoiDung
             return $next($request);
         }
 
-        if($request->user() && ($request->user()->loaiTaiKhoan->MaLoai == 'A' || $request->user()->loaiTaiKhoan->MaLoai == 'M')) {
+        if($request->user() && ($request->user()->loaiTaiKhoan->MaLoai == 'A' || $request->user()->loaiTaiKhoan->MaLoai == 'M')|| $request->user()->loaiTaiKhoan->MaLoai == 'E') {
             return redirect()->route('dashboard');
         }
         return redirect()->route('homepage');

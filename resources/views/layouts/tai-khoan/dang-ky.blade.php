@@ -20,7 +20,7 @@
                             <div class="row col-md-12">
                                 <div class="col-md-6">
                                     <label for="email">Email đăng nhập&nbsp;<span class="required">*</span></label>
-                                    <input type="text" name="email" id="email" placeholder="email@mail.com" autocomplete="email" value="" />
+                                    <input type="text" name="email" id="email" onfocusout="checkMaiUnique()" placeholder="email@mail.com" autocomplete="email" value="" />
                                 </div>
 
                                 <div class="col-md-6">
@@ -224,7 +224,7 @@
                 if (response.valid) {
                     // Giá trị đã tồn tại, có lỗi
                     $('#alert-card-sp-modal').css('display', '');
-                    $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-danger');
+                    $('#alert-card-sp-modal').removeClass('alert-success').addClass('alert-info');
                     $('#alert-card-sp-modal .alert-body-content').html(`Email: ${fieldValue} đã có thông tin tài khoản trong hệ thống.`);
                     $('#alert-card-sp-modal').fadeIn(100);
                 } else {

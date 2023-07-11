@@ -122,6 +122,7 @@
                                     <th style="width: 50%">Số điện thoại</th>
                                     <th style="width: 50%">Năm sinh</th>
                                     <th style="width: 50%">Ngày tham gia</th>
+                                    <th style="width: 50%">Chi nhánh</th>
                                     <th style="width: 50%">Phân loại</th>
                                     <th style="width: 50%">Trạng Thái</th>
                                     <th style="width: 30%">Địa chỉ</th>
@@ -235,6 +236,13 @@
                     data: 'created_at'
                     , render: function(data) {
                         return moment(data).format('DD/MM/YYYY HH:mm:ss');
+                    }
+                }
+                , {
+                    data: null
+                    , render: function(data) {
+                        if(!data.get_chi_nhanh) return '';
+                        return data.get_chi_nhanh.TenChiNhanh;
                     }
                 }
                 , {
