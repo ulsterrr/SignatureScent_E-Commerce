@@ -47,6 +47,7 @@ class SanPhamController extends Controller
         $sanpham->GhiChu = $req->GhiChu;
         $sanpham->NguoiTao = $req->NguoiTao;
         session()->flash('message', 'Thêm sản phẩm thành công!');
+        
     }
 
     public function chiTietSPhamView($id)
@@ -90,12 +91,14 @@ class SanPhamController extends Controller
         // $sanpham->khuyenmai = $req->KhuyenMai;
         $sanpham->NguoiTao = $req->NguoiTao;
         session()->flash('message', 'Cập nhật sản phẩm thành công!');
+        return redirect()->route("qly-spham-view");
+
     }
     public function xoaSPham($id)
     {
         $sanpham = SanPham::find($id);
         $sanpham->delete();
-        return redirect()->route("quanlySPView");
+        return redirect()->route("qly-spham-view");
     }
     public function xoaCTSPham($id)
     {
