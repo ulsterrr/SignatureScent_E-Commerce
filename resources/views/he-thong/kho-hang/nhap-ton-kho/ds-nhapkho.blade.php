@@ -138,7 +138,11 @@
                     }
                 }
                 , {
-                    data: 'get_chi_nhanh.TenChiNhanh'
+                    data: null
+                    , render: function(data) {
+                        if(!data.get_chi_nhanh) return '';
+                        return data.get_chi_nhanh.TenChiNhanh;
+                    },
                 }
                 , {
                     data: null
