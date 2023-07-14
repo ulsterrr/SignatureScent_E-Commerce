@@ -49,7 +49,7 @@ class ThongKeController extends Controller
     public function thongKeDoanhThuAjax(){
         $sp = DB::table('chi_nhanhs AS cn')
         ->leftJoin('don_hangs AS dh', 'cn.MaChiNhanh', '=', 'dh.ChiNhanh')
-        ->select('cn.TenChiNhanh', DB::raw('SUM(dh.TongTien) AS TongTien'), DB::raw("DATE_FORMAT(dh.created_at, '%m/%Y') AS ThoiGian"))
+        ->select('cn.TenChiNhanh', DB::raw('SUM(dh.TongTien) AS TongTien'), DB::raw("DATE_FORMAT(dh.created_at, '%m/%Y') AS ThoiGian"), DB::raw("0 AS LoiNhuan"))
         ->whereNotNull('dh.MaDonHang')
         ->groupBy('ThoiGian', 'cn.TenChiNhanh')->get();
         return DataTables::of($sp)->make(true);

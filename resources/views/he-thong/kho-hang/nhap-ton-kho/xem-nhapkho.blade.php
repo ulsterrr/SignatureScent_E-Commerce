@@ -34,7 +34,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="TenChiNhanh" class="required">Chi nhánh:</label>
                                     <div class="input-group">
-                                        <input type="text"  value="{{ $NhapKho->getChiNhanh->MaChiNhanh . ' - ' . $NhapKho->getChiNhanh->TenChiNhanh }}" class="form-control" id="TenChiNhanh" name="TenChiNhanh" readonly required aria-describedby="inputGroupCN">
+                                        <input type="text"  value="{{ $NhapKho->getChiNhanh ? $NhapKho->getChiNhanh->MaChiNhanh . ' - ' . $NhapKho->getChiNhanh->TenChiNhanh : ''}}" class="form-control" id="TenChiNhanh" name="TenChiNhanh" readonly required aria-describedby="inputGroupCN">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mb-3">
@@ -121,7 +121,7 @@
                                 HÌNH ẢNH SẢN PHẨM
                                 <div class="input-group mb-3">
                                     @if (!empty($NhapKho->sanPhamNhap->HinhAnh))
-                                    <img class="d-block w-100" src="{{ asset('assets/images/nhap-hang/' . $NhapKho->sanPhamNhap->HinhAnh) }}" alt="Ảnh sản phẩm">
+                                    <img class="d-block w-100" src="{{ asset('assets/images/san_pham/' . $NhapKho->sanPhamNhap->HinhAnh) }}" alt="Ảnh sản phẩm">
                                     @else
                                     <img id="output" src="" style="padding: 10px 0px 0px 0px;" onerror="this.classList.add('no-image');" class="d-block w-100 -top-3 no-image">
                                     @endif

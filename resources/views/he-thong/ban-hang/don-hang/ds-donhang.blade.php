@@ -330,9 +330,19 @@
                                     <a href="${detailUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
                                         <i class="i-Eye-Visible"></i>
                                     </a>
-                                        <a href="${doiTraUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Đổi trả đơn">
-                                            <i class="i-Sync"></i>
-                                         </a>
+                                    <a class="ul-link-action text-success confirm-dh" data-toggle="tooltip" data-placement="top" title="Xác nhận hoàn thành">
+                                        <i class="i-Yes"></i>
+                                    </a>
+                                </td>`;
+                        }
+                        if(data.TrangThai=='DONE'){
+                            return `<td class="text-center">
+                                    <a href="${detailUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-warning" data-toggle="tooltip" data-placement="top" title="Xem chi tiết">
+                                        <i class="i-Eye-Visible"></i>
+                                    </a>
+                                    <a href="${doiTraUrl.replace(':id', data.MaDonHang)}" class="ul-link-action text-success" data-toggle="tooltip" data-placement="top" title="Đổi trả đơn">
+                                        <i class="i-Sync"></i>
+                                    </a>
                                 </td>`;
                         }
                         if(data.TrangThai=='MOMO_PAY') {
