@@ -87,6 +87,7 @@ class SanPhamController extends Controller
         $sanpham->LoaiKichCo = $req->LoaiKichCo;
         $sanpham->LoaiSanPham = $req->LoaiSanPham;
         $sanpham->GhiChu = $req->GhiChu;
+        // $sanpham->khuyenmai = $req->KhuyenMai;
         $sanpham->NguoiTao = $req->NguoiTao;
         session()->flash('message', 'Cập nhật sản phẩm thành công!');
     }

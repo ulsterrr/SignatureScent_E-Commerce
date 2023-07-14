@@ -31,7 +31,7 @@ class HeThongController extends Controller
         if (Auth::attempt($credentials)) {
             // Chứng thực thành công
             Session::put('user', $credentials['email']);
-            if ($taikhoan->LoaiTaiKhoan == 'A') {
+            if ($taikhoan->LoaiTaiKhoan == 'A' || $taikhoan->LoaiTaiKhoan == 'M' || $taikhoan->LoaiTaiKhoan == 'E') {
                 $req->session()->regenerate();
                 return redirect()->route('dashboard')->with(compact('taikhoan'));
             } else
