@@ -221,7 +221,7 @@ class SanPhamSeeder extends Seeder
         $SP9->save();
 
         $SP10 = new SanPham();
-        $SP10->MaSanPham = "SP0000011";
+        $SP10->MaSanPham = "SP00000011";
         $SP10->TenSanPham = "Lancome La Vie Est Belle EDP";
         $SP10->ThuongHieu ="Lancome" ;
         $SP10->TrangThai ="1" ;
@@ -239,7 +239,7 @@ class SanPhamSeeder extends Seeder
 
 
         $SP11 = new SanPham();
-        $SP11->MaSanPham = "SP0000012";
+        $SP11->MaSanPham = "SP00000012";
         $SP11->TenSanPham = "Jean Paul Gaultier So Scandal";
         $SP11->ThuongHieu ="Jean Paul Gaultier" ;
         $SP11->TrangThai ="1" ;

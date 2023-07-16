@@ -35,6 +35,7 @@ class ChiTietSanPhamSeeder extends Seeder
                     $chitietsp->SoSerial = $dsSerial[$i] ? $dsSerial[$i] : null;
                     $chitietsp->MaSanPham = $sanpham->MaSanPham;
                     $chitietsp->KichCo = "100";
+                    $chitietsp->GiaTien = $sanpham->GiaTien + 100000;
                     $chitietsp->MaChiNhanh = $chinhanh->MaChiNhanh;
                     $chitietsp->TinhTrang = 1;
                     $chitietsp->GhiChu = "Sản phẩm khởi tạo";
@@ -53,6 +54,7 @@ class ChiTietSanPhamSeeder extends Seeder
                 $chitietsp->SoSerial = $dsSerial[$i] ? $dsSerial[$i] : null;
                 $chitietsp->MaSanPham = $sanpham->MaSanPham;
                 $chitietsp->KichCo = "150";
+                $chitietsp->GiaTien = $sanpham->GiaTien - 100000;
                 $chitietsp->MaChiNhanh = null;
                 $chitietsp->TinhTrang = 0;
                 $chitietsp->GhiChu = "Sản phẩm khởi tạo tồn kho";

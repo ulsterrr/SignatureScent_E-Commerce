@@ -36,7 +36,7 @@ return new class extends Migration
             -- Concat lại chuỗi dùng LPAD để đảm bảo mã sinh ra có độ dài 10 ký tự VD: SP000000001, SP000000002
             -- SET p_MaKhoaChinh_d = CONCAT(v_ky_hieu_bang, LPAD(v_gia_tri_hien_tai, 9, "0"));
 
-            SET p_MaKhoaChinh_d = CONCAT(v_ky_hieu_bang, LPAD(v_gia_tri_hien_tai, 12 - LENGTH(v_ky_hieu_bang), "0"));
+            SET p_MaKhoaChinh_d = CONCAT(v_ky_hieu_bang, LPAD(v_gia_tri_hien_tai, 10 - LENGTH(v_ky_hieu_bang), "0"));
 
             -- UPDATE lại giá trị tăng lên 1 cho lần tiếp theo lấy mã
             UPDATE bang_ma_khoa_chinhs SET GiaTriHienTai = GiaTriHienTai + 1 WHERE MaKhoaChinh = p_MaKhoaChinh COLLATE utf8mb4_unicode_ci;

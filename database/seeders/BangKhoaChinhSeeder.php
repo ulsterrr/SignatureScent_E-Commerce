@@ -18,7 +18,7 @@ class BangKhoaChinhSeeder extends Seeder
         //
         $MA = new BangMaKhoaChinh();
         $MA->MaKhoaChinh = 'SP';
-        $MA->GiaTriHienTai = 1;
+        $MA->GiaTriHienTai = 56;
         $MA->TenGiaTri = 'Mã sản phẩm';
         $MA->TrangThai = 1;
         $MA->save();
