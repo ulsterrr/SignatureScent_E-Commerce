@@ -1,6 +1,18 @@
 @extends('layouts.admin.master')
 @section('title', 'Dashboard')
 @section('main-content')
+        <style>
+            .apexcharts-menu-item {
+                padding: 6px 7px;
+                font-size: 12px;
+                cursor: pointer;
+                background: #10163a;
+            }
+            .light .apexcharts-menu-item:hover {
+                background: #14a695;
+            }
+        </style>
+
            <div class="breadcrumb">
                 <ul>
                     <li><h5><a href="">Bảng điều khiển</a></h5></li>
@@ -79,6 +91,16 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="card-title">Doanh thu các chi nhánh trong năm hiện tại</div>
+                            <div id="dashedLineChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-lg-6 col-md-12">
@@ -148,6 +170,10 @@
 @section('page-js')
      <script src="{{asset('assets/js/vendor/echarts.min.js')}}"></script>
      <script src="{{asset('assets/js/es5/echart.options.min.js')}}"></script>
+
+    <script src="{{asset('assets/js/vendor/apexcharts.min.js')}}"></script>
+    <script src="{{asset('assets/js/vendor/apexcharts.dataseries.js')}}"></script>
+    {{-- <script src="{{asset('assets/js/es5/apexChart.script.min.js')}}"></script> --}}
      {{-- <script src="{{asset('assets/js/es5/dashboard.script.js')}}"></script> --}}
 <script>
 'use strict';
@@ -169,6 +195,7 @@ function getDataForChart() {
       drawChartPie(data[2]);
       topUser(data[3]);
       topSanPham(data[4]);
+      drawChartDashedLine(data[9]);
 
       data[5] ? $("#tong_user").text(data[5]) : $("#tong_user").text(0);
       data[6] ? $("#tong_ban").text(data[6]) : $("#tong_ban").text(0);
@@ -362,7 +389,113 @@ function topSanPham(sp) {
             $('#list_sp').append(productHtml);
         });
 }
-
+function drawChartDashedLine(data) {
+    var e = {
+        chart: {
+            height: 350,
+            type: "line",
+            zoom: {
+                enabled: !1
+            }
+        },
+        dataLabels: {
+            enabled: !1
+        },
+        stroke: {
+            width: [5, 7, 5],
+            curve: "smooth",
+            dashArray: [0, 8, 5]
+        },
+        series: data,
+        markers: {
+            size: 0,
+            hover: {
+                sizeOffset: 6
+            }
+        },
+        xaxis: {
+            categories: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9',
+                    'Tháng 10', 'Tháng 11', 'Tháng 12']
+        },
+        tooltip: {
+            y: [{
+                title: {
+                    formatter: function (e) {
+                        return e + " (mins)"
+                    }
+                }
+            }
+            , {
+                title: {
+                    formatter: function (e) {
+                        return e + " per session"
+                    }
+                }
+            }, {
+                title: {
+                    formatter: function (e) {
+                        return e
+                    }
+                }
+            }, {
+                title: {
+                    formatter: function (e) {
+                        return e
+                    }
+                }
+            }
+            ]
+        },
+        grid: {
+            borderColor: "#f1f1f1"
+        }
+    };
+    var n = 0,
+        i = [];
+    new ApexCharts(document.querySelector("#dashedLineChart"), e).render();
+    var d = {
+        chart: {
+            id: "chart2",
+            type: "line",
+            height: 230,
+            toolbar: {
+                autoSelected: "pan",
+                show: !1
+            }
+        },
+        colors: ["#546E7A"],
+        stroke: {
+            width: 3
+        },
+        dataLabels: {
+            enabled: !1
+        },
+        fill: {
+            opacity: 1
+        },
+        markers: {
+            size: 0
+        },
+        series: [{
+            data: i = function (e, t, a) {
+                var r = 0,
+                    o = [];
+                for (; r < t;) {
+                    var n = e,
+                        i = Math.floor(Math.random() * (a.max - a.min + 1)) + a.min;
+                    o.push([n, i]), e += 864e5, r++
+                }
+                return o
+            }(new Date("16 July 2023").getTime(), 185, {
+                min: 30,
+                max: 90
+            })
+        }],
+        xaxis: {
+            type: "datetime"
+        }
+    };
+}
 $(document).ready(function () {
 
 });

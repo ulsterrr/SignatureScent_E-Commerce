@@ -266,7 +266,7 @@ class NguoiDungController extends Controller
         $donHang->LoaiThanhToan = $request->payment_method;
         $donHang->NguoiTao = auth()->user()->email;
         $donHang->ChiNhanh = $request->ChiNhanh;
-        $donHang->TrangThai = $request->payment_method == 'momo' ? 'MOMO' : 'NEW';
+        $donHang->TrangThai = $request->payment_method == 'momo' ? 'MOMO_WAITS' : 'NEW';
 
         $tongTien = 0;
         // Tạo các chi tiết đơn hàng
