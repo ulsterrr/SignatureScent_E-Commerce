@@ -230,6 +230,7 @@ class KhoHangController extends Controller
             $sp->GiaVAT = $req->GiaVAT;
             $sp->GiaTien = $req->GiaTienSauThue;
             $sp->MoTa = $req->MoTa;
+            $sp->TrangThai = 1;
 
             // Lưu ảnh sản phẩm
             $HinhAnhSP = "";
