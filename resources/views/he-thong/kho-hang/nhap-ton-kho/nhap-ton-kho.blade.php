@@ -191,7 +191,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="GiaTien" class="required">Giá tiền *</label>
                                     <div class="input-group">
-                                        <input type="money" readonly class="form-control" id="GiaTien" name="GiaTien" min="0" aria-describedby="inputGroupPrepend2">
+                                        <input type="money" class="form-control" id="GiaTien" name="GiaTien" onfocusout="tinhTongTien()" min="0" aria-describedby="inputGroupPrepend2">
                                     </div>
                                 </div>
 

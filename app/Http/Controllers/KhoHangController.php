@@ -305,7 +305,7 @@ class KhoHangController extends Controller
 
         // Mảng số serial để nhập lô hàng
         $dsSerial = explode(",", $req->SoSerial);
-        $sp = SanPham::where('MaSanPham', $req->MaSanPham)->first();
+        // $sp = SanPham::where('MaSanPham', $req->MaSanPham)->first();
         if($req->SoLuongNhap > 1){ // Nếu nhập lô thì chia theo list serial đã cắt chuỗi ở trên
 
             for ($i=0; $i < $req->SoLuongNhap; $i++) {
@@ -315,7 +315,7 @@ class KhoHangController extends Controller
                 $chitietsp->SoSerial = $dsSerial[$i] ? $dsSerial[$i] : null;
                 $chitietsp->MaSanPham = $nhapkho->MaSanPham;
                 $chitietsp->KichCo = $nhapkho->KichCo;
-                $chitietsp->GiaTien = $sp->GiaTien;
+                $chitietsp->GiaTien = $req->GiaTien;
                 $chitietsp->MaChiNhanh = $req->MaChiNhanh;
                 $chitietsp->MaPhieuNhap = $nhapkho->MaNhapKho;
                 $req->MaChiNhanh? $chitietsp->TinhTrang = 1 : $chitietsp->TinhTrang = 0;
@@ -330,7 +330,7 @@ class KhoHangController extends Controller
             $chitietsp->SoSerial = $req->SoSerial;
             $chitietsp->MaSanPham = $nhapkho->MaSanPham;
             $chitietsp->KichCo = $nhapkho->KichCo;
-            $chitietsp->GiaTien = $sp->GiaTien;
+            $chitietsp->GiaTien = $req->GiaTien;
             $chitietsp->MaChiNhanh = $req->MaChiNhanh;
             $chitietsp->MaPhieuNhap = $nhapkho->MaNhapKho;
             $req->MaChiNhanh? $chitietsp->TinhTrang = 1 : $chitietsp->TinhTrang = 0;
