@@ -421,14 +421,14 @@ function drawChartDashedLine(data) {
             y: [{
                 title: {
                     formatter: function (e) {
-                        return e + " (mins)"
+                        return e
                     }
                 }
             }
             , {
                 title: {
                     formatter: function (e) {
-                        return e + " per session"
+                        return e
                     }
                 }
             }, {

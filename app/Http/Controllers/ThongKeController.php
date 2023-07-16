@@ -41,7 +41,7 @@ class ThongKeController extends Controller
         return DataTables::of($sp)->make(true);
     }
     public function thongKeDonHangAjax(){
-        $sp = DonHang::select('don_hangs.*', DB::raw('(SELECT TenChiNhanh FROM chi_nhanhs WHERE chi_nhanhs.MaChiNhanh = don_hangs.ChiNhanh) as TenChiNhanh'))
+        $sp = DonHang::select('don_hangs.*', DB::raw('(SELECT TenChiNhanh FROM chi_nhanhs WHERE chi_nhanhs.MaChiNhanh = don_hangs.ChiNhanh) as TenChiNhanh'))->where('TrangThai','=','DONE')
             ->get();
         return DataTables::of($sp)->make(true);
     }
@@ -52,9 +52,9 @@ class ThongKeController extends Controller
         ->leftJoin('chi_tiet_san_phams AS ctsp', 'dh.MaDonHang', '=', 'ctsp.MaDonHang')
         ->select('cn.TenChiNhanh',
                 DB::raw('SUM(dh.TongTien) AS TongTien'),
-                DB::raw('SUM(dh.TongTien) - SUM(ctsp.GiaTien) AS LoiNhuan'),
+                DB::raw('SUM(dh.TongTien) - IFNULL(SUM(ctsp.GiaTien), 0) AS LoiNhuan'),
                 DB::raw("DATE_FORMAT(dh.created_at, '%m/%Y') AS ThoiGian"))
-        ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')
+        ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')->where('dh.TrangThai','=','DONE')
         ->groupBy('ThoiGian', 'cn.TenChiNhanh')->get();
 
         return DataTables::of($sp)->make(true);
@@ -142,7 +142,7 @@ class ThongKeController extends Controller
         $ChiNhanh = $filters['ChiNhanh'] ?? null;
         $created_at_from = $filters['created_at_from'] ?? null;
         $created_at_to = $filters['created_at_to'] ?? null;
-        $query = DonHang::select('don_hangs.*', DB::raw('(SELECT TenChiNhanh FROM chi_nhanhs WHERE chi_nhanhs.MaChiNhanh = don_hangs.ChiNhanh) as TenChiNhanh'));
+        $query = DonHang::select('don_hangs.*', DB::raw('(SELECT TenChiNhanh FROM chi_nhanhs WHERE chi_nhanhs.MaChiNhanh = don_hangs.ChiNhanh) as TenChiNhanh'))->where('dh.TrangThai','=','DONE');
 
         if (!empty($ChiNhanh)) {
             $query->where(function ($query) use ($ChiNhanh) {
@@ -190,9 +190,9 @@ class ThongKeController extends Controller
             ->leftJoin('chi_tiet_san_phams AS ctsp', 'dh.MaDonHang', '=', 'ctsp.MaDonHang')
             ->select('cn.TenChiNhanh',
                     DB::raw('SUM(dh.TongTien) AS TongTien'),
-                    DB::raw('SUM(dh.TongTien) - SUM(ctsp.GiaTien) AS LoiNhuan'),
+                    DB::raw('SUM(dh.TongTien) - IFNULL(SUM(ctsp.GiaTien), 0) AS LoiNhuan'),
                     DB::raw("DATE_FORMAT(dh.created_at, '%m/%Y') AS ThoiGian"))
-            ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')
+            ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')->where('dh.TrangThai','=','DONE')
             ->groupBy('ThoiGian', 'cn.TenChiNhanh');
 
         if (!empty($ChiNhanh)) {
@@ -215,9 +215,9 @@ class ThongKeController extends Controller
             ->leftJoin('chi_tiet_san_phams AS ctsp', 'dh.MaDonHang', '=', 'ctsp.MaDonHang')
             ->select('cn.TenChiNhanh',
                     DB::raw('SUM(dh.TongTien) AS TongTien'),
-                    DB::raw('SUM(dh.TongTien) - SUM(ctsp.GiaTien) AS LoiNhuan'),
+                    DB::raw('SUM(dh.TongTien) - IFNULL(SUM(ctsp.GiaTien), 0) AS LoiNhuan'),
                     DB::raw("DATE_FORMAT(dh.created_at, '%m/%Y') AS ThoiGian"))
-            ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')->where('dh.created_at', '>=', $created_at_from)
+            ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')->where('dh.created_at', '>=', $created_at_from)->where('dh.TrangThai','=','DONE')
             ->where('dh.created_at', '<=', $created_at_to)
             ->groupBy('ThoiGian', 'cn.TenChiNhanh');
 
@@ -229,9 +229,9 @@ class ThongKeController extends Controller
             ->leftJoin('chi_tiet_san_phams AS ctsp', 'dh.MaDonHang', '=', 'ctsp.MaDonHang')
             ->select('cn.TenChiNhanh',
                     DB::raw('SUM(dh.TongTien) AS TongTien'),
-                    DB::raw('SUM(dh.TongTien) - SUM(ctsp.GiaTien) AS LoiNhuan'),
+                    DB::raw('SUM(dh.TongTien) - IFNULL(SUM(ctsp.GiaTien), 0), 0) AS LoiNhuan'),
                     DB::raw("DATE_FORMAT(dh.created_at, '%m/%Y') AS ThoiGian"))
-            ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')->where('dh.created_at', '>=', $created_at_from)
+            ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')->where('dh.created_at', '>=', $created_at_from)->where('dh.TrangThai','=','DONE')
             ->groupBy('ThoiGian', 'cn.TenChiNhanh');
             // $query->where('created_at', '>=', $created_at_from);
         } elseif (!empty($created_at_to)) {
@@ -241,9 +241,9 @@ class ThongKeController extends Controller
             ->leftJoin('chi_tiet_san_phams AS ctsp', 'dh.MaDonHang', '=', 'ctsp.MaDonHang')
             ->select('cn.TenChiNhanh',
                     DB::raw('SUM(dh.TongTien) AS TongTien'),
-                    DB::raw('SUM(dh.TongTien) - SUM(ctsp.GiaTien) AS LoiNhuan'),
+                    DB::raw('SUM(dh.TongTien) - IFNULL(SUM(ctsp.GiaTien), 0), 0) AS LoiNhuan'),
                     DB::raw("DATE_FORMAT(dh.created_at, '%m/%Y') AS ThoiGian"))
-            ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')
+            ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')->where('dh.TrangThai','=','DONE')
             ->where('dh.created_at', '<=', $created_at_to)
             ->groupBy('ThoiGian', 'cn.TenChiNhanh');
             // $query->where('created_at', '<=', $created_at_to);
@@ -282,7 +282,7 @@ class ThongKeController extends Controller
             ->first();
 
             $result2 = DB::table('don_hangs')
-            ->select(DB::raw('SUM(TongTien) as total'))
+            ->select(DB::raw('SUM(TongTien) as total'))->where('TrangThai','=','DONE')
             ->whereBetween('created_at', [$startOfMonth, $endOfMonth])
             ->whereExists(function ($query) {
                 $query->select(DB::raw(1))
@@ -303,7 +303,7 @@ class ThongKeController extends Controller
         $query = DB::table('chi_nhanhs AS cn')
         ->leftJoin('don_hangs AS dh', 'cn.MaChiNhanh', '=', 'dh.ChiNhanh')
         ->select('cn.TenChiNhanh', DB::raw('COALESCE(SUM(dh.TongTien), 0) AS TongTien'))
-        ->whereNotNull('dh.MaDonHang')
+        ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')->where('dh.TrangThai','=','DONE')
         ->groupBy('cn.TenChiNhanh');
 
         $results = $query->get();
@@ -360,7 +360,7 @@ class ThongKeController extends Controller
             for ($i = 1; $i <= 12; $i++) {
                 $result = DB::table('chi_nhanhs AS cn')
                     ->leftJoin('don_hangs AS dh', 'cn.MaChiNhanh', '=', 'dh.ChiNhanh')
-                    ->whereNotNull('dh.MaDonHang')
+                    ->whereNotNull('dh.MaDonHang')->where('dh.MaDonHang','<>','')->where('dh.TrangThai','=','DONE')
                     ->whereMonth('dh.created_at', $i)
                     ->whereYear('dh.created_at', date('Y'))
                     ->where('cn.TenChiNhanh', $chiNhanh->TenChiNhanh)
