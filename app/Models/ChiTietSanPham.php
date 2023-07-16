@@ -10,7 +10,7 @@ class ChiTietSanPham extends Model
 {
     use HasFactory;
     protected $table = 'chi_tiet_san_phams';
-    protected $fillable=['MaCTSanPham','MaSanPham','SoSerial','KichCo','MaChiNhanh','TinhTrang','GhiChu','NguoiTao','MaDonHang','MaPhieuNhap'];
+    protected $fillable=['MaCTSanPham','MaSanPham','SoSerial','KichCo','GiaTien','MaChiNhanh','TinhTrang','GhiChu','NguoiTao','MaDonHang','MaPhieuNhap'];
 
     // Thuộc sản phẩm
     public function chiTietCuaSanPham()

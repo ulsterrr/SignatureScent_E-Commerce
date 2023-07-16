@@ -72,7 +72,6 @@
                                                 <th style="width: 50%">Thương hiệu</th>
                                                 <th style="width: 50%">Loại sản phẩm</th>
                                                 <th style="width: 30%">Quy cách</th>
-                                                <th style="width: 30%">Trạng thái</th>
                                                 <th style="width: 30%">Ghi chú</th>
                                             </tr>
                                         </thead>
@@ -192,7 +191,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="GiaTien" class="required">Giá tiền *</label>
                                     <div class="input-group">
-                                        <input type="money" readonly class="form-control" id="GiaTien" name="GiaTien" min="0" aria-describedby="inputGroupPrepend2">
+                                        <input type="money" class="form-control" id="GiaTien" name="GiaTien" onfocusout="tinhTongTien()" min="0" aria-describedby="inputGroupPrepend2">
                                     </div>
                                 </div>
 
@@ -355,10 +354,6 @@
                     width: '20%'
                     , targets: 7
                 }
-                , {
-                    width: '20%'
-                    , targets: 8
-                }
             , ]
             , createdRow: function(row, data, dataIndex) {
                 $(row).find('td').css('vertical-align', 'middle');
@@ -403,18 +398,6 @@
                         if(!data.loai_kich_co)
                         return '';
                         else return data.loai_kich_co.TenKichCo;
-                    }
-                }
-                , {
-                    data: 'TrangThai'
-                    , render: function(data) {
-                        if (data == '1') {
-                            return 'Bình thường';
-                        } else if (data == '0') {
-                            return 'Ngưng nhập hàng';
-                        } else {
-                            return 'Tồn kho';
-                        }
                     }
                 }
                 , {

@@ -89,6 +89,7 @@
                                 <tr>
                                     <th style="width: 20%">Tên chi nhánh</th>
                                     <th style="width: 20%">Tổng doanh thu tháng</th>
+                                    <th style="width: 20%">Lợi nhuận</th>
                                     <th style="width: 20%">Tháng/Năm</th>
                                 </tr>
                             </thead>
@@ -98,6 +99,7 @@
                             <tfoot>
                                 <tr>
                                     <th colspan="1" style="text-align:right">Tổng:</th>
+                                    <th></th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -150,6 +152,7 @@
                 { width: '20%', targets: 0 },
                 { width: '20%', targets: 1 },
                 { width: '20%', targets: 2 },
+                { width: '20%', targets: 3 },
             ]
             , createdRow: function(row, data, dataIndex) {
                 $(row).find('td').css('vertical-align', 'middle');
@@ -168,6 +171,15 @@
                     }
                 }
                 , {
+                    data: null
+                    , render: function(data) {
+                        let amount = data.LoiNhuan;
+                        if(!amount) return 0;
+                        let formattedAmount = numeral(amount).format('0,0'); // "1.000.000 ₫"
+                        return formattedAmount;
+                    }
+                }
+                , {
                     data: 'ThoiGian'
                 }
 
@@ -179,7 +191,7 @@
                 }
                 , footerCallback: function(row, data, start, end, display) {
                     var api = this.api();
-                    var columnIndices = [1]; // Các cột muốn tính tổng
+                    var columnIndices = [1,2]; // Các cột muốn tính tổng
 
                     // Tính tổng cho các cột được chỉ định
                     columnIndices.forEach(function(columnIndex) {
@@ -188,7 +200,7 @@
                             if(columnIndex == 1) {
                                 var numericValue = parseInt(value.TongTien.toString().replace(/,/g, '')); // Chuyển đổi giá trị thành số
                             } else {
-                                var numericValue = parseInt(value.toString().replace(/,/g, '')); // Chuyển đổi giá trị thành số
+                                var numericValue = parseInt(value.LoiNhuan.toString().replace(/,/g, '')); // Chuyển đổi giá trị thành số
                             }
                             return sum + numericValue;
                         }, 0);

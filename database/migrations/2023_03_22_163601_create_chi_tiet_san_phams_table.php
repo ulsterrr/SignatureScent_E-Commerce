@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("MaSanPham");
             $table->string("SoSerial")->nullable();
             $table->string("KichCo")->nullable();
+            $table->decimal("GiaTien",18,0)->nullable();
             $table->string("MaChiNhanh")->nullable();
             $table->string("TinhTrang")->nullable();
             $table->text("GhiChu")->nullable();

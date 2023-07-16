@@ -203,7 +203,7 @@
                                 </div>
                                 {{-- <img id="output" src="{{ asset('assets/images/nhap-hang/ . speaker-1.jpg') }}" style="padding: 10px 0px 0px 0px;" onerror="this.classList.add('no-image');" class="d-block w-100 -top-3 no-image"> --}}
                                 @if ($NhapHang->HinhAnh)
-                                    <img class="d-block w-100" src="{{ asset('assets/images/nhap-hang/' . $NhapHang->HinhAnh) }}" alt="Ảnh sản phẩm">
+                                    <img class="d-block w-100" src="{{ asset('assets/images/nhap_hang/' . $NhapHang->HinhAnh) }}" alt="Ảnh sản phẩm">
                                 @else
                                     <img class="d-block w-100" src="{{ asset('assets/images/faces/1.jpg') }}" alt="Ảnh sản phẩm">
                                 @endif
