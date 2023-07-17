@@ -112,7 +112,7 @@ class BanHangController extends Controller
         $donHang->GhiChu = $request->GhiChu;
         $donHang->VanChuyen = $request->VanChuyen;
         $donHang->MaKhuyenMai = $request->MaKhuyenMai;
-        $donHang->LoaiThanhToan = $request->ThanhToan;
+        $donHang->LoaiThanhToan = 'money';
         $donHang->NguoiTao = auth()->user()->email;
         $donHang->ChiNhanh = auth()->user()->ChiNhanh;
         $donHang->TrangThai = 'NEW';
