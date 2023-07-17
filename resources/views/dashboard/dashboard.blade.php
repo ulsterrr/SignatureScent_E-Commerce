@@ -326,7 +326,7 @@ function drawChartPie(data){
             },
 
             series: [{
-                name: 'Sales by Country',
+                name: 'Doanh thu đạt được',
                 type: 'pie',
                 radius: '60%',
                 center: ['50%', '50%'],
