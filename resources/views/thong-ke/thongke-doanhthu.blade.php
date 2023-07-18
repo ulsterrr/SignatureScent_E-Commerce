@@ -137,6 +137,7 @@
 <script>
     $(document).ready(function() {
         var table = $('#ul-contact-list').DataTable({
+            pageLength: 12,
             processing: true
             // , serverSide: true
             , destroy: true
